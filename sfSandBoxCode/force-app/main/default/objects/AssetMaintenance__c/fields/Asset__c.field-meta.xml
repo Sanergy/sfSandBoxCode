@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset__c</fullName>
+    <externalId>false</externalId>
+    <label>Sanergy Asset</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Sanergy_Asset__c.Asset_Name__c</field>
+            <operation>equals</operation>
+            <valueField>Sanergy_Asset__c.Asset_Name__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Sanergy_Asset__c</referenceTo>
+    <relationshipLabel>Asset Maintenance</relationshipLabel>
+    <relationshipName>AssetMaintenanceRecords</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

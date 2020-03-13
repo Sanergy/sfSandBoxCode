@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_Target__c</fullName>
+    <description>Usage Target for a toilet-- decided based on the toilet&#39;s Franchise Type.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>KR &amp; Commercial Open Market=56/ KR &amp; Commercial Residential=59/ VW &amp; Commercial Open Market=40 / VW &amp; Commercial Residential=49/ KN &amp; Commercial Open Market=40/ KN &amp; Commercial Residential=24</inlineHelpText>
+    <label>Usage Target</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

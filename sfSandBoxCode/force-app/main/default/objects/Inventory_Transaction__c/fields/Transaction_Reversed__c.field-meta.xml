@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transaction_Reversed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if this transaction was reversed</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checked if this transaction was reversed</inlineHelpText>
+    <label>Transaction Reversed ?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,19 @@
+<apex:page standardController="Opportunity" extensions="AddLaunchItemsController" doctype="html-5.0">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Opportunity Items For {!Opportunity.Name}" collapsible="false">
+                
+                <apex:outputField value="{!Opportunity.BIB_Items_Added__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.FLTs_Approved__c}" rendered="true"/>
+                <apex:outputField value="{!Opportunity.Franchise_Type__c}" rendered="true"/>
+                <apex:outputField value="{!Opportunity.Existing_Location__c}" rendered="false"/>                
+                <apex:pageMessage severity="info" summary="Click Create to add default business in a box items to the opportunity"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create" action="{!createItems}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

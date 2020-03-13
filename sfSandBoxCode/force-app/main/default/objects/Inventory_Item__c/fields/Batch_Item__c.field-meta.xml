@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Batch_Item__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked the inventory must belong to a batch</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When checked the inventory location must have a batch assigned</inlineHelpText>
+    <label>Batch Item</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

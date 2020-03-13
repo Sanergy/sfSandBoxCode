@@ -1,0 +1,113 @@
+<apex:page standardController="Opportunity" extensions="CreateCaseOpportunityItemListController" renderAs="pdf" action="{!UpdateOpportunityStage}" >
+     
+        <apex:stylesheet value="{!URLFOR($Resource.caseOpportunityStylesheet)}" />
+        <apex:image value="{!URLFOR($Resource.Sanergy_Logo)}"  height="55" />
+        <hr/>
+        <center><h2>MAINTENANCE CASE OPPORTUNITY ITEMS: REQUEST FOR APPROVAL</h2></center>
+        <hr/>
+        <apex:panelGrid columns="2"  width="50%">
+            <apex:outputText styleClass="section_requester" value="REQUESTER:"/>
+            <apex:outputText value="{!$User.FirstName} {!$User.LastName}" styleClass="companyName"/>
+            <apex:outputText styleClass="section_requester" value="COMPANY:"/>
+            <apex:outputText value="{!$Organization.Name}"/>
+            <apex:outputText styleClass="section_requester" value="DATE:"/>
+            <apex:outputText value="{!DAY(TODAY())}/{!MONTH(TODAY())}/{!YEAR(TODAY())}"/>
+        </apex:panelGrid>
+         <hr/>
+        
+        
+        <apex:pageBlock >
+          <apex:outputText value="{!opportunity.name} Opportunity." styleClass="headerText"/>
+          <br/>
+          <br/>
+          <apex:pageBlockSection columns="2">
+                                
+                <apex:pageBlockSectionItem dataStyle="padding: 0px 45px 0px 5px" labelStyle="padding: 0px 5px">
+                    <apex:outputLabel value="STAGE:"/>
+                    <apex:outputText value="{!opportunity.stageName}"/> 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem dataStyle="padding: 0px 45px 0px 5px" labelStyle="padding: 0px 5px">
+                    <apex:outputLabel value="BILLED ENTITY:"/>
+                    <apex:outputText value="{!opportunity.Billed_Entity__c}"/> 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem dataStyle="padding: 0px 45px 0px 5px" labelStyle="padding: 0px 5px">
+                    <apex:outputLabel value="COST OF ITEMS:"/>
+                    <apex:outputText value="{!opportunity.Cost_of_Items__c}"/> 
+                </apex:pageBlockSectionItem> 
+                
+                 <apex:pageBlockSectionItem dataStyle="padding: 0px 45px 0px 5px" labelStyle="padding: 0px 5px">
+                    <apex:outputLabel value="COST OF LABOUR:"/>
+                    <apex:outputText value="{!opportunity.Cost_of_Labor__c}"/> 
+                </apex:pageBlockSectionItem> 
+                
+                 <apex:pageBlockSectionItem dataStyle="padding: 0px 45px 0px 5px" labelStyle="padding: 0px 5px">
+                    <apex:outputLabel value="TOTAL COST:"/>
+                    <apex:outputText value="{!opportunity.Total_Cost__c}"/> 
+                </apex:pageBlockSectionItem> 
+                
+                 <apex:pageBlockSectionItem dataStyle="padding: 0px 45px 0px 5px" labelStyle="padding: 0px 5px">
+                    <apex:outputLabel value="FLO CHARGES:"/>
+                    <apex:outputText value="{!opportunity.FLO_Charges__c}"/> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <hr/>
+            <br/>
+            <apex:outputText value="OPPORTUNITY ITEMS" style="font-weight:bold; font-size: 16px"/>
+              <br/>
+              <br/>
+          
+            <apex:dataTable value="{!items}" var="stuff" styleClass="outBorder">
+                  <apex:column styleclass="inBorder">
+                    <apex:facet name="header" >Item Name</apex:facet> 
+                    <apex:outputText >{!stuff.itemName}</apex:outputText>
+                  </apex:column>
+                   <apex:column styleclass="inBorder">
+                    <apex:facet name="header">UOM</apex:facet> 
+                    <apex:outputText >{!stuff.uom}</apex:outputText>
+                  </apex:column>
+                  <apex:column styleclass="inBorder">
+                    <apex:facet name="header">Unit Cost</apex:facet> 
+                    <apex:outputText >{!stuff.unitCost}</apex:outputText>
+                  </apex:column>
+                   <apex:column styleclass="inBorder">
+                    <apex:facet name="header">Quantity</apex:facet> 
+                    <apex:outputText >{!stuff.quantity}</apex:outputText>
+                  </apex:column>
+                  <apex:column styleclass="inBorder">
+                    <apex:facet name="header">Total Cost</apex:facet> 
+                    <apex:outputText >{!stuff.totalCost}</apex:outputText>
+                  </apex:column>
+            </apex:dataTable>
+            <br/>
+            <hr/>
+            <br/>
+            <br/>
+            <br/>
+            <apex:outputText value="APPROVAL SIGNATURES" style="font-weight:bold; font-size: 16px"/>
+              <br/>
+              <br/>
+            <apex:pageBlockSection columns="3">                
+                <apex:panelGrid columns="1" styleClass="approver_column">
+                    <apex:outputText value="Name: ___________________________________" />
+                    <br/>
+                    <apex:outputText value="Signature: ___________________________________" />
+                </apex:panelGrid>
+                <apex:panelGrid columns="1" styleClass="approver_column">
+                    <apex:outputText value="Name: ___________________________________" />
+                    <br/>
+                    <apex:outputText value="Signature: ___________________________________" />
+                </apex:panelGrid>
+                <apex:panelGrid columns="1" styleClass="approver_column">
+                    <apex:outputText value="Name: ___________________________________" />
+                    <br/>
+                    <apex:outputText value="Signature: ___________________________________" />
+                </apex:panelGrid>
+            </apex:pageBlockSection>
+               
+          
+          
+        </apex:pageBlock>
+        <hr/>
+</apex:page>

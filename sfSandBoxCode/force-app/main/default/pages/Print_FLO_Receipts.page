@@ -1,0 +1,39 @@
+<apex:page standardController="Account" extensions="PrintFLOReceipt">
+    <apex:sectionHeader title="" subtitle="Generate FLO Payment Receipt"/>
+
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageblocksection title="Account Information" collapsible="false">
+               <apex:outputField value="{!Account.name}"/>
+            </apex:pageBlockSection>
+           
+            <apex:pageblocksection title="Kindly Fill in the Information below." collapsible="false">
+                <apex:inputField value="{!printingConfig.Payment_Description__c}" required="true"/>
+                <apex:inputField value="{!printingConfig.Payment_Method__c}" required="true"/>
+             </apex:pageBlockSection>
+             <apex:pageBlockSection title="Select Cash Entry. (Select only one)" columns="1" collapsible="false">
+             
+                  <apex:pageMessages ></apex:pageMessages>
+                 
+                    <apex:pageBlockTable value="{!cashEntries}" var="c" id="table" title="Cash Entries">
+                        <apex:column >
+                            <!-- This is our selected Boolean property in our wrapper class -->
+                            <apex:inputCheckbox value="{!c.selected}"/>
+                        </apex:column>
+                                               
+                        <apex:column headerValue="Name" value="{!c.cashEntry.Name}" />
+                        <apex:column headerValue="Transaction Date" value="{!c.cashEntry.c2g__Date__c}" />
+                        <apex:column headerValue="Payment Method" value="{!c.cashEntry.c2g__PaymentMethod__c}" />
+                        <apex:column headerValue="Reference Number" value="{!c.cashEntry.c2g__Reference__c}" />
+                        <apex:column headerValue="Amount" value="{!c.cashEntry.c2g__Value__c}" />
+                        <apex:column headerValue="Receipt Generated" value="{!c.cashEntry.Receipt_Generated__c}" />
+                    </apex:pageBlockTable>
+            </apex:pageBlockSection>           
+             
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Generate Receipt" action="{!generateReceipt}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

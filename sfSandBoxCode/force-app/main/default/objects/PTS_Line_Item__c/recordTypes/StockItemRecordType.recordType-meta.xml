@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StockItemRecordType</fullName>
+    <active>true</active>
+    <label>StockItemRecordType</label>
+    <picklistValues>
+        <picklist>Budget_Item__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Company__c</picklist>
+        <values>
+            <fullName>Fresh Life Initiative Ltd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sanergy Inc %28FP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sanergy Inc %28NP%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sanergy Ltd</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Currency__c</picklist>
+        <values>
+            <fullName>Dollars</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Euros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KES %28Kenyan Shillings%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pounds</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Item_Category__c</picklist>
+        <values>
+            <fullName>One-off Item</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Item</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stock Item</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PR_Line_Receipt_Status__c</picklist>
+        <values>
+            <fullName>All Items Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Items Partially Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RequestType__c</picklist>
+        <values>
+            <fullName>Non-Stock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stock</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Partially Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Director Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Item Request Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Procurement Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Purchase Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Quote Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Sourcing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending User Closure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchase Order Created</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Received</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requires Re-Approval</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Units__c</picklist>
+        <values>
+            <fullName>10L %2810 Liter container%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>20L %2820 Liter container%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2L %282 Liter Container%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4L %284 Liter container%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5L %285 Liter Container%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AMT %28Amount in Local Currency%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAG %28Bag%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DZ %28Dozen%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EA %28Each%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FT %28Foot%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KES %28Kenyan Shillings%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KG %28Kilograms%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L %28Liters%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M %28Meters%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MT %28Metric Tons%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P100 %28Pack of 100 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P11 %28Pack of 11 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P144 %28Pack of 144 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P20 %28Pack of 20 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P25 %28Pack of 25 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P4 %28Pack of 4 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P40 %28Pack of 40 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P50 %28Pack of 50 pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P500 %28Pack of 500 Pcs%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PC %28Piece%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PK %28Pack%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PKT %28Packet%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PR %28Pair%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R25 %28Roll of 25KG in weight%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R30M %28Roll of 30 meters in length%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>REAM %28Ream%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ROLL %28Roll%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SACK %28Sack%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SET %28Set%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SQFT %28Square Feet%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>VAT_Percentage__c</picklist>
+        <values>
+            <fullName>0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>16</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

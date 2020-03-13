@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Control_Plot_Planted__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of Control Plot Planted</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Equal size control plot</fullName>
+                <default>false</default>
+                <label>Equal size control plot</label>
+            </value>
+            <value>
+                <fullName>The control area is smaller than the Evergrow area</fullName>
+                <default>false</default>
+                <label>The control area is smaller than the Evergrow area</label>
+            </value>
+            <value>
+                <fullName>The Evergrow area is smaller than the control area</fullName>
+                <default>false</default>
+                <label>The Evergrow area is smaller than the control area</label>
+            </value>
+            <value>
+                <fullName>The farmer has not allocated a control area</fullName>
+                <default>false</default>
+                <label>The farmer has not allocated a control area</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

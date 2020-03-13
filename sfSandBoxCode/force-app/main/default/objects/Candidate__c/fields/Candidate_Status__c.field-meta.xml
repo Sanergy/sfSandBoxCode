@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Candidate Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>true</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Shortlisted</fullName>
+                <default>false</default>
+                <label>Shortlisted</label>
+            </value>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+                <label>Pending Approval</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Pending Notification</fullName>
+                <default>false</default>
+                <label>Pending Notification</label>
+            </value>
+            <value>
+                <fullName>Pending Offer Acception</fullName>
+                <default>false</default>
+                <label>Pending Offer Acception</label>
+            </value>
+            <value>
+                <fullName>Offer Accepted</fullName>
+                <default>false</default>
+                <label>Offer Accepted</label>
+            </value>
+            <value>
+                <fullName>Offer Declined</fullName>
+                <default>false</default>
+                <label>Offer Declined</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Pending Onboarding</fullName>
+                <default>false</default>
+                <label>Pending Onboarding</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

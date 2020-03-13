@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Evergrow_fertilizer</fullName>
+    <columns>NAME</columns>
+    <columns>Responsible_Department__c</columns>
+    <columns>Item_Number__c</columns>
+    <columns>Item_Description__c</columns>
+    <columns>Item_Group__c</columns>
+    <columns>Item_Company__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>Evergrow</value>
+    </filters>
+    <label>Evergrow fertilizer</label>
+    <language>en_US</language>
+</ListView>

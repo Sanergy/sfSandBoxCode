@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GPS_Coordinate_2__c</fullName>
+    <description>2nd GPS Coordinate</description>
+    <displayLocationInDecimal>true</displayLocationInDecimal>
+    <externalId>false</externalId>
+    <inlineHelpText>2nd GPS Coordinate</inlineHelpText>
+    <label>GPS Coordinate 2</label>
+    <required>false</required>
+    <scale>10</scale>
+    <trackTrending>false</trackTrending>
+    <type>Location</type>
+</CustomField>

@@ -1,0 +1,28 @@
+<apex:page standardController="Opportunity" extensions="CreateFleetRequestForInstallation">
+    <apex:sectionHeader title="" subtitle="Create Fleet Request for FLT Installation"/>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageblocksection title="Opportunity {!Opportunity.Name}" collapsible="false">
+                <apex:outputField value="{!Opportunity.Area__c}"/>
+                <apex:outputField value="{!Opportunity.Sub_Area_Lookup__r.name}"/>
+                <apex:outputField value="{!Opportunity.GPS_Longitude__c}"/>
+                <apex:outputField value="{!Opportunity.GPS_Latitude__c}"/>
+                <apex:outputField value="{!Opportunity.id}" rendered="false"/>
+            
+            </apex:pageBlockSection>
+           
+            <apex:pageblocksection title="Kindly Fill in the Fleet Request Information below." collapsible="false">
+                   <apex:inputField value="{!fleet.Requesting_Employee__c}"/>
+                   <apex:inputField value="{!leg.Departure_Date__c}"/>
+                   <apex:inputField value="{!leg.Departure_Time__c}"/>
+                   <apex:inputField value="{!leg.Cargo_Details__c}"/>
+                   <apex:inputField value="{!leg.Number_of_Passengers__c}"/>
+                   <apex:inputField value="{!leg.Vehicle_Type__c}"/>
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Create Request" action="{!createRequest}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

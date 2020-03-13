@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Presented_to__c</fullName>
+    <externalId>false</externalId>
+    <label>Presented to:</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Caretaker</fullName>
+                <default>false</default>
+                <label>Caretaker</label>
+            </value>
+            <value>
+                <fullName>Agent</fullName>
+                <default>false</default>
+                <label>Agent</label>
+            </value>
+            <value>
+                <fullName>Commercial Not Renting Land</fullName>
+                <default>false</default>
+                <label>Commercial Not Renting Land</label>
+            </value>
+            <value>
+                <fullName>Commercial Renting Land</fullName>
+                <default>false</default>
+                <label>Commercial Renting Land</label>
+            </value>
+            <value>
+                <fullName>Head Teacher</fullName>
+                <default>false</default>
+                <label>Head Teacher</label>
+            </value>
+            <value>
+                <fullName>Landlord</fullName>
+                <default>false</default>
+                <label>Landlord</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Inventory_Item_Company</fullName>
+    <active>true</active>
+    <description>Inventory item company should be the same as the line company</description>
+    <errorConditionFormula>AND(
+  Inventory_Item__r.Item_Company__r.Id !=  Requesting_Company__r.Id,
+  NOT(ISBLANK( Inventory_Item__c )),
+  NOT(ISBLANK( Requesting_Company__c ))
+)</errorConditionFormula>
+    <errorDisplayField>Inventory_Item__c</errorDisplayField>
+    <errorMessage>Please select an inventory item for the company specified on this line item.</errorMessage>
+</ValidationRule>

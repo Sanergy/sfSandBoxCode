@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Issuance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Have you completed issuances for this item ?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Have you completed issuances for this item ?</inlineHelpText>
+    <label>Completed Issuance ?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

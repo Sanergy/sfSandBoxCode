@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Passed_Maturity_Test__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Confirm that windrow has passed maturity test</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Confirm that windrow has passed maturity test</inlineHelpText>
+    <label>Passed Maturity Test</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

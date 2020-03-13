@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_of_sample_requested_kg__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please input the amount of sample, in kg, requested in order to conduct this test</inlineHelpText>
+    <label>Amount of Sample Requested (kg)</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

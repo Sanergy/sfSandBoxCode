@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Current_Record_Date_To_Blank</fullName>
+    <active>false</active>
+    <description>Check that current record doesn&#39;t have a Date To value entered</description>
+    <errorConditionFormula>IF(!ISBLANK(Date_To__c) &amp;&amp; Current_Record__c = TRUE,1,0)=1</errorConditionFormula>
+    <errorMessage>Date To cannot be filled for a record flagged as current</errorMessage>
+</ValidationRule>

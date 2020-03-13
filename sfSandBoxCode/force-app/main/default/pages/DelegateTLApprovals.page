@@ -1,0 +1,104 @@
+<apex:page standardController="Employee__c" extensions="DelegateTLApprovals" >
+    <body> </body>
+    <apex:sectionHeader subtitle="Delegate My Approvals"/>
+    <apex:form id="frm1">     
+        
+        <apex:pageBlock id="pgblock1" >        
+            <apex:pageMessages id="showmsg" ></apex:pageMessages>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Delegate" action="{!updateDelegatedApprovals}" reRender="pgblock1,pgblockDepts,pgblockDeptUnits,pgblockFFAConfigs"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="">
+                <apex:outputText label="Delegate From: " value="{!employee.Name}" />
+                <apex:pageBlockSectionItem >
+					<apex:outputLabel >Delegate To</apex:outputLabel>
+					<c:AdvancedLookup sObjectName="Employee__c"
+						value="{!empToDelegate}" 
+						searchFields="Name" 
+						formFields="Name"
+						canCreate="false"
+						fieldLabel="Name"/>
+				</apex:pageBlockSectionItem>
+            </apex:pageBlockSection>  
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="pgblockDepts" >
+            <apex:pageBlockSection title="Departments to Delegate">
+                <apex:pageBlockTable value="{!TLDeptsWrp}" var="depts" id="table" title="Departments">
+                    <apex:column headerValue="Delegate?" style="{!depts.ceRowStyle}">
+                        <apex:inputCheckbox value="{!depts.selected}" disabled="{!depts.rowDisabled}" />
+                    </apex:column>
+                    <apex:column headerValue="Company" style="{!depts.ceRowStyle}">
+                        <apex:outputText value="{!depts.dept.Company__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Department Name" style="{!depts.ceRowStyle}">
+                        <apex:outputText value="{!depts.dept.Name}" />
+                    </apex:column>
+                    <apex:column headerValue="Department Status" style="{!depts.ceRowStyle}">
+                        <apex:inputCheckbox value="{!depts.dept.Department_Status__c}" disabled="true" style="{!depts.ceRowStyle}"/>
+                    </apex:column>
+                    <apex:column headerValue="Delegated From" style="{!depts.ceRowStyle}">
+                        <apex:outputText value="{!depts.DelegatedFrom}" />
+                    </apex:column>
+                    <apex:column headerValue="Delegated To" style="{!depts.ceRowStyle}">
+                        <apex:outputText value="{!depts.DelegatedTo}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="pgblockDeptUnits" >
+            <apex:pageBlockSection title="Department Units to Delegate">
+                <apex:pageBlockTable value="{!TLDeptUnitsWrp}" var="deptUnits" id="table" title="Departments">
+                    <apex:column headerValue="Delegate?" style="{!deptUnits.ceRowStyle}">
+                        <apex:inputCheckbox value="{!deptUnits.selected}" disabled="{!deptUnits.rowDisabled}" />
+                    </apex:column>
+                    <apex:column headerValue="Department Name" style="{!deptUnits.ceRowStyle}">
+                        <apex:outputText value="{!deptUnits.deptUnit.Sanergy_Department__r.Name}" />
+                    </apex:column>
+                    <apex:column headerValue="Unit Code" style="{!deptUnits.ceRowStyle}">
+                        <apex:outputText value="{!deptUnits.deptUnit.Department_Unit_Code__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Department Unit Name" style="{!deptUnits.ceRowStyle}">
+                        <apex:outputText value="{!deptUnits.deptUnit.Name}" />
+                    </apex:column>
+                    <apex:column headerValue="Department Status" style="{!deptUnits.ceRowStyle}">
+                        <apex:inputCheckbox value="{!deptUnits.deptUnit.Active__c}" disabled="true" />
+                    </apex:column>
+                    <apex:column headerValue="Delegated From" style="{!deptUnits.ceRowStyle}">
+                        <apex:outputText value="{!deptUnits.DelegatedFrom}" />
+                    </apex:column>
+                    <apex:column headerValue="Delegated To" style="{!deptUnits.ceRowStyle}">
+                        <apex:outputText value="{!deptUnits.DelegatedTo}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="pgblockFFAConfigs" >
+            <apex:pageBlockSection title="DIM 1's to Delegate">
+                <apex:pageBlockTable value="{!FFAConfigsWrp}" var="ffaConfigs" id="table" title="DIM 1's">
+                    <apex:column headerValue="Delegate?" style="{!ffaConfigs.ceRowStyle}">
+                        <apex:inputCheckbox value="{!ffaConfigs.selected}" disabled="{!ffaConfigs.rowDisabled}" />
+                    </apex:column>
+                    <apex:column headerValue="Type" style="{!ffaConfigs.ceRowStyle}">
+                        <apex:outputText value="{!ffaConfigs.ffaConfig.Type__c}" />
+                    </apex:column>
+                    <apex:column headerValue="DIM 1 Name" style="{!ffaConfigs.ceRowStyle}">
+                        <apex:outputText value="{!ffaConfigs.ffaConfig.Name}" />
+                    </apex:column>
+                    <apex:column headerValue="DIM1 Status" style="{!ffaConfigs.ceRowStyle}">
+                        <apex:inputCheckbox value="{!ffaConfigs.ffaConfig.isActive__c}" disabled="true" />
+                    </apex:column>
+                    <apex:column headerValue="Delegated From" style="{!ffaConfigs.ceRowStyle}">
+                        <apex:outputText value="{!ffaConfigs.DelegatedFrom}" />
+                    </apex:column>
+                    <apex:column headerValue="Delegated To" style="{!ffaConfigs.ceRowStyle}">
+                        <apex:outputText value="{!ffaConfigs.DelegatedTo}" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

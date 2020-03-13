@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeaveEndDateNotSameAsLeaveStartDate</fullName>
+    <active>false</active>
+    <description>Leave End Date should not be the same as Leave Start Date .</description>
+    <errorConditionFormula>Leave_End_Date__c  =  Leave_Start_Date__c</errorConditionFormula>
+    <errorDisplayField>Leave_End_Date__c</errorDisplayField>
+    <errorMessage>Leave End Date should not be the same as Leave Start Date .</errorMessage>
+</ValidationRule>

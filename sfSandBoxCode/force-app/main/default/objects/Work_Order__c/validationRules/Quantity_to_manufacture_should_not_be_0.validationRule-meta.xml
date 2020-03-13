@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_to_manufacture_should_not_be_0</fullName>
+    <active>true</active>
+    <description>Manufactured &amp; Service Work Order quantities should be 1 or more</description>
+    <errorConditionFormula>Inventory_Item_Quantity__c  &lt;= 0</errorConditionFormula>
+    <errorDisplayField>Inventory_Item_Quantity__c</errorDisplayField>
+    <errorMessage>Quantity to manufacture should be 1  or more</errorMessage>
+</ValidationRule>

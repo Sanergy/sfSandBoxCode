@@ -1,0 +1,25 @@
+<apex:page standardController="Casuals_Job_Assignment__c" extensions="CreateContractFromContractorAssignment">
+    <apex:form >
+        <apex:sectionHeader title="Contractor Job Assignment" subtitle="Create Contract for contractor {!assignment.Casual__r.name}"/>
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock title="Fill in the Contract Information." >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Contract" action="{!createContract}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+           <apex:pageblockSection >
+               <apex:inputField value="{!contract.Account__c}"/>
+               <apex:inputField value="{!contract.Contractor__c}"/>
+               <apex:inputField value="{!contract.Start_Date__c}"/>
+               <apex:inputField value="{!contract.End_Date__c}"/>
+               <apex:inputField value="{!contract.Designation__c}"/>
+               <apex:inputField value="{!contract.Payment_Rate__c}"/>
+               <apex:inputField value="{!contract.Payment_Rate_Units__c}"/>
+               <apex:inputField value="{!contract.Contract_Amount__c}"/>
+           </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form> 
+</apex:page>

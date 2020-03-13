@@ -1,0 +1,115 @@
+<apex:page StandardController="Vendor_Invoice__c" extensions="CreatePaymentsFromVendorInvoice" tabStyle="Vendor_Invoice__c">
+
+    <style type="text/css">
+        .col {width:1000px; text-align:left;} 
+        .colBold {width:1000px; text-align:left; font-weight:bold} 
+        .colBoldNarrow {text-align:left; } 
+        .bold {font-size:bold}       
+    </style>
+    
+    <apex:sectionHeader title="Vendor Invoice {!Vendor_Invoice__c.name}" subtitle="Vendor Invoice Payment"/>
+    <apex:form >   
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >        
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Request Payment" action="{!createPrePaymentRequest}" />
+                <apex:commandButton value="Return To VI" action="{!cancel}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Vendor Invoice Information">
+                <apex:outputField value="{!Vendor_Invoice__c.Name}"/>
+                <apex:outputField value="{!Vendor_Invoice__c.Vendor__c}"/>
+                <apex:outputField value="{!Vendor_Invoice__c.Invoice_Number__c}"/>
+                <apex:outputField value="{!Vendor_Invoice__c.VI_Status__c}"/> 
+                <apex:pageBlockSectionItem />
+                <apex:outputField label="Vendor Invoice Date" value="{!Vendor_Invoice__c.Vendor_Invoice_date__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Payment Terms"></apex:outputLabel>
+                    <apex:outputText value="{!EPRPaymentTerms}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="EPR Scheduled Payment Date"></apex:outputLabel>
+                    <apex:outputText value="{0,date,dd MMM YYYY}">
+                        <apex:param value="{!EPRScheduledDate}"/>
+                    </apex:outputText>
+                </apex:pageBlockSectionItem>
+                <apex:outputText label="Invoice Total:" value="{0,number, ###,###.###}" id="qtyReq" >
+                    <apex:param value="{!Vendor_Invoice__c.Invoice_Total__c}"/>
+                </apex:outputText>
+                <apex:outputField value="{!Vendor_Invoice__c.Total_Payments__c}"/>
+                <apex:outputText label="Reconciled Total:" value="{0,number, ###,###.###}" id="qtyRecon" >
+                    <apex:param value="{!Vendor_Invoice__c.Reconciled_Invoice_Total__c}"/>
+                </apex:outputText>
+                <apex:pageBlockSectionItem /><apex:pageBlockSectionItem /><apex:pageBlockSectionItem />
+             </apex:pageBlockSection>  
+             <apex:pageBlockSection title="Current Cost and Payment Status">  
+                <apex:panelGrid columns="5" columnClasses="colBold, col, col, col, colBold" border="2"  >
+                    <apex:outputText value="Company" />
+                    <apex:outputText value="Total Invoice Cost" />
+                    <apex:outputText value="Total Received Value" />
+                    <apex:outputText value="Total Paid Amount" />
+                    <apex:outputText value="Balance Payable" />
+                    
+                    <apex:outputText value="Sanergy LTD" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Total_Sanergy_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Received_Sanergy_Value__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Paid_Sanergy_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Sanergy_Balance__c}" />
+                    
+                    <apex:outputText value="FreshLife" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Total_Freshlife_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Received_Freshlife_Value__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Paid_Freshlife_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Freshlife_Balance__c}" />
+                    
+                    <apex:outputText value="Sanergy FP" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Total_SanergyFP_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Received_SanergyFP_Value__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Paid_SanergyFP_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.SanergyFP_Balance__c}" />
+                    
+                    <apex:outputText value="Sanergy NP" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Total_SanergyNP_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Received_SanergyNP_Value__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.Paid_SanergyNP_Cost__c}" />
+                    <apex:outputText value="{!Vendor_Invoice__c.Currency_Config_Currency__r.Name} {!Vendor_Invoice__c.SanergyNP_Balance__c}" />
+                 </apex:panelGrid>
+                 <apex:pageBlockSectionItem /><apex:pageBlockSectionItem /><apex:pageBlockSectionItem />
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection title="Select the cost for each company">
+                 <apex:inputField value="{!vi.Prepayment_Sanergy_Amount__c}"/> 
+                 <apex:inputField value="{!vi.Prepayment_Freshlife_Amount__c}"/> 
+                 <apex:inputField value="{!vi.Prepayment_SanergyFP_Amount__c}"/> 
+                 <apex:inputField value="{!vi.Prepayment_SanergyNP_Amount__c}"/> 
+                 <!--<apex:inputField value="{!eprM.Scheduled_Payment_Date__c}"/> -->
+                 <apex:outputText label="Actual EPR Date:" value="{!Vendor_Invoice__c.Actual_Date__c}  (*Can be changed on the EPR)" style="text-align:left; font-weight:bold" />                                
+                 <apex:pageBlockSectionItem /><apex:pageBlockSectionItem /><apex:pageBlockSectionItem />
+             </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Vendor Invoice Payments">
+                <apex:pageBlockTable value="{!vipmt}" var="item" id="vipmttable" columnClasses="300">
+                    <apex:column headerValue="VI Payment">
+                        <apex:outputlink value="/{!item.Id}">{!item.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="EPR">
+                        <apex:outputlink value="/{!item.EPR__c}">{!item.EPR__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="Amount">
+                        <apex:outputText value="{0,number, ###,###.###}">
+                            <apex:param value="{!item.Payment_Cost__c}"/>
+                        </apex:outputText>  
+                    </apex:column>
+                    <apex:column headerValue="Cash Entry">
+                        <apex:outputlink value="/{!item.EPR__r.Cash_Entry__c}">{!item.EPR__r.Cash_Entry__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="Cash Entry Status"><apex:outputText value="{!item.EPR__r.Cash_Entry__r.c2g__Status__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Payment Made">
+                        <apex:inputCheckbox value="{!item.Payment_Made__c}" disabled="true"/>
+                    </apex:column>
+                    <apex:column headerValue="Confirmation No."><apex:outputText value="{!item.EPR__r.Confirmation_Number__c}"></apex:outputText></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

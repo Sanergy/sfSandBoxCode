@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WOISS</fullName>
+    <columns>NAME</columns>
+    <columns>Item__c</columns>
+    <columns>Quantity_Impact__c</columns>
+    <columns>Quantity_At_Location__c</columns>
+    <columns>Transaction_Quantity__c</columns>
+    <columns>Transaction_Value__c</columns>
+    <columns>Transaction_ID__c</columns>
+    <columns>Journal_Entry_Number__c</columns>
+    <columns>Transaction_Date__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Transaction_ID__c</field>
+        <operation>equals</operation>
+        <value>WOISS,WOISSRVS</value>
+    </filters>
+    <label>WOISS</label>
+    <language>en_US</language>
+</ListView>

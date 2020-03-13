@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Departmental_On_boarding__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checks whether the on-boarding task is departmental</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checks whether the on-boarding task is departmental</inlineHelpText>
+    <label>Departmental On-boarding ?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

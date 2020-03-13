@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recurring_Service__c</fullName>
+    <externalId>false</externalId>
+    <label>Recurring Service</label>
+    <referenceTo>Recurring_Service__c</referenceTo>
+    <relationshipLabel>Recurring Service Payments</relationshipLabel>
+    <relationshipName>Recurring_Service_Payments</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Name of Location</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kamukunji</fullName>
+                <default>false</default>
+                <label>Kamukunji</label>
+            </value>
+            <value>
+                <fullName>Kwa Ruben</fullName>
+                <default>false</default>
+                <label>Kwa Ruben</label>
+            </value>
+            <value>
+                <fullName>Kwa Njenga</fullName>
+                <default>false</default>
+                <label>Kwa Njenga</label>
+            </value>
+            <value>
+                <fullName>Kayaba</fullName>
+                <default>false</default>
+                <label>Kayaba</label>
+            </value>
+            <value>
+                <fullName>Viwandani</fullName>
+                <default>false</default>
+                <label>Viwandani</label>
+            </value>
+            <value>
+                <fullName>Muthurwa</fullName>
+                <default>false</default>
+                <label>Muthurwa</label>
+            </value>
+            <value>
+                <fullName>Makadara</fullName>
+                <default>false</default>
+                <label>Makadara</label>
+            </value>
+            <value>
+                <fullName>Kilimani</fullName>
+                <default>false</default>
+                <label>Kilimani</label>
+            </value>
+            <value>
+                <fullName>Mathare</fullName>
+                <default>false</default>
+                <label>Mathare</label>
+            </value>
+            <value>
+                <fullName>Tassia</fullName>
+                <default>false</default>
+                <label>Tassia</label>
+            </value>
+            <value>
+                <fullName>Limuru</fullName>
+                <default>false</default>
+                <label>Limuru</label>
+            </value>
+            <value>
+                <fullName>Kinanie</fullName>
+                <default>false</default>
+                <label>Kinanie</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Mukuru</fullName>
+                <default>false</default>
+                <label>Mukuru</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

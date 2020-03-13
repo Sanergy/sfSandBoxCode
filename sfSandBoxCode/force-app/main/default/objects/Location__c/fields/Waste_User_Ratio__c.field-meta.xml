@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waste_User_Ratio__c</fullName>
+    <defaultValue>0.302</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the waste to user ratio for this particular location</inlineHelpText>
+    <label>Waste:User Ratio</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

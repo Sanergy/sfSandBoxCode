@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Storage_Capacity__c</fullName>
+    <externalId>false</externalId>
+    <label>Max Storage Capacity</label>
+    <summarizedField>Inventory_Item_Location__c.Max_Location_Quantity__c</summarizedField>
+    <summaryForeignKey>Inventory_Item_Location__c.Inventory_Item__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

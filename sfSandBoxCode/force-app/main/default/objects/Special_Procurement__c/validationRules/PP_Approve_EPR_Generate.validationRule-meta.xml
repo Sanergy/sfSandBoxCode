@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PP_Approve_EPR_Generate</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISCHANGED(  Generate_EPR__c )) &amp;&amp; 
+(CASE($User.Id, 
+&quot;005D0000004Derm&quot;,1,
+&quot;005D0000003Vttl&quot;,1,
+&quot;0057E000003e0ot&quot;,1,
+&quot;005D0000003Ykhb&quot;,1,
+&quot;005D0000008w8tI&quot;,1,0) = 0)</errorConditionFormula>
+    <errorDisplayField>Generate_EPR__c</errorDisplayField>
+    <errorMessage>You do not have permission to edit this Field</errorMessage>
+</ValidationRule>

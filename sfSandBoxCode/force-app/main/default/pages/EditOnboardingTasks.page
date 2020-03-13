@@ -1,0 +1,44 @@
+<apex:page standardController="Employee__c" extensions="OnboardingTasksController">
+      <apex:form >
+    
+       <apex:sectionHeader title="Manage Onboarding Tasks" subtitle="Edit Onboarding Tasks"/>
+           <apex:pageBlock >
+                 <apex:pageBlockButtons >
+                      <apex:commandButton value="Save All" action="{!processSelected}"/>
+                      <apex:commandButton value="Cancel" action="{!cancel}"/>
+                 </apex:pageBlockButtons> 
+                   
+                <apex:pageBlockSection title="Onbarding Tasks Information" columns="1">
+                  
+                <apex:pageBlockTable title="Tasks" value="{!onboardingTasks}" var="item">
+                   
+                    <apex:column >    
+                        <apex:inputCheckbox value="{!item.selected}" />   
+                    </apex:column>    
+                    <apex:column headerValue="Checklist Name" value="{!item.item.name}" />
+                    
+                    <apex:column headerValue="Tasks Name">
+                        <apex:inputField value="{!item.item.Task_Name__c}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Scheduled">
+                        <apex:inputField value="{!item.item.Scheduled__c}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Schedule Date">
+                        <apex:inputField value="{!item.item.Schedule_Date__c}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Done">
+                        <apex:inputField value="{!item.item.Done__c}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Assigned To">
+                        <apex:inputField value="{!item.item.Trained_By__c}" />
+                    </apex:column>
+                
+               </apex:pageBlockTable>
+                </apex:pageBlockSection>      
+           </apex:pageBlock>
+    </apex:form>  
+</apex:page>

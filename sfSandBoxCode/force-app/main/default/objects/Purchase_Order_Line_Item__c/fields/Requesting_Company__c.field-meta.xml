@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requesting_Company__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Company</label>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipLabel>Purchase Order Line Items (Company)</relationshipLabel>
+    <relationshipName>Purchase_Order_Line_Items4</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

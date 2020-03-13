@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateQuantityAcceptedVQuantityRequest</fullName>
+    <active>true</active>
+    <description>Quantity Accepted should not be more than</description>
+    <errorConditionFormula>Quantity_Accepted__c  &gt;  Quantity_Requested__c</errorConditionFormula>
+    <errorMessage>You have Accepted more Quantity than the Requested Quantity. Please check.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Allowance</fullName>
+    <active>true</active>
+    <label>Phone Allowance</label>
+    <picklistValues>
+        <picklist>Allowance_Frequency__c</picklist>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-off</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Allowance_Type__c</picklist>
+        <values>
+            <fullName>Airtime Allowance</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Data_Mobile_Network__c</picklist>
+        <values>
+            <fullName>Airtel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Safaricom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Voice_Mobile_Network__c</picklist>
+        <values>
+            <fullName>Airtel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Safaricom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

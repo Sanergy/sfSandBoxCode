@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KIVA_Interview_Auto_Number__c</fullName>
+    <description>KIVA Interview autonumber, used as ID on Taroworks</description>
+    <displayFormat>KI-{YYYY}{MM}{DD}-{0000}</displayFormat>
+    <externalId>false</externalId>
+    <label>KI Auto Number</label>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

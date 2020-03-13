@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Operational_Status_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE ( TEXT(Current_Specific_Status__c) ,
+&quot;Closed - By FLI&quot; ,&quot;Toilet closure initiated by FLI/Sanergy. It should remain in this status only for 90 days otherwise an alert should be sent to AMs and SOps Manager&quot;,
+&quot;Closed - By FLO&quot;, &quot;Short term toilet closure (&lt;90 days) initiated by FLO&quot;,
+&quot;Closed by FLO&quot;, &quot;Toilet closure initiated by FLO&quot;,
+&quot;Closed - Debranded&quot;,&quot;FLO has completed toilet payments but is not willing to renew&quot;,
+&quot;Closed - Demolished&quot;,&quot;Toilet demolished by a third party other than FLI/Sanergy&quot;,
+&quot;Closed - Relocated&quot;,&quot;If a Toilet is removed from a location, physically taken to a new location&quot;,
+&quot;Closed - Repossessed&quot;,&quot;FLI repossessed structure, squat plate and waste containers when the FLO defaults in payments&quot;,
+&quot;Closed by FLI&quot;,&quot;Toilet closure initiated by FLI&quot;,
+&quot;Closed - Resold&quot;,&quot;Applies to all FLTs that have been sold to a different FLO&quot;,
+&quot;Open - Company-Owned&quot;,&quot;FLT Owned by FLI after FLO has defaulted and it is a viable location&quot;,
+&quot;Open - New&quot;,&quot;Newly launched operational FLT&quot;,
+&quot;Open - Re-installed&quot;,&quot;Refers to FLT installed after a demolition and the FLO gets an alternative land or location within same area or different area&quot;,
+&quot;Open - Re-opened&quot;,&quot;FLT Re-opened&quot;,
+&quot;Open - Relocated&quot;,&quot;Same FLO relocating FLT within same or different area of operation. The same Location ID maintained OR Same FLO relocating FLT to another location and acquiring a NEW FLT tag.&quot;,
+&quot;Open - Resold&quot;,&quot;FLT resold to another FLO&quot;,
+&quot;Unknown Status&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Operational Status Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funding_Category__c</fullName>
+    <description>Picklist value for Funding Category by Donor</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Which Category is this funding?</inlineHelpText>
+    <label>Funding Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All Cost</fullName>
+                <default>false</default>
+                <label>All Cost</label>
+            </value>
+            <value>
+                <fullName>Full Toilet Cost</fullName>
+                <default>false</default>
+                <label>Full Toilet Cost</label>
+            </value>
+            <value>
+                <fullName>Partial Toilet Cost</fullName>
+                <default>false</default>
+                <label>Partial Toilet Cost</label>
+            </value>
+            <value>
+                <fullName>Product Sales Cost</fullName>
+                <default>false</default>
+                <label>Product Sales Cost</label>
+            </value>
+            <value>
+                <fullName>FLI Labor Costs</fullName>
+                <default>false</default>
+                <label>FLI Labor Costs</label>
+            </value>
+            <value>
+                <fullName>Sales- Full</fullName>
+                <default>false</default>
+                <label>Sales- Full</label>
+            </value>
+            <value>
+                <fullName>Sales- Partial</fullName>
+                <default>false</default>
+                <label>Sales- Partial</label>
+            </value>
+            <value>
+                <fullName>Field Support- Full</fullName>
+                <default>false</default>
+                <label>Field Support- Full</label>
+            </value>
+            <value>
+                <fullName>Field Support- Partial</fullName>
+                <default>false</default>
+                <label>Field Support- Partial</label>
+            </value>
+            <value>
+                <fullName>M&amp;E- Full</fullName>
+                <default>false</default>
+                <label>M&amp;E- Full</label>
+            </value>
+            <value>
+                <fullName>M&amp;E- Partial</fullName>
+                <default>false</default>
+                <label>M&amp;E- Partial</label>
+            </value>
+            <value>
+                <fullName>Paint Kit- Full</fullName>
+                <default>false</default>
+                <label>Paint Kit- Full</label>
+            </value>
+            <value>
+                <fullName>Paint Kit - Partial</fullName>
+                <default>false</default>
+                <label>Paint Kit - Partial</label>
+            </value>
+            <value>
+                <fullName>Re Paint Kit - Full</fullName>
+                <default>false</default>
+                <label>Re Paint Kit - Full</label>
+            </value>
+            <value>
+                <fullName>Re Paint Kit - Partial</fullName>
+                <default>false</default>
+                <label>Re Paint Kit - Partial</label>
+            </value>
+            <value>
+                <fullName>Marketing Kit - Full</fullName>
+                <default>false</default>
+                <label>Marketing Kit - Full</label>
+            </value>
+            <value>
+                <fullName>Marketing Kit - Partial</fullName>
+                <default>false</default>
+                <label>Marketing Kit - Partial</label>
+            </value>
+            <value>
+                <fullName>Hygiene Promotion - Full</fullName>
+                <default>false</default>
+                <label>Hygiene Promotion - Full</label>
+            </value>
+            <value>
+                <fullName>Hygiene Promotion - Partial</fullName>
+                <default>false</default>
+                <label>Hygiene Promotion - Partial</label>
+            </value>
+            <value>
+                <fullName>Toilet Cost - Full</fullName>
+                <default>false</default>
+                <label>Toilet Cost - Full</label>
+            </value>
+            <value>
+                <fullName>Toilet Cost - Partial</fullName>
+                <default>false</default>
+                <label>Toilet Cost - Partial</label>
+            </value>
+            <value>
+                <fullName>Renewal - Full</fullName>
+                <default>false</default>
+                <label>Renewal - Full</label>
+            </value>
+            <value>
+                <fullName>Renewal - Partial</fullName>
+                <default>false</default>
+                <label>Renewal - Partial</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Shower</fullName>
+                <default>false</default>
+                <label>Shower</label>
+            </value>
+            <value>
+                <fullName>Privacy Barrier</fullName>
+                <default>false</default>
+                <label>Privacy Barrier</label>
+            </value>
+            <value>
+                <fullName>Trial</fullName>
+                <default>false</default>
+                <label>Trial</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

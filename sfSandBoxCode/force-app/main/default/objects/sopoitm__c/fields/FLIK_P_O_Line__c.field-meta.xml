@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLIK_P_O_Line__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>FLIK P O Line</label>
+    <referenceTo>rstk__poline__c</referenceTo>
+    <relationshipLabel>Sales Purchase Order Items</relationshipLabel>
+    <relationshipName>Sales_Purchase_Order_Items</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

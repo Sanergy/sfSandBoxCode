@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_of_residence__c</fullName>
+    <description>Location of the consumer&#39;s residence</description>
+    <externalId>false</externalId>
+    <label>Location of residence</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lives nearby</fullName>
+                <default>false</default>
+                <label>Lives nearby</label>
+            </value>
+            <value>
+                <fullName>Lives in a different location</fullName>
+                <default>false</default>
+                <label>Lives in a different location</label>
+            </value>
+            <value>
+                <fullName>Passes by on way to work/school</fullName>
+                <default>false</default>
+                <label>Passes by on way to work/school</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

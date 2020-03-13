@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recon_Approved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Recon Approved</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Recon Approved?</inlineHelpText>
+    <label>Recon Approved</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

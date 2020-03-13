@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Record_Exists</fullName>
+    <active>false</active>
+    <description>Check that another current record doesn&#39;t yet exist, by counting existing records already flagged as current</description>
+    <errorConditionFormula>IF( Toilet_Status__r.Current_Operational_Status_Count__c &gt; 0 &amp;&amp;  Current_Record__c = TRUE,1,0)=1</errorConditionFormula>
+    <errorMessage>A record is already flagged as current, un-check that first and then save this record</errorMessage>
+</ValidationRule>

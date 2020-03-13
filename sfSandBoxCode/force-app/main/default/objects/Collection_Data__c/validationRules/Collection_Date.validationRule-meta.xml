@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collection_Date</fullName>
+    <active>false</active>
+    <description>Collection date cannot be more than a month old</description>
+    <errorConditionFormula>OR (
+YEAR( Collection_Date__c ) &lt;&gt; YEAR ( TODAY() ),
+MONTH( Collection_Date__c ) &lt;&gt; MONTH ( TODAY() )
+)</errorConditionFormula>
+    <errorMessage>Collection Date has to be within the month</errorMessage>
+</ValidationRule>

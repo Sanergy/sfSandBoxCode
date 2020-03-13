@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_Vehicle_Schedules</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Display Vehicle Schedules</masterLabel>
+    <openType>sidebar</openType>
+    <page>List_Fleet_Trip_Vehicle_Schedules</page>
+    <protected>false</protected>
+</WebLink>

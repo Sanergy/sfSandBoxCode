@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reconciled_Total__c</fullName>
+    <description>Roll up of Recons</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Roll up of Recons</inlineHelpText>
+    <label>Reconciled Total</label>
+    <summarizedField>Special_Payment_Request_Recon__c.Total_Reconciled__c</summarizedField>
+    <summaryForeignKey>Special_Payment_Request_Recon__c.Special_Payment_Request__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PriorityValidation</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( PR_Item_And_PO_Item_Cost_Difference__c = true,
+ Override_PR_Item_Cost_Check__c = false)</errorConditionFormula>
+    <errorDisplayField>Override_PR_Item_Cost_Check__c</errorDisplayField>
+    <errorMessage>PO Item has a cost difference of more than either 5% or 1000 KES. If You Wish To OVERRIDE this check please check this field.</errorMessage>
+</ValidationRule>

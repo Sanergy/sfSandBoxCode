@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_Fees_Members__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the total usage fees collected from members for the reporting period</inlineHelpText>
+    <label>Usage Fees - Members</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

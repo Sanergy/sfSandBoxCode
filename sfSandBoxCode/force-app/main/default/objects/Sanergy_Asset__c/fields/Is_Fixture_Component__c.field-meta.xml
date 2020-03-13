@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Fixture_Component__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this if this asset item is a fixture component to be &quot;permanently attached to a parent asset</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this if this asset item is a fixture component to be &quot;permanently attached to a parent asset</inlineHelpText>
+    <label>Is Fixture Component</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

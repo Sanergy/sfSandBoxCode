@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Tool__c</fullName>
+    <externalId>false</externalId>
+    <label>Event Tool(s)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Vouchers</fullName>
+                <default>false</default>
+                <label>Vouchers</label>
+            </value>
+            <value>
+                <fullName>Posters</fullName>
+                <default>false</default>
+                <label>Posters</label>
+            </value>
+            <value>
+                <fullName>Flyers</fullName>
+                <default>false</default>
+                <label>Flyers</label>
+            </value>
+            <value>
+                <fullName>Month Memberships</fullName>
+                <default>false</default>
+                <label>Month Memberships</label>
+            </value>
+            <value>
+                <fullName>Week Memberships</fullName>
+                <default>false</default>
+                <label>Week Memberships</label>
+            </value>
+            <value>
+                <fullName>Public Address System</fullName>
+                <default>false</default>
+                <label>Public Address System</label>
+            </value>
+            <value>
+                <fullName>T-Shirts</fullName>
+                <default>false</default>
+                <label>T-Shirts</label>
+            </value>
+            <value>
+                <fullName>Forum</fullName>
+                <default>false</default>
+                <label>Forum</label>
+            </value>
+            <value>
+                <fullName>Performance</fullName>
+                <default>false</default>
+                <label>Performance</label>
+            </value>
+            <value>
+                <fullName>Large Signage</fullName>
+                <default>false</default>
+                <label>Large Signage</label>
+            </value>
+            <value>
+                <fullName>Small signage</fullName>
+                <default>false</default>
+                <label>Small signage</label>
+            </value>
+            <value>
+                <fullName>Keychains</fullName>
+                <default>false</default>
+                <label>Keychains</label>
+            </value>
+            <value>
+                <fullName>Handwashing Demonstrations</fullName>
+                <default>false</default>
+                <label>Handwashing Demonstrations</label>
+            </value>
+            <value>
+                <fullName>Community Member Testimonials</fullName>
+                <default>false</default>
+                <label>Community Member Testimonials</label>
+            </value>
+            <value>
+                <fullName>Give-Aways</fullName>
+                <default>false</default>
+                <label>Give-Aways</label>
+            </value>
+            <value>
+                <fullName>Customer Service Enhancements</fullName>
+                <default>false</default>
+                <label>Customer Service Enhancements</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

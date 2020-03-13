@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_the_superstructure_made_of__c</fullName>
+    <externalId>false</externalId>
+    <label>Is the superstructure made of?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Masonry rock</fullName>
+                <default>false</default>
+                <label>Masonry rock</label>
+            </value>
+            <value>
+                <fullName>Concrete</fullName>
+                <default>false</default>
+                <label>Concrete</label>
+            </value>
+            <value>
+                <fullName>Timber</fullName>
+                <default>false</default>
+                <label>Timber</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

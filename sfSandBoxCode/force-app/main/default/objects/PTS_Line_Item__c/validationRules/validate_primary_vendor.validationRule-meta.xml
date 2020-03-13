@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>validate_primary_vendor</fullName>
+    <active>true</active>
+    <description>Ensure non-primary vendor is not blank if primary vendor is blank</description>
+    <errorConditionFormula>AND(Primary_vendor__c != true ,  ISBLANK(non_primary_vendor_description__c), NOT(ISBLANK(Vendor__c)),
+NOT(ISBLANK(Purchase_Order_Item__c)))</errorConditionFormula>
+    <errorDisplayField>non_primary_vendor_description__c</errorDisplayField>
+    <errorMessage>Ensure non-primary vendor is not blank if primary vendor is blank</errorMessage>
+</ValidationRule>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_toilet__c</fullName>
+    <externalId>false</externalId>
+    <label>Type of toilet</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pit Latrine</fullName>
+                <default>false</default>
+                <label>Pit Latrine</label>
+            </value>
+            <value>
+                <fullName>Water Based Toilet</fullName>
+                <default>false</default>
+                <label>Water Based Toilet</label>
+            </value>
+            <value>
+                <fullName>Dry Toilet</fullName>
+                <default>false</default>
+                <label>Dry Toilet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

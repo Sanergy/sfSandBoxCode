@@ -1,0 +1,79 @@
+<apex:page standardController="Procurement_Tracking_Sheet__c" extensions="ClonePRAndPRLineItemsController">
+      <apex:form >
+    
+       <apex:sectionHeader title="SELECT PR LINES TO CLONE" subtitle="PR Lines"/>
+           <apex:pageBlock >
+           <apex:pageMessages />
+               <apex:pageBlockButtons > 
+                      <apex:commandButton value="Save All" action="{!processSelected}"/>
+                      <apex:commandButton value="Cancel" action="{!cancel}"/>
+                 </apex:pageBlockButtons>
+                 
+                 <apex:pageBlockSection title="Procurement Request" columns="1">
+                  
+                <apex:pageBlockTable title="PR" value="{!PRequest}" var="item">
+                   
+                    <apex:column headerValue="Requestor">
+                        <apex:inputField value="{!item.Requestor__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Required Date">
+                        <apex:inputField value="{!item.Required_Date__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Maintenance Department">
+                        <apex:inputField value="{!item.Maintenance_Department__c}" required="True"/> 
+                    </apex:column>
+                    
+                    <apex:column headerValue="Requesting Department">
+                        <apex:inputField value="{!item.Requesting_Department__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="High Priority Comments">
+                        <apex:inputField value="{!item.High_Priority_Comments__c}" />
+                    </apex:column>
+                                   
+               </apex:pageBlockTable>
+                </apex:pageBlockSection> 
+                   
+                <apex:pageBlockSection title="PR Lines Information" columns="1">
+                  
+                <apex:pageBlockTable title="PR Lines" value="{!PRLineItemsWrapper}" var="item">
+                   
+                    <apex:column >    
+                        <apex:inputCheckbox value="{!item.selected}" />   
+                    </apex:column>    
+                   
+                    <apex:column headerValue="Item">
+                        <apex:inputField value="{!item.newItem.Item__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Item Specifications">
+                        <apex:inputField value="{!item.newItem.Specifications__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Quantity">
+                        <apex:inputField value="{!item.newItem.Quantity__c}" required="True"/> 
+                    </apex:column>
+                    
+                    <apex:column headerValue="Budget Amount">
+                        <apex:inputField value="{!item.newItem.Budget_Amount__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Currency">
+                        <apex:inputField value="{!item.newItem.Currency_Config__c}" required="True"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Inventory Item">
+                        <apex:inputField value="{!item.newItem.Inventory_Item__c}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Purchase URL">
+                        <apex:inputField value="{!item.newItem.Purchase_URL__c}" />
+                    </apex:column>
+                
+               </apex:pageBlockTable>
+                </apex:pageBlockSection>      
+           </apex:pageBlock>
+    </apex:form>  
+</apex:page>

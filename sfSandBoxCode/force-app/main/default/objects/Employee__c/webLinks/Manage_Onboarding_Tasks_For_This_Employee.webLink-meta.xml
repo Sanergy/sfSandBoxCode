@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manage_Onboarding_Tasks_For_This_Employee</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Manage Onboarding Tasks For This Employee</masterLabel>
+    <openType>noSidebar</openType>
+    <page>CreateOnboardingTasksFromEmployee</page>
+    <protected>false</protected>
+</WebLink>

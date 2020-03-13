@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictEditingPriceAfterApproval</fullName>
+    <active>true</active>
+    <description>Unit Price and Quantity cannot be edited once the request has been approved by Director.</description>
+    <errorConditionFormula>OR(AND( 
+ISPICKVAL( 
+ Special_Procurement__r.Approval_Status__c , &#39;Approved By Director&#39;) , 
+ISCHANGED(  Unit_Price__c )), 
+AND( 
+ISPICKVAL( 
+ Special_Procurement__r.Approval_Status__c  , &#39;Approved By Director&#39;) , 
+ISCHANGED(  Quantity_Requested__c )))</errorConditionFormula>
+    <errorMessage>Unit Price and Quantity cannot be edited after Director Approval. Please contact your administrator for assistance.</errorMessage>
+</ValidationRule>

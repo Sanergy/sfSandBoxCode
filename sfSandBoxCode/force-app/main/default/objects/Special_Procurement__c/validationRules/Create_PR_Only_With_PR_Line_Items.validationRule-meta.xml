@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_PR_Only_With_PR_Line_Items</fullName>
+    <active>true</active>
+    <description>Allow for the creation of a PR only when Director Approved and the Line Items have been created and they require a PR Line item to be created</description>
+    <errorConditionFormula>AND
+(Requires_PR__c = TRUE ,OR( No_Of_PR_Line_Items__c &lt; 1),  ISPICKVAL(Approval_Status__c , &#39;Approved By Director&#39;) 
+)</errorConditionFormula>
+    <errorDisplayField>Requires_PR__c</errorDisplayField>
+    <errorMessage>Cannot Generate PR if No Available PR Line Items</errorMessage>
+</ValidationRule>

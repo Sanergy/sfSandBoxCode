@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finance_Approval_For_Casual_Requisitions_Casuals_Job</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Finance Approval For Casual Requisitions</label>
+    <queue>Finance_Approval_For_Casual_Requisitions</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

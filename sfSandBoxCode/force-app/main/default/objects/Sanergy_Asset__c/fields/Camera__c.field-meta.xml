@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Camera__c</fullName>
+    <externalId>false</externalId>
+    <label>Camera</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>--None--</fullName>
+                <default>false</default>
+                <label>--None--</label>
+            </value>
+            <value>
+                <fullName>Forward Facing</fullName>
+                <default>false</default>
+                <label>Forward Facing</label>
+            </value>
+            <value>
+                <fullName>Outward Facing</fullName>
+                <default>false</default>
+                <label>Outward Facing</label>
+            </value>
+            <value>
+                <fullName>Both</fullName>
+                <default>false</default>
+                <label>Both</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

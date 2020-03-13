@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Payments__c</fullName>
+    <description>Total Payments Requested</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total Payments Requested</inlineHelpText>
+    <label>Total Payments</label>
+    <summarizedField>Special_Procurement_Payment__c.Payment_Cost__c</summarizedField>
+    <summaryForeignKey>Special_Procurement_Payment__c.Special_Procurement__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

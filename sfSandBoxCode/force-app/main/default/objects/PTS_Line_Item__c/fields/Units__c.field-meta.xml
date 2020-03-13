@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Units__c</fullName>
+    <externalId>false</externalId>
+    <label>Units</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10L (10 Liter container)</fullName>
+                <default>false</default>
+                <label>10L (10 Liter container)</label>
+            </value>
+            <value>
+                <fullName>20L (20 Liter container)</fullName>
+                <default>false</default>
+                <label>20L (20 Liter container)</label>
+            </value>
+            <value>
+                <fullName>2L (2 Liter Container)</fullName>
+                <default>false</default>
+                <label>2L (2 Liter Container)</label>
+            </value>
+            <value>
+                <fullName>4L (4 Liter container)</fullName>
+                <default>false</default>
+                <label>4L (4 Liter container)</label>
+            </value>
+            <value>
+                <fullName>5L (5 Liter Container)</fullName>
+                <default>false</default>
+                <label>5L (5 Liter Container)</label>
+            </value>
+            <value>
+                <fullName>AMT (Amount in Local Currency)</fullName>
+                <default>false</default>
+                <label>AMT (Amount in Local Currency)</label>
+            </value>
+            <value>
+                <fullName>BAG (Bag)</fullName>
+                <default>false</default>
+                <label>BAG (Bag)</label>
+            </value>
+            <value>
+                <fullName>DZ (Dozen)</fullName>
+                <default>false</default>
+                <label>DZ (Dozen)</label>
+            </value>
+            <value>
+                <fullName>EA (Each)</fullName>
+                <default>false</default>
+                <label>EA (Each)</label>
+            </value>
+            <value>
+                <fullName>FT (Foot)</fullName>
+                <default>false</default>
+                <label>FT (Foot)</label>
+            </value>
+            <value>
+                <fullName>KES (Kenyan Shillings)</fullName>
+                <default>false</default>
+                <label>KES (Kenyan Shillings)</label>
+            </value>
+            <value>
+                <fullName>KG (Kilograms)</fullName>
+                <default>false</default>
+                <label>KG (Kilograms)</label>
+            </value>
+            <value>
+                <fullName>L (Liters)</fullName>
+                <default>false</default>
+                <label>L (Liters)</label>
+            </value>
+            <value>
+                <fullName>M (Meters)</fullName>
+                <default>false</default>
+                <label>M (Meters)</label>
+            </value>
+            <value>
+                <fullName>MT (Metric Tons)</fullName>
+                <default>false</default>
+                <label>MT (Metric Tons)</label>
+            </value>
+            <value>
+                <fullName>P100 (Pack of 100 Pcs)</fullName>
+                <default>false</default>
+                <label>P100 (Pack of 100 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P11 (Pack of 11 Pcs)</fullName>
+                <default>false</default>
+                <label>P11 (Pack of 11 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P144 (Pack of 144 Pcs)</fullName>
+                <default>false</default>
+                <label>P144 (Pack of 144 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P20 (Pack of 20 Pcs)</fullName>
+                <default>false</default>
+                <label>P20 (Pack of 20 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P25 (Pack of 25 Pcs)</fullName>
+                <default>false</default>
+                <label>P25 (Pack of 25 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P4 (Pack of 4 Pcs)</fullName>
+                <default>false</default>
+                <label>P4 (Pack of 4 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P40 (Pack of 40 Pcs)</fullName>
+                <default>false</default>
+                <label>P40 (Pack of 40 Pcs)</label>
+            </value>
+            <value>
+                <fullName>P50 (Pack of 50 pcs)</fullName>
+                <default>false</default>
+                <label>P50 (Pack of 50 pcs)</label>
+            </value>
+            <value>
+                <fullName>P500 (Pack of 500 Pcs)</fullName>
+                <default>false</default>
+                <label>P500 (Pack of 500 Pcs)</label>
+            </value>
+            <value>
+                <fullName>PC (Piece)</fullName>
+                <default>false</default>
+                <label>PC (Piece)</label>
+            </value>
+            <value>
+                <fullName>PK (Pack)</fullName>
+                <default>false</default>
+                <label>PK (Pack)</label>
+            </value>
+            <value>
+                <fullName>PKT (Packet)</fullName>
+                <default>false</default>
+                <label>PKT (Packet)</label>
+            </value>
+            <value>
+                <fullName>PR (Pair)</fullName>
+                <default>false</default>
+                <label>PR (Pair)</label>
+            </value>
+            <value>
+                <fullName>R25 (Roll of 25KG in weight)</fullName>
+                <default>false</default>
+                <label>R25 (Roll of 25KG in weight)</label>
+            </value>
+            <value>
+                <fullName>R30M (Roll of 30 meters in length)</fullName>
+                <default>false</default>
+                <label>R30M (Roll of 30 meters in length)</label>
+            </value>
+            <value>
+                <fullName>REAM (Ream)</fullName>
+                <default>false</default>
+                <label>REAM (Ream)</label>
+            </value>
+            <value>
+                <fullName>ROLL (Roll)</fullName>
+                <default>false</default>
+                <label>ROLL (Roll)</label>
+            </value>
+            <value>
+                <fullName>SACK (Sack)</fullName>
+                <default>false</default>
+                <label>SACK (Sack)</label>
+            </value>
+            <value>
+                <fullName>SET (Set)</fullName>
+                <default>false</default>
+                <label>SET (Set)</label>
+            </value>
+            <value>
+                <fullName>SQFT (Square Feet)</fullName>
+                <default>false</default>
+                <label>SQFT (Square Feet)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

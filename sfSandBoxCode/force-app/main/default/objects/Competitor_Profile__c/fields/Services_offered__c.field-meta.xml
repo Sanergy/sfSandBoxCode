@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Services_offered__c</fullName>
+    <description>Services offered at the toilet site</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the services offered at the toilet site</inlineHelpText>
+    <label>Services offered</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Quality tissue paper</fullName>
+                <default>false</default>
+                <label>Quality tissue paper</label>
+            </value>
+            <value>
+                <fullName>Hand washing [Soap &amp; water]</fullName>
+                <default>false</default>
+                <label>Hand washing [Soap &amp; water]</label>
+            </value>
+            <value>
+                <fullName>Sanitary Napkin Bins</fullName>
+                <default>false</default>
+                <label>Sanitary Napkin Bins</label>
+            </value>
+            <value>
+                <fullName>Improvised tissue paper</fullName>
+                <default>false</default>
+                <label>Improvised tissue paper</label>
+            </value>
+            <value>
+                <fullName>Showers</fullName>
+                <default>false</default>
+                <label>Showers</label>
+            </value>
+            <value>
+                <fullName>Goods &amp; Services</fullName>
+                <default>false</default>
+                <label>Goods &amp; Services</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Payment Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Application Deposit</fullName>
+                <default>false</default>
+                <label>Application Deposit</label>
+            </value>
+            <value>
+                <fullName>Installation Deposit</fullName>
+                <default>false</default>
+                <label>Installation Deposit</label>
+            </value>
+            <value>
+                <fullName>Kiva Monthly Payment</fullName>
+                <default>false</default>
+                <label>Kiva Monthly Payment</label>
+            </value>
+            <value>
+                <fullName>Payment Installment</fullName>
+                <default>false</default>
+                <label>Payment Installment</label>
+            </value>
+            <value>
+                <fullName>Renewal Payment</fullName>
+                <default>false</default>
+                <label>Renewal Payment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

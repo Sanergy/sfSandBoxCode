@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PO_Flag__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>Changes to 0 if Status is &#39;Purchase Order Created&#39; otherwise 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Changes to 0 if  &#39;PO Created&#39; otherwise 1</inlineHelpText>
+    <label>PO Flag</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

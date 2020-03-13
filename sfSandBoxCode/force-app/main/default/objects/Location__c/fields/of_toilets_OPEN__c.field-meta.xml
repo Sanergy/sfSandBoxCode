@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>of_toilets_OPEN__c</fullName>
+    <description>Count of number of toilets that are listed as open</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of toilets that the FLO is currently operating. To see all the toilets that were ever associated with this location, scroll down to the bottom of the page.</inlineHelpText>
+    <label># of toilets - OPEN</label>
+    <summaryFilterItems>
+        <field>Toilet__c.Operational_Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Toilet__c.Location__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

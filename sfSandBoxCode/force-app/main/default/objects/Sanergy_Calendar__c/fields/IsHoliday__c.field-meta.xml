@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsHoliday__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Changes to 1 if the date is a holiday,otherwise 0</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Changes to 1 if the date is a holiday,otherwise 0</inlineHelpText>
+    <label>IsHoliday ?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

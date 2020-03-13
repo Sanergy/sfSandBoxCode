@@ -1,0 +1,39 @@
+<apex:page standardController="Employee_Role__c" extensions="CreateRegConfigFromEmployeeRole" docType="html-5.0">
+    <apex:sectionHeader title="{!Employee_Role__c.Name}"  subtitle="Reg Mapping Config"/> 
+    <apex:form >
+        <apex:messages ></apex:messages>
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Reg Mapping" action="{!createRegMap}" onclick="if(!confirm('Are you sure you want to DELETE existing REG Mapping and UPDATE with your new entries?')){return false};">
+                </apex:commandButton>
+                <apex:commandButton value="Cancel" action="{!cancel}">
+                </apex:commandButton>
+            </apex:pageBlockButtons>
+            
+            <apex:repeat value="{!wrpRegCon}" var="s">
+                <apex:pageBlockSection id="section1" title="{!s.regConfigFactor}" columns="1" collapsible="true">
+                    <apex:outputText value="{!s.regConfigGuiding}"></apex:outputText><br/>
+                    <div align="right">
+                        <apex:selectList label="Enter Selection: " value="{!s.regConfigLevel}" size="1"  multiselect="false" >
+                            <apex:selectOption itemValue="--" itemLabel="Select Value"/>
+                            <apex:selectOption itemValue="A" itemLabel="A"/>
+                            <apex:selectOption itemValue="B" itemLabel="B"/>
+                            <apex:selectOption itemValue="C" itemLabel="C"/>
+                            <apex:selectOption itemValue="D" itemLabel="D"/>
+                            <apex:selectOption itemValue="E" itemLabel="E"/>
+                        </apex:selectList>
+                    </div>
+                    <br/>  
+                    <apex:pageBlockTable value="{!s.regConfigItems}" var="q">
+                        <apex:column headerValue="" style="{!q.regConfigRowStyle}">
+                            <apex:inputCheckbox value="{!q.selectedRecord}" disabled="true"></apex:inputCheckbox>
+                        </apex:column>
+                        <apex:column value="{!q.regConfigLevel}" headervalue="Level" style="{!q.regConfigRowStyle}"/>
+                        <apex:column value="{!q.regConfigDesc}" headervalue="Level Description" style="{!q.regConfigRowStyle}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+                
+            </apex:repeat> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

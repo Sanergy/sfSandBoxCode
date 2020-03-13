@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_of_exiting_staff__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Name of exiting staff</label>
+    <referenceTo>Employee__c</referenceTo>
+    <relationshipLabel>Recruitment Requisitions (Name of exiting staff)</relationshipLabel>
+    <relationshipName>Recruitment_Requisitions1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

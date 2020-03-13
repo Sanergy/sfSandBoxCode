@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closure_type_validation</fullName>
+    <active>true</active>
+    <description>Closure type has to be specified if toilet is flagged as closed</description>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Operational_Status__c, &quot;Closed&quot;),
+ ISPICKVAL( Closure_Type__c,&quot;&quot; )
+)</errorConditionFormula>
+    <errorDisplayField>Closure_Type__c</errorDisplayField>
+    <errorMessage>Kindly specify the closure type if the Toilet is closed</errorMessage>
+</ValidationRule>

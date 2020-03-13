@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GLA</fullName>
+    <active>false</active>
+    <description>GLA Validate for 6721 and 6720</description>
+    <errorConditionFormula>AND(OR ( GLA__r.Name= &#39;6720 - Repair and Maintenance - Scheduled&#39;, GLA__r.Name= &#39;6721 - Repair &amp; Maintenance - Unscheduled&#39;),ISBLANK(Asset_Id__c ))</errorConditionFormula>
+    <errorDisplayField>Asset_Id__c</errorDisplayField>
+    <errorMessage>Enter Asset ID</errorMessage>
+</ValidationRule>

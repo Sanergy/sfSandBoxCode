@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Access_to_healthcare__c</fullName>
+    <externalId>false</externalId>
+    <label>Access to healthcare</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Level 1: Self-medication, home care, herbalists, TBA</fullName>
+                <default>false</default>
+                <label>Level 1: Self-medication, home care, herbalists, TBA</label>
+            </value>
+            <value>
+                <fullName>Level 2: Public hospital, small private clinics</fullName>
+                <default>false</default>
+                <label>Level 2: Public hospital, small private clinics</label>
+            </value>
+            <value>
+                <fullName>Level 3: Private hospital or has medical insurance</fullName>
+                <default>false</default>
+                <label>Level 3: Private hospital or has medical insurance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

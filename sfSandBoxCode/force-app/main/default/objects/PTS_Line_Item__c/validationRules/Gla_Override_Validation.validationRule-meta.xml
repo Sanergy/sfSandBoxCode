@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gla_Override_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT( ISBLANK( Purchase_Order_Item__c ) ),NOT( ISBLANK( Commodity_Code_Gla__c ) )   ,Override_Gla__c = false, Commodity_Code_Gla__c  &lt;&gt;   GLA__r.Name )</errorConditionFormula>
+    <errorDisplayField>Override_Gla__c</errorDisplayField>
+    <errorMessage>kindly check the Override Gla Box to override the inventory Item Gla</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Windrow__c</fullName>
+    <externalId>false</externalId>
+    <label>Windrow</label>
+    <referenceTo>Windrow__c</referenceTo>
+    <relationshipLabel>Windrow Runs</relationshipLabel>
+    <relationshipName>Windrow_Runs</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

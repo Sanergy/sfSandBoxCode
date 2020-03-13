@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruitment_Requisition__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Recruitment Requisition</label>
+    <referenceTo>Recruitment_Requisition__c</referenceTo>
+    <relationshipLabel>Candidate Evaluation Stages</relationshipLabel>
+    <relationshipName>Candidate_Evaluation_Stages</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

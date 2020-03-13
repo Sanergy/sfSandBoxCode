@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visa_Status__c</fullName>
+    <description>Visa Status</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Visa Status</inlineHelpText>
+    <label>Visa Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Internship Pass</fullName>
+                <default>false</default>
+                <label>Internship Pass</label>
+            </value>
+            <value>
+                <fullName>Multiple Journey Visa</fullName>
+                <default>false</default>
+                <label>Multiple Journey Visa</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Special Pass</fullName>
+                <default>false</default>
+                <label>Special Pass</label>
+            </value>
+            <value>
+                <fullName>Work Permit</fullName>
+                <default>false</default>
+                <label>Work Permit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

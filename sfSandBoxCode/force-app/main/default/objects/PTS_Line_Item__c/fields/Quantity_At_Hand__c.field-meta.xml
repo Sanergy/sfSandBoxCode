@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_At_Hand__c</fullName>
+    <externalId>false</externalId>
+    <formula>Inventory_Item__r.Inventory_Stock__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The total number of stock-keeping units (SKUs) that are  physically located in the warehouse location at the current time.</inlineHelpText>
+    <label>Quantity At Hand</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

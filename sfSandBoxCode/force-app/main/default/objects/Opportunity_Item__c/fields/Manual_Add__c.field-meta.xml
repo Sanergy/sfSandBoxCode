@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Add__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Items with this value need to be added manually</description>
+    <externalId>false</externalId>
+    <label>Manual Add</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredDateBeAtLeast7Days</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND( ISNEW() ,
+(Required_Date__c - TODAY() ) &lt; 7,
+NOT(ISPICKVAL(Priority__c, &#39;High&#39;))
+),
+AND(
+(Required_Date__c - Request_Date__c) &lt; 7,
+NOT(ISPICKVAL(Priority__c, &#39;High&#39;))
+)
+)</errorConditionFormula>
+    <errorMessage>Required period must not be less than 7 days if priority is not High.</errorMessage>
+</ValidationRule>

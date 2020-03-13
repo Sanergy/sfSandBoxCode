@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Number_of_Rate_Units</fullName>
+    <active>true</active>
+    <errorConditionFormula>Total_Amount__c  &gt;    Job_Requisition__r.Amount_Payable__c</errorConditionFormula>
+    <errorMessage>The total amount payable is more that the payment amount specified at the job assignment. Kindly confirm the number of rate units and allowances.</errorMessage>
+</ValidationRule>

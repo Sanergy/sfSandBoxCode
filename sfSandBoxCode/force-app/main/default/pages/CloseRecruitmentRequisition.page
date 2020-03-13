@@ -1,0 +1,124 @@
+<apex:page docType="html-5.0" extensions="CloseRecruitmentRequisition" standardController="Recruitment_Requisition__c">
+        <style>
+        .floating-box {
+        float: left;
+        width: 150px;
+        height: 75px;
+        margin: 10px;
+        border: 3px solid #73AD21;  
+        }
+    </style>
+    
+    <!--
+Original LInks
+<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+<apex:includeScript value="//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js" />
+<apex:stylesheet value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/css/theme.blue.css" />
+
+<apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'/js/jquery.min.js')}"/>-->
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+    
+    <script>
+    $(document).ready(function()
+                      {
+                          $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          
+                          // Make table cell focusable
+                          // http://css-tricks.com/simple-css-row-column-highlighting/
+                          if ( $('.focus-highlight').length ) {
+                              $('.focus-highlight').find('td, th')
+                              .attr('tabindex', '1')
+                              // add touch device support
+                              .on('touchstart', function() {
+                                  $(this).focus();
+                              });
+                          }
+                      });
+    
+    function updateDataTable()
+    {
+        $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        
+        // Make table cell focusable
+        // http://css-tricks.com/simple-css-row-column-highlighting/
+        if ( $('.focus-highlight').length ) {
+            $('.focus-highlight').find('td, th')
+            .attr('tabindex', '1')
+            // add touch device support
+            .on('touchstart', function() {
+                $(this).focus();
+            });
+        }
+    }
+    
+    function updateDataTableRows() 
+    {
+        
+        $(".table-striped").find("tr").each(function () {
+            var status= $(this).find(".status").html();  
+            if(status=="Failed")
+            {
+                $(this).addClass("failed")
+            }
+        });
+    }
+    </script>
+    <apex:form >
+        <apex:sectionHeader title="{!Recruitment_Requisition__c.Name}" subtitle="Close Recruitment Requisition"/>
+        
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Clone and Save" action="{!CloneAndSave}" rendered="{!showRecords}"/>
+                <apex:commandButton value="Close Requisition" action="{!CloseReq}" rendered="{!showRecords}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection rendered="{!showRecords}">
+                <apex:pageBlockTable value="{!OpenRecReqs}" var="r" id="accsTable" styleclass="tablesorter" >
+                    <apex:column headerValue="Process" style="{!r.ceRowStyle}">
+                        <apex:inputCheckbox value="{!r.selectedRecord}" id="chkProcessRow" disabled="{!r.disableProcessChkBox}"></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Recruitment Requisition" style="{!r.ceRowStyle}">
+                        <apex:outputLink value="/{!r.req.Id}" target="_blank">{!r.req.Name}</apex:outputLink>  
+                    </apex:column>
+                    <apex:column headerValue="Stage" style="{!r.ceRowStyle}">
+                        <apex:outputText value="{!r.req.Stage__c}"></apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Created Date" value="{!r.req.CreatedDate}" style="{!r.ceRowStyle}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock rendered="{!showRecords}">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!selectAll}" value="Select All" rendered="{!showRecords}" /> &nbsp;
+                <apex:commandButton action="{!unSelectAll}" value="UnSelect All" rendered="{!showRecords}"/> 
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="pbCEpbt" title="Candidate Evaluations" collapsible="true" >
+                <apex:pageBlockTable value="{!candEvalItems}" var="ce" id="accsTable" styleclass="tablesorter"  >
+                    <apex:column headerValue="Process">
+                        <apex:inputCheckbox value="{!ce.selected}" id="chkProcessRow" disabled="{!ce.disableProcessChkBox}" ></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="CE Name" width="800">
+                        <apex:outputLink value="/{!ce.candEvals.Id}" target="_blank">{!ce.candEvals.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="Candidate">
+                        <apex:outputLink value="/{!ce.candEvals.Candidate__c}" target="_blank">{!ce.candEvals.Candidate__r.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="Rating" value="{!ce.candEvals.Candidate_Star_Rating__c}" />
+                    <apex:column headerValue="Date Available" value="{!ce.candEvals.Date_Available__c}" />
+                    <apex:column headerValue="Experience (Yrs)" value="{!ce.candEvals.Years_Of_Experience__c}" />
+                    <apex:column headerValue="Eval Status" value="{!ce.candEvals.Status__c}" />
+                    <apex:column headerValue="Review Status" value="{!ce.candEvals.In_Review__c}" />
+                    <apex:column headerValue="Offer Status" value="{!ce.candEvals.In_Offer__c}" />
+                    
+                </apex:pageBlockTable>   
+            </apex:pageBlockSection>
+            <!-- -->
+            
+        </apex:pageBlock>  
+    </apex:form>
+    
+</apex:page>

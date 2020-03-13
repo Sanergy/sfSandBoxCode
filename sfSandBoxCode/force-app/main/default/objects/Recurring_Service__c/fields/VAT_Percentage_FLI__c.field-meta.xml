@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAT_Percentage_FLI__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( Purchase_Order_Item_FLI__r.VAT_Percentage__c , &#39;0&#39;) , &#39;0&#39;, 
+IF( ISPICKVAL( Purchase_Order_Item_FLI__r.VAT_Percentage__c , &#39;16&#39;) , &#39;16&#39;, NULL) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>VAT Percentage(FLI)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

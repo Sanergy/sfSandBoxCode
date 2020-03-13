@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UnitPriceTransactions</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( AND( ISPICKVAL(Quantity_Impact__c  , &#39;U&#39;), NOT(AND( ISPICKVAL(Transaction_ID__c , &#39;UNITPRICECHANGE&#39;) , Transaction_Value__c = 0.00))),
+	AND( ISPICKVAL(Transaction_ID__c  , &#39;UNITPRICECHANGE&#39;), NOT(AND( ISPICKVAL( Quantity_Impact__c, &#39;U&#39;) , Transaction_Value__c = 0.00)))
+		)</errorConditionFormula>
+    <errorMessage>For Unit Price Changes transactions,  the Transaction Value is 0.00, the Quantity Impact is &#39;U&#39; and Transaction ID is &#39;UNITPRICECHANGE&#39;.</errorMessage>
+</ValidationRule>

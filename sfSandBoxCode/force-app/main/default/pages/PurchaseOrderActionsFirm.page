@@ -1,0 +1,163 @@
+<apex:page standardController="Purchase_Order__c" extensions="PurchaseOrderActionController"  docType="html-5.0">
+    <script>
+    	//check the required fields have been provided 
+        function CheckRequired(){
+            var varPODeliveryAddress = document.querySelector('[id*=":PODeliveryAddress"]').id;
+            var PODeliveryAddress = document.getElementById(varPODeliveryAddress).value; 
+            
+            var varPODeliveryMode = document.querySelector('[id*=":PODeliveryMode"]').id;
+            var PODeliveryMode = document.getElementById(varPODeliveryMode).value; 
+            
+            var varPODeliveryDate = document.querySelector('[id*=":PODeliveryMode"]').id;
+            var PODeliveryDate = document.getElementById(varPODeliveryDate).value;
+            
+            //Check if any has None value
+            if(PODeliveryMode != '--' && PODeliveryAddress != '--' && PODeliveryDate != '')
+            {
+               	FirmPO();
+            }
+            else 
+            {
+                alert('PODeliveryAddress [' + PODeliveryAddress + '] or PODeliveryMode [' +  PODeliveryMode + '] Cannot be Blank');
+                return false;
+            }
+        }
+    </script>
+    
+    <apex:form id="pd">
+        <apex:sectionHeader title="{!Purchase_Order__c.Name}" subtitle="Firm Purchase Order"/>
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Firm Purchase Order" id="save" reRender="{!openLineList},pd,pb,pbPOLI,pbVendor,pbVendorOpenPOs" onclick="CheckRequired(); return false;"/>
+                <apex:actionFunction name="FirmPO" action="{!POFirm}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>  
+            
+            
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection title="Vendor Invoice Information">
+                <apex:outputField value="{!Purchase_Order__c.Name}">
+                    <apex:outputLink value="/{!Purchase_Order__c.Id}" title="PO Name" target="_blank" />  
+                </apex:outputField>
+                <apex:outputField value="{!Purchase_Order__c.Order_Status__c}"/>
+                <apex:outputField value="{!Purchase_Order__c.Vendor_Account__c}"/>
+                <apex:outputField value="{!Purchase_Order__c.PO_Currency__c}" />
+                <apex:outputField value="{!Purchase_Order__c.Total_Amount__c}" />
+                <apex:input type="date" id="PODeliveryDate" label="Delivery Date" value="{!PODeliveryDate}" required="true"/>
+                
+                <apex:selectList id="PODeliveryMode" label="Delivery Mode"  value="{!PODeliveryMode}" size="1" required="true" >
+                    <apex:selectOption itemValue="--" itemLabel="--None--"/>
+                	<apex:selectOption itemValue="Customer Pickup" itemLabel="Customer Pickup"/>
+                    <apex:selectOption itemValue="Delivery" itemLabel="Delivery"/>
+                </apex:selectList> 
+                <apex:selectList id="PODeliveryAddress" label="Delivery Address" value="{!PODeliveryAddress}" size="1" required="true" >
+                    <apex:selectOption itemValue="--" itemLabel="--None--"/>
+                	<apex:selectOption itemValue="Sameer Park - Office" itemLabel="Sameer Park - Office"/>
+                    <apex:selectOption itemValue="Sameer Park - WH" itemLabel="Sameer Park - WH"/>
+                    <apex:selectOption itemValue="Kinanie" itemLabel="Kinanie"/>
+                </apex:selectList>
+            </apex:pageBlockSection>      
+            
+            
+            <apex:pageBlock id="pbPOLI">
+                <apex:pageBlockSection title="PO Line Items" >
+                    <apex:pageBlockTable value="{!POLineItems}" var="p" id="tblPOLI" >
+                        <apex:column headerValue="PO Line Name">
+                            <apex:outputLink value="/{!p.Id}" target="_blank">{!p.Name}</apex:outputLink>  
+                        </apex:column> 
+                        <apex:column headerValue="PO Item" value="{!p.Purchase_Order_Item__r.Name}" />           
+                        <apex:column headerValue="Qty Requested" value="{!p.Quantity_Requested__c}" />
+                        <apex:column headerValue="Qty Accepted" value="{!p.Quantity_Accepted__c}" />
+                        <apex:column headerValue="UoM" value="{!p.UoM__c}" />
+                        <apex:column headerValue="Unit Net Price" value="{!p.Unit_Net_Price__c}" />
+                        <apex:column headerValue="Unit Gross Price" value="{!p.Unit_Gross_Price__c}" />
+                        <apex:column headerValue="Total Net Price" value="{!p.Total_Net_Price__c}" />
+                        <apex:column headerValue="Total Gross Price" value="{!p.Total_Price__c}" />
+                        <apex:column headerValue="Variation Notes" value="{!p.Variation_Notes__c}" />
+                        <apex:column headerValue="PR Header">
+                            <apex:outputLink value="/{!p.PTS_Line_Item__r.Procurement_Tracking_Sheet__c }" target="_blank">{!p.PTS_Line_Item__r.Procurement_Tracking_Sheet__r.Name}</apex:outputLink>  
+                        </apex:column> 
+                        <apex:column headerValue="PR Line">
+                            <apex:outputLink value="/{!p.PTS_Line_Item__c}" target="_blank">{!p.PTS_Line_Item__r.Name}</apex:outputLink>  
+                        </apex:column> 
+                        <apex:column headerValue="Comments">
+                            <apex:outputText value="{!p.Notes__c}" label="Notes" style="width:200px; Height:60px" />
+                        </apex:column>
+                    </apex:pageBlockTable> 
+                </apex:pageBlockSection>
+                
+            </apex:pageBlock>
+            <apex:pageBlock id="pb">
+                <apex:pageBlockSection title="The Following PO Line Items Contain the Highlighted Error" >
+                    <apex:pageBlockTable value="{!openLineList}" var="c" id="table" >
+                        <apex:column ></apex:column> 
+                        <apex:column headerValue="Error Type" value="{!c.errorType}" style="color:blue; font-weight: bold" />
+                        <apex:column headerValue="PO Line Name">
+                            <apex:outputLink value="/{!c.item.Id}" target="_blank">{!c.item.Name}</apex:outputLink>  
+                        </apex:column> 
+                        <apex:column headerValue="PO Item" value="{!c.item.Purchase_Order_Item__c}" />           
+                        <apex:column headerValue="Item Description" value="{!c.item.Item__c}" />
+                        <apex:column headerValue="Item Category" value="{!c.item.Item_Type__c}" />
+                        <apex:column headerValue="UoM" value="{!c.item.UoM__c}" />
+                        <apex:column headerValue="Qty Requested" value="{!c.item.Quantity_Requested__c}" />
+                        <apex:column headerValue="Qty Accepted" value="{!c.item.Quantity_Accepted__c}" />
+                        <apex:column headerValue="Unit Price" value="{!c.item.Unit_Price__c}" />
+                        <apex:column headerValue="Total Gross Price" value="{!c.item.Total_Price__c}" />
+                        
+                        <apex:column headerValue="Status" value="{!c.item.Status__c}" />
+                        <apex:column headerValue="PR Line" value="{!c.item.PTS_Line_Item__c}" />
+                        <apex:column headerValue="Comments">
+                            <apex:inputTextarea value="{!c.Comments}" label="Comments" style="width:200px; Height:60px" />
+                        </apex:column>
+                    </apex:pageBlockTable>              
+                </apex:pageBlockSection>
+                
+                <!-- <apex:pageBlockSection title="Comments Section">
+<apex:inputTextarea value="{!POComments}" label="Comments" style="width:80%; height:100px;" />
+</apex:pageBlockSection>  -->            
+                
+            </apex:pageBlock>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="pbVendor">
+            <apex:pageBlockSection title="Other PO Lines for the Inventory Item" >
+                <apex:pageBlockTable value="{!openLineListByInventoryItem}" var="cv" id="tblVendor" >
+                    <apex:column headerValue="Vendor">
+                        <apex:outputLink value="/{!cv.item.Purchase_Order__r.Vendor_Account__c}" target="_blank">{!cv.item.Purchase_Order__r.Vendor_Account__r.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="PO Line Name">
+                        <apex:outputLink value="/{!cv.item.Id}" target="_blank">{!cv.item.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="PO Item" value="{!cv.item.Purchase_Order_Item__c}" />           
+                    <apex:column headerValue="Item Description" value="{!cv.item.Item__c}" />
+                    <apex:column headerValue="Item Category" value="{!cv.item.Item_Type__c}" />
+                    <apex:column headerValue="PO Firm Date" value="{!cv.item.Purchase_Order__r.Firm_Date__c}" />
+                    <apex:column headerValue="PO Expected Date" value="{!cv.item.Purchase_Order__r.Delivery_Date__c}" />
+                    <apex:column headerValue="Quantity Requested" value="{!cv.item.Quantity_Requested__c}" />
+                    <apex:column headerValue="Unit Price" value="{!cv.item.Unit_Price__c}" />
+                    <apex:column headerValue="Total Gross Price" value="{!cv.item.Total_Price__c}" />
+                    <apex:column headerValue="Quantity Accepted" value="{!cv.item.Quantity_Accepted__c}" />
+                    <apex:column headerValue="Status" value="{!cv.item.Status__c}" />
+                    <apex:column headerValue="PTS Line" value="{!cv.item.PTS_Line_Item__c}" />
+                    <apex:column headerValue="VI Comments" value="{!cv.Comments}" width="500px">
+                    </apex:column>
+                </apex:pageBlockTable>              
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="pbVendorOpenPOs">
+            <apex:pageBlockSection title="Other Open POs For {!Purchase_Order__c.Vendor_Account__r.Name}">
+                <apex:pageBlockTable value="{!OpenVendorPOs}" var="vpo" id="tblVendorOpenPOs" >
+                    <apex:column headerValue="PO">
+                        <apex:outputLink value="/{!vpo.Id}" target="_blank">{!vpo.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="Firm Date" value="{!vpo.Firm_Date__c}" />           
+                    <apex:column headerValue="Expected Date" value="{!vpo.Expected_Date__c}" />
+                    <apex:column headerValue="Total Amount" value="{!vpo.Total_Amount__c}" />
+                    <apex:column headerValue="Order Status" value="{!vpo.Order_Status__c}" />
+                    <apex:column headerValue="Payment Status" value="{!vpo.Payment_Status__c}" />
+                </apex:pageBlockTable>              
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+    </apex:form>  
+</apex:page>

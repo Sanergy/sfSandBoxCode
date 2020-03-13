@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Item Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Employee Asset</fullName>
+                <default>false</default>
+                <label>Employee Asset</label>
+            </value>
+            <value>
+                <fullName>Employee Consumable</fullName>
+                <default>false</default>
+                <label>Employee Consumable</label>
+            </value>
+            <value>
+                <fullName>Team Asset</fullName>
+                <default>false</default>
+                <label>Team Asset</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

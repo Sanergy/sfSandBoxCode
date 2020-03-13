@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Item__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>lookup to purchase order item</description>
+    <externalId>false</externalId>
+    <label>Purchase Order Item</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.Inventory_Item__c</field>
+            <operation>equals</operation>
+            <valueField>Purchase_Order_Item__c.Inventory_Item__r.Id</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Purchase_Order_Item__c.Inventory_Item__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Inventory_Item__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Purchase_Order_Item__c</referenceTo>
+    <relationshipLabel>Asset Service Items</relationshipLabel>
+    <relationshipName>Asset_Service_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

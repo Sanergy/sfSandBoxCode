@@ -1,0 +1,19 @@
+<apex:page StandardController="Purchase_Order_Item__c"  extensions="ActivatePurchaseOrderItem" tabStyle="Purchase_Order_Item__c">
+    <apex:sectionHeader subtitle="Activate Purchase Item {!Purchase_Order_Item__c.name}"/>
+    <apex:form >   
+                  
+        <apex:pageMessage rendered="{!Purchase_Order_Item__c.Inventory_Item__r.Item_Group__r.Requires_Contract__c == true}" summary="This item requires a contract. When activated, it will be be submitted to the Legal team for contract attachment and approval before it becomes active. Click the Activate button to activate." severity="info" strength="3" /><apex:pageMessages />
+        <apex:pageBlock >
+            <apex:pageBlockButtons >   
+                <apex:commandButton value="Activate" action="{!activate}"/>             
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Purchase_Order_Item__c.name}"/>  
+                <apex:outputField value="{!Purchase_Order_Item__c.Inventory_Item__c}"/>  
+                <apex:outputField value="{!Purchase_Order_Item__c.Vendor__c}"/>  
+                <apex:outputField value="{!Purchase_Order_Item__c.Status__c}"/>            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

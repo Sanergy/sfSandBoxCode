@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Title__c</fullName>
+    <description>Job Title of the Laptop Holder</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Whats the Job Title of the Person assigned the Laptop</inlineHelpText>
+    <label>Job Title</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Managing Director - Fresh Life</fullName>
+                <default>false</default>
+                <label>Managing Director - Fresh Life</label>
+            </value>
+            <value>
+                <fullName>Managing Director - Sanergy</fullName>
+                <default>false</default>
+                <label>Managing Director - Sanergy</label>
+            </value>
+            <value>
+                <fullName>Managing Director - Shared Services</fullName>
+                <default>false</default>
+                <label>Managing Director - Shared Services</label>
+            </value>
+            <value>
+                <fullName>Marketing Manager</fullName>
+                <default>false</default>
+                <label>Marketing Manager</label>
+            </value>
+            <value>
+                <fullName>Sales &amp; Operations Manager</fullName>
+                <default>false</default>
+                <label>Sales &amp; Operations Manager</label>
+            </value>
+            <value>
+                <fullName>Byproducts Development Engineer</fullName>
+                <default>false</default>
+                <label>Byproducts Development Engineer</label>
+            </value>
+            <value>
+                <fullName>Engineering Operations Manager</fullName>
+                <default>false</default>
+                <label>Engineering Operations Manager</label>
+            </value>
+            <value>
+                <fullName>Finance Manager</fullName>
+                <default>false</default>
+                <label>Finance Manager</label>
+            </value>
+            <value>
+                <fullName>Human Resource Manager</fullName>
+                <default>false</default>
+                <label>Human Resource Manager</label>
+            </value>
+            <value>
+                <fullName>Information Systems Manager</fullName>
+                <default>false</default>
+                <label>Information Systems Manager</label>
+            </value>
+            <value>
+                <fullName>Product Development Manager</fullName>
+                <default>false</default>
+                <label>Product Development Manager</label>
+            </value>
+            <value>
+                <fullName>Communications Manager</fullName>
+                <default>false</default>
+                <label>Communications Manager</label>
+            </value>
+            <value>
+                <fullName>Government Relations Manager</fullName>
+                <default>false</default>
+                <label>Government Relations Manager</label>
+            </value>
+            <value>
+                <fullName>Grants Manager</fullName>
+                <default>false</default>
+                <label>Grants Manager</label>
+            </value>
+            <value>
+                <fullName>Insight and Innovations Manager</fullName>
+                <default>false</default>
+                <label>Insight and Innovations Manager</label>
+            </value>
+            <value>
+                <fullName>Logistics &amp; Processing Manager</fullName>
+                <default>false</default>
+                <label>Logistics &amp; Processing Manager</label>
+            </value>
+            <value>
+                <fullName>Logistics Assistant Manager</fullName>
+                <default>false</default>
+                <label>Logistics Assistant Manager</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Manager</fullName>
+                <default>false</default>
+                <label>Manufacturing Manager</label>
+            </value>
+            <value>
+                <fullName>Processing Assistant Manager</fullName>
+                <default>false</default>
+                <label>Processing Assistant Manager</label>
+            </value>
+            <value>
+                <fullName>Warehouse Officer</fullName>
+                <default>false</default>
+                <label>Warehouse Officer</label>
+            </value>
+            <value>
+                <fullName>Area Manager</fullName>
+                <default>false</default>
+                <label>Area Manager</label>
+            </value>
+            <value>
+                <fullName>Operations Data Clerk</fullName>
+                <default>false</default>
+                <label>Operations Data Clerk</label>
+            </value>
+            <value>
+                <fullName>Engineering Data Clerk</fullName>
+                <default>false</default>
+                <label>Engineering Data Clerk</label>
+            </value>
+            <value>
+                <fullName>Field Officers</fullName>
+                <default>false</default>
+                <label>Field Officers</label>
+            </value>
+            <value>
+                <fullName>Human Resources Officer</fullName>
+                <default>false</default>
+                <label>Human Resources Officer</label>
+            </value>
+            <value>
+                <fullName>Human Resources Assistant</fullName>
+                <default>false</default>
+                <label>Human Resources Assistant</label>
+            </value>
+            <value>
+                <fullName>Communications Officer</fullName>
+                <default>false</default>
+                <label>Communications Officer</label>
+            </value>
+            <value>
+                <fullName>Junior Associate</fullName>
+                <default>false</default>
+                <label>Junior Associate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

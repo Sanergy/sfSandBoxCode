@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_Repayment_Alternative__c</fullName>
+    <description>How will interviewee repay loan if unable to get 50 customers/day?</description>
+    <externalId>false</externalId>
+    <label>Loan Repayment Alternative:</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

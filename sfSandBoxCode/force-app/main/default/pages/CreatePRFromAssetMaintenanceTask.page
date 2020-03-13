@@ -1,0 +1,34 @@
+<apex:page standardController="Asset_Maintenance_Task__c" extensions="CreatePRFromAssetMaintenanceTask">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!CreatePR}" value="Create PR/Inventory Requisition">
+                </apex:commandButton>
+            </apex:pageBlockButtons>
+            
+         
+        <apex:pageBlock >
+           <apex:pageBlockSection title="Create High Priority PR">
+            <apex:inputCheckbox label="Create High Priority PR?"  value="{!HighPriority}"/>
+            </apex:pageBlockSection>
+         </apex:pageBlock>
+<apex:pageBlock >
+            <apex:pageBlockSection title="Maintenance Service Items">
+            <apex:pageBlockTable value="{!maintainServeItem}" var="item">
+                <apex:column headerValue="Maintenance Service Item Name" value="{!item.Name}" />
+                <apex:column headerValue="Asset Service Item" value="{!item.Asset_Service_Item__c}" />
+                <apex:column headerValue="Inventory Item" value="{!item.Inventory_Item__c}" />
+                <apex:column headerValue="Specification" value="{!item.Specification__c}" />
+                <apex:column headerValue="Purchase Order Item" value="{!item.Purchase_Order_Item__c}" />
+                <apex:column headerValue="Vendor" value="{!item.Vendor__c}" />
+                <apex:column headerValue="Unit Item Cost" value="{!item.Unit_Item_Cost__c}" />
+                <apex:column headerValue="Inventory UOM" value="{!item.Inventory_UoM__c}" />
+                <apex:column headerValue="UOM Conversion Factor" value="{!item.Uom_Conversion_Factor__c}" />
+                <apex:column headerValue="Cost Price " value="{!item.Cost_Price__c}" />
+                <apex:column headerValue="Quantity" value="{!item.Quantity__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+      </apex:pageBlock>
+             </apex:pageBlock>
+    </apex:form>
+</apex:page>

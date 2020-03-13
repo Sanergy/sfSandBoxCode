@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VI_Company__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Company this VI Belongs to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Company this VI Belongs to</inlineHelpText>
+    <label>VI Company</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Select a valid Company</errorMessage>
+        <filterItems>
+            <field>FFA_Config_Object__c.Type__c</field>
+            <operation>equals</operation>
+            <value>company</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.isActive__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipLabel>Vendor Invoices</relationshipLabel>
+    <relationshipName>Vendor_Invoices</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

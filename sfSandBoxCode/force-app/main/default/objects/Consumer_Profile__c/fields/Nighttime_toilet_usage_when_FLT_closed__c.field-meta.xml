@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nighttime_toilet_usage_when_FLT_closed__c</fullName>
+    <externalId>false</externalId>
+    <label>Nighttime toilet usage when FLT closed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Flying Toilet</fullName>
+                <default>false</default>
+                <label>Flying Toilet</label>
+            </value>
+            <value>
+                <fullName>Other Commercial Latrine</fullName>
+                <default>false</default>
+                <label>Other Commercial Latrine</label>
+            </value>
+            <value>
+                <fullName>Neighboring plot latrine</fullName>
+                <default>false</default>
+                <label>Neighboring plot latrine</label>
+            </value>
+            <value>
+                <fullName>Plot Latrine</fullName>
+                <default>false</default>
+                <label>Plot Latrine</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Specification__c</fullName>
+    <externalId>false</externalId>
+    <label>Candidate Specification</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kenyan</fullName>
+                <default>true</default>
+                <label>Kenyan</label>
+            </value>
+            <value>
+                <fullName>Any Nationality</fullName>
+                <default>false</default>
+                <label>Any Nationality</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

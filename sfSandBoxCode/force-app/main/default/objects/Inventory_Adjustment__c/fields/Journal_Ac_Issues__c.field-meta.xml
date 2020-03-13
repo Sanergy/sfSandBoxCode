@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Journal_Ac_Issues__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked indicates Issues with journal item accounts</description>
+    <externalId>false</externalId>
+    <label>Journal Ac Issues</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

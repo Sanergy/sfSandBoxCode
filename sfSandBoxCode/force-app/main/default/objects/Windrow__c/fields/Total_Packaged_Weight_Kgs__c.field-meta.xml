@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Packaged_Weight_Kgs__c</fullName>
+    <description>Total Packaged Weight so far</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total Packaged Weight so far</inlineHelpText>
+    <label>Total Packaged Weight(Kgs)</label>
+    <summarizedField>Windrow_Bagging__c.Total_Weight_Bagged_Kg__c</summarizedField>
+    <summaryForeignKey>Windrow_Bagging__c.Windrow__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

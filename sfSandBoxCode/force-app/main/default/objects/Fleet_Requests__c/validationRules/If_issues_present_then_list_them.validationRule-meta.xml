@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_issues_present_then_list_them</fullName>
+    <active>true</active>
+    <description>Please list the issues you want to project to the Fleet Management Team(FMT) here</description>
+    <errorConditionFormula>AND(   ISPICKVAL(Are_there_Issues_you_wish_to_escalate_to__c,&quot;Yes&quot;) , ISBLANK( List_them_here__c ))</errorConditionFormula>
+    <errorMessage>Please list the issues you want to project to the Fleet Management Team(FMT) here</errorMessage>
+</ValidationRule>

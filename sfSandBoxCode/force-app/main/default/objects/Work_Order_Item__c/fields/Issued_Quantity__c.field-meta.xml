@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Issued_Quantity__c</fullName>
+    <externalId>false</externalId>
+    <label>Issued Quantity</label>
+    <summarizedField>Work_Order_Item_Issue__c.Issued_Quantity__c</summarizedField>
+    <summaryForeignKey>Work_Order_Item_Issue__c.Work_Order_Item__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

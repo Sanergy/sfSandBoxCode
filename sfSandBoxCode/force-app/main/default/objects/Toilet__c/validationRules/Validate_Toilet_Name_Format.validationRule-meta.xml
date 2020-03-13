@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Toilet_Name_Format</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT( CONTAINS( Name , &quot;.&quot;) )</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Kindly ensure that the toilet name format is (xx-n.n) e.g. KR-1.1</errorMessage>
+</ValidationRule>

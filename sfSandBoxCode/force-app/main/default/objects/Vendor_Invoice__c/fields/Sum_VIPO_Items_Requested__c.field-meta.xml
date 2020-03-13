@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_VIPO_Items_Requested__c</fullName>
+    <externalId>false</externalId>
+    <label>Sum VIPO Items Requested</label>
+    <summarizedField>Vendor_Invoice_Purchase_Order_Line_Item__c.Requested_Quantity__c</summarizedField>
+    <summaryForeignKey>Vendor_Invoice_Purchase_Order_Line_Item__c.Vendor_Invoice__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

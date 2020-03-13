@@ -1,0 +1,36 @@
+<apex:page standardController="Account" extensions="taskDemo">
+    <apex:form >
+        <apex:pageMessages />
+        <apex:pageBlock title="" id="pb1" >
+            <apex:pageBlockSection title="Assign" columns="2">
+                <apex:inputField value="{!Account.Name}"/>
+                <apex:inputField value="{!Account.AccountNumber}"/>
+                <apex:inputField value="{!Account.Phone}"/>
+                <apex:inputField value="{!Account.Website}"/>
+                <apex:commandButton value="updateRecord" action="{!upsertAccount}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockTable value="{!oppList}" var="op">
+                <apex:column headerValue="OpportunityName"> 
+                    <apex:inputField value="{!op.Name}">
+                    </apex:inputField>
+                </apex:column>
+                <!--<apex:column headerValue="AccountName">
+                <apex:inputField value="{!op.Account.Name}"></apex:inputField>
+                </apex:column>-->
+                <apex:column headerValue="Close date">
+                    <apex:inputField value="{!op.CloseDate}"/>
+                </apex:column>
+                <apex:column headerValue="Amount">
+                    <apex:inputField value="{!op.Amount}">
+                    </apex:inputField>
+                </apex:column>
+                <apex:column headerValue="StageName">
+                    <apex:inputField value="{!op.StageName}">
+                    </apex:inputField>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:commandButton value="saveopp" action="{!saveopp}"/>
+            <apex:commandButton value="AddRow" action="{!addRow}" rerender="pb1"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

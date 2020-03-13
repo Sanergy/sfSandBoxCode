@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PR_Item_And_PO_Item_Cost_Difference__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND( NOT( ISBLANK(Purchase_Order_Line_Item__c)),
+OR(IF(( (Purchase_Order_Item__r.Unit_Net_Price__c  /  Purchase_Order_Item__r.UOM_Conversion_Factor__c ) -  Budget_Amount_Per_item__c ) &gt; (0.05 * Budget_Amount_Per_item__c), true, false),
+IF(((Purchase_Order_Item__r.Unit_Net_Price__c  /  Purchase_Order_Item__r.UOM_Conversion_Factor__c ) -  Budget_Amount_Per_item__c ) &gt; (1000), true, false))
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>PR Item And PO Item Cost Difference</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

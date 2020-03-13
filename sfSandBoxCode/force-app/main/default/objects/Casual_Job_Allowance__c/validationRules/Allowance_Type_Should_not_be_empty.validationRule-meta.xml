@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allowance_Type_Should_not_be_empty</fullName>
+    <active>true</active>
+    <description>Allowance Type Should not be empty</description>
+    <errorConditionFormula>ISPICKVAL( Allowance_Type__c , &quot;&quot;)</errorConditionFormula>
+    <errorDisplayField>Allowance_Type__c</errorDisplayField>
+    <errorMessage>Please fill out the &#39;Allowance type&#39; field value</errorMessage>
+</ValidationRule>

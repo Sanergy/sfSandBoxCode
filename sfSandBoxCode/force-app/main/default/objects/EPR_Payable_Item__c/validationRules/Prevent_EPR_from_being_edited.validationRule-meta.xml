@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_EPR_from_being_edited</fullName>
+    <active>true</active>
+    <description>EPR Line item cannot be edited after Teamlead has approved the EPR</description>
+    <errorConditionFormula>AND(
+  ISPICKVAL(EPR__r.Team_Lead_Approval_Status__c, &quot;Approved&quot; ),
+  OR(
+    ISCHANGED( EPR__c ),
+    ISCHANGED( Item__c ),
+    ISCHANGED( Unit_Price__c ), 
+    ISCHANGED( Quantity__c ),
+    ISCHANGED( Gross_price__c ),
+    ISCHANGED( Department_dim1__c ), 
+    ISCHANGED( Location_Dim2__c ),
+    ISCHANGED( Dim_3__c ),
+    ISCHANGED( Grant_Funding_Availale_dim4__c ),
+    ISCHANGED( GLA__c ) 
+   ),
+  CASE($UserRole.Name, 
+    &quot;Accounts Payable Clerk&quot;,1, 
+    &quot;Financial Planning Analyst&quot;,1, 
+    &quot;Chief Financial Officer&quot;,1, 
+    &quot;Accountant&quot;,1, 
+    &quot;Systems Administrator&quot;,1,0) = 0
+)</errorConditionFormula>
+    <errorMessage>EPR Line item cannot be edited after Teamlead has approved the EPR</errorMessage>
+</ValidationRule>

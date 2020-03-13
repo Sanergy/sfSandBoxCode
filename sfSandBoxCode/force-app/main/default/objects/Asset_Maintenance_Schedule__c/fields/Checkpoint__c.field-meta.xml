@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checkpoint__c</fullName>
+    <externalId>false</externalId>
+    <label>Checkpoint</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Before Operation</fullName>
+                <default>false</default>
+                <label>Before Operation</label>
+            </value>
+            <value>
+                <fullName>During Operation</fullName>
+                <default>false</default>
+                <label>During Operation</label>
+            </value>
+            <value>
+                <fullName>After Operation</fullName>
+                <default>false</default>
+                <label>After Operation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

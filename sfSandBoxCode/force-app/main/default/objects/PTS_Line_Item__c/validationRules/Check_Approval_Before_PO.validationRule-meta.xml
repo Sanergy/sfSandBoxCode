@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Approval_Before_PO</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ NOT(ISPICKVAL(Procurement_Tracking_Sheet__r.Team_Lead_Approval_Status__c,&quot;Approved&quot; )),
+ NOT(ISPICKVAL(Procurement_Tracking_Sheet__r.Requestor_Type__c,&quot;Reorder Level&quot; )),
+ OR(
+    ISPICKVAL(Status__c, &quot;Pending Purchase Order&quot;),
+    ISPICKVAL(Status__c, &quot;Purchase Order Created&quot;)
+  )
+)</errorConditionFormula>
+    <errorDisplayField>Actual_Price__c</errorDisplayField>
+    <errorMessage>This PR Line cannot be in this Status if the PR has not been approved. Please submit the PR for approval.</errorMessage>
+</ValidationRule>

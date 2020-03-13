@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Receipt_Variance_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( VI_Status__c ,&#39;Closed&#39;),  Invoice_Received_Value__c &gt; 0, Sum_VI_Items_Received_Value__c &lt;&gt;  Reconciled_Received_Value__c  , ISBLANK( Receipt_Variance__c ))</errorConditionFormula>
+    <errorDisplayField>Receipt_Variance__c</errorDisplayField>
+    <errorMessage>This Field Cannot be Blank</errorMessage>
+</ValidationRule>

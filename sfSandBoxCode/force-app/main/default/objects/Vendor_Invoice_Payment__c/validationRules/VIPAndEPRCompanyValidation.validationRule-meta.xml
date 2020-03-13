@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIPAndEPRCompanyValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(EPR__r.Company__c)  &lt;&gt;   Company_Formula__c</errorConditionFormula>
+    <errorMessage>The Company on the Vendor Invoice Payment and EPR do not match. Please review.</errorMessage>
+</ValidationRule>

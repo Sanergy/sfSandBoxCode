@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recon_SPR__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Recon SPR Created</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Recon SPR Created</inlineHelpText>
+    <label>Recon SPR</label>
+    <referenceTo>Special_Procurement__c</referenceTo>
+    <relationshipLabel>Recon SPR</relationshipLabel>
+    <relationshipName>Recon_SPR</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

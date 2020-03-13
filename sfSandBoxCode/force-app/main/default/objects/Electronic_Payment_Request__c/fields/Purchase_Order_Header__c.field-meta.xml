@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Header__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>PO</label>
+    <referenceTo>rstk__pohdr__c</referenceTo>
+    <relationshipLabel>Electronic Payment Requests (PO)</relationshipLabel>
+    <relationshipName>Electronic_Payment_Requests1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

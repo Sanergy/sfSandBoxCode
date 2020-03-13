@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Team_lead_approval_status_decln</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Team_Lead_Approval_Status__c,&quot;Declined&quot;) ,
+ No_of_Line_Items__c&lt;1
+)</errorConditionFormula>
+    <errorDisplayField>Team_Lead_Approval_Status__c</errorDisplayField>
+    <errorMessage>This field cannot be set as &#39;declined&#39; because line items have not been added</errorMessage>
+</ValidationRule>

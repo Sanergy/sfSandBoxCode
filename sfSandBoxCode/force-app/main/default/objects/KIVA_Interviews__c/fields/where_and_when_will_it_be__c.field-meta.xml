@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>where_and_when_will_it_be__c</fullName>
+    <description>If add on will be in different location, Where? Expected time frame?</description>
+    <externalId>false</externalId>
+    <label>New location, where and when will it be</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

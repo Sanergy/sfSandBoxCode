@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visitors_and_Casuals</fullName>
+    <active>true</active>
+    <description>Must fill Visitor&#39;s or Casuals name</description>
+    <errorConditionFormula>OR(
+	AND(
+		OR(
+			ISPICKVAL(Nature_of_Person__c,&quot;Casual&quot;) , 
+			ISPICKVAL(Nature_of_Person__c,&quot;Visitor&quot;) 
+		),
+		ISBLANK( Visitor_s_Name__c ),  
+		RecordType.Name &lt;&gt; &#39;Stock Out Case&#39; 
+	),
+
+	AND(
+		ISPICKVAL(Nature_of_Person__c,&quot;Employee&quot;) ,
+		ISBLANK(  Injured_Employee__c  ),
+		RecordType.Name &lt;&gt; &#39;Stock Out Case&#39; 
+
+		)
+)</errorConditionFormula>
+    <errorDisplayField>Visitor_s_Name__c</errorDisplayField>
+    <errorMessage>Please fill visitor&#39;s name</errorMessage>
+</ValidationRule>

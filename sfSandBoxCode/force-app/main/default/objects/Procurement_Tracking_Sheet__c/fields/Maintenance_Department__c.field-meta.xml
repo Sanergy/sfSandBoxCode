@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Maintenance_Department__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Maintenance Department</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>FFA_Config_Object__c.isActive__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.Teamlead__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.Type__c</field>
+            <operation>equals</operation>
+            <value>dim1</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipName>Procurement_Tracking_Sheets1</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

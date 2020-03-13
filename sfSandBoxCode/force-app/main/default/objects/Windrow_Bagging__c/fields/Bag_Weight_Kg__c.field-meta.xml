@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bag_Weight_Kg__c</fullName>
+    <description>Bag Weight Filled</description>
+    <externalId>false</externalId>
+    <label>Bag Weight(Kg)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>5</label>
+            </value>
+            <value>
+                <fullName>35</fullName>
+                <default>false</default>
+                <label>35</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

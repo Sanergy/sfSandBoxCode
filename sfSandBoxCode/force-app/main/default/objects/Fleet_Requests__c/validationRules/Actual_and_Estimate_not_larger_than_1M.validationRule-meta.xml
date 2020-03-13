@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actual_and_Estimate_not_larger_than_1M</fullName>
+    <active>true</active>
+    <description>Actual and Estimate costs should not be more than 1 million.</description>
+    <errorConditionFormula>OR(
+  Total_Actual_Cost__c     &gt; 1000000,
+  Total_Estimated_Cost__c  &gt; 1000000
+)</errorConditionFormula>
+    <errorMessage>Total actual cost and Total estimate cost should not be more than 1,000,000</errorMessage>
+</ValidationRule>

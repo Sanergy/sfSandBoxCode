@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Casual__c</fullName>
+    <externalId>false</externalId>
+    <label>Contractor Name</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please ensure this contractor does not have any open jobs</errorMessage>
+        <filterItems>
+            <field>Casual__c.Grade__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Casual__c</referenceTo>
+    <relationshipLabel>Contractor-Job Assignments</relationshipLabel>
+    <relationshipName>Job_Requisitions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

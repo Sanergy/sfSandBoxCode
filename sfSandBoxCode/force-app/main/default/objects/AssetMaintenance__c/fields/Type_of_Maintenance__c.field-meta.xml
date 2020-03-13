@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Maintenance__c</fullName>
+    <description>Internal maintenance done by staff external maintenance done by third party vendor</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Internal maintenance done by staff external maintenance done by third party vendor</inlineHelpText>
+    <label>Maintenance Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Internal Maintenance</fullName>
+                <default>false</default>
+                <label>Internal Maintenance</label>
+            </value>
+            <value>
+                <fullName>External Maintenance</fullName>
+                <default>false</default>
+                <label>External Maintenance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

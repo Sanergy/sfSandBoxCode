@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PO_Price_Var_Per__c</fullName>
+    <description>PO line  Price Variance Percentage</description>
+    <externalId>false</externalId>
+    <inlineHelpText>PO line  Price Variance Percentage</inlineHelpText>
+    <label>PO Price Var Per</label>
+    <precision>17</precision>
+    <required>false</required>
+    <scale>5</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

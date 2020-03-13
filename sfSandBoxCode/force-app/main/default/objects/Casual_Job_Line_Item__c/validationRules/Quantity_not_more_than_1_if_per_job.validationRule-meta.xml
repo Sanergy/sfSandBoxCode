@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_not_more_than_1_if_per_job</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  ISPICKVAL(Rate_Units__c ,&quot;Per Job&quot;),
+  Quantity__c &gt;1
+)</errorConditionFormula>
+    <errorDisplayField>Quantity__c</errorDisplayField>
+    <errorMessage>Quantity cannot be more that 1 if rate units is per job</errorMessage>
+</ValidationRule>

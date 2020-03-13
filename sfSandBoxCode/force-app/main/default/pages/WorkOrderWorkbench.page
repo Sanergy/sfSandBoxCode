@@ -1,0 +1,64 @@
+<apex:page docType="html-5.0" controller="WorkOrderWorkBenchController" title="Work Order Workbench" tabStyle="Account">
+    
+    <apex:form >
+        <apex:sectionHeader subtitle="WORK ORDER WORKBENCH"/>
+            <apex:pageBlock id="rBlock" >                         
+                <apex:pageMessages />
+                
+                <apex:pageblockButtons >
+                    <apex:commandButton value="Search Requisitions" action="{!refreshList}"/>
+                    <apex:commandButton value="Firm Selected" rendered="{!selectedStatus == 'Planned'}" action="{!firmRequests}"/>
+                    <apex:commandButton value="Cancel Selected" rendered="{!selectedStatus == 'Planned'}" action="{!cancelRequests}"/>
+                </apex:pageblockButtons> 
+                
+                <apex:pageblocksection columns="1"> 
+                    <apex:selectList label="Status" value="{!selectedStatus}" multiselect="false" size="1" required="true">
+                        <apex:selectOptions value="{!statuses}"/>
+                    </apex:selectList>
+                    
+                    <apex:actionStatus startText="Please wait.." stopText="" id="counterStatus"/>
+       
+       <!--------------------------------- PLANNED REQUISITIONS -------------------------------->
+                    <apex:pageblocksection title="PLANNED REQUISITIONS" columns="1" collapsible="false" rendered="{!selectedStatus == 'Planned'}"> 
+                        <apex:panelGrid columns="4" >
+                            
+                        </apex:panelGrid>
+                         
+                        <apex:pageBlockTable value="{!rList}" var="w">
+                            <apex:column width="20">
+                                <apex:inputCheckbox value="{!w.selected}"/>
+                            </apex:column>
+                            <apex:column headerValue="Inventory Item" value="{!w.tracker.Inventory_Item__c}" width="120"/>
+                            <apex:column headerValue="Company" value="{!w.tracker.Inventory_Item__r.Item_Company__c}" width="120"/>
+                            <apex:column headerValue="Req. Quantity" width="100">
+                                <apex:inputField required="true" value="{!w.tracker.Work_Order__r.Inventory_Item_Quantity__c}"/>
+                            </apex:column> 
+                            <apex:column headerValue="Quantity on Hand" value="{!w.tracker.Inventory_Item__r.Inventory_Stock__c}" width="120"/>
+                            <apex:column headerValue="Minimum Quantity" value="{!w.tracker.Inventory_Item__r.Minimum_Quantity__c}" width="120"/>
+                            <apex:column headerValue="Created Date" value="{!w.tracker.CreatedDate}" width="120"/>
+                            <apex:column headerValue="Status" value="{!w.tracker.Status__c}" width="120"/>
+                       </apex:pageBlockTable>                
+                    </apex:pageblocksection> 
+                    
+       <!--------------------------------- FIRMED REQUISITIONS -------------------------------->
+                    <apex:pageblocksection title="FIRMED REQUISITIONS" columns="1" collapsible="false" rendered="{!selectedStatus == 'Firmed'}"> 
+                        <apex:panelGrid columns="4" >
+                            
+                        </apex:panelGrid>
+                         
+                        <apex:pageBlockTable value="{!rList}" var="w">
+                            <apex:column headerValue="Inventory Item" value="{!w.tracker.Inventory_Item__c}" width="120"/>
+                            <apex:column headerValue="Company" value="{!w.tracker.Inventory_Item__r.Item_Company__c}" width="120"/>  
+                            <apex:column headerValue="Remaining Quantity" value="{!w.tracker.Quantity_Pending__c}" width="120" />
+                            <apex:column headerValue="Quantity on Hand" value="{!w.tracker.Inventory_Item__r.Inventory_Stock__c}" width="120"/>
+                            <apex:column headerValue="Minimum Quantity" value="{!w.tracker.Inventory_Item__r.Minimum_Quantity__c}" width="120"/>
+                            <apex:column headerValue="Created Date" value="{!w.tracker.CreatedDate}" width="120"/>
+                            <apex:column headerValue="Firmed Date" value="{!w.tracker.Firm_Date__c}" width="120"/>
+                            <apex:column headerValue="Status" value="{!w.tracker.Status__c}" width="120"/>
+                       </apex:pageBlockTable>                
+                    </apex:pageblocksection> 
+      
+                </apex:pageblocksection>   
+            </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Franchise_Type__c</fullName>
+    <description>Type of franchise that the FLO runs.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type of franchise that the FLO runs. Selected by the marketing team after the toilet is launched.</inlineHelpText>
+    <label>Franchise Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Commercial-Open market</fullName>
+                <default>false</default>
+                <label>Commercial-Open market</label>
+            </value>
+            <value>
+                <fullName>Commercial-Residential</fullName>
+                <default>false</default>
+                <label>Commercial-Residential</label>
+            </value>
+            <value>
+                <fullName>Non-Commercial-Plot</fullName>
+                <default>false</default>
+                <label>Non-Commercial-Plot</label>
+            </value>
+            <value>
+                <fullName>Non-Commercial-School</fullName>
+                <default>false</default>
+                <label>Non-Commercial-School</label>
+            </value>
+            <value>
+                <fullName>Non-Commercial-Institution</fullName>
+                <default>false</default>
+                <label>Non-Commercial-Institution</label>
+            </value>
+            <value>
+                <fullName>Hybrid-Institution</fullName>
+                <default>false</default>
+                <label>Hybrid-Institution</label>
+            </value>
+            <value>
+                <fullName>Hybrid-Plot</fullName>
+                <default>false</default>
+                <label>Hybrid-Plot</label>
+            </value>
+            <value>
+                <fullName>Hybrid-School</fullName>
+                <default>false</default>
+                <label>Hybrid-School</label>
+            </value>
+            <value>
+                <fullName>Competitor Location</fullName>
+                <default>false</default>
+                <label>Competitor Location</label>
+            </value>
+            <value>
+                <fullName>Demo Toilet</fullName>
+                <default>false</default>
+                <label>Demo Toilet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

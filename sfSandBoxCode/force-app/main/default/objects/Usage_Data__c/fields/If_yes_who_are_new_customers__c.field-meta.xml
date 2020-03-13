@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_yes_who_are_new_customers__c</fullName>
+    <externalId>false</externalId>
+    <label>If yes, who are new customers?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Neighbors</fullName>
+                <default>false</default>
+                <label>Neighbors</label>
+            </value>
+            <value>
+                <fullName>Friends</fullName>
+                <default>false</default>
+                <label>Friends</label>
+            </value>
+            <value>
+                <fullName>Schoolchildren</fullName>
+                <default>false</default>
+                <label>Schoolchildren</label>
+            </value>
+            <value>
+                <fullName>Commuters</fullName>
+                <default>false</default>
+                <label>Commuters</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

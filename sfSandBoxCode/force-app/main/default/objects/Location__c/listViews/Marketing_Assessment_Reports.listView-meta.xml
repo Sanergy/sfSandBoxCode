@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Assessment_Reports</fullName>
+    <columns>NAME</columns>
+    <columns>GPS_Longitude__c</columns>
+    <columns>GPS_Latitude__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Location__c.Sanergy_Location</value>
+    </filters>
+    <label>Sanergy Locations</label>
+    <language>en_US</language>
+</ListView>

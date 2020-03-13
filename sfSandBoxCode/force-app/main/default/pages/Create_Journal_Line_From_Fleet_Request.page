@@ -1,0 +1,30 @@
+<apex:page standardController="Fleet_Requests__c" extensions="CreateJournalEntryFromFleetRequest">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessage severity="info" summary="Click 'Create' to create a Journal Line Entry for this request. All the fields shown below are mandatory for the creation of the Journal Line Entry"/>
+            <apex:pageblocksection title="Fleet Request {!Fleet_Requests__c.Name}" collapsible="false">
+                 
+                 <apex:outputField value="{!Fleet_Requests__c.Fleet_Request_Category__c}" />
+                 <apex:outputField value="{!Fleet_Requests__c.Requesting_Department__c}" />
+                 <apex:outputField value="{!Fleet_Requests__c.Company__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Location_Dim_2__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Start_Mileage__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Dim_3__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.End_Mileage__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Grant_Funding_Availale_Dim_4__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Distance_Covered__c}"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Journal_Line_Entry__c}" rendered="false"/>
+                 <apex:outputField value="{!Fleet_Requests__c.Departure_Date__c}"/>
+                 
+                 
+                 
+                
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Create" action="{!createJournalLineEntry}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

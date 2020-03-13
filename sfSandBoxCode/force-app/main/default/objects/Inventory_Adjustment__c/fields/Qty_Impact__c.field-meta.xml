@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qty_Impact__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This field indicates whether the location quantity was incremented (value = I) or decremented (value of D) by the transaction.</inlineHelpText>
+    <label>Qty Impact</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>D</fullName>
+                <default>false</default>
+                <label>D</label>
+            </value>
+            <value>
+                <fullName>I</fullName>
+                <default>false</default>
+                <label>I</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

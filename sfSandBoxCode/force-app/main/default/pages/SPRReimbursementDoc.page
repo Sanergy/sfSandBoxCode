@@ -1,0 +1,209 @@
+<apex:page standardController="Special_Procurement__c" applyHtmlTag="false"  extensions="Reimbursement"  standardStylesheets="false" showHeader="false" renderAs="pdf">
+    <html >
+        
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+            <style type="text/css">
+                html,body {
+                margin: 0;
+                height: 100%;
+                }
+                
+                .wrapper {
+                box-sizing: border-box;
+                position: relative;
+                padding-bottom: 0.2em; /* Height of footer */
+                min-height: 100%;
+                }
+                
+                header {
+                background-color: #ffffff;
+                }
+                
+                footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                }
+                @page 
+                {
+                @top-center { content: element(header);}
+                @bottom-left {content: element(footer);}
+                }
+                div.header {position: running(header);}
+                div.footer {display: block;padding: 10px;position: fixed(footer); bottom:-200;font-family:Verdana, Geneva, sans-serif;font-size:10px;text-align:right;}
+                .pagenumber:before {content: counter(page);font-family:Verdana, Geneva, sans-serif;font-size:10px;text-align:right;}
+                .pagecount:before {content: counter(pages);font-family:Verdana, Geneva, sans-serif;font-size:10px;text-align:right;}
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{font-family:Verdana, Geneva, sans-serif;font-size:12px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tg th{font-family:Verdana, Geneva, sans-serif;font-size:12;font-weight:bold;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                .tFoot  {border-collapse:collapse;border-spacing:0; padding:5px 5px;}
+                .tFoot td{font-family:Verdana, Geneva, sans-serif;font-size:10px;padding:5px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            </style>
+        </head>
+        <body>
+            <div class="wrapper">
+                <header><span><apex:image value="{!If(CONTAINS(spr1.Requesting_Company__r.Name, 'Sanergy') ,URLFOR($Resource.Sanergy_Logo),URLFOR($Resource.freshlife_logo)) }"  width="200" /><br/>
+                    </span></header>
+            </div> 
+            <div class="content" >
+                <apex:form >
+                    <p>&nbsp;</p>
+                    <table class="tg" width="99%" id="fltTable" style="border-collapse:collapse;border-spacing:0;border-color:#FF00BB; ">
+                        <tr>
+                            <th>SPR</th>
+                            <th>{!spr1.Name}</th>
+                            <th></th>
+                            <th>Type</th>
+                            <th>{!spr1.Type__c}</th>
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight:bold">Employee</span></td>
+                            <td>{!spr1.Vendor__r.name}</td>
+                            <td></td>
+                            <td><span style="font-weight:bold">Department</span></td>
+                            <td>{!spr1.Requesting_Department__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight:bold">Job Title</span></td>
+                            <td>{!spr1.Requestor__r.Employee_Role__r.Name}</td>
+                            <td></td>
+                            <td><span style="font-weight:bold">Department Unit</span></td>
+                            <td>{!spr1.Requestor__r.Sanergy_Department_Unit__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight:bold">Reason for Advance</span></td>
+                            <td colspan="4">{!spr1.Comments__c}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight:bold">Amount Requested</span></td>
+                            <td>
+                                <apex:outputText value="{0,number,###,###.##}">
+                                    <apex:param value="{!spr1.Total_Amount_Requested__c}"/>
+                                </apex:outputtext>
+                            </td>
+                            <td></td>
+                            <td><span style="font-weight:bold">Amount Approved</span></td>
+                            <td>
+                                <apex:outputText value="{0,number,###,###.##}">
+                                    <apex:param value="{!spr1.Total_Amount__c}"/>
+                                </apex:outputtext>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <h3>SPR Line Items</h3> 
+                                <apex:dataTable width="100%" border="1" title="SPR Reconciliations" var="spr" value="{!SPRLI}" id="sprliTable" styleclass="tablesorter"> 
+                                    <apex:column headerValue="Record" value="{!spr.Name}"/>
+                                    <apex:column headerValue="Item" value="{!spr.Item__c}"/>
+                                    <apex:column headerValue="Item Specification" value="{!spr.Specifications__c}"/>
+                                    <apex:column headerValue="Qty Requested" value="{!spr.Quantity_Requested__c}"/>
+                                    <apex:column headerValue="Total VAT" value="{!spr.Total_VAT__c}"/>
+                                    <apex:column headerValue="Total Price" value="{!spr.Total_Price__c}"/>     
+                                    <apex:column headerValue="Status" value="{!spr.Status__c}"/>
+                                    <apex:column headerValue="Request Type" value="{!spr.Request_Type__c}"/>
+                                </apex:dataTable>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><h3>Reconciliation Records</h3>
+                                <apex:dataTable width="100%" border="1" title="SPR Reconciliations" var="ro" value="{!wrpReconItems}" id="eprTable" styleclass="tablesorter"> 
+                                    <apex:column headerValue="No." style="text-align:center;" headerClass="centertext"  >
+                                        <apex:outputLink value="/{!ro.recon.id}">{!ro.reconIndex}</apex:outputLink>
+                                    </apex:column> 
+                                    <apex:column headerValue="Date" value="{!ro.recon.Date__c}"/>
+                                    <apex:column headerValue="Payee / Vendor" value="{!ro.recon.Supplier__c}"/>
+                                    <apex:column headerValue="Item Amount" value="{!ro.recon.Item_Amount__c}" id="item" />
+                                    <apex:column headerValue="VAT" value="{!ro.recon.VAT__c}" id="vat"/>
+                                    <apex:column headerValue="Transaction Charge" value="{!ro.recon.Transaction_Charge__c}" id="tcharge"/>
+                                    <apex:column headerValue="Total Reconciled" value="{!ro.recon.Total_Reconciled__c}"/>     
+                                    <apex:column headerValue="KRA PIN" value="{!ro.recon.KRA_PIN__c}"/>
+                                    <apex:column headerValue="Expense Description" value="{!ro.recon.Expense_Description__c}"/>
+                                </apex:dataTable>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <h3>Payment Records</h3>
+                                <apex:dataTable width="100%" border="1" title="SPR Payments" var="spp" value="{!sppList}" id="sppTable" styleclass="tablesorter" style="text-align:center;">
+                                    <apex:column headerValue="Record Name" style="text-align:center;">
+                                        <apex:outputLink value="/{!spp.id}">{!spp.Name}</apex:outputLink>
+                                    </apex:column> 
+                                    <apex:column headerValue="Payment Cost" value="{!spp.Payment_Cost__c}"/>
+                                    <apex:column headerValue="Payment Type" value="{!spp.Payment_Type__c}" style="text-align:center;"/>
+                                    <apex:column headerValue="EPR Name">
+                                        <apex:outputLink value="/{!spp.EPR__c}">{!spp.EPR__r.Name}</apex:outputLink>
+                                    </apex:column>
+                                    <apex:column headerValue="Cash Entry" style="text-align:center;">
+                                        <apex:outputLink value="/{!spp.EPR__r.Cash_Entry__c}">{!spp.EPR__r.Cash_Entry__r.Name}</apex:outputLink>
+                                    </apex:column>
+                                    <apex:column headerValue="EPR Processed" value="{!spp.EPR__r.EPR_Processed__c}" style="text-align:center;"/>
+                                    <apex:column headerValue="Date Created" value="{!spp.CreatedDate}" style="text-align:center;"/>
+                                </apex:dataTable>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:form>
+            </div>
+            <footer>
+                <table class="tFoot" width="99%" id="footerTable" >                        
+                    <tr>
+                        <td>PIN Generated</td>
+                        <td>{!spr1.Payable_Invoice__r.Name}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Reconciliation SPR</td>
+                        <td>{!spr1.Recon_SPR__c}</td>
+                        <td></td>
+                        <td>Reconciliation EPR</td>
+                        <td>{!spr1.Recon_EPR__r.Name}</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Generated By:</td>
+                        <td>
+                            <apex:outputText value="{!$User.FirstName} {!$User.LastName}"/>
+                        </td>
+                        <td></td>
+                        <td>Date</td>
+                        <td><apex:outputText value="{0, date, d MMM','  yyyy}" >
+                            <apex:param value="{!TODAY()}" /> 
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Finance Approval</td>
+                        <td></td>
+                        <td></td>
+                        <td>Date</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Team Lead:</td>
+                        <td>{!spr1.Requestor__r.Team_Lead__r.Name}</td>
+                        <td></td>
+                        <td>Date</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div style="font-family:Verdana, Geneva, sans-serif;font-size:10px;text-align:right;">Page <span class="pagenumber"/> of <span class="pagecount"/></div>
+            </footer>
+        </body>
+        
+    </html>
+</apex:page>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved</fullName>
+    <columns>NAME</columns>
+    <columns>department__c</columns>
+    <columns>Company__c</columns>
+    <columns>Vendor_Company__c</columns>
+    <columns>Scheduled_Payment_Date__c</columns>
+    <columns>Gross_Payment_Amount__c</columns>
+    <columns>Team_Lead_Approval_Status__c</columns>
+    <columns>Invoice_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Cash_Entry__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Team_Lead_Approval_Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <filters>
+        <field>Company__c</field>
+        <operation>equals</operation>
+        <value>Sanergy Ltd</value>
+    </filters>
+    <label>Sanergy Limited - Approved</label>
+    <language>en_US</language>
+</ListView>

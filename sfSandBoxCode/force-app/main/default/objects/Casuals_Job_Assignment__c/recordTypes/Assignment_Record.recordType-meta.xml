@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assignment_Record</fullName>
+    <active>true</active>
+    <label>Assignment Record</label>
+    <picklistValues>
+        <picklist>Grade__c</picklist>
+        <values>
+            <fullName>Artisan Grade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artisan Grade II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Artisan Grade III</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driver %28Cars %26 Light Vans%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driver %28Heavy Commercial Vehicle%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Laborer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Night Watchman</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ungraded Artisan</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Job_Status__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>Kinanie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nairobi</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rate_Units__c</picklist>
+        <values>
+            <fullName>Per Day</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per Hour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per Job</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per Month</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Per Week</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

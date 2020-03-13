@@ -1,0 +1,32 @@
+<apex:page standardController="Casual__c">
+    <!--apex:form >
+        <apex:sectionHeader title="Contractor" subtitle="Create EPR for contractor {!Casual__c.name}"/>
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock title="Select the timesheets to process." >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select all" action="{!selectAll}" rerender="table"/>
+                <apex:commandButton value="Unselect all" action="{!unselectAll}" rerender="table"/>
+                <apex:commandButton value="Create EPR" action="{!createEPR}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!timesheets}" var="c" id="table" title="Contractor Assignments">
+                <apex:column >
+                    <apex:inputCheckbox value="{!c.selected}"/>
+                </apex:column>              
+                <apex:column headerValue="Timesheet" value="{!c.timesheet.name}" />
+                <apex:column headerValue="Job Assignment" value="{!c.timesheet.Job_Requisition__c}" />
+                <apex:column headerValue="Job Description" value="{!c.timesheet.Job_Requisition__r.Casual_Job_Line_Item__r.General_Description__c}" />
+                <apex:column headerValue="Assignment Department" value="{!c.timesheet.Job_Requisition__r.Assignment_Department__c}" />
+                <apex:column headerValue="Start Date" value="{!c.timesheet.Start_Date__c}" />
+                <apex:column headerValue="End Date" value="{!c.timesheet.End_Date__c}" />
+                <apex:column headerValue="Grade" value="{!c.timesheet.Job_Requisition__r.Grade__c}" />
+                <apex:column headerValue="Job Status" value="{!c.timesheet.Job_Requisition__r.Job_Status__c}" />
+                <apex:column headerValue="Total Payment" value="{!c.timesheet.Payment_Amount__c}" />
+               
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    <!--/apex:form--> 
+</apex:page>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Source__c</fullName>
+    <description>Windrow Batch Item Source</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Windrow Batch Item Source</inlineHelpText>
+    <label>Item Source</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Item_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Corn Cobs</fullName>
+                <default>false</default>
+                <label>Corn Cobs</label>
+            </value>
+            <value>
+                <fullName>Dont Waste - Garden City</fullName>
+                <default>false</default>
+                <label>Dont Waste - Garden City</label>
+            </value>
+            <value>
+                <fullName>EPZ</fullName>
+                <default>false</default>
+                <label>EPZ</label>
+            </value>
+            <value>
+                <fullName>FLI Waste</fullName>
+                <default>false</default>
+                <label>FLI Waste</label>
+            </value>
+            <value>
+                <fullName>Lime</fullName>
+                <default>false</default>
+                <label>Lime</label>
+            </value>
+            <value>
+                <fullName>Mavoko Market</fullName>
+                <default>false</default>
+                <label>Mavoko Market</label>
+            </value>
+            <value>
+                <fullName>Muthurwa Market</fullName>
+                <default>false</default>
+                <label>Muthurwa Market</label>
+            </value>
+            <value>
+                <fullName>Nairobi Dam</fullName>
+                <default>false</default>
+                <label>Nairobi Dam</label>
+            </value>
+            <value>
+                <fullName>Sanergy Office</fullName>
+                <default>false</default>
+                <label>Sanergy Office</label>
+            </value>
+            <value>
+                <fullName>SawDust</fullName>
+                <default>false</default>
+                <label>SawDust</label>
+            </value>
+            <value>
+                <fullName>Steers</fullName>
+                <default>false</default>
+                <label>Steers</label>
+            </value>
+            <value>
+                <fullName>Wood Chips</fullName>
+                <default>false</default>
+                <label>Wood Chips</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>FLI Waste</controllingFieldValue>
+            <valueName>FLI Waste</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>Dont Waste - Garden City</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>EPZ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>Mavoko Market</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>Muthurwa Market</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>Nairobi Dam</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>Sanergy Office</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non FLI Waste</controllingFieldValue>
+            <valueName>Steers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bulker</controllingFieldValue>
+            <valueName>Corn Cobs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bulker</controllingFieldValue>
+            <valueName>SawDust</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bulker</controllingFieldValue>
+            <valueName>Wood Chips</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lime</controllingFieldValue>
+            <valueName>Lime</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

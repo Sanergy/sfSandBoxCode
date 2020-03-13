@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidatePOItemCompany</fullName>
+    <active>true</active>
+    <description>The Purchase Item should be of the same company as the PR Line Item</description>
+    <errorConditionFormula>AND(Purchase_Order_Item__r.Company__c !=  Requesting_Company__r.Id,
+NOT(ISBLANK( Purchase_Order_Item__c)))</errorConditionFormula>
+    <errorDisplayField>Purchase_Order_Item__c</errorDisplayField>
+    <errorMessage>The Purchase Item should be of the same company as the PR Line Item</errorMessage>
+</ValidationRule>

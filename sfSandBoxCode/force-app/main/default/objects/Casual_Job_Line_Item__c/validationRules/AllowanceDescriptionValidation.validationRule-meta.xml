@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllowanceDescriptionValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISNULL( Allowance_Description__c ), 
+  NOT(ISNULL( Allowance_Per_Person__c ) ) 
+  )</errorConditionFormula>
+    <errorDisplayField>Allowance_Description__c</errorDisplayField>
+    <errorMessage>Please give Allowance Description</errorMessage>
+</ValidationRule>

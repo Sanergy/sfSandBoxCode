@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>USSD_Case_Categories__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>USSD Case Categories</label>
+    <referenceTo>Ussd_Cate_C__c</referenceTo>
+    <relationshipLabel>Cases Timelines</relationshipLabel>
+    <relationshipName>Cases_Timelines</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

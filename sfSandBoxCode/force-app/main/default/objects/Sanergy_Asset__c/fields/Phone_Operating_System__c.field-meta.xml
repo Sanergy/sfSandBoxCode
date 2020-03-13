@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Operating_System__c</fullName>
+    <externalId>false</externalId>
+    <label>Operating System</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>--None--</fullName>
+                <default>false</default>
+                <label>--None--</label>
+            </value>
+            <value>
+                <fullName>Android</fullName>
+                <default>false</default>
+                <label>Android</label>
+            </value>
+            <value>
+                <fullName>iOS</fullName>
+                <default>false</default>
+                <label>iOS</label>
+            </value>
+            <value>
+                <fullName>Blackberry</fullName>
+                <default>false</default>
+                <label>Blackberry</label>
+            </value>
+            <value>
+                <fullName>Windows</fullName>
+                <default>false</default>
+                <label>Windows</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

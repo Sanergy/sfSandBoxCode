@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inventory_Stock__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Count of items in stock In all locations</inlineHelpText>
+    <label>Inventory Stock</label>
+    <summarizedField>Inventory_Item_Location__c.Location_Quantity__c</summarizedField>
+    <summaryForeignKey>Inventory_Item_Location__c.Inventory_Item__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

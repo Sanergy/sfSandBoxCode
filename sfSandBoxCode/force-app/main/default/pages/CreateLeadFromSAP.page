@@ -1,0 +1,28 @@
+<apex:page standardController="SA_Presentations__c" extensions="CreateLeadFromSAPresentation">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessage severity="info" summary="Click 'Create' to create Lead for this SA Presentation."/>
+            <apex:pageblocksection title="Lead {!SA_Presentations__c.Name}" collapsible="false">
+            
+                 <apex:outputField value="{!SA_Presentations__c.Company__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.Last_Name__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.First_name__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.Phone__c}"/>
+                 <apex:outputField value="{!SA_Presentations__c.Sub_Area__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.Lead_Source__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.Name_of_Referrer__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.SA_Name__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.First_Contact_Date__c}" />
+                 <apex:outputField value="{!SA_Presentations__c.Presented_to__c}" />
+                 
+                 
+                
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Create" action="{!createLead}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

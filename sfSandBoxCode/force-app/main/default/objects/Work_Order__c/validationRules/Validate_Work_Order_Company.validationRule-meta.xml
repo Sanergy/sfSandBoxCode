@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Work_Order_Company</fullName>
+    <active>true</active>
+    <description>Validate Work Order Company</description>
+    <errorConditionFormula>Company__r.Id &lt;&gt; Inventory_Item__r.Item_Company__r.Id</errorConditionFormula>
+    <errorDisplayField>Company__c</errorDisplayField>
+    <errorMessage>Work Order company does not match the company of the item selected</errorMessage>
+</ValidationRule>

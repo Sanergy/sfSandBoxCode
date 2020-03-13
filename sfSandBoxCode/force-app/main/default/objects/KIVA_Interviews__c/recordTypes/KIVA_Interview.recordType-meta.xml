@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KIVA_Interview</fullName>
+    <active>true</active>
+    <label>KIVA Interview</label>
+    <picklistValues>
+        <picklist>Able_to_repay_previous_loan_on_time__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Add_on_FLTs_to_be_in_current_location__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Average_monthly_income__c</picklist>
+        <values>
+            <fullName>0 - 5000 Ksh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>15000 Ksh %2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5000 - 15000 Ksh</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Do_you_run_any_business__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Expansion_plans__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>How_did_you_secure_funding__c</picklist>
+        <values>
+            <fullName>Loan from bank%2FMFI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loan from friends%2Ffamily</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Savings</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>How_you_market__c</picklist>
+        <values>
+            <fullName>Education campaign%2Fdoor-to-door</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flyers%2FSigns</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No need</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Word of mouth</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Taken_loan_Before__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

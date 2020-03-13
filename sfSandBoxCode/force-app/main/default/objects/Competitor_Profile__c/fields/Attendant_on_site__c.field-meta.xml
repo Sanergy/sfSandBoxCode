@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attendant_on_site__c</fullName>
+    <externalId>false</externalId>
+    <label>Attendant on-site?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Always there</fullName>
+                <default>false</default>
+                <label>Always there</label>
+            </value>
+            <value>
+                <fullName>Comes to check/clean only</fullName>
+                <default>false</default>
+                <label>Comes to check/clean only</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

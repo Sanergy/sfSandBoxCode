@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompanyFieldValidation</fullName>
+    <active>true</active>
+    <description>Prevents users from interchanging company with departments</description>
+    <errorConditionFormula>NOT(Requesting_Company__r.Type__c = &quot;company&quot;  )</errorConditionFormula>
+    <errorDisplayField>Requesting_Company__c</errorDisplayField>
+    <errorMessage>Please select Company</errorMessage>
+</ValidationRule>

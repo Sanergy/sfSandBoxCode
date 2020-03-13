@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_Kiva_FLTs__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>The number of KIVA funded FLTs</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of KIVA funded FLTs</inlineHelpText>
+    <label>No. of Kiva FLTs</label>
+    <precision>3</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

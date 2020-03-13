@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Testing_Lab__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please indicate the name of the lab where samples should be sent (i.e. Sanergy, Cropnuts)</inlineHelpText>
+    <label>Testing Lab</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sanergy Lab</fullName>
+                <default>false</default>
+                <label>Sanergy Lab</label>
+            </value>
+            <value>
+                <fullName>Cropnuts</fullName>
+                <default>false</default>
+                <label>Cropnuts</label>
+            </value>
+            <value>
+                <fullName>Sanergy and Cropnuts</fullName>
+                <default>false</default>
+                <label>Sanergy and Cropnuts</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

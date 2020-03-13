@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Physical_Location_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Physical location type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>At entry point to slum</fullName>
+                <default>false</default>
+                <label>At entry point to slum</label>
+            </value>
+            <value>
+                <fullName>In a plot—hidden</fullName>
+                <default>false</default>
+                <label>In a plot—hidden</label>
+            </value>
+            <value>
+                <fullName>In a plot—visible</fullName>
+                <default>false</default>
+                <label>In a plot—visible</label>
+            </value>
+            <value>
+                <fullName>In a building—hidden</fullName>
+                <default>false</default>
+                <label>In a building—hidden</label>
+            </value>
+            <value>
+                <fullName>In a building—visible</fullName>
+                <default>false</default>
+                <label>In a building—visible</label>
+            </value>
+            <value>
+                <fullName>On a road</fullName>
+                <default>false</default>
+                <label>On a road</label>
+            </value>
+            <value>
+                <fullName>On a well-travelled path</fullName>
+                <default>false</default>
+                <label>On a well-travelled path</label>
+            </value>
+            <value>
+                <fullName>On interior path</fullName>
+                <default>false</default>
+                <label>On interior path</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

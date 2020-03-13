@@ -1,0 +1,437 @@
+<apex:page docType="html-5.0" extensions="VendorInvoiceMapping" standardController="Vendor_Invoice__c">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"  />
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+            function setFocusOnLoad() {
+            CalculateTotal();
+            CalculateAllTotals();
+        }
+        </script>
+        <script>
+        //check the quantity  Requested and the Quantity Received 
+        /*   function QuantityCheck(){
+            var NumRowsField = document.querySelector('[id*=":rowCount"]').id;
+            var numberOfRows = document.getElementById(NumRowsField).textContent;  
+            numberOfRows = parseFloat(numberOfRows);
+            
+            //Last Invoice 
+            var fieldPrefixLast = document.querySelector('[id*=":lastVI"]').id;
+            fieldPrefixLast =  fieldPrefixLast.substring(0,fieldPrefixLast.lastIndexOf(":"));
+            fieldPrefixLast =  fieldPrefixLast.substring(0,fieldPrefixLast.lastIndexOf(":")+1);
+            
+            //field Prefix for Qty received
+            var fieldPrefixQtyReceived = document.querySelector('[id*=":qtyRec"]').id;
+            fieldPrefixQtyReceived =  fieldPrefixQtyReceived.substring(0,fieldPrefixQtyReceived.lastIndexOf(":"));
+            fieldPrefixQtyReceived =  fieldPrefixQtyReceived.substring(0,fieldPrefixQtyReceived.lastIndexOf(":")+1);
+            
+            //Field Prefix Qty Requested 
+            var fieldPrefixQtyRequested = document.querySelector('[id*=":qtyReq"]').id;
+            fieldPrefixQtyRequested =  fieldPrefixQtyRequested.substring(0,fieldPrefixQtyRequested.lastIndexOf(":"));
+            fieldPrefixQtyRequested =  fieldPrefixQtyRequested.substring(0,fieldPrefixQtyRequested.lastIndexOf(":")+1);
+            
+            for(var i=0; i<numberOfRows; i++){
+
+                //get the quantity Received from the row 
+                QuantityReceived =  document.getElementById(fieldPrefixQtyReceived + i +':qtyRec').innerHTML;
+                QuantityReceived = (isNaN(parseFloat((QuantityReceived).replace(',', ''))) ? 0 : parseFloat((QuantityReceived).replace(',', '')));
+                
+                //get the quantity Requested from the row 
+                QuantityRequested =  document.getElementById(fieldPrefixQtyRequested + i +':qtyReq').innerHTML;
+                QuantityRequested = (isNaN(parseFloat((QuantityRequested).replace(',', ''))) ? 0 : parseFloat((QuantityRequested).replace(',', '')));
+                
+                //get the last invoice value 
+                var LastInvoice = document.getElementById(fieldPrefixLast + i + ':lastVI').checked;
+                
+                if(QuantityReceived != QuantityRequested){
+                    LastInvoice = true;
+                }
+                
+            }
+        }
+        */
+       //calculate the total for each item 
+       function CalculateTotal(){
+           
+           //Last Invoice 
+           var fieldPrefixLast = document.querySelector('[id*=":lastVI"]').id;
+           fieldPrefixLast =  fieldPrefixLast.substring(0,fieldPrefixLast.lastIndexOf(":"));
+           fieldPrefixLast =  fieldPrefixLast.substring(0,fieldPrefixLast.lastIndexOf(":")+1);
+           
+           //field Prefix for Qty received
+           var fieldPrefixQtyRcvd = document.querySelector('[id*=":qtyRec"]').id;
+           fieldPrefixQtyRcvd =  fieldPrefixQtyRcvd.substring(0,fieldPrefixQtyRcvd.lastIndexOf(":"));
+           fieldPrefixQtyRcvd =  fieldPrefixQtyRcvd.substring(0,fieldPrefixQtyRcvd.lastIndexOf(":")+1);
+           
+           //Field Prefix Qty Requested 
+           var fieldPrefixQtyRequested = document.querySelector('[id*=":qtyReq"]').id;
+           fieldPrefixQtyRequested =  fieldPrefixQtyRequested.substring(0,fieldPrefixQtyRequested.lastIndexOf(":"));
+           fieldPrefixQtyRequested =  fieldPrefixQtyRequested.substring(0,fieldPrefixQtyRequested.lastIndexOf(":")+1);
+           
+           var fieldPrefixVat = document.querySelector('[id*=":Vat"]').id;
+           var fieldPrefixUnitCost = document.querySelector('[id*=":UnitCost"]').id;
+           var fieldPrefixQtyReceived = document.querySelector('[id*=":QtyReceived"]').id;
+           var fieldPrefixLineNetTotal = document.querySelector('[id*=":NetTotal"]').id;
+           var fieldPrefixlinetotal = document.querySelector('[id*=":ItemTotal"]').id;
+           var fieldPrefixVATtotal = document.querySelector('[id*=":VATTotal"]').id;
+           
+           fieldPrefixUnitCost =  fieldPrefixUnitCost.substring(0,fieldPrefixUnitCost.lastIndexOf(":"));
+           fieldPrefixUnitCost =  fieldPrefixUnitCost.substring(0,fieldPrefixUnitCost.lastIndexOf(":")+1);
+           
+           fieldPrefixQtyReceived =  fieldPrefixQtyReceived.substring(0,fieldPrefixQtyReceived.lastIndexOf(":"));
+           fieldPrefixQtyReceived =  fieldPrefixQtyReceived.substring(0,fieldPrefixQtyReceived.lastIndexOf(":")+1);
+           
+           fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":"));
+           fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":")+1);
+           
+           fieldPrefixLineNetTotal =  fieldPrefixLineNetTotal.substring(0,fieldPrefixLineNetTotal.lastIndexOf(":"));
+           fieldPrefixLineNetTotal =  fieldPrefixLineNetTotal.substring(0,fieldPrefixLineNetTotal.lastIndexOf(":")+1);
+           
+           fieldPrefixVATtotal =  fieldPrefixVATtotal.substring(0,fieldPrefixVATtotal.lastIndexOf(":"));
+           fieldPrefixVATtotal =  fieldPrefixVATtotal.substring(0,fieldPrefixVATtotal.lastIndexOf(":")+1);
+           
+           fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":"));
+           fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":")+1);
+           
+           var NumRowsField = document.querySelector('[id*=":rowCount"]').id;
+           var numberOfRows = document.getElementById(NumRowsField).textContent;  
+           numberOfRows = parseFloat(numberOfRows);
+           
+           var colVat = 0.0;
+           var colUnitCost = 0.0;
+           var colQtyReceived = 0.0;
+           var colVatTotal = 0.0;
+           var colUnitCostTotal = 0.0;
+           var colQtyReceivedTotal = 0.0;
+           var allColTotal = 0.0;
+           var QuantityRec = 0.0;
+           var QuantityRequested = 0.0;
+           var TotalRecQty = 0.0;
+           var colLineNetTotal = 0.0; //Net for each Line
+           var colLineGrossVAT = 0.0; //Gross VAT for each Line
+           
+           for(var i=0; i<numberOfRows; i++){
+               
+               //get the quantity Received from the row 
+               QuantityRec =  document.getElementById(fieldPrefixQtyRcvd + i +':qtyRec').innerHTML;
+               QuantityRec = (isNaN(parseFloat((QuantityRec).replace(',', ''))) ? 0 : parseFloat((QuantityRec).replace(',', '')));
+               
+               //get the quantity Requested from the row 
+               QuantityRequested =  document.getElementById(fieldPrefixQtyRequested + i +':qtyReq').innerHTML;
+               QuantityRequested = (isNaN(parseFloat((QuantityRequested).replace(',', ''))) ? 0 : parseFloat((QuantityRequested).replace(',', '')));
+               
+               //get the last invoice value 
+               var LastInvoice = document.getElementById(fieldPrefixLast + i + ':lastVI').checked;
+               
+               
+               //check the quantities Received for the line items againist the quantities Requested 
+               if((QuantityRequested == QuantityRec) || (QuantityRec > QuantityRequested)){
+                   document.getElementById(fieldPrefixLast + i + ':lastVI').checked = true;
+               }   
+               
+               colVat =  document.getElementById(fieldPrefixVat + i +':Vat').value;
+               colUnitCost =  document.getElementById(fieldPrefixUnitCost + i +':UnitCost').value;
+               colQtyReceived =  document.getElementById(fieldPrefixQtyReceived + i +':QtyReceived').value;
+               colVat = (isNaN(parseFloat((colVat).replace(',', ''))) ? 0 : parseFloat((colVat).replace(',', '')));
+               colUnitCost = (isNaN(parseFloat((colUnitCost).replace(',', ''))) ? 0 : parseFloat((colUnitCost).replace(',', '')));
+               colQtyReceived = (isNaN(parseFloat((colQtyReceived).replace(',', ''))) ? 0 : parseFloat((colQtyReceived).replace(',', '')));
+               
+               //colQtyReceived = (isNaN(parseFloat((colQtyReceived).replace(',', ''))) ? 0 : parseFloat((colQtyReceived).replace(',', '')));
+               TotalRecQty += colQtyReceived;
+               
+               //var fieldPrefixReconciledQty = document.querySelector('[id*=":ReconciledQty"]').id;
+               //document.getElementById(fieldPrefixReconciledQty).value = TotalRecQty;
+               //alert(document.getElementById(fieldPrefixReconciledQty).value);
+               
+               colVatTotal += parseFloat(colVat);
+               colUnitCostTotal += parseFloat(colUnitCost);
+               colQtyReceivedTotal += parseFloat(colQtyReceived);
+               
+               colLineNetTotal = colUnitCost * colQtyReceived;
+               if(colVat == 0){
+                   var added = colUnitCost * colQtyReceived;
+                   colLineGrossVAT = 0.0; //No VAT
+               }
+               else{
+                   var added =  (colQtyReceived * ((colUnitCost) + ((colUnitCost * colVat )/100)));
+                   colLineGrossVAT = ((colUnitCost * colVat )/100)*colQtyReceived;
+               }
+               
+               allColTotal = colVatTotal+ colUnitCostTotal+colQtyReceivedTotal;
+               document.getElementById(fieldPrefixlinetotal + i +':ItemTotal').value = added.toFixed(2);
+               document.getElementById(fieldPrefixVATtotal + i +':VATTotal').value = colLineGrossVAT.toFixed(2);
+               document.getElementById(fieldPrefixVATtotal + i +':NetTotal').value = colLineNetTotal.toFixed(2);
+               
+           }    
+           
+           var fieldPrefixReconciledQty = document.querySelector('[id*=":ReconciledQty"]').id;
+           document.getElementById(fieldPrefixReconciledQty).value = TotalRecQty;
+           CalculateAllTotals();
+           
+       }  
+       
+       //Function to calculate the Vat total of all the field items in the entire table.
+       function CalculateAllTotals(){
+           var NumRowsField = document.querySelector('[id*=":rowCount"]').id;
+           var numberOfRows = document.getElementById(NumRowsField).textContent;  
+           numberOfRows = parseFloat(numberOfRows);
+           
+           var fieldPrefixTotal = document.querySelector('[id*=":ItemTotal"]').id;
+           
+           fieldPrefixTotal =  fieldPrefixTotal.substring(0,fieldPrefixTotal.lastIndexOf(":"));
+           fieldPrefixTotal =  fieldPrefixTotal.substring(0,fieldPrefixTotal.lastIndexOf(":")+1);
+           
+           
+           var colTotal = 0.0;
+           var colItemsTotal = 0.0;
+           
+           for(var i=0; i<numberOfRows; i++){
+               colTotal =  document.getElementById(fieldPrefixTotal + i +':ItemTotal').value;
+               
+               colTotal = (isNaN(parseFloat((colTotal).replace(',', ''))) ? 0 : parseFloat((colTotal).replace(',', '')));
+               
+               colItemsTotal += parseFloat(colTotal);
+           } 
+           //Update Recon Total
+           var fieldPrefixReconTot = document.querySelector('[id*=":reconTot"]').id;
+           document.getElementById(fieldPrefixReconTot).value = colItemsTotal;       
+            
+       }
+       
+       //Function to Reconcile all  data 
+       function Reconcile(){
+           var subBtn = document.querySelector('[id*=":save"]').id;
+           
+           var NumRowsField = document.querySelector('[id*=":rowCount"]').id;
+           var numberOfRows = document.getElementById(NumRowsField).textContent;  
+           numberOfRows = parseFloat(numberOfRows);
+           
+           //Invoice Total from the VI
+           var invoice = document.querySelector('[id*=":invTot"]').id;
+           var InvoiceTotal = document.getElementById(invoice).textContent;  
+           InvoiceTotal = parseFloat(InvoiceTotal);
+           
+           //Exit function if Invoice Total hasn't been provided
+           if(InvoiceTotal <= 0){
+               alert('Invoice Total must be provided for this VI');
+               return false;
+               }
+           
+           //Vendor Invoice payment Variance 
+           var VIPayment = document.querySelector('[id*=":PayVar"]').id;
+           var VIPaymentVariance = document.getElementById(VIPayment).value;
+           
+           //Vendor Invoice Receipt Variance
+           var VIreceipt = document.querySelector('[id*=":ReceiptVar"]').id;
+           var VIReceiptVariance = document.getElementById(VIreceipt).value;
+           
+           //Max Value
+           var maxValue = document.querySelector('[id*=":maxVal"]').id;
+           var MaximumValue = document.getElementById(maxValue).innerHTML;
+           
+           //Min Value
+           var minValue = document.querySelector('[id*=":minVal"]').id;
+           var MinimumValue = document.getElementById(minValue).innerHTML;
+           
+           //Last Invoice 
+           var last = document.querySelector('[id*=":lastVI"]').id;
+           var LastInvoice = document.getElementById(last).checked;
+           
+           var fieldPrefixTotal = document.querySelector('[id*=":ItemTotal"]').id;
+           
+           fieldPrefixTotal =  fieldPrefixTotal.substring(0,fieldPrefixTotal.lastIndexOf(":"));
+           fieldPrefixTotal =  fieldPrefixTotal.substring(0,fieldPrefixTotal.lastIndexOf(":")+1);
+           
+           //Get the total for the Quantities Received From the Reconciliation Invoice Items 
+           var fieldPrefixReconciledQuantity = document.querySelector('[id*=":QtyReceived"]').id;
+           
+           fieldPrefixReconciledQuantity =  fieldPrefixReconciledQuantity.substring(0,fieldPrefixReconciledQuantity.lastIndexOf(":"));
+           fieldPrefixReconciledQuantity =  fieldPrefixReconciledQuantity.substring(0,fieldPrefixReconciledQuantity.lastIndexOf(":")+1);
+           
+           var colTotal = 0.0;
+           var colItemsTotal = 0.0;
+           var ReconciledTotalQty = 0.0;
+           var TotalRecQty = 0.0;
+           for(var i=0; i<numberOfRows; i++){
+               //Get the total for the Quantities Received From the Reconciliation  Invoice Items 
+               ReconciledTotalQty =  document.getElementById(fieldPrefixReconciledQuantity + i +':QtyReceived').value;
+               ReconciledTotalQty = (isNaN(parseFloat((ReconciledTotalQty).replace(',', ''))) ? 0 : parseFloat((ReconciledTotalQty).replace(',', '')));
+               TotalRecQty += parseFloat(ReconciledTotalQty);
+               
+               var fieldPrefixReconciledQty = document.querySelector('[id*=":ReconciledQty"]').id;
+               document.getElementById(fieldPrefixReconciledQty).value = TotalRecQty;
+               
+               //Get the Quantities Received Totals From VII
+               var VIIQty = document.querySelector('[id*=":sumReceivedVal"]').id;
+               var VIITotalQtys = document.getElementById(VIIQty).innerHTML;  
+               VIITotalQtys = parseFloat(VIITotalQtys);
+               
+               //Get the Reconciled Total 
+               colTotal =  document.getElementById(fieldPrefixTotal + i +':ItemTotal').value;
+               colTotal = (isNaN(parseFloat((colTotal).replace(',', ''))) ? 0 : parseFloat((colTotal).replace(',', '')));
+               colItemsTotal += parseFloat(colTotal);
+               document.getElementById(fieldPrefixTotal + i +':ItemTotal').value = colTotal;
+           }
+           
+           //Check If all items are fully recieved for the vendor invoice 
+           if((VIITotalQtys != TotalRecQty) && (colItemsTotal != InvoiceTotal) && (colItemsTotal < MinimumValue || colItemsTotal > MaximumValue ) &&(VIReceiptVariance == null ||  VIReceiptVariance == '' ) &&(VIPaymentVariance == null ||  VIPaymentVariance == '' )){
+               document.getElementById(subBtn).disabled = true;
+               alert('Please Provide  Receipt Variance and Payment Variance For this Vendor Invoice ');
+           }
+           
+           //Check if all Total Payments were correctly done
+           else  if((colItemsTotal != InvoiceTotal) && 
+                    (colItemsTotal < MinimumValue || colItemsTotal > MaximumValue ) && 
+                    (VIPaymentVariance == null ||  VIPaymentVariance == '' )){
+               document.getElementById(subBtn).disabled = true;
+               alert('Please Provide  Payment Variance For this Vendor Invoice ');
+           }
+           
+               else if((VIITotalQtys != TotalRecQty) &&(VIReceiptVariance == null ||  VIReceiptVariance == '' )){
+                   document.getElementById(subBtn).disabled = true;
+                   alert('Please Provide  Receipt Variance  For this Vendor Invoice ');
+               }
+           
+                   else{
+                       
+                       saveNow(); 
+                   }
+           
+       }
+       
+       function Change(){
+           var subBtn = document.querySelector('[id*=":save"]').id;
+           document.getElementById(subBtn).disabled = false;
+           
+       }
+       
+       function CountSelectedRows(){
+           var NumRowsField = document.querySelector('[id*=":rowCount"]').id;
+           var numberOfRows = document.getElementById(NumRowsField).textContent;  
+           numberOfRows = parseFloat(numberOfRows);
+           
+           //field Prefix for Qty received
+           var fieldPrefixProcessRow = document.querySelector('[id*=":chkProcessRow"]').id;
+           fieldPrefixProcessRow =  fieldPrefixProcessRow.substring(0,fieldPrefixProcessRow.lastIndexOf(":"));
+           fieldPrefixProcessRow =  fieldPrefixProcessRow.substring(0,fieldPrefixProcessRow.lastIndexOf(":")+1);
+           
+           var processRow = false;
+           var selectedRows = 0;
+           for(var i=0; i<numberOfRows; i++){
+               //check if the row has been selected for processing.
+               processRow = document.getElementById(fieldPrefixProcessRow + i +':chkProcessRow').checked;
+               if (processRow == true)
+               {
+                   selectedRows = selectedRows + 1;
+               }
+           }
+           return selectedRows;
+       }
+       </script>
+       
+    <body>
+    <apex:form >
+        <apex:sectionHeader title="{!vi.Name}" subtitle="Vendor Invoice Reconciliation"/>
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            
+            <apex:pageBlockSection >
+                <apex:outputField value="{!vi.Name}"/>
+                <apex:outputField value="{!vi.Vendor__c}"/>
+                <apex:outputField value="{!vi.Invoice_Number__c}"/>
+                <apex:outputField value="{!vi.VI_Status__c}"/>
+                <apex:outputText id="invTot" label="Invoice Total:" value="{0,number, ###,###.####}">
+                    <apex:param value="{!vi.Invoice_Total__c}"/>
+                </apex:outputText>
+                <apex:outputField value="{!vi.Total_Payments__c}"/>
+                <apex:inputText id="reconTot" label="Reconciled Total:" value="{!vi.Reconciled_Invoice_Total__c}" style="background-color:#f5f5f0;border: transparent;" onchange="Change()"/> 
+                <apex:outputField value="{!vi.Invoice_Received_Value__c}"/>
+                <apex:pageBlockSectionItem /><apex:pageBlockSectionItem /><apex:pageBlockSectionItem />
+                <apex:inputTextarea id="PayVar" label="VI Payment Variance:" value="{!vi.Payment_Variance__c}" onchange="Change()"/>
+                <apex:inputTextArea id="ReceiptVar" label="VI Receipt Variance:" value="{!vi.Receipt_Variance__c}" onchange="Change()">  </apex:inputTextArea>
+                <apex:pageBlockSectionItem />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select All" action="{!selectAll}" reRender="pb1,table"/>
+                <apex:commandButton value="UnSelect All" action="{!unselectAll}" reRender="pb1,table"/>
+                <apex:commandButton value="Reconcile VI" id="save" onclick="Reconcile(); return false;" rendered="{!showButtons}" />
+                <apex:actionFunction name="saveNow" action="{!saveVI}" rendered="{!showButtons}"/>
+                <apex:commandButton value="Reconcile POLI" id="reconPOLI" action="{!CallReconcilePage}" rendered="{!showReconcileButton}" />
+                <apex:commandButton value="Close VI" action="{!CloseVI}" onclick="if(!confirm('Proceed to close this VI?\n\nNo further reconciliations will be allowed on the VI.')){return false};"/>
+                <apex:commandButton value="Return to VI" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <!--<apex:pageBlockSection id="pb1">-->
+            
+            <apex:pageBlockTable value="{!items}" var="item" id="table">
+                <apex:column headerValue="Process">
+                    <apex:inputCheckbox value="{!item.selected}" id="chkProcessRow" disabled="{!item.disableProcessChkBox}" ></apex:inputCheckbox>
+                </apex:column>
+                <apex:column headerValue="Last VI">
+                    <apex:inputCheckbox value="{!item.vipoli.Last_Invoice__c}" disabled="{!item.disableLastVIChkBox}" id="lastVI"></apex:inputCheckbox>
+                </apex:column>
+                <apex:column headerValue="Status"><apex:outputText value="{!item.vipoli.Status__c}"></apex:outputText></apex:column>
+                <apex:column headerValue="VIPOL Item">
+                    <apex:outputlink value="/{!item.vipoli.Id}">{!item.vipoli.Name}</apex:outputlink>
+                </apex:column>
+                <apex:column headerValue="PO Line Item">
+                    <apex:outputlink value="/{!item.vipoli.Purchase_Order_Line_Item__c}">{!item.vipoli.Purchase_Order_Line_Item__r.Name}</apex:outputlink>
+                </apex:column>
+                <!--<apex:column headerValue="VIPOL Item"><apex:outputText value="{!item.vipoli.Name}"></apex:outputText></apex:column>
+<apex:column headerValue="PO line Item"><apex:outputText value="{!item.vipoli.Purchase_Order_Line_Item__r.Name}"></apex:outputText></apex:column>-->
+                <apex:column headerValue="Description"><apex:outputText value="{!item.vipoli.Purchase_Order_Line_Item__r.Item__c}"></apex:outputText></apex:column>
+                <apex:column headerValue="Purchase UoM"><apex:outputText value="{!item.vipoli.Purchase_Order_Line_Item__r.UoM__c}"></apex:outputText></apex:column>
+                <apex:column headerValue="Qty Requested">
+                    <apex:outputText value="{0,number, ###,###.###}" id="qtyReq" >
+                        <apex:param value="{!item.vipoli.Purchase_Order_Line_Item__r.Quantity_Requested__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Qty Received">
+                    <apex:outputText value="{0,number, ###,###.####}" id="qtyRec" >
+                        <apex:param value="{!item.vipoli.Purchase_Order_Line_Item__r.Quantity_Accepted__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="VII Received">
+                    <apex:outputText value="{0,number, ###,###.####}" id="ItemReceived" >
+                        <apex:param value="{!item.vipoli.Item_Received_Total__c}"/>
+                    </apex:outputText>
+                </apex:column>                   
+                <apex:column headerValue="Unit Cost" >
+                    <apex:inputText value="{!item.vipoli.Item_Unit_Cost__c}" id="UnitCost" onchange="CalculateTotal()"/>
+                </apex:column>
+                <apex:column headerValue="VAT Percentage">
+                    <apex:inputText value="{!item.vipoli.Item_Vat__c}" id="Vat" onchange="CalculateTotal()"/>
+                </apex:column>
+                <apex:column headerValue="Quantity Received">
+                    <apex:inputText value="{!item.vipoli.Reconciled_Item_Quantity_Received__c}" id="QtyReceived" onchange="CalculateTotal()"/>
+                </apex:column>
+                <apex:column headerValue="Net Cost"> 
+                    <apex:inputText value="{!item.vipoli.Reconciled_Line_Net_Cost__c}" id="NetTotal" onchange="CalculateAllTotals()" style="background-color:#f5f5f0;border: transparent;" />
+                </apex:column>
+                <apex:column headerValue="Total VAT"> 
+                    <apex:inputText value="{!item.vipoli.Reconciled_Line_VAT__c}" id="VATTotal" onchange="CalculateAllTotals()" style="background-color:#f5f5f0;border: transparent;" />
+                </apex:column>
+                <apex:column headerValue="Total Cost"> 
+                    <apex:inputText value="{!item.vipoli.Reconciled_Line_Total__c}" id="ItemTotal" onchange="CalculateAllTotals()" style="background-color:#f5f5f0;border: transparent;" />
+                </apex:column>
+                <!-- <apex:column value="{!item.vipoli.Item_Total__c}"></apex:column>-->
+            </apex:pageBlockTable>
+            <!--</apex:pageBlockSection>-->
+            
+        </apex:pageBlock>
+        <apex:pageBlock id="block1">
+            <apex:pageBlockSection collapsible="true" id="blocksec1a" Title="Details">
+                <apex:outputText value="{!vi.Invoice_Total__c}" id="invoiceTotal"/> 
+                <apex:inputText id="ReconciledQty" label="Reconciled Qty's Total:" value="{!vi.Reconciled_Received_Value__c}" style="background-color:#f5f5f0;border: transparent;"/>
+                <apex:outputText value="{!rowCount}" id="rowCount" label="Row Count:" />
+                <apex:outputText value="{!vi.Sum_VI_Items_Received_Value__c}" id="sumReceivedVal" label="Total VII Received Qty's:"/>
+                <apex:outputText value="{!vi.Max_Price_Var__c}" id="maxVal" label="Max Value:"/>
+                <apex:outputText value="{!vi.Min_Price_Var__c}" id="minVal" label="Min Value:"/>
+                <script>
+                twistSection(document.getElementById('{!$Component.block1.blocksec1a}').getElementsByTagName('img')[0])    
+                </script>  
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    </body>
+</apex:page>

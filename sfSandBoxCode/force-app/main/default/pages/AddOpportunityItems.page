@@ -1,0 +1,24 @@
+<apex:page standardController="Opportunity" extensions="AddOppItemsController">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Opportunity Items For {!Opportunity.Name}" collapsible="false">
+                
+                <apex:outputField value="{!Opportunity.Structure_Items_Added__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.FLTs_Approved__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Franchise_Type__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Existing_Location__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Upstructure_required__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Upstructures_Required__c}" rendered="false"/>
+                
+                <apex:selectList value="{!fltVersion}" size="1" multiselect="false" required="true" label="FLT Version to Install">
+                    <apex:selectOptions value="{!fltVersions}" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create" action="{!createItems}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

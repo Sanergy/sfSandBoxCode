@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_FollowUp_Complete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check if no more followups planned</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if no more followups planned</inlineHelpText>
+    <label>Opportunity FollowUp Complete</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

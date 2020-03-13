@@ -1,0 +1,41 @@
+<apex:page standardController="Candidate_Requisition__c" extensions="CandidateEvaluation">    
+    <apex:form >
+        <apex:sectionHeader title="{!Candidate_Requisition__c.Name}"  subtitle="Candidate Evaluation"/>
+        <apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Next Evaluation Step" action="{!updateCandidateEvaluation}" onclick="if(!confirm('Are you sure?')){return false};" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:panelGrid width="100%">                 
+                <apex:pageBlockSection title="Candidate Evaluation: {!Candidate_Requisition__c.Recruitment_Requisition__r.Name}" >
+                    <apex:outputText value="{!Candidate_Requisition__c.Candidate__r.Name}" />
+                    <apex:outputText value="{!Candidate_Requisition__c.Years_Of_Experience__c}"/>
+                    <apex:inputField value="{!Candidate_Requisition__c.Candidate_Rating__c}"/>
+                    <apex:outputText label="Date Available" value="{0, date, d MMMM ',' yyyy}">
+                        <apex:param value="{!Candidate_Requisition__c.Date_Available__c}" /> 
+                    </apex:outputText>
+                    <apex:inputField value="{!Candidate_Requisition__c.Status__c}"/>
+                    <apex:inputField value="{!Candidate_Requisition__c.In_Review__c}"/>
+                    <apex:inputField value="{!Candidate_Requisition__c.In_Offer__c}"/>
+					<apex:inputField value="{!Candidate_Requisition__c.Comments__c}"/>                     
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Previous Candidate Evaluation Stages">                    
+                    <apex:pageBlockTable value="{!candidateEvaluationStageList}" var="stage" id="table">
+                        <apex:column headerValue=" Evaluation Stage Name" value="{!stage.evaluationStage.Name}" width="300"/>
+                        <apex:column headerValue="Candidate" value="{!stage.evaluationStage.Candidate__c}" width="300" />
+                        <apex:column headerValue="Candidate Star Rating" value="{!stage.evaluationStage.Candidate_Star_Rating__c}" width="300" />
+                        <apex:column headerValue="Years Of Experience" value="{!stage.evaluationStage.Years_Of_Experience__c}" width="300" />
+                        <apex:column headerValue="Evaluation Status" value="{!stage.evaluationStage.Evaluation_Status__c}" width="300" />
+                        <apex:column headerValue="In Review" value="{!stage.evaluationStage.In_Review__c}" width="300" />
+                        <apex:column headerValue="In Offer" value="{!stage.evaluationStage.In_Offer__c}" width="300" />
+                        <apex:column headerValue="Comments" value="{!stage.evaluationStage.Comments__c}" width="300" /> 
+                        <apex:column headerValue="Date Available" value="{!stage.evaluationStage.Date_Available__c}" width="300" />
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:panelGrid> 
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

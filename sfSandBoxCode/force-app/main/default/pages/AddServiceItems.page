@@ -1,0 +1,72 @@
+<apex:page StandardController="Asset_Maintenance_Task__c" extensions="AddServiceItems" docType="html-5.0"> 
+   
+    <apex:form >
+        <apex:sectionHeader title="{!Asset_Maintenance_Task__c.Asset_Maintenance_Schedule__R.Name}" subtitle="{!Asset_Maintenance_Task__c.Name}" />
+        <apex:pageBlock id="pb">
+            <apex:pageMessages />
+            <apex:variable var="rowNumber" value="{!0}"/>
+            <apex:variable var="fieldPrefix" value="{!''}"/>
+
+            <apex:pageblockSection columns="1">
+                <apex:pageBlockTable title="Items" var="acc" value="{!attendeeList}"> 
+                    <apex:column headerValue="No." style="width:20px; text-align:center;" headerClass="centertext">
+                        <apex:outputText value="{0}" style="text-align:center;"> 
+                            <apex:param value="{!rowNumber+1}" /> 
+                        </apex:outputText>
+                    </apex:column> 
+                    <apex:column headerValue="Asset Service Item" >
+                        <apex:inputField value="{!acc.Asset_Service_Item__c}" id="assetId" onchange="checkInput(this.id)" />
+                        <apex:commandButton value="...." action="{!autopopulate}" />
+                    </apex:column>
+                    <apex:column headerValue="Purchase Order Item" >
+                        <apex:inputField value="{!mainIt.Purchase_Order_Item__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Inventory UoM" >
+                        <apex:inputField value="{!mainIt.Inventory_Uom__c}"  />
+                    </apex:column>
+                    <apex:column headerValue="Inventory Item" >
+                        <apex:inputField value="{!mainIt.Inventory_Item__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Quantity">
+                        <apex:inputText value="{!quantity}" size="5" />
+                    </apex:column>
+                    <apex:column headerValue="Cost Price" >
+                        <apex:inputText value="{!costPrice}" size="6"/>
+                    </apex:column>
+                    <apex:column headerValue="Specifications">
+                        <apex:inputTextarea value="{!specifications}" />    
+                    </apex:column>
+                    <!--<apex:column headerValue="KRA PIN" >
+                        <apex:inputField value="{!acc.KRA_Pin__c}" id="pin" onchange="checkPinDimandGLA(this.id)" />
+                    </apex:column>
+                    <apex:column headerValue="Expense Description" >
+                        <apex:inputField value="{!acc.Expense_Description__c}"/>
+                    </apex:column> 
+                    <apex:column headerValue="GLA" >
+                        <apex:inputField value="{!acc.GLA__c}" id="gla" onchange="checkPinDimandGLA(this.id)" />
+                    </apex:column> 
+                    <apex:column headerValue="DIM 1" >
+                        <apex:inputField value="{!acc.DIM1__c}" id="dim" onchange="checkPinDimandGLA(this.id)"/>
+                    </apex:column> -->
+                    <apex:column headerValue="Action" >
+                        <apex:commandButton value="Delete" action="{!deleteRow}" reRender="pb">
+                            <apex:param name="rowIndex" value="{!rowNumber}"/>
+                        </apex:commandButton>
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}"/>
+                    </apex:column> 
+                </apex:pageBlockTable>
+                <apex:commandButton action="{!addRow}" value="Add Item" reRender="pb"/>
+                <apex:outputText id="numberOfRows" value="{!rowNumber}"/>
+                
+            </apex:pageblockSection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" id="save" action="{!save}" /> 
+                
+                <!-- <apex:actionFunction name="saveNow" action="{!save}"/> -->
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form> 
+    
+</apex:page>

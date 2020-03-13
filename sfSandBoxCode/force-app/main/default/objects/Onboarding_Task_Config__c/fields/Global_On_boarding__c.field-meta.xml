@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Global_On_boarding__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checks whether the on-boarding task is global or specific based on an employee role</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checks whether the on-boarding task is global or specific based on an employee role</inlineHelpText>
+    <label>Global On-boarding ?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

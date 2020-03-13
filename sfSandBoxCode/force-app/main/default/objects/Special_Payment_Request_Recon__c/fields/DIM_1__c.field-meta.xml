@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DIM_1__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>DIM 1 FFA Lookup</description>
+    <externalId>false</externalId>
+    <inlineHelpText>DIM 1 FFA Lookup</inlineHelpText>
+    <label>DIM 1</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <errorMessage>DIM 1 selected is Invalid</errorMessage>
+        <filterItems>
+            <field>FFA_Config_Object__c.isActive__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.Type__c</field>
+            <operation>equals</operation>
+            <value>dim1</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.Type__c</field>
+            <operation>equals</operation>
+            <value>DIM1</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipLabel>Special Payment Request Recons</relationshipLabel>
+    <relationshipName>DIM1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

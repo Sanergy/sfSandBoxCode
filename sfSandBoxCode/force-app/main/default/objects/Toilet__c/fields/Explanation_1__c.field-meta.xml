@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Explanation_1__c</fullName>
+    <externalId>false</externalId>
+    <label>Explanation 1</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Reason_1__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Along power line</fullName>
+                <default>false</default>
+                <label>Along power line</label>
+            </value>
+            <value>
+                <fullName>Along road reserve</fullName>
+                <default>false</default>
+                <label>Along road reserve</label>
+            </value>
+            <value>
+                <fullName>Along pipeline</fullName>
+                <default>false</default>
+                <label>Along pipeline</label>
+            </value>
+            <value>
+                <fullName>River reserve</fullName>
+                <default>false</default>
+                <label>River reserve</label>
+            </value>
+            <value>
+                <fullName>Road expansion</fullName>
+                <default>false</default>
+                <label>Road expansion</label>
+            </value>
+            <value>
+                <fullName>With neighbors</fullName>
+                <default>false</default>
+                <label>With neighbors</label>
+            </value>
+            <value>
+                <fullName>With landlords</fullName>
+                <default>false</default>
+                <label>With landlords</label>
+            </value>
+            <value>
+                <fullName>Community member(s)</fullName>
+                <default>false</default>
+                <label>Community member(s)</label>
+            </value>
+            <value>
+                <fullName>Local government</fullName>
+                <default>false</default>
+                <label>Local government</label>
+            </value>
+            <value>
+                <fullName>Consumables are too expensive</fullName>
+                <default>false</default>
+                <label>Consumables are too expensive</label>
+            </value>
+            <value>
+                <fullName>Complaint of strict hygiene</fullName>
+                <default>false</default>
+                <label>Complaint of strict hygiene</label>
+            </value>
+            <value>
+                <fullName>FLO non-adherence</fullName>
+                <default>false</default>
+                <label>FLO non-adherence</label>
+            </value>
+            <value>
+                <fullName>Tenants refused to pay landlord</fullName>
+                <default>false</default>
+                <label>Tenants refused to pay landlord</label>
+            </value>
+            <value>
+                <fullName>Tenants vacated</fullName>
+                <default>false</default>
+                <label>Tenants vacated</label>
+            </value>
+            <value>
+                <fullName>Too expensive - personal reason</fullName>
+                <default>false</default>
+                <label>Too expensive - personal reason</label>
+            </value>
+            <value>
+                <fullName>Cannibalization</fullName>
+                <default>false</default>
+                <label>Cannibalization</label>
+            </value>
+            <value>
+                <fullName>No operator</fullName>
+                <default>false</default>
+                <label>No operator</label>
+            </value>
+            <value>
+                <fullName>Connected to sewer</fullName>
+                <default>false</default>
+                <label>Connected to sewer</label>
+            </value>
+            <value>
+                <fullName>Pit latrines</fullName>
+                <default>false</default>
+                <label>Pit latrines</label>
+            </value>
+            <value>
+                <fullName>Public toilet</fullName>
+                <default>false</default>
+                <label>Public toilet</label>
+            </value>
+            <value>
+                <fullName>Infrequent collection</fullName>
+                <default>false</default>
+                <label>Infrequent collection</label>
+            </value>
+            <value>
+                <fullName>Personal interaction with FLI</fullName>
+                <default>false</default>
+                <label>Personal interaction with FLI</label>
+            </value>
+            <value>
+                <fullName>Government demolition</fullName>
+                <default>false</default>
+                <label>Government demolition</label>
+            </value>
+            <value>
+                <fullName>FLO moved</fullName>
+                <default>false</default>
+                <label>FLO moved</label>
+            </value>
+            <value>
+                <fullName>Change of ownership</fullName>
+                <default>false</default>
+                <label>Change of ownership</label>
+            </value>
+            <value>
+                <fullName>Residential upgrading</fullName>
+                <default>false</default>
+                <label>Residential upgrading</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Government Demolition</controllingFieldValue>
+            <valueName>Along power line</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Demolition</controllingFieldValue>
+            <valueName>Along road reserve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Demolition</controllingFieldValue>
+            <valueName>Along pipeline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Demolition</controllingFieldValue>
+            <valueName>River reserve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Demolition</controllingFieldValue>
+            <valueName>Road expansion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>With neighbors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>With landlords</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Community member(s)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Dispute</controllingFieldValue>
+            <valueName>Local government</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hygiene</controllingFieldValue>
+            <valueName>Consumables are too expensive</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hygiene</controllingFieldValue>
+            <valueName>Complaint of strict hygiene</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hygiene</controllingFieldValue>
+            <valueName>FLO non-adherence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Tenants refused to pay landlord</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Tenants vacated</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Too expensive - personal reason</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>Cannibalization</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment</controllingFieldValue>
+            <valueName>No operator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Found another toilet option</controllingFieldValue>
+            <valueName>Connected to sewer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Found another toilet option</controllingFieldValue>
+            <valueName>Pit latrines</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Found another toilet option</controllingFieldValue>
+            <valueName>Public toilet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service Related</controllingFieldValue>
+            <valueName>Infrequent collection</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service Related</controllingFieldValue>
+            <valueName>Personal interaction with FLI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Relocation</controllingFieldValue>
+            <valueName>Government demolition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Relocation</controllingFieldValue>
+            <valueName>FLO moved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Relocation</controllingFieldValue>
+            <valueName>Change of ownership</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Relocation</controllingFieldValue>
+            <valueName>Residential upgrading</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

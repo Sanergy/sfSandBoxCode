@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_cost_modification</fullName>
+    <active>true</active>
+    <description>Prevent cost modification for Procurement EPRs</description>
+    <errorConditionFormula>AND(
+OR(
+ISCHANGED( Unit_Price__c ),
+ISCHANGED(  Quantity__c )
+),
+ EPR__r.EPR_Request_Type__c = &quot;Procurement&quot;
+)</errorConditionFormula>
+    <errorMessage>This the quantity and cost on this EPR line cannot be changed if it was created from a Vendor Invoice.</errorMessage>
+</ValidationRule>

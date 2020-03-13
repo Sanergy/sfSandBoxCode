@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <description>The department where the asset should be assigned from</description>
+    <externalId>false</externalId>
+    <label>Department</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Business Developments</fullName>
+                <default>false</default>
+                <label>Business Developments</label>
+            </value>
+            <value>
+                <fullName>By-Product Sales</fullName>
+                <default>false</default>
+                <label>By-Product Sales</label>
+            </value>
+            <value>
+                <fullName>By-Products Development</fullName>
+                <default>false</default>
+                <label>By-Products Development</label>
+            </value>
+            <value>
+                <fullName>Communications</fullName>
+                <default>false</default>
+                <label>Communications</label>
+            </value>
+            <value>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <label>Credit</label>
+            </value>
+            <value>
+                <fullName>Directors</fullName>
+                <default>false</default>
+                <label>Directors</label>
+            </value>
+            <value>
+                <fullName>Engineering operations</fullName>
+                <default>false</default>
+                <label>Engineering operations</label>
+            </value>
+            <value>
+                <fullName>Finance</fullName>
+                <default>false</default>
+                <label>Finance</label>
+            </value>
+            <value>
+                <fullName>Government Relations</fullName>
+                <default>false</default>
+                <label>Government Relations</label>
+            </value>
+            <value>
+                <fullName>Human Resources</fullName>
+                <default>false</default>
+                <label>Human Resources</label>
+            </value>
+            <value>
+                <fullName>Information Systems</fullName>
+                <default>false</default>
+                <label>Information Systems</label>
+            </value>
+            <value>
+                <fullName>Infrastructure</fullName>
+                <default>false</default>
+                <label>Infrastructure</label>
+            </value>
+            <value>
+                <fullName>Insights and Innovations</fullName>
+                <default>false</default>
+                <label>Insights and Innovations</label>
+            </value>
+            <value>
+                <fullName>Installation</fullName>
+                <default>false</default>
+                <label>Installation</label>
+            </value>
+            <value>
+                <fullName>Logistics and Operations</fullName>
+                <default>false</default>
+                <label>Logistics and Operations</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Marketing and Branding</fullName>
+                <default>false</default>
+                <label>Marketing and Branding</label>
+            </value>
+            <value>
+                <fullName>Product Development</fullName>
+                <default>false</default>
+                <label>Product Development</label>
+            </value>
+            <value>
+                <fullName>Quality Health Safety &amp; Environment</fullName>
+                <default>false</default>
+                <label>Quality Health Safety &amp; Environment</label>
+            </value>
+            <value>
+                <fullName>R&amp;D</fullName>
+                <default>false</default>
+                <label>R&amp;D</label>
+            </value>
+            <value>
+                <fullName>Sales and Operations</fullName>
+                <default>false</default>
+                <label>Sales and Operations</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

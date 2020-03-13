@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_Location__c</fullName>
+    <externalId>false</externalId>
+    <label>Return Location</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kilimani</fullName>
+                <default>false</default>
+                <label>Kilimani</label>
+            </value>
+            <value>
+                <fullName>Kinanie</fullName>
+                <default>false</default>
+                <label>Kinanie</label>
+            </value>
+            <value>
+                <fullName>Mukuru</fullName>
+                <default>false</default>
+                <label>Mukuru</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

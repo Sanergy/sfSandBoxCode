@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_a_Comment_if_Actual_Date_is_Modified</fullName>
+    <active>true</active>
+    <description>Add a Comment if Actual Date is Modified</description>
+    <errorConditionFormula>AND(Actual_Date__c &lt;&gt; Payment_Terms_Due_Date__c , 
+    ISBLANK( Comments__c ), 
+    NOT(ISNEW()), 
+    NOT( ISNULL(Actual_Date__c) ) 
+)</errorConditionFormula>
+    <errorDisplayField>Comments__c</errorDisplayField>
+    <errorMessage>Please provide an explanation on the Comment field !</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isBusinessDay__c</fullName>
+    <description>Working Days Excluding Holidays and Weekends</description>
+    <externalId>false</externalId>
+    <formula>IF(( IsHoliday__c = TRUE|| IsWeekend__c = TRUE), FALSE, TRUE)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Working Days Excluding Holidays and Weekends</inlineHelpText>
+    <label>isBusinessDay</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

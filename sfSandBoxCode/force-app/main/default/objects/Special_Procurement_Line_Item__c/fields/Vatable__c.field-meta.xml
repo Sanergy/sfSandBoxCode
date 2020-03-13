@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vatable__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Does the item cost have VAT?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Does the item cost have VAT?</inlineHelpText>
+    <label>Vatable?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

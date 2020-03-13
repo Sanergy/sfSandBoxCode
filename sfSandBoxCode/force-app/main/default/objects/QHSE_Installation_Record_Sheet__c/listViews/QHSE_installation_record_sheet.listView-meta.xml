@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QHSE_installation_record_sheet</fullName>
+    <columns>Toilet__c</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Toilet_Version__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Toilet_Version__c</field>
+        <operation>equals</operation>
+        <value>V3</value>
+    </filters>
+    <label>QHSE installation record sheet</label>
+    <language>en_US</language>
+</ListView>

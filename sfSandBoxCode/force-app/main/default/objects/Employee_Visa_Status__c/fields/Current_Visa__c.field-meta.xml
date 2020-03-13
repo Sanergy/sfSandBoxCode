@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Visa__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Current Visa Record</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Current Visa Record</inlineHelpText>
+    <label>Current Visa</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

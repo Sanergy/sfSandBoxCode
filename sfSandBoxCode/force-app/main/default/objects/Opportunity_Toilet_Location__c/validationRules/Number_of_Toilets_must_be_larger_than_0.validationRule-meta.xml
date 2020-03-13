@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Toilets_must_be_larger_than_0</fullName>
+    <active>true</active>
+    <description>Number of Toilets must be larger than 0</description>
+    <errorConditionFormula>No_of_Toilets__c &lt;1</errorConditionFormula>
+    <errorMessage>The number of toilets cannot be less than 1</errorMessage>
+</ValidationRule>

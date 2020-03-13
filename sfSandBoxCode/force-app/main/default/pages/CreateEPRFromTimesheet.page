@@ -1,0 +1,33 @@
+<apex:page standardController="Casuals_Timesheet__c" extensions="CreateEPRFromTimesheet">
+      <apex:form >    
+       <apex:sectionHeader title="{!Casuals_Timesheet__c.Name}" subtitle="CREATE EPR FOR TIMESHEET {!Casuals_Timesheet__c.Name}"/>
+            <apex:pageBlock >
+                <apex:pageMessages ></apex:pageMessages>
+                
+                 <apex:pageBlockButtons >
+                     <apex:commandButton value="Create EPR" action="{!createEPR}"/>
+                     <apex:commandButton value="Cancel" action="{!cancel}"/>
+                 </apex:pageBlockButtons>
+                 
+                <apex:pageBlockSection title="Contractor Engagement Information">
+                    <apex:outputField value="{!Casuals_Timesheet__c.Name}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Job_Requisition__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Job_Requisition__r.Casual__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Job_Requisition__r.Casual_Job_Line_Item__r.General_Description__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Rate__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Actual_Start_Date__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Rate_Units__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Actual_End_Date__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Rate_Units_Quantity__c}"/>
+                    
+                </apex:pageBlockSection> 
+                
+                 <apex:pageBlockSection title="Payment Information" columns="1">
+                    <apex:outputField value="{!Casuals_Timesheet__c.Payment_Amount__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Total_Allowancess__c}"/>
+                    <apex:outputField value="{!Casuals_Timesheet__c.Total_Amount__c}"/>
+                </apex:pageBlockSection> 
+                
+           </apex:pageblock>
+    </apex:form>  
+</apex:page>

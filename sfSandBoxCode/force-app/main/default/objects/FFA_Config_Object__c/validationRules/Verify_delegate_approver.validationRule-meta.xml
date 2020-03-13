@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Verify_delegate_approver</fullName>
+    <active>true</active>
+    <description>Delegate approver has to be set if type is DIM 1 and isActive is true</description>
+    <errorConditionFormula>AND(
+ isActive__c = true,
+ Type__c = &quot;dim1&quot;,
+ ISBLANK( Delegated_approver__c )
+)</errorConditionFormula>
+    <errorDisplayField>Delegated_approver__c</errorDisplayField>
+    <errorMessage>Kindly specify the delegate approver if the record is Active</errorMessage>
+</ValidationRule>

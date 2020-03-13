@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>POCompanyAndPOLineCompanyValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>Requesting_Company__c  &lt;&gt;  Purchase_Order__r.Company__c</errorConditionFormula>
+    <errorDisplayField>Requesting_Company__c</errorDisplayField>
+    <errorMessage>Company on this PO Line Item does Not match Company on the PO header. Please check.</errorMessage>
+</ValidationRule>

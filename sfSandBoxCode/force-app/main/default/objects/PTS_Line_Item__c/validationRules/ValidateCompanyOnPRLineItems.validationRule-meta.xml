@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateCompanyOnPRLineItems</fullName>
+    <active>true</active>
+    <description>Ensure company  on PR Line Item is the same as the company on the header</description>
+    <errorConditionFormula>Requesting_Company__c  &lt;&gt;  Procurement_Tracking_Sheet__r.Requesting_Company__c</errorConditionFormula>
+    <errorDisplayField>Actual_Price__c</errorDisplayField>
+    <errorMessage>All PR Line Items for a PR must be of the same Company as on the header</errorMessage>
+</ValidationRule>

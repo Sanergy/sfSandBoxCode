@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Asset Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Inventory</fullName>
+                <default>false</default>
+                <label>Inventory</label>
+            </value>
+            <value>
+                <fullName>Scrap</fullName>
+                <default>false</default>
+                <label>Scrap</label>
+            </value>
+            <value>
+                <fullName>Out for 3rd Party Repair</fullName>
+                <default>false</default>
+                <label>Out for 3rd Party Repair</label>
+            </value>
+            <value>
+                <fullName>Inventory-Reserved</fullName>
+                <default>false</default>
+                <label>Inventory-Reserved</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

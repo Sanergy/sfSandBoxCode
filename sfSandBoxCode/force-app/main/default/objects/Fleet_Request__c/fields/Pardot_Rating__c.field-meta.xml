@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pardot_Rating__c</fullName>
+    <description>Star Rating</description>
+    <externalId>false</externalId>
+    <formula>IMAGE(
+IF( Service_score__c &lt;= 2, &quot;/img/samples/stars_100.gif&quot;,
+IF( Service_score__c &lt;= 4 &amp;&amp;  Service_score__c &gt; 2, &quot;/img/samples/stars_200.gif&quot;,
+IF(Service_score__c&lt;6 &amp;&amp;  Service_score__c &gt; 4, &quot;/img/samples/stars_300.gif&quot;,
+IF(Service_score__c&lt;8 &amp;&amp;  Service_score__c &gt; 6, &quot;/img/samples/stars_400.gif&quot;,
+IF(Service_score__c&lt;10 &amp;&amp;  Service_score__c &gt; 8, &quot;/img/samples/stars_500.gif&quot;, &quot;/img/samples/stars_500.gif&quot;
+))))),
+&quot;Rating&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Star Rating</inlineHelpText>
+    <label>Pardot Rating</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

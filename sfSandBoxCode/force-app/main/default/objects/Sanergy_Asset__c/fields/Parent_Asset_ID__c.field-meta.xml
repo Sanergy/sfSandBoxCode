@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Asset_ID__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>If item is a fixture component, choose the Parent Asset ID it belongs to</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If item is a fixture component, choose the Parent Asset ID it belongs to</inlineHelpText>
+    <label>Parent Asset ID</label>
+    <referenceTo>Sanergy_Asset__c</referenceTo>
+    <relationshipLabel>Parent Asset ID</relationshipLabel>
+    <relationshipName>Parent_Asset_ID</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

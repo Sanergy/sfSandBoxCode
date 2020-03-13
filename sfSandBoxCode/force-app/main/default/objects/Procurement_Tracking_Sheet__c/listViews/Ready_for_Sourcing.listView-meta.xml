@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_for_Sourcing</fullName>
+    <columns>NAME</columns>
+    <columns>Team_Lead_Approval_Status__c</columns>
+    <columns>Maintenance_Department__c</columns>
+    <columns>Request_Date__c</columns>
+    <columns>Requesting_Department__c</columns>
+    <columns>Requestor__c</columns>
+    <columns>Approving_Team_Lead__c</columns>
+    <columns>Required_Date__c</columns>
+    <columns>Stage__c</columns>
+    <columns>Total_Amount__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Team_Lead_Approval_Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <filters>
+        <field>Count_of_Lines_in_Pending_Sourcing__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>Ready for Sourcing</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>Procurement</group>
+        <group>System_Administrators</group>
+        <role>HR_Officer</role>
+    </sharedTo>
+</ListView>

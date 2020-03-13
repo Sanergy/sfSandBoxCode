@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ZeroValuesValidation</fullName>
+    <active>true</active>
+    <description>No Zero values are allowed</description>
+    <errorConditionFormula>OR( Evergrow_25Kg_Quantity__c  = 0,
+ Evergrow_35Kg_Quantity__c  = 0,
+ Evergrow_50Kg_Quantity__c   = 0,
+ Evergrow_5Kg_Quantity__c = 0)</errorConditionFormula>
+    <errorMessage>Evergrow Quantity should not be 0</errorMessage>
+</ValidationRule>

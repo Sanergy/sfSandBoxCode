@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Percent_Days_Open__c</fullName>
+    <description>Updated via WF rule based on fields &quot;Number of days open in a typical week&quot; and franchise type.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is automatically updated based on the toilet&#39;s franchise type and the number of days open in a typical week. It is automatically set at 100% for all new toilets until anything else changes.</inlineHelpText>
+    <label>Target Percent Days Open</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

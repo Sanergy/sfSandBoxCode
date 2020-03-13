@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line_Manager_Approve_Cancellation</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISCHANGED(Line_Manager_Approve_Cancellation__c)) &amp;&amp; 
+(CASE($User.Id, 
+ Employee__r.Line_Manager_SF_Account__c,1,0) = 0)</errorConditionFormula>
+    <errorDisplayField>Line_Manager_Approve_Cancellation__c</errorDisplayField>
+    <errorMessage>Only the Line Manager can update this box</errorMessage>
+</ValidationRule>

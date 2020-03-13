@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FreshLifeFinanceApprover_Electronic_Payment_Request</fullName>
+    <filterScope>Queue</filterScope>
+    <label>FreshLifeFinanceApprover</label>
+    <queue>FreshLifeFinanceApprover</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,21 @@
+<apex:page standardController="Special_Procurement__c" extensions="CreatePinFromSPR">
+     <apex:form >
+   <apex:sectionHeader title="{!Special_Procurement__c.Name}" subtitle="Create PIN confirmation"/>
+        <apex:pageBlock >
+             <apex:pageMessages ></apex:pageMessages>
+            <apex:commandButton value="Create PIN" action="{!CreatePIN}" disabled="{!disableCreatePIN}"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Special_Procurement__c.Vendor__c}"/>
+                <apex:outputField value="{!Special_Procurement__c.Requesting_Company__r.Name}" />
+                <apex:outputField value="{!Special_Procurement__c.Vendor_Currency__c}"/>
+                <apex:outputField value="{!Special_Procurement__c.Payment_Method__c}"/>
+                <apex:outputField value="{!Special_Procurement__c.Scheduled_Payment_Date__c}"/>
+                <apex:outputField value="{!Special_Procurement__c.Name}"/>
+                <apex:outputLink value="/{!Special_Procurement__c.Payable_Invoice__c}" >
+                    {!Special_Procurement__c.Payable_Invoice__r.Name}
+                </apex:outputLink>
+            </apex:pageBlockSection>        
+        </apex:pageBlock>
+    </apex:form>   
+</apex:page>

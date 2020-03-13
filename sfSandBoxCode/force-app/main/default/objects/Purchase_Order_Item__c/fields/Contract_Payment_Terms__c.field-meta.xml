@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Payment_Terms__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( Contract_Number__r.Payment_Terms__c , &quot;Pre-payment&quot;), &quot;Pre-payment&quot;,
+IF( ISPICKVAL( Contract_Number__r.Payment_Terms__c , &quot;On Invoice&quot;), &quot;On Invoice&quot;,
+IF( ISPICKVAL( Contract_Number__r.Payment_Terms__c , &quot;7 Days&quot;), &quot;7 Days&quot;,   
+IF( ISPICKVAL( Contract_Number__r.Payment_Terms__c , &quot;15 Days&quot;), &quot;15 Days&quot;, 
+IF( ISPICKVAL( Contract_Number__r.Payment_Terms__c , &quot;30 Days&quot;) , &quot;30 Days&quot;,&quot;&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contract Payment Terms</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

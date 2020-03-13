@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StartEndDate__c</fullName>
+    <description>Start/End Date for Calendar Invite</description>
+    <externalId>false</externalId>
+    <formula>TEXT(YEAR(Leave_Start_Date__c)) &amp; LPAD(TEXT(MONTH  (Leave_Start_Date__c)),2,&quot;0&quot;)&amp; LPAD(TEXT(DAY (Leave_Start_Date__c)),2,&quot;0&quot;) &amp; &quot;/&quot; &amp; TEXT(YEAR(Leave_End_Date__c + 1)) &amp; LPAD(TEXT(MONTH  (Leave_End_Date__c + 1)),2,&quot;0&quot;)&amp; LPAD(TEXT(DAY (Leave_End_Date__c + 1)),2,&quot;0&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Start/End Date for Calendar Invite</inlineHelpText>
+    <label>StartEndDate</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

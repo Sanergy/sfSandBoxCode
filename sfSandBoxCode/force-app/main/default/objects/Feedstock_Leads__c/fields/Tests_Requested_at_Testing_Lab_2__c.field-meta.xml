@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tests_Requested_at_Testing_Lab_2__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>List all requested lab testing for feedstock samples that should be conducted at Testing Lab 2</inlineHelpText>
+    <label>Tests Requested at Testing Lab 2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

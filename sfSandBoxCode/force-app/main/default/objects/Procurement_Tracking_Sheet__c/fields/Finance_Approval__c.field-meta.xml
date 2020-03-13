@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Finance_Approval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>True if amount is less or equal to 20k or approved by finance</description>
+    <externalId>false</externalId>
+    <label>Finance Approval</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPR_Line_Item__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>EPR Line Item</description>
+    <externalId>false</externalId>
+    <inlineHelpText>EPR Line Item</inlineHelpText>
+    <label>EPR Line Item</label>
+    <referenceTo>EPR_Payable_Item__c</referenceTo>
+    <relationshipLabel>Special Payment Request Line Items</relationshipLabel>
+    <relationshipName>Special_Payment_Request_Line_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

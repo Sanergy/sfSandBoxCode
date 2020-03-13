@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_mileage_not_less_than_start_mileage</fullName>
+    <active>true</active>
+    <description>End mileage not less than start mileage</description>
+    <errorConditionFormula>End_Mileage__c &lt;  Start_Mileage__c</errorConditionFormula>
+    <errorMessage>End mileage should not be less than start mileage</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_Toilets__c</fullName>
+    <description>The number of demolished toilets</description>
+    <externalId>false</externalId>
+    <label>No. of Toilets</label>
+    <summaryForeignKey>Location_Demolition_Toilets__c.Location_Demolition__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Updated_to_Rootstock__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If inventory has been updated to RootStock</description>
+    <externalId>false</externalId>
+    <label>Updated to Rootstock</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

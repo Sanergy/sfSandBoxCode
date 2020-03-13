@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Category__c</columns>
+    <columns>Departmental_On_boarding__c</columns>
+    <columns>Description__c</columns>
+    <columns>Employee_Role__c</columns>
+    <columns>Global_On_boarding__c</columns>
+    <columns>No_of_Days_After_Hire_Date__c</columns>
+    <columns>On_boarding_Done_By__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+</ListView>

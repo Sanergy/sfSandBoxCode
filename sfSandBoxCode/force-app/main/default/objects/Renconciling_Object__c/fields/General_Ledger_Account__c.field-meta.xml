@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>General_Ledger_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>General Ledger Account</label>
+    <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+    <relationshipLabel>SPR Reconciliations (General Ledger Account)</relationshipLabel>
+    <relationshipName>SPR_Reconciliations1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

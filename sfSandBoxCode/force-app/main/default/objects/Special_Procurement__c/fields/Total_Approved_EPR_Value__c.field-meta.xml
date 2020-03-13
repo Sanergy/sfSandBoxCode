@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Approved_EPR_Value__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Approved EPR Value</label>
+    <summarizedField>Special_Procurement_Payment__c.Total_EPR__c</summarizedField>
+    <summaryForeignKey>Special_Procurement_Payment__c.Special_Procurement__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,103 @@
+<apex:page controller="ProcurementRequestTracker" docType="html-5.0">
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+            function setFocusOnLoad() {
+        }  
+        </script>
+        <script>
+
+        </script>
+    </body>
+    <apex:form id="form">
+        <apex:sectionHeader title="Procurement Requests" subtitle="My Open Procurement Requests"/>
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock title="My Procurement Items" >
+            <apex:pageBlockSection >
+                <apex:pageBlockSection >
+                    <apex:selectList label="Select Filter" value="{!selectValue}" multiselect="false" size="1">
+                          <apex:actionSupport event="onchange" action="{!getwrapperItems}" reRender="tble3" />  
+                        <apex:selectOptions value="{!SelectItems}"></apex:selectOptions>
+                    </apex:selectList>
+                   <!-- <apex:actionFunction name="saveNow" action="{!getwrapperItems}"/>-->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                   <!-- <apex:input value="{!searchText}" id="theTextInput" type="search" ></apex:input>
+                    <apex:commandButton value="Search PR Number" action="{!getwrapperItems}"/>-->
+                      <apex:commandButton value="Close Selected PR Lines" action="{!save}" ></apex:commandButton>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection >
+                    </apex:pageBlockSection>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:repeat value="{!wrapperItems}" var="itm" id="table">
+                    <div style ="border:1px solid red">
+                        <apex:pageBlockSection >
+                            <apex:panelGrid style="font-size: 15px;" >
+                                <apex:outputlink value="/{!itm.prLine.id}">{!itm.prLine.Name}</apex:outputlink>
+                                <apex:outputText label="Requestor" value="{!itm.prLine.Requestor__r.Name}">Requestor: </apex:outputText>
+                                <apex:outputText label="Stage" value="{!itm.prLine.Next_Step__c}"> PR Stage: </apex:outputText>
+                                <apex:outputText value="{0, DATE, MMM dd',' yyyy}"> Request Date:
+                                    <apex:param value="{!itm.prLine.Request_Date__c}"/>
+                                </apex:outputText>
+                                <apex:outputText value="{0, DATE, MMM dd',' yyyy}">  Required Date:
+                                    <apex:param value="{!itm.prLine.Required_Date__c}"/>
+                                </apex:outputText>
+                                <apex:outputText label="Total Price" value="{!itm.prLine.Total_Amount__c}">Total Price: </apex:outputText>
+                            </apex:panelGrid>
+                            <apex:outputText ></apex:outputText>
+                            <apex:panelGrid >
+                                <apex:pageBlockTable value="{!itm.prLine.PTS_Line_Items__r}" var="item" style="font-size: 16px; width: 100px;" id="tble3">
+                                   <apex:column headerValue="Select">
+                                        <apex:inputCheckbox value="{!item.Closed__c}"/>
+                                    </apex:column> 
+                                    <apex:column headerValue="Name">
+                                        <apex:outputlink value="/{!item.id}" >{!item.Name}</apex:outputlink>
+                                    </apex:column>
+                                    
+                                    <apex:column headerValue="Item" value="{!item.Item__c}" />
+                                    <apex:column headerValue="Item Specifications" value="{!item.Specifications__c}" style="width: 20px;"/>
+                                    
+                                    <apex:column headerValue="Qty Requested"  style="text-align: center;" >
+                                        <apex:outputText value="{0, number, #,###}">
+                                            <apex:param value="{!item.Quantity__c}"/>
+                                        </apex:outputText>
+                                    </apex:column>
+                                    
+                                    <apex:column headerValue="Qty Delivered" style="text-align: center;">
+                                        <apex:outputText value="{0, number, #,###}">
+                                            <apex:param value="{!item.Qty_Delivered__c}"/>
+                                        </apex:outputText>
+                                    </apex:column>
+                                    <apex:column headerValue="Qty Pending" style="text-align: center;">
+                                        <apex:outputText value="{0, number, #,###}">
+                                            <apex:param value="{!item.Quantity_Remaining__c}"/>
+                                        </apex:outputText>
+                                    </apex:column>
+                                    <apex:column headerValue="Total Budget Amount" style="text-align: center;">
+                                        <apex:outputText value="{0, number, #,###.00}">
+                                            <apex:param value="{!item.Estimate__c}"/>
+                                        </apex:outputText>
+                                    </apex:column>
+                                    <apex:column headerValue="Total Quote Amount" style="text-align: center;">
+                                        <apex:outputText value="{0, number, #,###.00}">
+                                            <apex:param value="{!item.Total_Quote_Price__c}"/>
+                                        </apex:outputText>
+                                    </apex:column>
+                                    <apex:column headerValue="PR Line Status" value="{!item.Status__c}"></apex:column>
+                                    
+                                    <!--<apex:column headerValue="Expected Date" value="{!itm.prLine.Next_Step_Due_Date__c}" />-->
+                                    <!--  <apex:column headerValue="Payment Status" value="{!item.Procurement_Tracking_Sheet__r.Payment_Status__c}" />-->
+                                </apex:pageBlockTable>
+                            </apex:panelGrid>
+                        </apex:pageBlockSection> 
+                        <apex:pageBlockSection ></apex:pageBlockSection>
+                    </div>
+                    
+                </apex:repeat>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

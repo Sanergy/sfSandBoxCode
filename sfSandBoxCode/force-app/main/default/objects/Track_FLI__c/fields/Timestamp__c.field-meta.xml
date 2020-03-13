@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Timestamp__c</fullName>
+    <description>Date &amp; Time of check-in.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date &amp; Time of FO check-in.</inlineHelpText>
+    <label>Timestamp</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

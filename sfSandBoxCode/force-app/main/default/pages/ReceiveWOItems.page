@@ -1,0 +1,85 @@
+<apex:page standardController="Work_Order__c" extensions="ReceiveWoItemsController">
+    <apex:form >
+        <apex:sectionHeader title="{!Work_Order__c.Name}" subtitle="Receive Work Order"/>
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons rendered="{!manufacturedWO}">
+                <apex:commandButton value="Receive to Inventory" action="{!ReceivingInventory}"/>
+                <apex:commandButton value="Close Manufactured WO" action="{!closeInstallationWo}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockButtons rendered="{!serviceWO}">
+                <apex:commandButton value="Close Service Work Order" action="{!closeInstallationWo}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="WOrk Order Details" rendered="{!manufacturedWO}" >
+                <apex:outputField value="{!Work_Order__c.Name}"/>
+                <apex:outputField value="{!Work_Order__c.Status__c}"/>                   
+                <apex:outputField value="{!Work_Order__c.Inventory_Item__c}" />            
+                <apex:outputField value="{!Work_Order__c.UOM__c}" />
+                <apex:outputField value="{!Work_Order__c.Work_Order_Type__c}" />
+                <apex:outputField value="{!Work_Order__c.Material_Cost__c}" />
+                <apex:outputField value="{!Work_Order__c.Inventory_Item_Quantity__c}" />
+                <apex:selectList label="Receive Site" value="{!site}" multiselect="false" size="1" required="true">
+                    <apex:selectOptions value="{!sites}"/>
+                </apex:selectList>
+                <apex:outputField value="{!Work_Order__c.Received_Quantity__c}" />
+                <apex:inputText label="Receive Location" value="{!location}" required="true"/>
+                <apex:outputField value="{!Work_Order__c.Pending_Quantity__c}" />
+                <apex:inputText label="Receive Lot" value="{!lot}" required="true"/>
+                <apex:inputText label="Quantity To Receive" value="{!receiveQuantity1}" required="true"/>
+                <br/>
+                <apex:inputText label="Reason for Issue Variance" value="{!reasonForIssueVariance}" size="80"/>   
+                <apex:inputText label="Reason for Receipt Variance" value="{!reasonForReceiptVariance}" size="80" />                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Work Order By-Products" rendered="{!manufacturedWO}" >
+                <apex:pageBlockTable value="{!workOrderByProducts}" var="item" id="table">
+                    <apex:column headerValue="By-product Item" value="{!item.item.By_product_Item__r.Name}" />
+                    <apex:column headerValue="Inventory UOM" value="{!item.item.By_product_Item__r.Inventory_UoM__r.Name}" />
+                    
+                    <apex:column headerValue="Receive Site" >
+                        <apex:selectList value="{!item.site2}" multiselect="false" size="1">
+                            <apex:actionSupport event="onchange" action="{!item.setItemLocations}" rerender="table"/>
+                            <apex:selectOptions value="{!sites}"/>
+                        </apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="Receive Location" >
+                        <apex:inputText value="{!item.location2}" />
+                    </apex:column>
+                    <apex:column headerValue="Receive Lot" >
+                        <apex:inputText value="{!item.lot2}" /> 
+                    </apex:column>
+                    <apex:column headerValue="Quantity To Receive" >
+                        <apex:inputText value="{!item.receiveQuantity2}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>          
+            
+            <apex:pageBlockSection title="Work Order Items Pending Complete Issuance" rendered="{!manufacturedWO}" >
+                <apex:pageBlockTable value="{!WorkOrderItems}" var="item">
+                    <apex:column headerValue="Inventory Item" value="{!item.Inventory_Item__r.Name}" />
+                    <apex:column headerValue="Inventory UOM" value="{!item.Inventory_UoM__c}" />
+                    <apex:column headerValue="BOM Quantity" value="{!item.BOM_Quantity__c}" />
+                    <apex:column headerValue="Issued Quantity" value="{!item.Issued_Quantity__c}" />
+                    <apex:column headerValue="Pending Quantity" value="{!item.Pending_Quantity__c}" />
+                    <apex:column headerValue="Percentage Variance(%)" value="{!item.Percentage_Variance__c}" />
+                    <apex:column headerValue="Issuance Completed" value="{!item.Completed_Issuance__c}" />
+                </apex:pageBlockTable>  
+            </apex:pageBlockSection>             
+            
+            <apex:pageBlockTable title="Issued Instalation Items" value="{!issuedItems}" var="item" rendered="{!serviceWO}">
+                
+                <apex:column headerValue="Item" value="{!item.Work_Order_Item__r.Inventory_Item__r.Name}" />
+                <apex:column headerValue="UOM" value="{!item.Inventory_UoM__r.Name}" />
+                <apex:column headerValue="Quantity" value="{!item.Issued_Quantity__c}" />
+                <apex:column headerValue="Unit Value" value="{!item.Unit_Value__c}" />
+                <apex:column headerValue="Issued Value" value="{!item.Issued_Value__c}" />
+                
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

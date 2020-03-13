@@ -1,0 +1,28 @@
+<apex:page StandardController="PTS_Line_Item__c"  extensions="GeneratePreviousPOsPRsAndPOItemsOnPR">
+    <apex:form >   
+                 
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            
+            <apex:pageBlockTable value="{!procurementRequestLineItemList}" var="c" id="table">
+                <apex:column >
+                    
+                </apex:column>  
+                <apex:column headerValue="PR Line Name">
+                <apex:outputLink value="/{!c.Id}" target="_blank">{!c.Name}</apex:outputLink>
+                </apex:column>  
+                <apex:column headerValue="PR Number" value="{!c.Procurement_Tracking_Sheet__c}" />           
+                <apex:column headerValue="PR Item" value="{!c.Item__c}" />           
+                <apex:column headerValue="Item Specifications" value="{!c.Specifications__c}" />
+                <apex:column headerValue="Item Category" value="{!c.Item_Type__c}" />
+                <apex:column headerValue="Purchase Order Line Item" value="{!c.Purchase_Order_Line_Item__c}" />
+                <apex:column headerValue="Purchase Order Item" value="{!c.Purchase_Order_Item__c}" />
+                <apex:column headerValue="Inventory UoM" value="{!c.Inventory_UoM__c}" />
+                <apex:column headerValue="Quantity Delivered" value="{!c.Qty_Delivered__c}" />
+                <apex:column headerValue="Department" value="{!c.Department__c}" />
+                <apex:column headerValue="Company" value="{!c.Requesting_Company__c}" />
+                <apex:column headerValue="Status" value="{!c.Status__c}" />
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

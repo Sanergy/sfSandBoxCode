@@ -1,0 +1,385 @@
+<apex:page docType="html-5.0" StandardController="Recurring_Service__c" extensions="RecurringService">
+
+    <apex:form >        
+        <script>
+            function checkDate(){            
+                var fieldPrefixRSBillingDate = document.querySelector('[id*=":billingDate"]').id;
+                var billing_date = document.getElementById(fieldPrefixRSBillingDate).value;
+                
+                if(billing_date == ''){
+                    alert('Please select the date.');
+                    return true;
+                }else{
+                    selectedDate();
+                    return true;
+                }
+            }
+        
+            function validateQuantityPrice(){
+                calculateTotalSum();
+                var fieldPrefixRSBillingType = document.querySelector('[id*=":billingType"]').id;             
+                var fieldPrefixRSBillingUnits = document.querySelector('[id*=":billingUnits"]').id;
+                var fieldPrefixRSConsumptionUnits = document.querySelector('[id*=":consumptionUnits"]').id;             
+                var fieldPrefixRSCostPerUnit = document.querySelector('[id*=":costPerUnit"]').id;                
+                var fieldTotalQuantitySLK = document.querySelector('[id*=":totalQuantitySLK"]').id;
+                var fieldTotalQuantityFLI = document.querySelector('[id*=":totalQuantityFLI"]').id;
+                var fieldTotalUnitPriceSLK = document.querySelector('[id*=":totalUnitPriceSLK"]').id;                 
+                var fieldTotalUnitPriceFLI = document.querySelector('[id*=":totalUnitPriceFLI"]').id;
+                var AllTotalCost = document.querySelector('[id*=":AllTotalCost"]').id;                 
+                var fieldRow1UnitSLK = document.querySelector('[id*=":totalUnitPriceSLK"]').id;                           
+                
+                var billing_type = document.getElementById(fieldPrefixRSBillingType).value;                 
+                var billing_units = document.getElementById(fieldPrefixRSBillingUnits).value;
+                var consumption_units = document.getElementById(fieldPrefixRSConsumptionUnits).value;                 
+                var cost_per_unit = document.getElementById(fieldPrefixRSCostPerUnit).value;                
+                var slk_row_total_quantity = document.getElementById(fieldTotalQuantitySLK).value;
+                var fli_row_total_quantity = document.getElementById(fieldTotalQuantityFLI).value;
+                var slk_row_total_unit_price = document.getElementById(fieldTotalUnitPriceSLK).value;
+                var fli_row_total_unit_price = document.getElementById(fieldTotalUnitPriceFLI).value;
+                var total_cost = document.getElementById(AllTotalCost).value;  
+                
+                var total_quantity = (isNaN(parseFloat((slk_row_total_quantity).replace(',', ''))) ? 0 : parseFloat((slk_row_total_quantity).replace(',', '')));
+                total_quantity+= (isNaN(parseFloat((fli_row_total_quantity).replace(',', ''))) ? 0 : parseFloat((fli_row_total_quantity).replace(',', '')));
+                
+                billing_units = (isNaN(parseFloat((billing_units).replace(',', ''))) ? 0 : parseFloat((billing_units).replace(',', '')));
+                cost_per_unit = (isNaN(parseFloat((cost_per_unit).replace(',', ''))) ? 0 : parseFloat((cost_per_unit).replace(',', '')));
+                
+                var maximum_cost = billing_units * cost_per_unit;
+                
+                alert("billing_units: " + billing_units + " cost_per_unit: " + cost_per_unit + " maximum_cost: " + maximum_cost);
+                
+                if((total_quantity > billing_units) && billing_type == 'Fixed value'){
+                    alert("The quantity is more than the expected");
+                }
+                
+                if((total_cost > maximum_cost) && consumption_units == 'Fixed value'){
+                    alert("The total cost is more than the expected");
+                }
+                
+            }
+           
+            function calculateSumSLK(id, rowIndexField) {  
+                var fieldPrefixPRLIUnitPrice = document.querySelector('[id*=":PRLIUnitPrice"]').id;
+                var fieldPrefixPRLIQty = document.querySelector('[id*=":PRLIQuantity"]').id;
+                var fieldPrefixPRLITotal = document.querySelector('[id*=":PRLITotal"]').id;            
+                var fieldTotalQuantitySLK = document.querySelector('[id*=":totalQuantitySLK"]').id;
+                var fieldTotalUnitPriceSLK = document.querySelector('[id*=":totalUnitPriceSLK"]').id;                  
+                var fieldTotalCostSLK = document.querySelector('[id*=":totalCostSLK"]').id;     
+                
+                fieldPrefixPRLIUnitPrice =  fieldPrefixPRLIUnitPrice.substring(0,fieldPrefixPRLIUnitPrice.lastIndexOf(":"));
+                fieldPrefixPRLIUnitPrice =  fieldPrefixPRLIUnitPrice.substring(0,fieldPrefixPRLIUnitPrice.lastIndexOf(":")+1);
+                
+                fieldPrefixPRLIQty =  fieldPrefixPRLIQty.substring(0,fieldPrefixPRLIQty.lastIndexOf(":"));
+                fieldPrefixPRLIQty =  fieldPrefixPRLIQty.substring(0,fieldPrefixPRLIQty.lastIndexOf(":")+1);
+                
+                fieldPrefixPRLITotal =  fieldPrefixPRLITotal.substring(0,fieldPrefixPRLITotal.lastIndexOf(":"));
+                fieldPrefixPRLITotal =  fieldPrefixPRLITotal.substring(0,fieldPrefixPRLITotal.lastIndexOf(":")+1);
+                
+                var NumRowsField = document.querySelector('[id*=":'+ rowIndexField +'"]').id;
+                var numberOfRows = document.getElementById(NumRowsField).textContent;
+                
+                numberOfRows = parseFloat(numberOfRows);
+    
+                var colUnitPrice = 0.0;
+                var colQuantity = 0.0;
+                var colTotal = 0.0;
+                var RowTotalSLK = 0.0;
+                var rowTotalUnitPrice = 0.0;
+                var rowTotalQuantity = 0.0;
+                
+                for(var i=0; i<numberOfRows; i++){
+                    colUnitPrice =  document.getElementById(fieldPrefixPRLIUnitPrice + i +':PRLIUnitPrice').value;
+                    colQuantity =  document.getElementById(fieldPrefixPRLIQty + i +':PRLIQuantity').value;
+                    
+                    colUnitPrice = (isNaN(parseFloat((colUnitPrice).replace(',', ''))) ? 0 : parseFloat((colUnitPrice).replace(',', '')));
+                    colQuantity = (isNaN(parseFloat((colQuantity).replace(',', ''))) ? 0 : parseFloat((colQuantity).replace(',', '')));
+                    
+                    colTotal = colUnitPrice * colQuantity;
+                    document.getElementById(fieldPrefixPRLITotal + i +':PRLITotal').value = colTotal;
+                    RowTotalSLK += colTotal;
+                    rowTotalQuantity += colQuantity;
+                    
+                }        
+                
+                document.getElementById(fieldTotalQuantitySLK).value = rowTotalQuantity;                  
+                document.getElementById(fieldTotalCostSLK).value = RowTotalSLK;            
+                calculateTotalSum();
+                return RowTotalSLK;
+            }
+            
+            function calculateSumFLI(id, rowIndexField) {
+                
+                var fieldPrefixPRLIUnitPrice = document.querySelector('[id*=":PRLIUnitPrice2"]').id;
+                var fieldPrefixPRLIQty = document.querySelector('[id*=":PRLIQuantity2"]').id;
+                var fieldPrefixPRLITotal = document.querySelector('[id*=":PRLITotal2"]').id;
+                var fieldTotalQuantityFLI = document.querySelector('[id*=":totalQuantityFLI"]').id;
+                var fieldTotalUnitPriceFLI = document.querySelector('[id*=":totalUnitPriceFLI"]').id;                  
+                var fieldTotalCostFLI = document.querySelector('[id*=":totalCostFLI"]').id; 
+                
+                fieldPrefixPRLIUnitPrice =  fieldPrefixPRLIUnitPrice.substring(0,fieldPrefixPRLIUnitPrice.lastIndexOf(":"));
+                fieldPrefixPRLIUnitPrice =  fieldPrefixPRLIUnitPrice.substring(0,fieldPrefixPRLIUnitPrice.lastIndexOf(":")+1);
+                
+                fieldPrefixPRLIQty =  fieldPrefixPRLIQty.substring(0,fieldPrefixPRLIQty.lastIndexOf(":"));
+                fieldPrefixPRLIQty =  fieldPrefixPRLIQty.substring(0,fieldPrefixPRLIQty.lastIndexOf(":")+1);
+                
+                fieldPrefixPRLITotal =  fieldPrefixPRLITotal.substring(0,fieldPrefixPRLITotal.lastIndexOf(":"));
+                fieldPrefixPRLITotal =  fieldPrefixPRLITotal.substring(0,fieldPrefixPRLITotal.lastIndexOf(":")+1);
+                
+                var NumRowsField = document.querySelector('[id*=":'+ rowIndexField +'"]').id;
+                var numberOfRows = document.getElementById(NumRowsField).textContent;
+                
+                numberOfRows = parseFloat(numberOfRows);
+                
+                var colUnitPrice = 0.0;
+                var colQuantity = 0.0;
+                var colTotal = 0.0;
+                var RowTotalFLI = 0.0;
+                var rowTotalUnitPriceFLI = 0.0;
+                var rowTotalQuantityFLI = 0.0;                
+                
+                for(var i=0; i<numberOfRows; i++){
+                    colUnitPrice =  document.getElementById(fieldPrefixPRLIUnitPrice + i +':PRLIUnitPrice2').value;
+                    colQuantity =  document.getElementById(fieldPrefixPRLIQty + i +':PRLIQuantity2').value;
+                    
+                    colUnitPrice = (isNaN(parseFloat((colUnitPrice).replace(',', ''))) ? 0 : parseFloat((colUnitPrice).replace(',', '')));
+                    colQuantity = (isNaN(parseFloat((colQuantity).replace(',', ''))) ? 0 : parseFloat((colQuantity).replace(',', '')));
+                    
+                    colTotal = colUnitPrice * colQuantity;
+                    document.getElementById(fieldPrefixPRLITotal + i +':PRLITotal2').value = colTotal;
+                    RowTotalFLI += colTotal;                    
+                    rowTotalQuantityFLI += colQuantity;                   
+                }
+                
+                document.getElementById(fieldTotalQuantityFLI).value = rowTotalQuantityFLI;                
+                document.getElementById(fieldTotalCostFLI).value = RowTotalFLI;
+                calculateTotalSum();
+                
+                return RowTotalFLI;
+            }
+    
+            function calculateTotalSum(){
+                var TotalSum = 0.0;
+                var FliTotal = document.querySelector('[id*=":totalCostFLI"]').id; 
+                var SLKTotal = document.querySelector('[id*=":totalCostSLK"]').id;
+                var fli = document.getElementById(FliTotal).value;
+                var slk = document.getElementById(SLKTotal).value;
+                
+                var FLIValue = (isNaN(parseFloat((fli).replace(',', ''))) ? 0 : parseFloat((fli).replace(',', '')));
+                var SLKValue = (isNaN(parseFloat((slk).replace(',', ''))) ? 0 : parseFloat((slk).replace(',', '')));
+                
+                var TotalSum = FLIValue + SLKValue;
+                var AllTotal = document.querySelector('[id*=":AllTotalCost"]').id; 
+                document.getElementById(AllTotal).value = TotalSum;               
+            }
+        
+        </script>
+        
+        <apex:sectionHeader title="{!Recurring_Service__c.Name}"  subtitle="Recurring Service" />
+        <apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock id="RSHeader">
+            <apex:variable var="rowNumberSLK" value="{!0}"/>
+            <apex:variable var="fieldPrefix" value="{!''}"/>
+            <apex:variable var="rowNumberFLI" value="{!0}"/>
+            <apex:variable var="dateSelected" value="{!billingDate}"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Step 1: Create Recurring Service Line Item" onclick="checkDate()" reRender="billingDate"/>
+                <apex:actionFunction action="{!createRecurringServiceLineItem}" name="selectedDate" rerender="billingDate"/>
+                <apex:commandButton value="Step 2: Create Recurring Service PR Items" action="{!createRecurringServicePRItems}" rendered="{!showStep2Button}"  onclick="validateQuantityPrice()"/>
+                <apex:commandButton value="Step 3: Create PR" action="{!createPR}" rendered="{!showStep3Button}" onclick="if(!confirm('Are you sure you want to create a PR?')){return false};"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+           
+            <apex:panelGrid width="100%" >                 
+                <apex:pageBlockSection title="Recurring Service: {!Recurring_Service__c.Name}" >
+                    <!--<apex:outputText value="{!Recurring_Service__c.Requestor__r.Name}" />
+                    <apex:outputText value="{!Recurring_Service__c.Requesting_Department__r.Name}"/>
+                    <apex:outputText label="Required Date" value="{0, date, d MMMM ',' yyyy}">
+                        <apex:param value="{!Recurring_Service__c.Required_Date__c}" /> 
+                    </apex:outputText>-->
+                    <apex:outputText value="{!Recurring_Service__c.Vendor__r.Name}"/>
+                    <apex:outputText value="{!Recurring_Service__c.Service_Name__c}"/>                    
+                    <apex:outputText value="{!Recurring_Service__c.Service_Type__c}"/>
+                    <apex:input label="Billing Date" value="{!billingDate}" id="billingDate" type="date"/>
+                    <apex:outputText value="{!Recurring_Service__c.Billing_Frequency__c}"/>
+                    <apex:inputField value="{!Recurring_Service__c.Billing_Type__c}" id="billingType"/>                                       
+                    <apex:inputField value="{!Recurring_Service__c.Consumption_Units__c}" id="consumptionUnits"/>
+                    <apex:inputField value="{!Recurring_Service__c.Billing_Units__c}" id="billingUnits"/>
+                    <apex:inputField value="{!Recurring_Service__c.Cost_Per_Unit__c}" id="costPerUnit"/>
+                    <apex:outputText value="{!Recurring_Service__c.FLI_SLK_Total_Price__c}"/>
+                    <apex:outputText value="{!Recurring_Service__c.Shared_service__c}"/>
+                    <apex:outputText value="{!Recurring_Service__c.SLK_percentage_value__c}"/>
+                    <apex:outputText value="{!Recurring_Service__c.FLI_percentage_value__c}"/>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            <!--<apex:outputText ></apex:outputText>-->
+            
+            <apex:panelGrid width="100%" >
+                <apex:pageBlockSection title="Cost Allocation" >
+                    <apex:outputText label="SLK Total Quantity:" >
+                        <apex:inputText id="totalQuantitySLK" disabled="true"/>
+                    </apex:outputText>                    
+                    <apex:outputText label="FLI Total Quantity:" >
+                        <apex:inputText id="totalQuantityFLI" disabled="true"/>
+                    </apex:outputText>
+                    <apex:outputText label="SLK Total Cost:" >
+                        <apex:inputText id="totalCostSLK" disabled="true"/>
+                    </apex:outputText>
+                    <apex:outputText label="FLI Total Cost:" >
+                        <apex:inputText id="totalCostFLI" disabled="true"/>
+                    </apex:outputText>                
+                    <apex:outputText label="Total Cost :" >
+                        <apex:inputText id="AllTotalCost" disabled="true" onmouseout="calculateTotalSum(this.id)"/>
+                    </apex:outputText>                      
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+            <!--SLK Line Items-->
+            <br/>
+            <apex:panelGrid >
+                <apex:pageBlockSection title="Recurring Service Line Items - SLK" id="RSLineBlock" >                    
+                    <apex:pageBlockTable value="{!recurringServiceLineItemListSLK}" var="item" id="RSLineItem">
+                        <!--<apex:column headerValue="Action" >
+                            <apex:commandButton value="Add Row" action="{!addRowSLK}" reRender="RSHeader"/>
+                        </apex:column>-->    
+                        <apex:column headerValue="Name" value="{!item.serviceItem.Name}" width="300"/>
+                        <apex:column headerValue="Recurring Service Tag" value="{!item.serviceItem.RS_Tag__c}" width="300"/>
+                        <apex:column headerValue="Item" value="{!item.serviceItem.Item__c}" width="300"/>
+                        <apex:column headerValue="Requesting Company" value="{!item.serviceItem.Requesting_Company__r.Name}" width="300"/>
+                        <apex:column headerValue="Billing Date" value="{!item.serviceItem.Billing_Date__c}" width="300"/>
+                        <apex:column headerValue="Total Price" value="{!item.serviceItem.Total_Price__c}" width="300"/>
+                        
+                        <!--Recurring Service PR Items-->
+                        <apex:column >
+                            <apex:pageBlockTable var="item" value="{!RSPRListSLK}" id="PRItems">                                 
+                                <apex:column headerValue="Quantity" >
+                                    <apex:inputField value="{!item.Quantity__c}" id="PRLIQuantity" required="true" onmouseout="calculateSumSLK(this.id,'rowIndexSLK')"/>
+                                </apex:column>
+                                <apex:column headerValue="Unit Price" >
+                                    <apex:inputField value="{!item.Unit_Price__c}" id="PRLIUnitPrice" required="true" onmouseout="calculateSumSLK(this.id,'rowIndexSLK')" />
+                                </apex:column>
+                                <apex:column headerValue="Comments" >
+                                    <apex:inputField value="{!item.Comments__c}"/>
+                                </apex:column>
+                                <apex:column headerValue="Total" >
+                                    <apex:input id="PRLITotal" onmouseout="calculateSumSLK(this.id,'rowIndexSLK')"/>
+                                </apex:column>                                 
+                                <apex:column headerValue="Recurring_Service_Line_Item" >
+                                    <apex:inputField value="{!item.Recurring_Service_Line_Item__c}"/>
+                                </apex:column>                         
+                                <!--<apex:column headerValue="Action" >
+                                    <apex:commandButton value="Delete" action="{!deleteRowSLK}" 
+                                     	rendered="{!if((item.Allow_Delete__c==true && (item.PR_Line_Item__c!=null || item.PR_Line_Item__c!='')) || 
+                                                  (item.Allow_Delete__c==false && (item.PR_Line_Item__c==null || item.PR_Line_Item__c=='')),true,false)}" >
+                                        <apex:param name="rowIndexSLK" value="{!rowNumberSLK}"/>
+                                    </apex:commandButton>
+                                    <apex:variable var="rowNumberSLK" value="{!rowNumberSLK+1}"/>
+                                </apex:column>--> 
+                            </apex:pageBlockTable>                           
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+            <!--FLI Line Items-->
+            <br/>
+            <apex:panelGrid >
+                <apex:pageBlockSection title="Recurring Service Line Items - FLI" id="RSLineBlock2" >                    
+                    <apex:pageBlockTable value="{!recurringServiceLineItemListFLI}" var="item" id="RSLineItem2">
+                        <!--<apex:column headerValue="Action" >
+                            <apex:commandButton value="Add Row" action="{!addRowFLI}" reRender="RSHeader"/>                            
+                        </apex:column>-->    
+                        <apex:column headerValue="Name" value="{!item.serviceItem.Name}" width="300"/>
+                        <apex:column headerValue="Recurring Service Tag" value="{!item.serviceItem.RS_Tag__c}" width="300"/>
+                        <apex:column headerValue="Item" value="{!item.serviceItem.Item__c}" width="300"/>
+                        <apex:column headerValue="Requesting Company" value="{!item.serviceItem.Requesting_Company__r.Name}" width="300"/>
+                        <apex:column headerValue="Billing Date" value="{!item.serviceItem.Billing_Date__c}" width="300"/>
+                        <apex:column headerValue="Total Price" value="{!item.serviceItem.Total_Price__c}" width="300"/>
+                        
+                        <apex:column >
+                            <apex:pageBlockTable var="item" value="{!RSPRListFLI}" id="PRItems2">
+                                <apex:column headerValue="Quantity" >
+                                    <apex:inputField value="{!item.Quantity__c}" id="PRLIQuantity2" required="true" onmouseout="calculateSumFLI(this.id,'rowIndexFLI')"/>
+                                </apex:column>
+                                <apex:column headerValue="Unit Price" >
+                                    <apex:inputField value="{!item.Unit_Price__c}" id="PRLIUnitPrice2" required="true" onmouseout="calculateSumFLI(this.id,'rowIndexFLI')" />
+                                </apex:column>
+                                <apex:column headerValue="Comments" >
+                                    <apex:inputField value="{!item.Comments__c}"/>
+                                </apex:column>
+                                <apex:column headerValue="Total" >
+                                    <apex:input id="PRLITotal2" onmouseout="calculateSumFLI(this.id,'rowIndexFLI')"/>
+                                </apex:column>                                 
+                                <apex:column headerValue="Recurring_Service_Line_Item" >
+                                    <apex:inputField value="{!item.Recurring_Service_Line_Item__c}"/>
+                                </apex:column>                         
+                                <!--<apex:column headerValue="Action" >
+                                    <apex:commandButton value="Delete" action="{!deleteRowFLI}" 
+                                     	rendered="{!if((item.Allow_Delete__c==true && (item.PR_Line_Item__c!=null || item.PR_Line_Item__c!='')) || 
+                                                  (item.Allow_Delete__c==false && (item.PR_Line_Item__c==null || item.PR_Line_Item__c=='')),true,false)}" >
+                                        <apex:param name="rowIndexFLI" value="{!rowNumberFLI}"/>
+                                    </apex:commandButton>
+                                    <apex:variable var="rowNumberFLI" value="{!rowNumberFLI+1}"/>
+                                </apex:column>--> 
+                            </apex:pageBlockTable>                            
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+            <apex:panelGrid width="100%" >
+                <apex:pageBlockSection title="ID's" id="IDs">
+                    <script> 
+                    twistSection(document.getElementById('img_{!$Component.IDs}')); 
+                    </script>                
+                    <apex:outputText label="RSLineItemIdSLK" value="{!RSLineItemIdSLK}"/>
+                    <apex:outputText label="RSLineItemIdFLI" value="{!RSLineItemIdFLI}"/>   
+                    <apex:outputText label="rowIndexSLK" value="{!rowIndexSLK}" id="rowIndexSLK"/>
+                    <apex:outputText label="rowIndexFLI" value="{!rowIndexFLI}" id="rowIndexFLI"/>
+                    <apex:outputText label="SLK Total Unit Price:" >
+                        <apex:inputText id="totalUnitPriceSLK" disabled="true"/>
+                    </apex:outputText>
+                    <apex:outputText label="FLI Total Unit Price:" >
+                        <apex:inputText id="totalUnitPriceFLI" disabled="true"/>
+                    </apex:outputText>                
+                </apex:pageBlockSection> 
+            </apex:panelGrid>
+            
+            <!--Get all Recurring Service Line Items
+            <br/>
+            <apex:panelGrid >
+                <apex:pageBlockSection title="Previous Recurring Service Line Items">                    
+                    <apex:pageBlockTable value="{!allRecurringServiceLineItemList}" var="item">
+                        <apex:column headerValue="Name" value="{!item.serviceItem.Name}" width="300"/>
+                        <apex:column headerValue="Recurring Service Tag" value="{!item.serviceItem.RS_Tag__c}" width="300"/>
+                        <apex:column headerValue="Item" value="{!item.serviceItem.Item__c}" width="300"/>
+                        <apex:column headerValue="Requesting Company" value="{!item.serviceItem.Requesting_Company__r.Name}" width="300"/>
+                        <apex:column headerValue="Total Price" value="{!item.serviceItem.Total_Price__c}" width="300"/>
+                        
+                        <apex:column >
+                            <apex:pageBlockTable var="item" value="{!RSPRListFLI}" id="PRItems3">
+                                <apex:column headerValue="Quantity" >
+                                    <apex:inputField value="{!item.Quantity__c}"/>
+                                </apex:column>
+                                <apex:column headerValue="Unit Price" >
+                                    <apex:inputField value="{!item.Unit_Price__c}"/>
+                                </apex:column>
+                                <apex:column headerValue="Comments" >
+                                    <apex:inputField value="{!item.Comments__c}"/>
+                                </apex:column>                               
+                                <apex:column headerValue="Recurring_Service_Line_Item" >
+                                    <apex:inputField value="{!item.Recurring_Service_Line_Item__c}"/>
+                                </apex:column>                         
+                                <apex:column headerValue="Action" >
+                                    <apex:commandButton value="Delete" action="{!deleteRow}" >
+                                        <apex:param name="rowIndexFLI" value="{!rowNumberFLI}"/>
+                                    </apex:commandButton>
+                                    <!--<apex:variable var="rowNumberFLI" value="{!rowNumberFLI+1}"/>
+                                </apex:column> 
+                            </apex:pageBlockTable>                            
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:panelGrid>  -->            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

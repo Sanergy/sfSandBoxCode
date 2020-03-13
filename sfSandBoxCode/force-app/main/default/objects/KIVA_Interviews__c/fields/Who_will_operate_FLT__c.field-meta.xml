@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Who_will_operate_FLT__c</fullName>
+    <description>Person to be trained</description>
+    <externalId>false</externalId>
+    <label>Who will operate FLT?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

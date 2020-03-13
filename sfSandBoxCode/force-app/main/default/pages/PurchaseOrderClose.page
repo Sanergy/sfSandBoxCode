@@ -1,0 +1,54 @@
+<apex:page standardController="Purchase_Order__c" extensions="PurchaseOrderActionController">
+    <apex:form >
+        
+        <apex:sectionHeader title="{!Purchase_Order__c.Name}" subtitle="Close Order"/>
+        <apex:pageBlock id="pbHeader">
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Cancel PO" action="{!POClose}" onclick="if(!confirm('Are you sure you want to Cancel this PO?')){return false};" reRender="pbHeader,pbPOLI,pbsPO"/>
+                <apex:commandButton value="Return to PO" action="{!cancel}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Purchase Order Information" id="pbsPO">
+                <apex:outputField value="{!Purchase_Order__c.Name}"/>
+                <apex:outputField value="{!Purchase_Order__c.Order_Status__c}"/>
+                <apex:outputField value="{!Purchase_Order__c.Vendor_Account__c}"/>
+                <apex:outputField value="{!Purchase_Order__c.PO_Currency__c}" />
+                <apex:outputField value="{!Purchase_Order__c.Total_Amount__c}" />
+            </apex:pageBlockSection>      
+        </apex:pageBlock>
+        <apex:pageBlock id="pbPOLI">
+            
+            <apex:pageBlockSection title="PO Line Items" >
+                
+                <apex:pageBlockTable value="{!POLineItems}" var="p" id="tblPOLI" >
+                    <apex:column headerValue="PO Line Name">
+                        <apex:outputLink value="/{!p.Id}" target="_blank">{!p.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="PO Item" value="{!p.Purchase_Order_Item__r.Name}" />
+                    <apex:column headerValue="Status" value="{!p.Status__c}" /> 
+                    <apex:column headerValue="Qty Requested" value="{!p.Quantity_Requested__c}" />
+                    <apex:column headerValue="Qty Accepted" value="{!p.Quantity_Accepted__c}" />
+                    <apex:column headerValue="UoM" value="{!p.UoM__c}" />
+                    <apex:column headerValue="Unit Net Price" value="{!p.Unit_Net_Price__c}" />
+                    <apex:column headerValue="Unit Gross Price" value="{!p.Unit_Gross_Price__c}" />
+                    <apex:column headerValue="Total Net Price" value="{!p.Total_Net_Price__c}" />
+                    <apex:column headerValue="Total Gross Price" value="{!p.Total_Price__c}" />
+                    <apex:column headerValue="Variation Notes" value="{!p.Variation_Notes__c}" />
+                    <apex:column headerValue="PR Header">
+                        <apex:outputLink value="/{!p.PTS_Line_Item__r.Procurement_Tracking_Sheet__c }" target="_blank">{!p.PTS_Line_Item__r.Procurement_Tracking_Sheet__r.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="PR Line">
+                        <apex:outputLink value="/{!p.PTS_Line_Item__c}" target="_blank">{!p.PTS_Line_Item__r.Name}</apex:outputLink>  
+                    </apex:column> 
+                    <apex:column headerValue="Comments">
+                        <apex:outputText value="{!p.Notes__c}" label="Notes" style="width:200px; Height:60px" />
+                    </apex:column>
+                </apex:pageBlockTable>              
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>

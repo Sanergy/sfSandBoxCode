@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Missed_Collection_Reason__c</fullName>
+    <description>Updates Missed Collection Reason based on Missed collection Code Value</description>
+    <externalId>false</externalId>
+    <formula>Case(Missed_Collection_Code__c,
+&quot;1&quot;,&quot;Low usage- FLT not used&quot;,
+&quot;2&quot;,&quot;Toilet Overflowed&quot;,
+&quot;3&quot;,&quot;Closed by Sanergy&quot;,
+&quot;4&quot;,&quot;Toilet Locked&quot;,
+&quot;5&quot;,&quot; &quot;,
+&quot;6&quot;,&quot;School Closed&quot;,
+&quot;7&quot;,&quot;Workman missed collection&quot;,
+&quot;8&quot;,&quot;FLO request skip or special schedule&quot;,
+&quot;9&quot;,&quot;Church or Institution Closed&quot;,
+&quot;10&quot;,&quot;Research Toilet&quot;,
+&quot;11&quot;,&quot;Other&quot;,
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Missed Collection Reason</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

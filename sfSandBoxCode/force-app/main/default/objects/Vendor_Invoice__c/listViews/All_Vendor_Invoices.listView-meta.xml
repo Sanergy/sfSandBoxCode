@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Vendor_Invoices</fullName>
+    <columns>NAME</columns>
+    <columns>Invoice_Number__c</columns>
+    <columns>Vendor_Invoice_date__c</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
+    <columns>Vendor__c</columns>
+    <columns>Total_Invoice_Cost_del__c</columns>
+    <columns>Invoice_Received_Value__c</columns>
+    <columns>Total_Payments__c</columns>
+    <columns>Invoice_Balance__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Vendor Invoices</label>
+    <language>en_US</language>
+</ListView>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Majority_of_customers_are__c</fullName>
+    <externalId>false</externalId>
+    <label>Majority of customers are:</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>One-Time Customers</fullName>
+                <default>false</default>
+                <label>One-Time Customers</label>
+            </value>
+            <value>
+                <fullName>Repeat Customers</fullName>
+                <default>false</default>
+                <label>Repeat Customers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

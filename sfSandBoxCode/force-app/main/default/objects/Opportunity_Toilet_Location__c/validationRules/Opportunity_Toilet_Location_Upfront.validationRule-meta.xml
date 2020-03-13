@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Toilet_Location_Upfront</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Payment_Option__c, &#39;Upfront&#39;),
+OR(
+ NOT(No_of_FLI_FLTs__c  = 0),
+ NOT(No_of_Kiva_FLTs__c  = 0)
+))</errorConditionFormula>
+    <errorMessage>No. of FLI FLTs and KIVA FLTs should be set to 0 for upfront payment</errorMessage>
+</ValidationRule>

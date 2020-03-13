@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Steps__c</fullName>
+    <externalId>false</externalId>
+    <label>All Steps</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>QHSE Approval</fullName>
+                <default>false</default>
+                <label>QHSE Approval</label>
+            </value>
+            <value>
+                <fullName>Pending Team Lead Approval</fullName>
+                <default>false</default>
+                <label>Pending Team Lead Approval</label>
+            </value>
+            <value>
+                <fullName>Pending Finance Approval</fullName>
+                <default>false</default>
+                <label>Pending Finance Approval</label>
+            </value>
+            <value>
+                <fullName>Pending Procurement Approval</fullName>
+                <default>false</default>
+                <label>Pending Procurement Approval</label>
+            </value>
+            <value>
+                <fullName>Completed: Pending PO</fullName>
+                <default>false</default>
+                <label>Completed: Pending PO</label>
+            </value>
+            <value>
+                <fullName>Partial PO(s) created</fullName>
+                <default>false</default>
+                <label>Partial PO(s) created</label>
+            </value>
+            <value>
+                <fullName>All POs created &amp; Partial Receipts</fullName>
+                <default>false</default>
+                <label>All POs created &amp; Partial Receipts</label>
+            </value>
+            <value>
+                <fullName>All POs created &amp; All Receipts</fullName>
+                <default>false</default>
+                <label>All POs created &amp; All Receipts</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

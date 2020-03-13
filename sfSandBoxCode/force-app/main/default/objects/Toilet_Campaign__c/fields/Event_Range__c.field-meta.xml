@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Range__c</fullName>
+    <externalId>false</externalId>
+    <label>Event Range</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Area-Wide</fullName>
+                <default>false</default>
+                <label>Area-Wide</label>
+            </value>
+            <value>
+                <fullName>Operator Specific</fullName>
+                <default>false</default>
+                <label>Operator Specific</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

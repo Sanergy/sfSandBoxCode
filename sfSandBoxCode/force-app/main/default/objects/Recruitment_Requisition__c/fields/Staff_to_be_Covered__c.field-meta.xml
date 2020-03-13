@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Staff_to_be_Covered__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Staff to be Covered</label>
+    <referenceTo>Employee__c</referenceTo>
+    <relationshipLabel>Recruitment Requisitions (Staff to be Covered)</relationshipLabel>
+    <relationshipName>Recruitment_Requisitions3</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

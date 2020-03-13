@@ -1,0 +1,28 @@
+<apex:page standardController="Employee__c" extensions="CreateOnboardingTasksFromEmployee">
+    <apex:sectionHeader subtitle="Employee On-boarding Tasks"/>
+	<apex:form >                
+    	<apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock >            
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Create Task" action="{!createTask}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>            
+            </apex:pageBlockButtons>
+            
+             <apex:pageBlockSection title="Onboarding Tasks for: {!Employee__c.Name}">				                
+				<apex:pageBlockTable value="{!items}" var="item" id="table" title="Onboarding Tasks">
+                    <apex:column headerValue="Select" >
+                        <apex:inputCheckbox value="{!item.selected}"/>
+                 	</apex:column>
+                    <apex:column headerValue="Employee Role" value="{!item.onboardingTask.Employee_Role__r.Name}" width="80%" />
+                    <apex:column headerValue="Task Name" value="{!item.onboardingTask.Task_Name__c}"  width="300" />
+                    <apex:column headerValue="Assigned To" value="{!item.onboardingTask.Assigned_To__r.Name}"  width="300" />
+                    <apex:column headerValue="No of Days After Hire Date" value="{!item.onboardingTask.No_of_Days_After_Hire_Date__c}"  width="300" />
+					<apex:column headerValue="Category" value="{!item.onboardingTask.Category__c}"  width="300" />
+					<apex:column headerValue="Description" value="{!item.onboardingTask.Description__c}"  width="300" />
+					<apex:column headerValue="On-boarding Done By" value="{!item.onboardingTask.On_boarding_Done_By__c}"  width="300" />
+					<apex:column headerValue="On-boarding for" value="{!item.onboardingTask.Onboarding_for__c}"  width="300" />										
+				</apex:pageBlockTable>      
+             </apex:pageBlockSection>        
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

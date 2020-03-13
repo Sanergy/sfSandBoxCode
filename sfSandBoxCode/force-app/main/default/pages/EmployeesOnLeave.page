@@ -1,0 +1,15 @@
+<apex:page standardController="Employee_Leave_Request__c" extensions="EmployeesWhoAreOnLeave" >
+    <apex:sectionHeader subtitle="Who's out then"/> 
+        <apex:form >
+            <apex:pageBlock >
+                <apex:pageBlockTable value="{!LeaveBetween}" var="leave">
+                    <apex:column headerValue="Employee Name" value="{!leave.Employee__r.Name}"/>
+                    <apex:column headerValue="Leave Type" value="{!leave.Leave_Type__c}"/>
+                    <apex:column headerValue="Start Date" value="{!leave.Leave_Start_Date__c}"/>
+                    <apex:column headerValue="End Date" value="{!leave.Leave_End_Date__c}"/>
+                    <apex:column headerValue="Department" value="{!leave.Employee__r.Sanergy_Department__r.Name}"/>
+                    <apex:column headerValue="Status" value="{!leave.Approval_Status__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:form> 
+</apex:page>

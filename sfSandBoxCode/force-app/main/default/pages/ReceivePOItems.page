@@ -1,0 +1,58 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="ReceiveVendorInvController">
+  <apex:form >
+        <apex:sectionHeader title="{!Vendor_Invoice__c.Name}" subtitle="Receive Items to Inventory"/>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageMessage severity="info" summary="Receive items to inventory"/>
+        
+        <apex:pageBlock title="Invoice Items" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Verify Items To Receive" action="{!verifyItems}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable id="itemList" value="{!items}" var="item" title="Invoice Items">
+                <apex:column headerValue="Select Items">
+                    <apex:inputCheckbox value="{!item.selected}"/>
+                </apex:column>
+                <apex:column headerValue="Name" value="{!item.item.Item_Description__c}" />
+                <apex:column headerValue="Site">
+                    <apex:selectList value="{!item.site}" multiselect="false" size="1" required="true">
+                        <apex:actionSupport event="onchange" action="{!item.setLocations}" rerender="itemList"/>
+                        <apex:selectOptions value="{!item.sites}"/>
+                    </apex:selectList>
+                </apex:column>
+                <apex:column headerValue="Location">
+                    <apex:selectList value="{!item.location}" multiselect="false" size="1">
+                        <apex:actionSupport event="onchange" action="{!item.setLots}" rerender="itemList"/>
+                        <apex:selectOptions value="{!item.locations}"/>
+                    </apex:selectList>
+                </apex:column>
+                <apex:column headerValue="Item Lot">
+                    <apex:selectList value="{!item.lot}" multiselect="false" size="1">
+                        <apex:actionSupport event="onchange" action="{!item.setLotName}" rerender="itemList" />
+                        <apex:selectOptions value="{!item.lots}"/>
+                    </apex:selectList>
+                </apex:column>
+                <apex:column headerValue="Pending Quantity" >
+                    <apex:outputText value="{0,number, ###,###.####}" id="qtyPending" >
+                        <apex:param value="{!item.item.Quantity__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Receive Quantity" >
+                    <apex:outputText value="{0,number, ###,###.####}" id="qtyRcpt" >
+                        <apex:param value="{!item.item.Accepted_Receive_Quantity__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <!--
+                <apex:column headerValue="Receive Quantity"> 
+                    <apex:inputField value="{!item.item.Receive_Quantity__c}"/>
+                </apex:column>
+                -->
+                <apex:column headerValue="Complete Order">
+                    <apex:inputCheckbox value="{!item.item.Complete_Order__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

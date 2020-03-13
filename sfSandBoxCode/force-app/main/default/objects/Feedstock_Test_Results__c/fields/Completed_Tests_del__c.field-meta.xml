@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_Tests_del__c</fullName>
+    <description>Lab tests that were conducted on the feedstock sample</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Lab tests that were successfully conducted on the feedstock sample out of the requested tests.</inlineHelpText>
+    <label>Completed Tests</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_Roles</fullName>
+    <active>true</active>
+    <label>Location Roles</label>
+    <picklistValues>
+        <picklist>Role__c</picklist>
+        <values>
+            <fullName>Employee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Franchisee</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

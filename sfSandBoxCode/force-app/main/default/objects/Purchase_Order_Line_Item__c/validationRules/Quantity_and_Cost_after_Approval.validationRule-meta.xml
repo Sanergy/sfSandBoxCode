@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_and_Cost_after_Approval</fullName>
+    <active>false</active>
+    <description>Quantity and Cost should not change after approval</description>
+    <errorConditionFormula>AND(
+    Purchase_Order__r.Approved__c = true,
+    OR(
+      ISCHANGED(Unit_Price__c),
+      ISCHANGED(Quantity_Requested__c)
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Company__c</errorDisplayField>
+    <errorMessage>&quot;Quantity Requested&quot; and &quot;Unit Price&quot; should not change after approvals have been done.</errorMessage>
+</ValidationRule>

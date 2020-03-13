@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Ownership__c</fullName>
+    <externalId>false</externalId>
+    <label>Asset Ownership</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Level 1: Ordinary/simple seats, no TV,</fullName>
+                <default>false</default>
+                <label>Level 1: Ordinary/simple seats, no TV,</label>
+            </value>
+            <value>
+                <fullName>Level 2: Colored TV[ Flat screen or 21”], music system, sofa seats</fullName>
+                <default>false</default>
+                <label>Level 2: Colored TV[ Flat screen or 21”], music system, sofa seats</label>
+            </value>
+            <value>
+                <fullName>Level 3: All above plus Car, Plots/Landlord</fullName>
+                <default>false</default>
+                <label>Level 3: All above plus Car, Plots/Landlord</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

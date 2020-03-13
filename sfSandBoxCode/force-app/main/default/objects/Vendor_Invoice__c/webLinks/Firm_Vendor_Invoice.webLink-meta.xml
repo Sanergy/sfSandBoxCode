@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Firm_Vendor_Invoice</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Firm Vendor Invoice</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <url>/apex/FirmVendorInvoice?id={!Vendor_Invoice__c.Id}&amp;action=viFirm</url>
+</WebLink>

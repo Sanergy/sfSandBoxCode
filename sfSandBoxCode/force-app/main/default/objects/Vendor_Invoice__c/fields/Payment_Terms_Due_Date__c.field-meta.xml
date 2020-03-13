@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Terms_Due_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  Payment_Terms__c = &#39;7 Days&#39;, Vendor_Invoice_date__c + 7,
+IF(  Payment_Terms__c = &#39;15 Days&#39;, Vendor_Invoice_date__c + 15,  
+ IF( Payment_Terms__c = &#39;30 Days&#39;, Vendor_Invoice_date__c + 30,NULL)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payment Terms Due Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

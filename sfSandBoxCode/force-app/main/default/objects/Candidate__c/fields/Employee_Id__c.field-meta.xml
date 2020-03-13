@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Id__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Employee Record if the Candidate has been converted to an Employee</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Employee Record if the Candidate has been converted to an Employee</inlineHelpText>
+    <label>Employee Id</label>
+    <referenceTo>Employee__c</referenceTo>
+    <relationshipLabel>Candidates</relationshipLabel>
+    <relationshipName>Candidates</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

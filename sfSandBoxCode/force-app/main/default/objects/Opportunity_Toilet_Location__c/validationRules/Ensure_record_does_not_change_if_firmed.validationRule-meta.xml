@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ensure_record_does_not_change_if_firmed</fullName>
+    <active>true</active>
+    <description>Ensure record does not change if firmed</description>
+    <errorConditionFormula>AND(  Firm__c =true,
+ISCHANGED( Firm__c )=false,
+OR( ISCHANGED( Existing_Location__c )=true,
+    ISCHANGED( Location__c  )=true,
+    ISCHANGED( No_of_FLI_FLTs__c )=true,
+    ISCHANGED( No_of_Kiva_FLTs__c )=true,
+    ISCHANGED( No_of_Toilets__c )=true,
+    ISCHANGED( Location__c  )=true,
+    ISCHANGED( Opportunity__c )=true,
+    ISCHANGED( Payment_Option__c  )=true,
+    ISCHANGED( Name )=true
+  )
+)</errorConditionFormula>
+    <errorMessage>Once a record is firmed, it cannot be changed.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>good_loan_candidate__c</fullName>
+    <description>What makes interviewee think he/she is a good loan candidate</description>
+    <externalId>false</externalId>
+    <label>Explain why you&#39;re a good loan candidate</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

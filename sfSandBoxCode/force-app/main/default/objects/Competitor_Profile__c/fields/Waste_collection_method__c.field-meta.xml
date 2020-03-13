@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waste_collection_method__c</fullName>
+    <externalId>false</externalId>
+    <label>Waste collection method</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Manual</fullName>
+                <default>false</default>
+                <label>Manual</label>
+            </value>
+            <value>
+                <fullName>Emptied to River</fullName>
+                <default>false</default>
+                <label>Emptied to River</label>
+            </value>
+            <value>
+                <fullName>Exhaust truck</fullName>
+                <default>false</default>
+                <label>Exhaust truck</label>
+            </value>
+            <value>
+                <fullName>Emptied to sewer line</fullName>
+                <default>false</default>
+                <label>Emptied to sewer line</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,27 @@
+<apex:page standardController="Opportunity" extensions="OppWorkOrdersController">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Opportunity Items For {!Opportunity.Name}" collapsible="false">            
+                <apex:outputField value="{!Opportunity.BIB_Items_Approved__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Engineering_Items_Approved__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Marketing_Items_Approved__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Pit_Conversion_Items_Approved__c}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Pit_Conversion__c}" rendered="false"/>
+                
+                <apex:outputField value="{!Opportunity.Structure_WO_Created__c}" rendered="true"/>
+                <apex:inputField value="{!Opportunity.FLTs_Approved__c}" rendered="true" required="true"/>
+                <apex:outputField value="{!Opportunity.BIB_WO_Created__c}" rendered="true"/>
+                <apex:inputField value="{!Opportunity.No_of_approved_pit_s_to_be_converted__c}" rendered="true" required="true"/>
+                <apex:outputField value="{!Opportunity.Pit_Conversion_WO_Created__c}" rendered="true"/>
+                <apex:outputField value="{!Opportunity.Installation_Scheduled_Stage_Entry_Date__c}" rendered="true"/>
+                <apex:outputField value="{!Opportunity.Basic_FLT_WO_Created__c}" rendered="true"/>
+                <apex:pageMessage severity="info" summary="Click Create to Create the required Opportunity Work Orders"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Work Orders" action="{!createOrders}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

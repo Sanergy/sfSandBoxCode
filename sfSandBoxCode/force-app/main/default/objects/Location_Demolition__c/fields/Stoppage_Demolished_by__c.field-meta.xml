@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stoppage_Demolished_by__c</fullName>
+    <externalId>false</externalId>
+    <label>Stoppage/Demolished by</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chief</fullName>
+                <default>false</default>
+                <label>Chief</label>
+            </value>
+            <value>
+                <fullName>Assistant Chief</fullName>
+                <default>false</default>
+                <label>Assistant Chief</label>
+            </value>
+            <value>
+                <fullName>City County Enforcement Officials (askaris)</fullName>
+                <default>false</default>
+                <label>City County Enforcement Officials (askaris)</label>
+            </value>
+            <value>
+                <fullName>Sub County Administrator</fullName>
+                <default>false</default>
+                <label>Sub County Administrator</label>
+            </value>
+            <value>
+                <fullName>Ward Administrator</fullName>
+                <default>false</default>
+                <label>Ward Administrator</label>
+            </value>
+            <value>
+                <fullName>MCA (Ward/County representative)</fullName>
+                <default>false</default>
+                <label>MCA (Ward/County representative)</label>
+            </value>
+            <value>
+                <fullName>Land Owner/ Landlord</fullName>
+                <default>false</default>
+                <label>Land Owner/ Landlord</label>
+            </value>
+            <value>
+                <fullName>City Stadium Management</fullName>
+                <default>false</default>
+                <label>City Stadium Management</label>
+            </value>
+            <value>
+                <fullName>Kenya Railways Authority</fullName>
+                <default>false</default>
+                <label>Kenya Railways Authority</label>
+            </value>
+            <value>
+                <fullName>Police</fullName>
+                <default>false</default>
+                <label>Police</label>
+            </value>
+            <value>
+                <fullName>Kenya Pipeline Authority</fullName>
+                <default>false</default>
+                <label>Kenya Pipeline Authority</label>
+            </value>
+            <value>
+                <fullName>Village elder (Chairman)</fullName>
+                <default>false</default>
+                <label>Village elder (Chairman)</label>
+            </value>
+            <value>
+                <fullName>Tenants</fullName>
+                <default>false</default>
+                <label>Tenants</label>
+            </value>
+            <value>
+                <fullName>Neighbors and area residents</fullName>
+                <default>false</default>
+                <label>Neighbors and area residents</label>
+            </value>
+            <value>
+                <fullName>Rowdy youth</fullName>
+                <default>false</default>
+                <label>Rowdy youth</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>Other (Add option to specify)</fullName>
+                <default>false</default>
+                <label>Other (Add option to specify)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Vehicle_Reg_Number__c</fullName>
+    <externalId>false</externalId>
+    <label>Assigned Vehicle Reg. Number</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KCA 959V- (Double cabin)</fullName>
+                <default>false</default>
+                <label>KCA 959V- (Double cabin)</label>
+            </value>
+            <value>
+                <fullName>KBW 203M (Double cabin)</fullName>
+                <default>false</default>
+                <label>KBW 203M (Double cabin)</label>
+            </value>
+            <value>
+                <fullName>KBW 063L (Double cabin)</fullName>
+                <default>false</default>
+                <label>KBW 063L (Double cabin)</label>
+            </value>
+            <value>
+                <fullName>KBW 064L (Double cabin)</fullName>
+                <default>false</default>
+                <label>KBW 064L (Double cabin)</label>
+            </value>
+            <value>
+                <fullName>KBW 070L (Double cabin)</fullName>
+                <default>false</default>
+                <label>KBW 070L (Double cabin)</label>
+            </value>
+            <value>
+                <fullName>KCD 304D (Mobius)</fullName>
+                <default>false</default>
+                <label>KCD 304D (Mobius)</label>
+            </value>
+            <value>
+                <fullName>KCG 366G (Single cab)</fullName>
+                <default>false</default>
+                <label>KCG 366G (Single cab)</label>
+            </value>
+            <value>
+                <fullName>KCG 961X (single cab)</fullName>
+                <default>false</default>
+                <label>KCG 961X (single cab)</label>
+            </value>
+            <value>
+                <fullName>KCH 181B (4.8 T Canter)</fullName>
+                <default>false</default>
+                <label>KCH 181B (4.8 T Canter)</label>
+            </value>
+            <value>
+                <fullName>KCH 182B (Hino 500- 10T truck)</fullName>
+                <default>false</default>
+                <label>KCH 182B (Hino 500- 10T truck)</label>
+            </value>
+            <value>
+                <fullName>KCB 364K (FH 215- 10T truck)</fullName>
+                <default>false</default>
+                <label>KCB 364K (FH 215- 10T truck)</label>
+            </value>
+            <value>
+                <fullName>KAR 027B (Single cab)</fullName>
+                <default>false</default>
+                <label>KAR 027B (Single cab)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+<apex:page standardController="Electronic_Payment_Request__c" extensions="CreateCashEntryFromEPR">
+    <apex:form >
+        <apex:sectionHeader title="{!Electronic_Payment_Request__c.Name}" subtitle="Create Cash Entry Confirmation"/>
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Cash Entry" action="{!createCashEntryWithLines}"/>
+                <apex:commandButton value="Return to EPR" action="{!cancel}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection > 
+                <apex:outputField value="{!Electronic_Payment_Request__c.Company__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.department__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Vendor_Company__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Vendor_Invoice_Number__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Invoice_Number__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.EPR_Request_Type__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Gross_Payment_Amount__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Vendor_Currency__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Scheduled_Payment_Date__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Vendor_and_Payment_Currencies_match__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Status__c}"/>
+                <apex:outputField value="{!Electronic_Payment_Request__c.Notes__c}"/>
+            </apex:pageBlockSection>        
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

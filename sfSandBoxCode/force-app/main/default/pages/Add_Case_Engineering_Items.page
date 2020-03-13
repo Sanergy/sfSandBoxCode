@@ -1,0 +1,22 @@
+<apex:page standardController="Opportunity" extensions="AddCaseEngineeringItemsController" doctype="html-5.0">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageblocksection title="Opportunity Items For {!Opportunity.Name}" collapsible="false">
+            
+                 <apex:outputField value="{!Opportunity.Structure_Items_Added__c}" rendered="false"/>
+                 <apex:outputField value="{!Opportunity.Franchise_Type__c}" rendered="false"/>
+                 <apex:outputField value="{!Opportunity.Existing_Location__c}" rendered="false"/>
+                 <apex:input label="No. of Toilets" type="number" value="{!noOfFLTs}" required="true" id="noOfFLTS"/>
+                 <apex:input label="No. of Upstructures" type="number" value="{!upstructures}" id="upstructures"/>
+                 <apex:selectList value="{!fltVersion}" size="1" multiselect="false" required="true" label="FLT Version to Install">
+                      <apex:selectOptions value="{!fltVersions}" />
+                 </apex:selectList>
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Create" action="{!createItems}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

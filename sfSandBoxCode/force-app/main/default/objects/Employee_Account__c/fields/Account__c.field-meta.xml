@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account__c</fullName>
+    <externalId>false</externalId>
+    <label>Account</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>7Geese</fullName>
+                <default>true</default>
+                <label>7Geese</label>
+            </value>
+            <value>
+                <fullName>Azure</fullName>
+                <default>false</default>
+                <label>Azure</label>
+            </value>
+            <value>
+                <fullName>BambooHR</fullName>
+                <default>false</default>
+                <label>BambooHR</label>
+            </value>
+            <value>
+                <fullName>Dropbox</fullName>
+                <default>false</default>
+                <label>Dropbox</label>
+            </value>
+            <value>
+                <fullName>Expensify</fullName>
+                <default>false</default>
+                <label>Expensify</label>
+            </value>
+            <value>
+                <fullName>Google Apps</fullName>
+                <default>false</default>
+                <label>Google Apps</label>
+            </value>
+            <value>
+                <fullName>JobScore</fullName>
+                <default>false</default>
+                <label>JobScore</label>
+            </value>
+            <value>
+                <fullName>Kopo Kopo</fullName>
+                <default>false</default>
+                <label>Kopo Kopo</label>
+            </value>
+            <value>
+                <fullName>M-PESA</fullName>
+                <default>false</default>
+                <label>M-PESA</label>
+            </value>
+            <value>
+                <fullName>RS and FFA</fullName>
+                <default>false</default>
+                <label>RS and FFA</label>
+            </value>
+            <value>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+                <label>Salesforce</label>
+            </value>
+            <value>
+                <fullName>TeamGantt</fullName>
+                <default>false</default>
+                <label>TeamGantt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

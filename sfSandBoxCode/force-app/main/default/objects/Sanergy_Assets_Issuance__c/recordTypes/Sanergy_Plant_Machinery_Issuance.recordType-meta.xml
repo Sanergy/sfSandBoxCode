@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sanergy_Plant_Machinery_Issuance</fullName>
+    <active>true</active>
+    <label>Sanergy Plant Machinery Issuance</label>
+    <picklistValues>
+        <picklist>Issue_Type__c</picklist>
+        <values>
+            <fullName>Permanent Issue to Staff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Short Term Issue to Staff</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Item_Condition_on_Return__c</picklist>
+        <values>
+            <fullName>Good Condition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Major Damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Minor Damage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

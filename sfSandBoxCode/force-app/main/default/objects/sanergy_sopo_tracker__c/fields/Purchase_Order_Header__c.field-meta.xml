@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Header__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>FLIK Purchase Order Header</label>
+    <referenceTo>rstk__pohdr__c</referenceTo>
+    <relationshipLabel>Sales Purchase Orders Creation Status</relationshipLabel>
+    <relationshipName>Sales_Purchase_Orders_Creation_Status</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

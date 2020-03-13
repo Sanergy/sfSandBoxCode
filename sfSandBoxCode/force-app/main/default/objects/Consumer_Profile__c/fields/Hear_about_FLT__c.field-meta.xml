@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hear_about_FLT__c</fullName>
+    <externalId>false</externalId>
+    <label>How did they hear about this FLT</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Saw poster /sign</fullName>
+                <default>false</default>
+                <label>Saw poster /sign</label>
+            </value>
+            <value>
+                <fullName>Opening Ceremony</fullName>
+                <default>false</default>
+                <label>Opening Ceremony</label>
+            </value>
+            <value>
+                <fullName>Told by someone</fullName>
+                <default>false</default>
+                <label>Told by someone</label>
+            </value>
+            <value>
+                <fullName>Saw Toilet</fullName>
+                <default>false</default>
+                <label>Saw Toilet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_FLI_choice</fullName>
+    <active>true</active>
+    <description>Ensure that when FLI is chosen, the KIVA field remains zero</description>
+    <errorConditionFormula>AND( 
+ISPICKVAL(Payment_Option__c, &#39;FLI&#39;), 
+NOT(No_of_Kiva_FLTs__c = 0) 
+)</errorConditionFormula>
+    <errorMessage>No. of KIVA toilets has to be zero when payment option is FLI</errorMessage>
+</ValidationRule>

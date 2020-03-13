@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Done_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( Total_Payments__c  &gt; 0, ISPICKVAL(VI_Status__c , &#39;Cancelled&#39;) )</errorConditionFormula>
+    <errorMessage>You are  Not allowed to Cancel this VI</errorMessage>
+</ValidationRule>

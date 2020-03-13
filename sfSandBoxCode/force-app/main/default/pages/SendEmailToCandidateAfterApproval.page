@@ -1,0 +1,24 @@
+<apex:page standardController="Candidate__c" extensions="SendEmailToCandidateAfterApproval">
+    <apex:sectionHeader subtitle="Candidate"/>
+	<apex:form >                
+    	<apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock >            
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Send Email" action="{!createEmailNotification}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>            
+            </apex:pageBlockButtons>
+            
+             <apex:pageBlockSection title="Send Email to: {!Candidate__c.First_Name__c + ' ' + Candidate__c.Last_Name__c}">				                
+				<apex:pageBlockTable value="{!items}" var="item" id="table" title="Candidate">
+                    <apex:column headerValue="First Name" value="{!item.First_Name__c}" width="80%" />
+                    <apex:column headerValue="First Name" value="{!item.Last_Name__c}" width="80%" />
+                    <apex:column headerValue="Phone Number" value="{!item.Phone_Number__c}" width="80%" />
+                    <apex:column headerValue="Email" value="{!item.Email__c}"  width="300" />
+                    <apex:column headerValue="Country" value="{!item.Country__c}" width="80%" />
+                    <apex:column headerValue="Date Available" value="{!item.Date_Available__c}"  width="300" />
+                    <apex:column headerValue="Candidate Status" value="{!item.Candidate_Status__c}"  width="300" />
+				</apex:pageBlockTable>        
+             </apex:pageBlockSection>          
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Stage</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Open</fullName>
+                <default>false</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Recruitment In Progress</fullName>
+                <default>false</default>
+                <label>Recruitment In Progress</label>
+            </value>
+            <value>
+                <fullName>Talent Partner Approved</fullName>
+                <default>false</default>
+                <label>Talent Partner Approved</label>
+            </value>
+            <value>
+                <fullName>Line Manager Approved</fullName>
+                <default>false</default>
+                <label>Line Manager Approved</label>
+            </value>
+            <value>
+                <fullName>Team Lead Approved</fullName>
+                <default>false</default>
+                <label>Team Lead Approved</label>
+            </value>
+            <value>
+                <fullName>Finance Approved</fullName>
+                <default>false</default>
+                <label>Finance Approved</label>
+            </value>
+            <value>
+                <fullName>Director Approved</fullName>
+                <default>false</default>
+                <label>Director Approved</label>
+            </value>
+            <value>
+                <fullName>Talent Partner Rejected</fullName>
+                <default>false</default>
+                <label>Talent Partner Rejected</label>
+            </value>
+            <value>
+                <fullName>Line Manager Rejected</fullName>
+                <default>false</default>
+                <label>Line Manager Rejected</label>
+            </value>
+            <value>
+                <fullName>Team Lead Rejected</fullName>
+                <default>false</default>
+                <label>Team Lead Rejected</label>
+            </value>
+            <value>
+                <fullName>Finance Rejected</fullName>
+                <default>false</default>
+                <label>Finance Rejected</label>
+            </value>
+            <value>
+                <fullName>Director Rejected</fullName>
+                <default>false</default>
+                <label>Director Rejected</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Of_PR_Line_Items__c</fullName>
+    <description>Count number of PR Line Items</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Count number of PR Line Items</inlineHelpText>
+    <label>No Of PR Line Items</label>
+    <summaryFilterItems>
+        <field>Special_Procurement_Line_Item__c.Create_PR_Line_Item__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Special_Procurement_Line_Item__c.Item__c</field>
+        <operation>notEqual</operation>
+        <value>Balance Carried Forward</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Special_Procurement_Line_Item__c.Special_Procurement__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

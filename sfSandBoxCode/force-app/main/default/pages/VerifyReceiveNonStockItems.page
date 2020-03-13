@@ -1,0 +1,28 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="ReceiveNonStockItems">
+    <apex:form >
+        <apex:sectionHeader title="{!Vendor_Invoice__c.Name}" subtitle="Receive Items to Inventory"/>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageMessage severity="info" summary="Receive items to inventory"/>
+        
+        <apex:pageBlock title="Invoice Items" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Receive to Inventory" action="{!receiveToInventory}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable id="itemList" value="{!items}" var="item" title="Invoice Items">
+                <apex:column headerValue="Name" value="{!item.item.Item_Description__c}" />
+                <apex:column headerValue="Site" value="{!item.siteName}" />
+                <apex:column headerValue="Location" value="{!item.locationName}" />
+                <apex:column headerValue="Item Lot" value="{!item.lotName}" />
+                <apex:column headerValue="Receive Quantity" value="{!item.item.Accepted_Receive_Quantity__c}"/>
+                <apex:column headerValue="PO Unit Price" value="{!item.item.Item_Unit_Price__c}"/>
+                <apex:column headerValue="Inv. UOM" value="{!item.inventoryUom}"/>
+                <apex:column headerValue="Inv. Receive Quantity" value="{!item.inventoryQuantity}"/>
+                <apex:column headerValue="Inv Unit Price" value="{!item.invUnitPrice}"/>
+                <apex:column headerValue="Complete Order" value="{!item.item.Complete_Order__c}"/>
+        	</apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

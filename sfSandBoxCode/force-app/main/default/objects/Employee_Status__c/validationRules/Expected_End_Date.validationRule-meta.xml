@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_End_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK( Expected_End_Date__c ),AND( NOT(ISPICKVAL(Employment_Status__c, &#39;Permanent&#39;))  , NOT(ISPICKVAL(Employment_Status__c, &#39;Terminated&#39;)),  NOT(ISPICKVAL(Employment_Status__c, &#39;Pending Activation&#39;)) ))</errorConditionFormula>
+    <errorDisplayField>Expected_End_Date__c</errorDisplayField>
+    <errorMessage>Expected End Date Cannot be empty</errorMessage>
+</ValidationRule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fresh_Fit_Field_Visits</fullName>
+    <active>true</active>
+    <label>Fresh Fit Field Visits</label>
+    <picklistValues>
+        <picklist>Field_Co_ordinator__c</picklist>
+        <values>
+            <fullName>Douglas Lifede</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Valbett Adera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wali Mwalugongo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

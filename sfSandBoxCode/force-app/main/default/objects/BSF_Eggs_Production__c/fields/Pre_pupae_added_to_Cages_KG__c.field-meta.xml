@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pre_pupae_added_to_Cages_KG__c</fullName>
+    <externalId>false</externalId>
+    <label>Pre-pupae added to Cages  (KG)</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

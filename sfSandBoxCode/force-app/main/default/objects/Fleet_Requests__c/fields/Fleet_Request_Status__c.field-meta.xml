@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fleet_Request_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Fleet Request Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Request Open</fullName>
+                <default>true</default>
+                <label>Request Open</label>
+            </value>
+            <value>
+                <fullName>Quote in Progress</fullName>
+                <default>false</default>
+                <label>Quote in Progress</label>
+            </value>
+            <value>
+                <fullName>Pending TL Approval</fullName>
+                <default>false</default>
+                <label>Pending TL Approval</label>
+            </value>
+            <value>
+                <fullName>TL Approved</fullName>
+                <default>false</default>
+                <label>TL Approved</label>
+            </value>
+            <value>
+                <fullName>Booking Confirmed</fullName>
+                <default>false</default>
+                <label>Booking Confirmed</label>
+            </value>
+            <value>
+                <fullName>Trip Completed</fullName>
+                <default>false</default>
+                <label>Trip Completed</label>
+            </value>
+            <value>
+                <fullName>Trip Cancelled</fullName>
+                <default>false</default>
+                <label>Trip Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

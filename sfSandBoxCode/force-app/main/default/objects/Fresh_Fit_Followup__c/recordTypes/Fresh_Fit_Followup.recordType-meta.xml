@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fresh_Fit_Followup</fullName>
+    <active>true</active>
+    <label>Fresh Fit Followup</label>
+    <picklistValues>
+        <picklist>Field_Coordinator__c</picklist>
+        <values>
+            <fullName>Douglas Lifede</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Valbett Adera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wali Mwalugongo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Outcome__c</picklist>
+        <values>
+            <fullName>Deposit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Toilet_Type__c</picklist>
+        <values>
+            <fullName>FLT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pit Latrine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pour Flush</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Toilet_in_Plot__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Toilet_Open_at_Night__c</picklist>
+        <values>
+            <fullName>FLT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pit Latrine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pour Flush</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

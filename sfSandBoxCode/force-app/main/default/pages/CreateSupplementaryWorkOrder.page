@@ -1,0 +1,231 @@
+<apex:page docType="html-5.0" standardController="Opportunity" extensions="CreateSupplementaryWorkOrder">
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>    
+    <script>
+        $(document).ready(function()
+                          {
+                              $("[id$='oppWOItems1']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                              
+                              // Make table cell focusable
+                              // http://css-tricks.com/simple-css-row-column-highlighting/
+                              if ( $('.focus-highlight').length ) {
+                                  $('.focus-highlight').find('td, th')
+                                  .attr('tabindex', '1')
+                                  // add touch device support
+                                  .on('touchstart', function() {
+                                      $(this).focus();
+                                  });
+                              }
+                          });
+        
+        function updateDataTable()
+        {
+            $("[id$='oppWOItems1']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+            
+            // Make table cell focusable
+            // http://css-tricks.com/simple-css-row-column-highlighting/
+            if ( $('.focus-highlight').length ) {
+                $('.focus-highlight').find('td, th')
+                .attr('tabindex', '1')
+                // add touch device support
+                .on('touchstart', function() {
+                    $(this).focus();
+                });
+            }
+        }
+        
+        function updateDataTableRows() 
+        {
+            
+            $(".table-striped").find("tr").each(function () {
+                var status= $(this).find(".status").html();  
+                if(status=="Failed")
+                {
+                    $(this).addClass("failed")
+                }
+            });
+        }
+    </script>
+    
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+            var subBtn = '';
+            var total = 0.0;
+            
+            //Function to get Structure/BIB items added.
+            function itemsAddedData(){
+                
+                var fieldPrefixOppItem = document.querySelector('[id*=":oppItem"]').id;
+                var fieldPrefixOppName = document.querySelector('[id*=":oppName"]').id;
+                var fieldPrefixOppItemName = document.querySelector('[id*=":oppItemName"]').id;
+                var fieldPrefixOppItemGroup = document.querySelector('[id*=":oppItemGroup"]').id;
+                var fieldPrefixOppInventoryItem = document.querySelector('[id*=":oppInventoryItem"]').id;
+                var fieldPrefixOppItemQuantity = document.querySelector('[id*=":oppItemQuantity"]').id;
+                var fieldPrefixOppItemLinearItem = document.querySelector('[id*=":oppItemLinearItem"]').id;
+    
+    
+                fieldPrefixOppItem =  fieldPrefixOppItem.substring(0,fieldPrefixOppItem.lastIndexOf(":"));
+                fieldPrefixOppItem =  fieldPrefixOppItem.substring(0,fieldPrefixOppItem.lastIndexOf(":")+1);
+                
+                fieldPrefixOppName =  fieldPrefixOppName.substring(0,fieldPrefixOppName.lastIndexOf(":"));
+                fieldPrefixOppName =  fieldPrefixOppName.substring(0,fieldPrefixOppName.lastIndexOf(":")+1);
+                
+                fieldPrefixOppItemName =  fieldPrefixOppItemName.substring(0,fieldPrefixOppItemName.lastIndexOf(":"));
+                fieldPrefixOppItemName =  fieldPrefixOppItemName.substring(0,fieldPrefixOppItemName.lastIndexOf(":")+1);
+                
+                fieldPrefixOppItemGroup =  fieldPrefixOppItemGroup.substring(0,fieldPrefixOppItemGroup.lastIndexOf(":"));
+                fieldPrefixOppItemGroup =  fieldPrefixOppItemGroup.substring(0,fieldPrefixOppItemGroup.lastIndexOf(":")+1);
+                
+                fieldPrefixOppInventoryItem =  fieldPrefixOppInventoryItem.substring(0,fieldPrefixOppInventoryItem.lastIndexOf(":"));
+                fieldPrefixOppInventoryItem =  fieldPrefixOppInventoryItem.substring(0,fieldPrefixOppInventoryItem.lastIndexOf(":")+1);            
+                
+                fieldPrefixOppItemQuantity =  fieldPrefixOppItemQuantity.substring(0,fieldPrefixOppItemQuantity.lastIndexOf(":"));
+                fieldPrefixOppItemQuantity =  fieldPrefixOppItemQuantity.substring(0,fieldPrefixOppItemQuantity.lastIndexOf(":")+1);
+    
+                fieldPrefixOppItemLinearItem =  fieldPrefixOppItemQuantity.substring(0,fieldPrefixOppItemQuantity.lastIndexOf(":"));
+                fieldPrefixOppItemLinearItem =  fieldPrefixOppItemQuantity.substring(0,fieldPrefixOppItemQuantity.lastIndexOf(":")+1);            
+                
+                var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+                var numberOfRows = document.getElementById(NumRowsField).textContent;
+                
+                numberOfRows = parseFloat(numberOfRows);
+                //alert(numberOfRows);
+                
+                var colOppItem = '';
+                var colOppName = '';
+                var colOppItemName = '';
+                var colOppItemGroup = '';
+                var colOppInventoryItem = '';
+                var colOppItemQuantity = '';
+                var colOppItemLinearItem = '';
+                
+                for(var i=0; i<numberOfRows+1; i++){
+                    colOppItem =  document.getElementById(fieldPrefixOppItem + i +':oppItem').value;
+                    colOppName =  document.getElementById(fieldPrefixOppName + i +':oppName').value;
+                    colOppItemName =  document.getElementById(fieldPrefixOppItemName + i +':oppItemName').value;
+                    colOppItemGroup =  document.getElementById(fieldPrefixOppItemGroup + i +':oppItemGroup').value;
+                    colOppInventoryItem =  document.getElementById(fieldPrefixOppInventoryItem + i +':oppInventoryItem').value;
+                    colOppItemQuantity =  document.getElementById(fieldPrefixOppItemQuantity + i +':oppItemQuantity').value;                
+                    colOppItemLinearItem =  document.getElementById(fieldPrefixOppItemLinearItem + i +':oppItemLinearItem').value; 
+                }
+            } 
+        
+            function checkItemGrouping(){
+                
+                var fieldPrefixOppItemGroup = document.querySelector('[id*=":oppItemGroup"]').id;
+                var item_group = document.getElementById(fieldPrefixOppItemGroup).value;
+                
+                if(fieldPrefixOppItemGroup == 'BIB Package'){
+                    return true;
+                }else{
+                    return false;
+                }
+            }        
+
+        </script>          
+    </body>
+    
+    <apex:form >        
+        <apex:sectionHeader title="{!Opportunity.Name}"  subtitle="Create Supplementary Work Order" />
+        <apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock id="pb" rendered="{!checkInitialWorkOrdersCreated}">
+            <apex:pageMessages />
+            <apex:variable var="rowNumber" value="{!0}"/>
+            <apex:variable var="fieldPrefix" value="{!''}"/>             
+            <apex:panelGrid width="100%" >                 
+                <apex:pageBlockSection title="Opportunity: {!Opportunity.Name}" >
+                    <apex:outputText value="{!Opportunity.Name}"/>
+                    <apex:outputText value="{!Opportunity.StageName}"/>  
+                    <apex:outputText value="{!Opportunity.Location__r.Name}"/>
+                    <apex:outputText value="{!Opportunity.FLTs_Approved__c	}"/> 
+                    <apex:outputText value="{!Opportunity.Upstructure_required__c}"/> 
+                    <apex:outputText value="{!Opportunity.Upstructures_Required__c}"/>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+            <!--Toilets To Launch-->
+            <apex:panelGrid >
+                <apex:pageBlockSection title="Select Items to add to the Work Order">
+                    <apex:panelGroup >
+                        <apex:pageBlockSectionItem >
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockTable var="item1" value="{!opportunityItemWrapperClassList}" id="oppItems1" >
+                            <apex:column headerValue="No." style="text-align:center;" headerClass="centertext">
+                                <apex:outputText value="{0}" style="text-align:center;"> 
+                                    <apex:param value="{!rowNumber+1}" /> 
+                                </apex:outputText>
+                            </apex:column>                            
+                            <apex:column headerValue="Item" >
+                                <apex:inputField value="{!item1.oppItem.InventoryItem__c}" id="oppInventoryItem" />
+                            </apex:column> 
+                            <apex:column headerValue="Quantity">
+                                 <apex:inputField value="{!item1.oppItem.Default_Quantity__c}" id="oppItemQuantity" required="true" />
+                            </apex:column>
+                            <apex:column headerValue="Grouping" id="oppItemGroup">
+                                <apex:selectList value="{!item1.itemGrouping}" size="1" required="true" styleClass="form-select"  >                                    
+                                    <apex:selectOptions value="{!item1.pickListValues}" />
+                                    <apex:actionSupport event="onmouseout" reRender="oppItemLinearItem"/>
+                                </apex:selectList>
+                            </apex:column>
+                            <apex:column headerValue="Add Linearly" id="oppItemLinearItem">
+                                 <apex:inputField value="{!item1.oppItem.Add_Item_Linearly__c}" rendered="{!item1.itemGrouping == 'BIB Package'}"/>
+                            </apex:column>
+                            <apex:column headerValue="Action" >
+                                <apex:commandButton value="Delete" action="{!deleteRow}" reRender="pb">
+                                    <apex:param name="rowIndex" value="{!rowNumber}"/>
+                                </apex:commandButton>
+                                <apex:variable var="rowNumber" value="{!rowNumber+1}"/>
+                            </apex:column>                             
+                        </apex:pageBlockTable>
+                        <apex:commandButton action="{!addRow}" value="Add Items" reRender="pb"/>
+                        <apex:commandButton action="{!saveItems}" value="Save Items" reRender="pb"/>
+                        <apex:commandButton action="{!createWorkOrders}" value="Create Work Order" reRender="pb" rendered="{!displayCreateWorkOrderButton}"/>
+                        <apex:commandButton value="Cancel" action="{!cancel}"/>
+                        <apex:outputText id="numberOfRows" value="{!rowNumber}"/>
+                    </apex:panelGroup>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+
+			<!--Added a new Section-->
+            <apex:panelGrid >
+                <apex:pageBlockSection title="Engineering Items Pending Approval">
+                    <apex:panelGroup >
+                        
+                        <apex:pageBlockTable var="item2" value="{!opportunityWorkOrderItemsPendingApprovalList}">
+                            <apex:column headerValue="Select Items" >
+                                <apex:inputField value="{!item2.Approved_Supplementary_Item__c}"/>
+                            </apex:column>
+                            <apex:column value="{!item2.Opportunity_Item__r.InventoryItem__r.Name}"/>
+                            <apex:column value="{!item2.Item_Group__c}"/>
+                            <apex:column value="{!item2.Quantity__c}"/>
+                        </apex:pageBlockTable>
+                        
+                    </apex:panelGroup>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+			<!--Added a new Section-->
+            <apex:panelGrid >
+                <apex:pageBlockSection title="BIB Items Pending Approval">
+                    <apex:panelGroup >
+                        
+                        <apex:pageBlockTable var="item2" value="{!bibItemsPendingApprovalList}">
+                            <apex:column headerValue="Select Items" >
+                                <apex:inputField value="{!item2.Approved_Supplementary_Item__c}"/>
+                            </apex:column>
+                            <apex:column value="{!item2.Opportunity_Item__r.InventoryItem__r.Name}"/>
+                            <apex:column value="{!item2.Item_Group__c}"/>
+                            <apex:column value="{!item2.Quantity__c}"/>
+                            <apex:column value="{!item2.Opportunity_Item__r.Add_Item_Linearly__c}"/>
+                        </apex:pageBlockTable>
+                        
+                    </apex:panelGroup>
+                </apex:pageBlockSection>
+            </apex:panelGrid>            
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

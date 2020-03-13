@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Casual_Job_Line_Item__c</fullName>
+    <externalId>false</externalId>
+    <label>Casual Job Line Item</label>
+    <referenceTo>Casual_Job_Line_Item__c</referenceTo>
+    <relationshipLabel>Casual Job Allowances</relationshipLabel>
+    <relationshipName>Casual_Job_Allowances</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

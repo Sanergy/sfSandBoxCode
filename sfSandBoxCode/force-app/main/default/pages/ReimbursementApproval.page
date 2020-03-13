@@ -1,0 +1,208 @@
+<apex:page docType="html-5.0" standardController="Special_Procurement__c" extensions="Reimbursement">
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+    <script>
+    $(document).ready(function()
+                      {
+                          $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          $("[id$='sppTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          // Make table cell focusable
+                          // http://css-tricks.com/simple-css-row-column-highlighting/
+                          if ( $('.focus-highlight').length ) {
+                              $('.focus-highlight').find('td, th')
+                              .attr('tabindex', '1')
+                              // add touch device support
+                              .on('touchstart', function() {
+                                  $(this).focus();
+                              });
+                          }
+                      });
+    
+    function updateDataTable()
+    {
+        $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        $("[id$='sppTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        // Make table cell focusable
+        // http://css-tricks.com/simple-css-row-column-highlighting/
+        if ( $('.focus-highlight').length ) {
+            $('.focus-highlight').find('td, th')
+            .attr('tabindex', '1')
+            // add touch device support
+            .on('touchstart', function() {
+                $(this).focus();
+            });
+        }
+    }
+    
+    function updateDataTableRows() 
+    {
+        
+        $(".table-striped").find("tr").each(function () {
+            var status= $(this).find(".status").html();  
+            if(status=="Failed")
+            {
+                $(this).addClass("failed")
+            }
+        });
+    }
+    
+    function ConfirmAllChecked(){
+        //confirm all aitems have been checked
+        var fieldPrefixApproveRecon = document.querySelector('[id*=":ApproveRecon"]').id;
+        
+        fieldPrefixApproveRecon =  fieldPrefixApproveRecon.substring(0,fieldPrefixApproveRecon.lastIndexOf(":"));
+        fieldPrefixApproveRecon =  fieldPrefixApproveRecon.substring(0,fieldPrefixApproveRecon.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        var numNotApproved = 0;
+        for(var i=0; i<numberOfRows; i++){
+            ReconApproved =  document.getElementById(fieldPrefixApproveRecon + i +':ApproveRecon').checked;
+            if(ReconApproved == false){
+                //one record has not been selected
+                numNotApproved = numNotApproved + 1;
+            }
+        }
+        //if one not selected do not save
+        if(numNotApproved > 0){
+            alert (numNotApproved + ' out of ' + numberOfRows + ' Reconciliations have not been approved.');
+        }else
+        {
+            var r = confirm("Confirm that you have COMPLETED reconciliation. \r\n\r\nAfter submitting you cannot make any further edits. \r\n\r\nContinue?");
+            if (r == true) {
+                saveNow();
+            }
+            else {
+                alert("The reconciliation was not Completed.");
+            }
+        }
+    }
+    
+    function RejectReconSPR(){
+        var r = confirm("Confirm that you want to REJECT this reconciliation. \r\n\r\nAfter rejecting, the user will be requested to make edits and resubmit. \r\n\r\nContinue?");
+        if (r == true) {
+            RejectRecon();
+        }
+        else {
+            alert("The request to REJECT this SPR was NOT completed.");
+        }
+    }
+    </script>    
+    
+    
+    <apex:form >
+        <apex:pageBlock title="{!spr1.Name} - Reconciliation" id="pb" >
+            <apex:pageMessages />
+            <apex:variable var="rowNumber" value="{!0}"/>
+            <apex:variable var="fieldPrefix" value="{!''}"/>
+            
+            <apex:pageBlockSection >
+                <apex:outputField label="Vendor" value="{!spr1.Vendor__c}"/>
+                <apex:outputField label="Requesting Department" value="{!spr1.Requesting_Department__c}"/>
+                <apex:outputText label="SPR Type" value="{!spr1.Type__c}"/>
+                <apex:outputText label="SPR Stage" value="{!spr1.Stage__c}"/>
+                <apex:outputText label="Requested Amount :" value="{0}"> 
+                    <apex:param value="{!spr1.Total_Amount_Requested__c}" /> 
+                </apex:outputText>
+                <apex:outputText label="Total Payments :" value="{0}"> 
+                    <apex:param value="{!spr1.Total_Payments__c}" /> 
+                </apex:outputText>
+               <apex:outputText label="Total Reconciled :" id="totSum" value="{0}"  >
+                    <apex:param value="{!spr1.Reconciled_Total__c}" />
+                </apex:outputText>               
+                <apex:outputText label="Total UnReconciled :" id="totSumUnrecon" value="{0}">
+                    <apex:param value="{!spr1.Reconciled_Balance__c}" />
+                </apex:outputText>
+                <apex:outputField label="Reconciliation Submitted" value="{!spr1.Reconciliation_Submitted__c}"/>
+                <apex:outputField label="Reconciliation Approved" value="{!spr1.Approve_Reconciliation__c}"/>
+                <apex:inputCheckbox label="Create Recon EPR" value="{!createReconEPR}" disabled="{!createReconEPR}"/>
+                <apex:outputField label="Reconciliation EPR Generated" value="{!spr1.Recon_EPR_Generated__c}"/>
+                <apex:outputField label="Reconciliation Completed" value="{!spr1.Reconciliation_Completed__c}"/>
+                <apex:outputField label="PIN" value="{!spr1.Payable_Invoice__c}"/>
+                
+                
+            </apex:pageBlockSection>
+            <div id ="divMessage">
+            </div>
+            
+            <apex:pageBlockButtons id="pbButtons">
+                <apex:commandButton value="Approve Reconciliations" id="save" onclick="ConfirmAllChecked(); return false;" reRender="pb,accsTable,pbAdmin,pbButtons" oncomplete="updateDataTable();" disabled="{!hideApprovalButtons}"/>
+                <apex:actionFunction name="saveNow" action="{!CompleteRecon}"/>
+                <apex:commandButton value="Reject Reconciliations" id="cmdRejectRecon" onclick="RejectReconSPR(); return false;" reRender="pb,accsTable,pbAdmin,pbButtons" oncomplete="updateDataTable();" disabled="{!hideApprovalButtons}"/>
+                <apex:actionFunction name="RejectRecon" action="{!RejectRecon}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <h2>Reconciliation Records</h2>
+        <apex:dataTable title="SPR Reconciliations" var="ro" value="{!wrpReconItems}" id="accsTable" styleclass="tablesorter"> 
+            <apex:column headerValue="Approved"  style="text-align:center;">
+                <apex:inputCheckbox value="{!ro.recon.Recon_Approved__c}" id="ApproveRecon" disabled="{!ro.recon.Recon_Approved__c}"/>
+            </apex:column>
+            <apex:column headerValue="No." style="text-align:center;" headerClass="centertext"  >
+                <apex:outputLink value="/{!ro.recon.id}">{!ro.reconIndex}</apex:outputLink>
+            </apex:column> 
+            <apex:column headerValue="Date" value="{!ro.recon.Date__c}"/>
+            <apex:column headerValue="Payee / Vendor" value="{!ro.recon.Supplier__c}"/>
+            <apex:column headerValue="Item Amount" value="{!ro.recon.Item_Amount__c}" id="item" />
+            <apex:column headerValue="VAT" value="{!ro.recon.VAT__c}" id="vat"/>
+            <apex:column headerValue="Transaction Charge" value="{!ro.recon.Transaction_Charge__c}" id="tcharge"/>
+            <apex:column headerValue="Total Reconciled" value="{!ro.recon.Total_Reconciled__c}"/>     
+            <apex:column headerValue="KRA PIN" value="{!ro.recon.KRA_PIN__c}"/>
+            <apex:column headerValue="Expense Description" value="{!ro.recon.Expense_Description__c}"/>
+            <apex:column headerValue="GLA" value="{!ro.recon.GLA__c}" id="gla"/>
+            <apex:column headerValue="DIM 1" value="{!ro.recon.DIM_1__c}" id="dim"/> 
+            <apex:column headerValue="Comments" >
+                <apex:inputField value="{!ro.recon.Comments__c}"/>
+            </apex:column>
+            <apex:column headerValue=" Current Attachments" >
+                <ol>
+                    <apex:repeat value="{!ro.currAttachments}" var="att">
+                        <li>
+                            <apex:outputLink value="/{!att.Id}"  target="blank" style="font-size: 1.1em;">{!att.name}</apex:outputLink> &nbsp;                                   
+                        </li>
+                    </apex:repeat>
+                </ol>
+            </apex:column>
+        </apex:dataTable>
+        <p/>
+        <apex:pageblock >
+            <apex:pageBlockSection >
+                <p>...</p>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+       
+        <h2>Payment Records</h2>
+        <apex:dataTable title="SPR Payments" var="spp" value="{!sppList}" id="sppTable" styleclass="tablesorter" style="text-align:center;">
+            <apex:column headerValue="Record Name" style="text-align:center;">
+            	<apex:outputLink value="/{!spp.id}">{!spp.Name}</apex:outputLink>
+            </apex:column> 
+            <apex:column headerValue="Payment Cost" value="{!spp.Payment_Cost__c}"/>
+            <apex:column headerValue="Payment Type" value="{!spp.Payment_Type__c}" style="text-align:center;"/>
+            <apex:column headerValue="EPR Name">
+            	<apex:outputLink value="/{!spp.EPR__c}">{!spp.EPR__r.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="EPR Status" value="{!spp.EPR__r.Status__c}" style="text-align:center;"/>
+            <apex:column headerValue="Cash Entry" style="text-align:center;">
+            	<apex:outputLink value="/{!spp.EPR__r.Cash_Entry__c}">{!spp.EPR__r.Cash_Entry__r.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Confirmation Number" value="{!spp.EPR__r.Confirmation_Number__c}" style="text-align:center;"/>
+            <apex:column headerValue="EPR Processed" value="{!spp.EPR__r.EPR_Processed__c}" style="text-align:center;"/>
+            <apex:column headerValue="Date Created" value="{!spp.CreatedDate}" style="text-align:center;"/>
+        </apex:dataTable>
+        <apex:pageblock >
+            <apex:pageBlockSection id="pbAdmin">
+                <p align="right" id="numRows">
+                    <apex:outputText id="numberOfRows" value="{!reconRowIndex}"/>
+                </p>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form> 
+    <chatter:feed entityId="{!spr1.Id}"/>
+</apex:page>

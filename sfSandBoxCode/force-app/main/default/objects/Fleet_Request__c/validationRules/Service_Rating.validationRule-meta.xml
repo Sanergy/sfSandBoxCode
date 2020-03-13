@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Rating</fullName>
+    <active>false</active>
+    <description>Limit the rating to a scale of 1 - 10</description>
+    <errorConditionFormula>OR(  Service_score__c &lt; 1,  Service_score__c &gt;10 )</errorConditionFormula>
+    <errorDisplayField>Service_score__c</errorDisplayField>
+    <errorMessage>Value has to be between 1 and 10.</errorMessage>
+</ValidationRule>

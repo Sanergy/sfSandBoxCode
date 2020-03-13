@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InventoryItemCompanyValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ NOT(ISBLANK(Inventory_Item__c)),
+ NOT(ISBLANK( Purchase_Order_Item__c )),
+OR(
+ Requesting_Company__c  &lt;&gt;  Inventory_Item__r.Item_Company__c ,
+ Requesting_Company__c  &lt;&gt;  Purchase_Order_Item__r.Inventory_Item__r.Item_Company__c )
+
+)</errorConditionFormula>
+    <errorMessage>The Company on the PO Item or Inventory Item does not match the Company on PR Line Item</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruitment_Requisition_Line_Item__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Recruitment Requisition Line Item</label>
+    <referenceTo>Recruitment_Requisition_Line_Item__c</referenceTo>
+    <relationshipLabel>Sanergy Assets Issuances</relationshipLabel>
+    <relationshipName>Sanergy_Assets_Issuances</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

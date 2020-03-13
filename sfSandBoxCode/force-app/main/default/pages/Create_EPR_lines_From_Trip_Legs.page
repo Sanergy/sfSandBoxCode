@@ -1,0 +1,46 @@
+<apex:page standardController="Electronic_Payment_Request__c" extensions="CreateEPRLinesFromTripLegs" >
+    <apex:form >
+        
+        <apex:pageBlock title="EPR INFORMATION">
+            <apex:pageblocksection >
+            
+                 <apex:outputField value="{!Electronic_Payment_Request__c.Name}"/>
+                 <apex:outputField value="{!Electronic_Payment_Request__c.Vendor_Company__c}"/>
+            </apex:pageblocksection>
+            
+        </apex:pageBlock>
+        
+         <apex:pageMessage severity="info" summary="Select the Trip Leg records to process into EPR line items. Note: Only the selected records which have a cost value will be processed."/>
+        <apex:pageBlock title="Trip Legs" >
+        
+        
+             
+            <apex:pageBlockButtons >
+                
+                <apex:commandButton value="Select all" action="{!selectAll}" rerender="table"/>
+                <apex:commandButton value="Unselect all" action="{!unselectAll}" rerender="table"/>
+                <apex:commandButton value="Process Selected" action="{!processSelected}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+             
+            
+            <apex:pageBlockTable value="{!legs}" var="c" id="table" title="Fleet Legs">
+                <apex:column >
+                    <!-- This is our selected Boolean property in our wrapper class -->
+                    <apex:inputCheckbox value="{!c.selected}"/>
+                </apex:column>
+               
+                <apex:column headerValue="Name" value="{!c.tripLegs.Name}" />
+                <apex:column headerValue="Fleet Request" value="{!c.tripLegs.Fleet_Request__r.name}" />
+                <apex:column headerValue="Requesting Employee" value="{!c.tripLegs.Fleet_Request__r.Requesting_Employee__r.name}" />
+                <apex:column headerValue="Pickup Location" value="{!c.departure}" />
+                <apex:column headerValue="Date" value="{!c.dateFrom}" />
+                <apex:column headerValue="Destination" value="{!c.destination}" />
+                <apex:column headerValue="Status" value="{!c.tripLegs.Fleet_Request_Status__c}" />
+                <apex:column headerValue="Reason For Trip" width="200px" value="{!c.tripLegs.Reason_for_Trip__c}" />
+                <apex:column headerValue="Total Cost" value="KSh. {!c.tripLegs.Total_Actual_Cost__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

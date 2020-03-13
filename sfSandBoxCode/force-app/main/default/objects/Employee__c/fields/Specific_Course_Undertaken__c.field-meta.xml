@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Specific_Course_Undertaken__c</fullName>
+    <description>Specific Course Undertaken</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Specific Course Undertaken</inlineHelpText>
+    <label>Specific Course Undertaken</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Accounting &amp; Finance</fullName>
+                <default>false</default>
+                <label>Accounting &amp; Finance</label>
+            </value>
+            <value>
+                <fullName>Agricultural Biosystem</fullName>
+                <default>false</default>
+                <label>Agricultural Biosystem</label>
+            </value>
+            <value>
+                <fullName>Agricultural Biosystems and Management</fullName>
+                <default>false</default>
+                <label>Agricultural Biosystems and Management</label>
+            </value>
+            <value>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+                <label>Agriculture</label>
+            </value>
+            <value>
+                <fullName>Agronomy</fullName>
+                <default>false</default>
+                <label>Agronomy</label>
+            </value>
+            <value>
+                <fullName>Analytical Chemistry</fullName>
+                <default>false</default>
+                <label>Analytical Chemistry</label>
+            </value>
+            <value>
+                <fullName>Architectural Engineering Design</fullName>
+                <default>false</default>
+                <label>Architectural Engineering Design</label>
+            </value>
+            <value>
+                <fullName>Arts</fullName>
+                <default>false</default>
+                <label>Arts</label>
+            </value>
+            <value>
+                <fullName>Automotive Engineering</fullName>
+                <default>false</default>
+                <label>Automotive Engineering</label>
+            </value>
+            <value>
+                <fullName>Bachelor of Science</fullName>
+                <default>false</default>
+                <label>Bachelor of Science</label>
+            </value>
+            <value>
+                <fullName>Bachelors Degree-Business Management majoring in Human Resource Management</fullName>
+                <default>false</default>
+                <label>Bachelors Degree-Business Management majoring in Human Resource Management</label>
+            </value>
+            <value>
+                <fullName>Bachelors Degree-Business Management-Majoring in Maritime Business Management</fullName>
+                <default>false</default>
+                <label>Bachelors Degree-Business Management-Majoring in Maritime Business Management</label>
+            </value>
+            <value>
+                <fullName>Banking and Financial Services</fullName>
+                <default>false</default>
+                <label>Banking and Financial Services</label>
+            </value>
+            <value>
+                <fullName>Biological Sciences</fullName>
+                <default>false</default>
+                <label>Biological Sciences</label>
+            </value>
+            <value>
+                <fullName>Biomechanical &amp; Processing Engineering</fullName>
+                <default>false</default>
+                <label>Biomechanical &amp; Processing Engineering</label>
+            </value>
+            <value>
+                <fullName>Business Administration</fullName>
+                <default>false</default>
+                <label>Business Administration</label>
+            </value>
+            <value>
+                <fullName>Business Administration/Management</fullName>
+                <default>false</default>
+                <label>Business Administration/Management</label>
+            </value>
+            <value>
+                <fullName>Business Mamangement</fullName>
+                <default>false</default>
+                <label>Business Mamangement</label>
+            </value>
+            <value>
+                <fullName>Certificate in Project Management</fullName>
+                <default>false</default>
+                <label>Certificate in Project Management</label>
+            </value>
+            <value>
+                <fullName>Chemical Engineering</fullName>
+                <default>false</default>
+                <label>Chemical Engineering</label>
+            </value>
+            <value>
+                <fullName>Commerce</fullName>
+                <default>false</default>
+                <label>Commerce</label>
+            </value>
+            <value>
+                <fullName>Commerce-Accounting</fullName>
+                <default>false</default>
+                <label>Commerce-Accounting</label>
+            </value>
+            <value>
+                <fullName>Commerce-Human Resource Management option</fullName>
+                <default>false</default>
+                <label>Commerce-Human Resource Management option</label>
+            </value>
+            <value>
+                <fullName>Communication &amp; Media</fullName>
+                <default>false</default>
+                <label>Communication &amp; Media</label>
+            </value>
+            <value>
+                <fullName>Community Health &amp; Development</fullName>
+                <default>false</default>
+                <label>Community Health &amp; Development</label>
+            </value>
+            <value>
+                <fullName>Computer Application</fullName>
+                <default>false</default>
+                <label>Computer Application</label>
+            </value>
+            <value>
+                <fullName>Computer Technology</fullName>
+                <default>false</default>
+                <label>Computer Technology</label>
+            </value>
+            <value>
+                <fullName>Development Studies</fullName>
+                <default>false</default>
+                <label>Development Studies</label>
+            </value>
+            <value>
+                <fullName>Economics</fullName>
+                <default>false</default>
+                <label>Economics</label>
+            </value>
+            <value>
+                <fullName>Electrical Engineering</fullName>
+                <default>false</default>
+                <label>Electrical Engineering</label>
+            </value>
+            <value>
+                <fullName>Electrical Installation</fullName>
+                <default>false</default>
+                <label>Electrical Installation</label>
+            </value>
+            <value>
+                <fullName>Energy Engineering</fullName>
+                <default>false</default>
+                <label>Energy Engineering</label>
+            </value>
+            <value>
+                <fullName>Engineering Physics</fullName>
+                <default>false</default>
+                <label>Engineering Physics</label>
+            </value>
+            <value>
+                <fullName>Environmental and Biosystems Engineering</fullName>
+                <default>false</default>
+                <label>Environmental and Biosystems Engineering</label>
+            </value>
+            <value>
+                <fullName>Executive MBA</fullName>
+                <default>false</default>
+                <label>Executive MBA</label>
+            </value>
+            <value>
+                <fullName>Finance</fullName>
+                <default>false</default>
+                <label>Finance</label>
+            </value>
+            <value>
+                <fullName>Horticulture</fullName>
+                <default>false</default>
+                <label>Horticulture</label>
+            </value>
+            <value>
+                <fullName>Human Resource Management</fullName>
+                <default>false</default>
+                <label>Human Resource Management</label>
+            </value>
+            <value>
+                <fullName>Industrial and Systems Engineering</fullName>
+                <default>false</default>
+                <label>Industrial and Systems Engineering</label>
+            </value>
+            <value>
+                <fullName>Industrial Chemistry</fullName>
+                <default>false</default>
+                <label>Industrial Chemistry</label>
+            </value>
+            <value>
+                <fullName>Information Sciences</fullName>
+                <default>false</default>
+                <label>Information Sciences</label>
+            </value>
+            <value>
+                <fullName>Information Technology</fullName>
+                <default>false</default>
+                <label>Information Technology</label>
+            </value>
+            <value>
+                <fullName>Journalism</fullName>
+                <default>false</default>
+                <label>Journalism</label>
+            </value>
+            <value>
+                <fullName>Law</fullName>
+                <default>false</default>
+                <label>Law</label>
+            </value>
+            <value>
+                <fullName>Logistics and Transport</fullName>
+                <default>false</default>
+                <label>Logistics and Transport</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Engineering &amp; Technology</fullName>
+                <default>false</default>
+                <label>Manufacturing Engineering &amp; Technology</label>
+            </value>
+            <value>
+                <fullName>Marketing &amp; Sales</fullName>
+                <default>false</default>
+                <label>Marketing &amp; Sales</label>
+            </value>
+            <value>
+                <fullName>Mechanical Engineering</fullName>
+                <default>false</default>
+                <label>Mechanical Engineering</label>
+            </value>
+            <value>
+                <fullName>Mechatronic Engineering</fullName>
+                <default>false</default>
+                <label>Mechatronic Engineering</label>
+            </value>
+            <value>
+                <fullName>Microbiology and Biotechnology</fullName>
+                <default>false</default>
+                <label>Microbiology and Biotechnology</label>
+            </value>
+            <value>
+                <fullName>Motor Vehicle Mechanic</fullName>
+                <default>false</default>
+                <label>Motor Vehicle Mechanic</label>
+            </value>
+            <value>
+                <fullName>Plant Operator</fullName>
+                <default>false</default>
+                <label>Plant Operator</label>
+            </value>
+            <value>
+                <fullName>Plumber Pipe Fitter</fullName>
+                <default>false</default>
+                <label>Plumber Pipe Fitter</label>
+            </value>
+            <value>
+                <fullName>Procurement</fullName>
+                <default>false</default>
+                <label>Procurement</label>
+            </value>
+            <value>
+                <fullName>Project Management</fullName>
+                <default>false</default>
+                <label>Project Management</label>
+            </value>
+            <value>
+                <fullName>Public Policy and Management</fullName>
+                <default>false</default>
+                <label>Public Policy and Management</label>
+            </value>
+            <value>
+                <fullName>Purchasing and Supplies Management</fullName>
+                <default>false</default>
+                <label>Purchasing and Supplies Management</label>
+            </value>
+            <value>
+                <fullName>Social Studies</fullName>
+                <default>false</default>
+                <label>Social Studies</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

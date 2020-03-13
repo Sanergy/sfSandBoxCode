@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_spent</fullName>
+    <active>true</active>
+    <description>Time Spent is required if maintenance is internal and employee name is selected</description>
+    <errorConditionFormula>AND(ISPICKVAL( Type_of_Maintenance__c , &quot;Internal Maintenance&quot;),
+OR ( 
+ISBLANK ( Employee__c ), 
+ISBLANK( Time_Spent_Hours__c )))</errorConditionFormula>
+    <errorMessage>Please fill the Employee field and the Time Spent Field</errorMessage>
+</ValidationRule>

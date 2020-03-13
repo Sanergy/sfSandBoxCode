@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Status__c</fullName>
+    <description>Employment Status</description>
+    <externalId>false</externalId>
+    <label>Employment Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Casual</fullName>
+                <default>false</default>
+                <label>Casual</label>
+            </value>
+            <value>
+                <fullName>Contract</fullName>
+                <default>false</default>
+                <label>Contract</label>
+            </value>
+            <value>
+                <fullName>Intern</fullName>
+                <default>false</default>
+                <label>Intern</label>
+            </value>
+            <value>
+                <fullName>Pending Onboarding</fullName>
+                <default>false</default>
+                <label>Pending Onboarding</label>
+            </value>
+            <value>
+                <fullName>Permanent</fullName>
+                <default>false</default>
+                <label>Permanent</label>
+            </value>
+            <value>
+                <fullName>Probationary Contract</fullName>
+                <default>false</default>
+                <label>Probationary Contract</label>
+            </value>
+            <value>
+                <fullName>Terminated</fullName>
+                <default>false</default>
+                <label>Terminated</label>
+            </value>
+            <value>
+                <fullName>Volunteer</fullName>
+                <default>false</default>
+                <label>Volunteer</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Fellow</fullName>
+                <default>false</default>
+                <label>Fellow</label>
+            </value>
+            <value>
+                <fullName>Fixed Term Contract</fullName>
+                <default>false</default>
+                <label>Fixed Term Contract</label>
+            </value>
+            <value>
+                <fullName>Pending Activation</fullName>
+                <default>true</default>
+                <label>Pending Activation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

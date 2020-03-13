@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scheduled_Trainings</fullName>
+    <columns>NAME</columns>
+    <columns>Trainee__c</columns>
+    <columns>Training_Date__c</columns>
+    <columns>Training_Type__c</columns>
+    <columns>Attendance_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Attendance_Status__c</field>
+        <operation>equals</operation>
+        <value>Scheduled</value>
+    </filters>
+    <label>Scheduled Trainings</label>
+</ListView>

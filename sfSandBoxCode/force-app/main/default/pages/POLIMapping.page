@@ -1,0 +1,290 @@
+<apex:page docType="html-5.0" extensions="VendorInvoiceMapping" standardController="Vendor_Invoice__c">
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+            function setFocusOnLoad() {
+            //Reconcile();
+        }
+        </script>
+        <script>
+        //Function to Reconcile all  data 
+        function Reconcile(){
+            var subBtn = document.querySelector('[id*=":save"]').id;
+            
+            var NumRowsField = document.querySelector('[id*=":rowCount"]').id;
+            var numberOfRows = document.getElementById(NumRowsField).textContent;  
+            numberOfRows = parseFloat(numberOfRows);
+            
+            
+            //field Prefix for Qty received
+            var fieldPrefixProcessRow = document.querySelector('[id*=":chkProcessRow"]').id;
+            fieldPrefixProcessRow =  fieldPrefixProcessRow.substring(0,fieldPrefixProcessRow.lastIndexOf(":"));
+            fieldPrefixProcessRow =  fieldPrefixProcessRow.substring(0,fieldPrefixProcessRow.lastIndexOf(":")+1);
+            
+            
+            //Last Invoice 
+            var last = document.querySelector('[id*=":lastVI"]').id;
+            var LastInvoice = document.getElementById(last).checked;
+            
+            
+            //field Prefix for Qty received
+            var fieldPrefixQtyReceived = document.querySelector('[id*=":qtyReceived"]').id;
+            fieldPrefixQtyReceived =  fieldPrefixQtyReceived.substring(0,fieldPrefixQtyReceived.lastIndexOf(":"));
+            fieldPrefixQtyReceived =  fieldPrefixQtyReceived.substring(0,fieldPrefixQtyReceived.lastIndexOf(":")+1);
+            
+            //Field Prefix Qty Requested 
+            var fieldPrefixQtyRequested = document.querySelector('[id*=":qtyRequested"]').id;
+            fieldPrefixQtyRequested =  fieldPrefixQtyRequested.substring(0,fieldPrefixQtyRequested.lastIndexOf(":"));
+            fieldPrefixQtyRequested =  fieldPrefixQtyRequested.substring(0,fieldPrefixQtyRequested.lastIndexOf(":")+1);
+            
+            // Field Prefix Price Paid
+            var fieldPrefixPricePaid = document.querySelector('[id*=":avgUnitPrice"]').id;
+            fieldPrefixPricePaid =  fieldPrefixPricePaid.substring(0,fieldPrefixPricePaid.lastIndexOf(":"));
+            fieldPrefixPricePaid =  fieldPrefixPricePaid.substring(0,fieldPrefixPricePaid.lastIndexOf(":")+1);
+            
+            //Field Prefix Unit Price 
+            var fieldPrefixUnitPrice = document.querySelector('[id*=":unitPrice"]').id;
+            fieldPrefixUnitPrice =  fieldPrefixUnitPrice.substring(0,fieldPrefixUnitPrice.lastIndexOf(":"));
+            fieldPrefixUnitPrice =  fieldPrefixUnitPrice.substring(0,fieldPrefixUnitPrice.lastIndexOf(":")+1);
+            
+            //Field Prefix Payment Variance 
+            var fieldPrefixPaymentVar = document.querySelector('[id*=":paymentVariance"]').id;
+            fieldPrefixPaymentVar =  fieldPrefixPaymentVar.substring(0,fieldPrefixPaymentVar.lastIndexOf(":"));
+            fieldPrefixPaymentVar =  fieldPrefixPaymentVar.substring(0,fieldPrefixPaymentVar.lastIndexOf(":")+1);
+            
+            //Field Prefix Receipt Variance
+            var fieldPrefixReceiptVar = document.querySelector('[id*=":receiptVariance"]').id;
+            fieldPrefixReceiptVar =  fieldPrefixReceiptVar.substring(0,fieldPrefixReceiptVar.lastIndexOf(":"));
+            fieldPrefixReceiptVar =  fieldPrefixReceiptVar.substring(0,fieldPrefixReceiptVar.lastIndexOf(":")+1);
+            
+            //Max Value
+            var maxValue = document.querySelector('[id*=":maxVal"]').id;
+            maxValue =  maxValue.substring(0,maxValue.lastIndexOf(":"));
+            maxValue =  maxValue.substring(0,maxValue.lastIndexOf(":")+1);
+            
+            //Min Value
+            var minValue = document.querySelector('[id*=":minVal"]').id;
+            minValue =  minValue.substring(0,minValue.lastIndexOf(":"));
+            minValue =  minValue.substring(0,minValue.lastIndexOf(":")+1);
+            
+            var processRow = false;
+            var UnitPrice = 0.0;
+            var colItemsTotal = 0.0;
+            var QuantityReceived = 0.0;
+            var QuantityRequested = 0.0;
+            var counterOne = 0;
+            var counterTwo = 0;
+            var counterThree = 0;
+            var errMsg = '';
+            
+            errMsg = '';
+            for(var i=0; i<numberOfRows; i++){
+                //check if the row has been selected for processing, if not break
+                processRow = document.getElementById(fieldPrefixProcessRow + i +':chkProcessRow').checked;
+                //alert ('processRow = ' + processRow);
+                if (processRow == true)
+                {
+                    //get the quantity Received from the row 
+                    QuantityReceived =  document.getElementById(fieldPrefixQtyReceived + i +':qtyReceived').innerHTML;
+                    QuantityReceived = (isNaN(parseFloat((QuantityReceived).replace(',', ''))) ? 0 : parseFloat((QuantityReceived).replace(',', '')));
+                    
+                    //get the quantity Requested from the row 
+                    QuantityRequested =  document.getElementById(fieldPrefixQtyRequested + i +':qtyRequested').innerHTML;
+                    QuantityRequested = (isNaN(parseFloat((QuantityRequested).replace(',', ''))) ? 0 : parseFloat((QuantityRequested).replace(',', '')));
+                    
+                    
+                    //get the Price Paid from the row 
+                    PricePaid =  document.getElementById(fieldPrefixPricePaid + i +':avgUnitPrice').innerHTML;
+                    PricePaid = (isNaN(parseFloat((PricePaid).replace(',', ''))) ? 0 : parseFloat((PricePaid).replace(',', '')));
+                    
+                    
+                    //get the Unit Price from the row 
+                    UnitPrice =  document.getElementById(fieldPrefixUnitPrice + i +':unitPrice').innerHTML;
+                    UnitPrice = (isNaN(parseFloat((UnitPrice).replace(',', ''))) ? 0 : parseFloat((UnitPrice).replace(',', '')));
+                    
+                    
+                    //Max Value
+                    var MaximumValue =  document.getElementById(maxValue + i +':maxVal').innerHTML;
+                    MaximumValue = (isNaN(parseFloat((MaximumValue).replace(',', ''))) ? 0 : parseFloat((MaximumValue).replace(',', '')));
+                    
+                    //Min Value
+                    var MinimumValue =  document.getElementById(minValue + i +':minVal').innerHTML;
+                    MinimumValue = (isNaN(parseFloat((MinimumValue).replace(',', ''))) ? 0 : parseFloat((MinimumValue).replace(',', '')));
+                    //get the Receipt Variance from the row 
+                    var ReceiptVariance =  document.getElementById(fieldPrefixReceiptVar + i +':receiptVariance').value;
+                    //alert(ReceiptVariance);
+                    //get the Payment Variance from the row 
+                    var PaymentVariance =  document.getElementById(fieldPrefixPaymentVar + i +':paymentVariance').value;
+                    
+                    //Check If all items are fully recieved for the POLI ITEMS 
+                    if((QuantityRequested != QuantityReceived) && (PricePaid > MaximumValue  || PricePaid < MinimumValue)  && (UnitPrice != PricePaid) &&(ReceiptVariance == null ||  ReceiptVariance == '' ) && (PaymentVariance == null ||  PaymentVariance == '' )){
+                        counterOne = counterOne + 1;
+                        errMsg = errMsg + 'Please Provide Receipt Variance and Payment Variance For Row: ' + (i + 1) + '\n';
+                        //document.getElementById(subBtn).disabled = true;
+                    }
+                    //Check if all Total Payments were correctly done
+                    else if((UnitPrice != PricePaid) && (PricePaid > MaximumValue  || PricePaid < MinimumValue) && (PaymentVariance == null ||  PaymentVariance == '' ))
+                    {
+                        counterTwo =  counterTwo + 1;
+                        errMsg = errMsg + 'Please Provide Payment Variance For Row: ' + (i + 1) + ' UnitPrice (' + UnitPrice +') != PricePaid (' + PricePaid + ')\n';
+                        // document.getElementById(subBtn).disabled = true;
+                    } 
+                    //Check If all items are fully recieved for the POLI ITEMS 
+                        else if((QuantityRequested != QuantityReceived)  &&(ReceiptVariance == null ||  ReceiptVariance == '' ))
+                        {
+                            counterThree = counterThree + 1;
+                            errMsg = errMsg + 'Please Provide Receipt Variance For Row: ' + (i + 1) + '\n';
+                            //document.getElementById('apxMsgBox').value = errMsg;
+                            //document.getElementById(subBtn).disabled = true;
+                        }  
+                    
+                    /*
+                    if(counterOne > 0 ){
+                        document.getElementById(subBtn).disabled = true;
+                        //alert('Please Provide Receipt Variance and Payment Variance For Row: ' + i+1);
+                    } else if(counterTwo > 0){
+                        document.getElementById(subBtn).disabled = true;
+                        //alert('Please Provide Payment Variance For Row: ' + i );                
+                    } else if(counterThree > 0 ){
+                        document.getElementById(subBtn).disabled = true;
+                        //alert('Please Provide Receipt Variance For Row: ' + i );
+                    } else if((counterOne == 0) && (counterTwo == 0) && (counterThree == 0)){
+                        //alert ('Counters = ' + counterOne + ' ' + counterTwo  + ' ' + counterThree);
+                        savePOLI();
+                    }*/
+                }
+            }
+            if((counterOne == 0) && (counterTwo == 0) && (counterThree == 0)){
+                //alert ('Counters = ' + counterOne + ' ' + counterTwo  + ' ' + counterThree);
+                savePOLI();
+            } else if (counterOne > 0  || counterTwo > 0 || counterThree > 0){
+                alert('Resolve Errors below: \n' + errMsg);
+            }
+            
+        }
+        
+        function Change(){
+            var subBtn = document.querySelector('[id*=":save"]').id;
+            document.getElementById(subBtn).disabled = false;
+            
+        }
+        
+        </script>
+    </body>
+    <apex:form >
+        <apex:sectionHeader title="{!vi.Name}" subtitle="PO Line Items Reconciliation"/>
+        <apex:pageBlock >
+            <apex:pageMessages id="apxMsgBox" ></apex:pageMessages>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="VI Name"></apex:outputLabel>
+                    <apex:outputlink value="/{!vi.Id}">{!vi.Name}</apex:outputlink>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!vi.Vendor__c}"/>
+                <apex:outputField value="{!vi.Invoice_Number__c}"/>
+                <apex:outputField value="{!vi.VI_Status__c}"/>
+                <apex:outputField value="{!vi.Invoice_Total__c}"/>
+                <apex:outputField value="{!vi.Total_Payments__c}"/>
+                <apex:outputField value="{!vi.Invoice_Received_Value__c}"/>
+                <apex:outputField value="{!vi.Reconciled_Invoice_Total__c}"/>
+                <apex:outputField value="{!vi.Receipt_Variance__c}"/>
+                <apex:outputField value="{!vi.Payment_Variance__c}"/>
+                <apex:outputField value="{!vi.VI_PIN__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Row Count"></apex:outputLabel>
+                    <apex:outputText value="{!poItems.size}" id="rowCount"> </apex:outputText>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select All" action="{!selectAllPOLI}" reRender="pb1,table2"/>
+                <apex:commandButton value="UnSelect All" action="{!unselectAllPOLI}" reRender="pb1,table2"/>
+                <apex:commandButton value="Reconcile POLI" id="save" rendered="{!ishide}" onclick="Reconcile();  return false;"  />
+                <apex:actionFunction action="{!ReconcilePOLI}" name="savePOLI" /> 
+                
+                <apex:commandButton value="Return To VI" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="UnReconciled PO Line Items">
+                
+                <apex:pageBlockTable value="{!poItems}" var="itm" id="table2">
+                    <apex:column headerValue="Process">
+                        <apex:inputCheckbox value="{!itm.selected}" disabled="{!itm.disableProcessChkBox}" id="chkProcessRow" ></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Last VI">
+                        <apex:inputCheckbox value="{!itm.polineItems.Last_Invoice__c}" disabled="{!itm.disableLastVIChkBox}" id="lastVI"></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Item Name"><apex:outputText value="{!itm.polineItems.Purchase_Order_Item__r.Name}"></apex:outputText></apex:column>
+                    <apex:column headerValue="PO Line Item">
+                        <apex:outputlink value="/{!itm.polineItems.id}">{!itm.polineItems.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="Status" value="{!itm.polineItems.Status__c}" ></apex:column>
+                    <apex:column headerValue="Description" value="{!itm.polineItems.Item__c}" ></apex:column>
+                    <apex:column headerValue="Max Value:"><apex:outputText value="{!itm.polineItems.Max_Price_Var__c}" id="maxVal"></apex:outputText></apex:column>
+                    <apex:column headerValue="Min Value:"><apex:outputText value="{!itm.polineItems.Min_Price_Var__c}" id="minVal"></apex:outputText></apex:column>
+                    <apex:column headerValue="Qty Requested">
+                        <apex:outputText value="{0,number, ###,###.###}" id="qtyRequested" >
+                            <apex:param value="{!itm.polineItems.Quantity_Requested__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Qty Received">
+                        <apex:outputText value="{0,number, ###,###.###}" id="qtyReceived" >
+                            <apex:param value="{!itm.polineItems.Quantity_Accepted__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Unit Price" ><apex:outputText id="unitPrice" value="{!itm.polineItems.Unit_Gross_Price__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Price Paid"><apex:outputText value="{!itm.polineItems.VI_Avg_Unit_Price__c}" id="avgUnitPrice"></apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Payment Variance">
+                        <apex:inputTextarea value="{!itm.polineItems.Payment_Variance__c}" id="paymentVariance" onchange="Change()"></apex:inputTextarea>
+                        <!--<apex:inputText value="{!itm.paymentVariance2}" id="paymentVariance"></apex:inputText>-->
+                    </apex:column>
+                    <apex:column headerValue="Receipt Variance">
+                        <apex:inputTextarea value="{!itm.polineItems.Receipt_Variance__c}" id="receiptVariance" onchange="Change()"></apex:inputTextarea>
+                        <!-- <apex:inputText value="{!itm.receiptVariance2}"  id="receiptVariance"></apex:inputText>-->
+                    </apex:column>
+                    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            
+            
+            <apex:pageBlockSection title="Closed PO Line Items" >
+                <apex:pageBlockTable value="{!poItemsClosed}" var="itm" id="table2">
+                    <apex:column headerValue="Last VI">
+                        <apex:inputCheckbox value="{!itm.polineItemsClosed.Last_Invoice__c}" id="lastVI" disabled="true"></apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Item Name"><apex:outputText value="{!itm.polineItemsClosed.Purchase_Order_Item__r.Name}"></apex:outputText></apex:column>
+                    <apex:column headerValue="PO line Item"><apex:outputText value="{!itm.polineItemsClosed.Name}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Description" value="{!itm.polineItemsClosed.Item__c}" ></apex:column>
+                    <apex:column headerValue="Max Value:"><apex:outputText value="{!itm.polineItemsClosed.Max_Price_Var__c}" ></apex:outputText></apex:column>
+                    <apex:column headerValue="Min Value:"><apex:outputText value="{!itm.polineItemsClosed.Min_Price_Var__c}"></apex:outputText></apex:column>
+                    <!--<apex:column headerValue="Quantity Requested"><apex:outputText value="{!itm.polineItemsClosed.Quantity_Requested__c}" ></apex:outputText></apex:column>
+<apex:column headerValue="Quantity Received" ><apex:outputText value="{!itm.polineItemsClosed.Quantity_Accepted__c}" ></apex:outputText></apex:column> -->
+                    <apex:column headerValue="Qty Requested">
+                        <apex:outputText value="{0,number, ###,###.###}">
+                            <apex:param value="{!itm.polineItemsClosed.Quantity_Requested__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Qty Received">
+                        <apex:outputText value="{0,number, ###,###.###}">
+                            <apex:param value="{!itm.polineItemsClosed.Quantity_Accepted__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Unit Price" ><apex:outputText value="{!itm.polineItemsClosed.Unit_Gross_Price__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Price Paid"><apex:outputText value="{!itm.polineItemsClosed.VI_Avg_Unit_Price__c}" ></apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Payment Variance">
+                        <apex:outputText value="{!itm.polineItemsClosed.Payment_Variance__c}"></apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Receipt Variance">
+                        <apex:outputText value="{!itm.polineItemsClosed.Receipt_Variance__c}" ></apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Status"><apex:outputText value="{!itm.polineItemsClosed.Status__c}" ></apex:outputText></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

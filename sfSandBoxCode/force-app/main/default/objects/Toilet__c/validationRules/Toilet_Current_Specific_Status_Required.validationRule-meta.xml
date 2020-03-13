@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Toilet_Current_Specific_Status_Required</fullName>
+    <active>true</active>
+    <description>The Current Specific Status of the FLT is required</description>
+    <errorConditionFormula>AND( ISBLANK(TEXT(Current_Specific_Status__c )))</errorConditionFormula>
+    <errorDisplayField>Current_Specific_Status__c</errorDisplayField>
+    <errorMessage>The Current Specific Status of the FLT is required</errorMessage>
+</ValidationRule>

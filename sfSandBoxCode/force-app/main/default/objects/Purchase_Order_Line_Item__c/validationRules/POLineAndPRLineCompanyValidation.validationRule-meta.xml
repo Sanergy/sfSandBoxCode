@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>POLineAndPRLineCompanyValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>Requesting_Company__c  &lt;&gt;  PTS_Line_Item__r.Requesting_Company__c</errorConditionFormula>
+    <errorMessage>The company on the PO Line Item is not the same as the Company on the PR Line Item. Please review.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Star_Rating__c</fullName>
+    <externalId>false</externalId>
+    <formula>IMAGE( IF( ISPICKVAL( Candidate_Rating__c , &#39;1&#39;) , &quot;/img/samples/stars_100.gif&quot;, 
+IF( ISPICKVAL( Candidate_Rating__c , &#39;2&#39;) , &quot;/img/samples/stars_200.gif&quot;, 
+IF( ISPICKVAL( Candidate_Rating__c , &#39;3&#39;) , &quot;/img/samples/stars_300.gif&quot;, 
+IF( ISPICKVAL( Candidate_Rating__c , &#39;4&#39;) , &quot;/img/samples/stars_400.gif&quot;, 
+IF( ISPICKVAL( Candidate_Rating__c , &#39;5&#39;) , &quot;/img/samples/stars_500.gif&quot;, &quot;/img/samples/stars_100.gif&quot;))))) , &quot;Rating&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Candidate Star Rating</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

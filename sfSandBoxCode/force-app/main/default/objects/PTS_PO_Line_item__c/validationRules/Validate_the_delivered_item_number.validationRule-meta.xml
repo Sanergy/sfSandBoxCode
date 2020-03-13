@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_the_delivered_item_number</fullName>
+    <active>true</active>
+    <description>Ensure that the number of items delivered is not more than the number of items requested.</description>
+    <errorConditionFormula>Items_delivererd__c &gt;  Quantity__c</errorConditionFormula>
+    <errorMessage>Items delivered cannot be more than the quantity requested</errorMessage>
+</ValidationRule>

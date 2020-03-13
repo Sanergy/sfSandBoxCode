@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLK_Total_Price__c</fullName>
+    <description>The total price for all Recurring Service Line Items for Sanergy</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The total price for all Recurring Service Line Items for Sanergy</inlineHelpText>
+    <label>SLK Total Price</label>
+    <summarizedField>Recurring_Service_Line_Item__c.Total_Price__c</summarizedField>
+    <summaryFilterItems>
+        <field>Recurring_Service_Line_Item__c.Company__c</field>
+        <operation>equals</operation>
+        <value>Sanergy Limited</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Recurring_Service_Line_Item__c.PR_Created__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Recurring_Service_Line_Item__c.PO_Created__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Recurring_Service_Line_Item__c.Recurring_Service__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

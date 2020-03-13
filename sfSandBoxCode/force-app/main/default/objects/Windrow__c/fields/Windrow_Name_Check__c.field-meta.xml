@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Windrow_Name_Check__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Used in a WFR to check if the Windrow name exists</description>
+    <externalId>false</externalId>
+    <label>Windrow Name Check</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

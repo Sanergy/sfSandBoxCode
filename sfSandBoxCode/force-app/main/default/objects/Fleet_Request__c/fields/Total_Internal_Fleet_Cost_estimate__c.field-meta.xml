@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Internal_Fleet_Cost_estimate__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Internal Fleet Cost (Estimate)</label>
+    <summarizedField>Fleet_Requests__c.Total_Estimated_Cost__c</summarizedField>
+    <summaryFilterItems>
+        <field>Fleet_Requests__c.Fleet_Request_Category__c</field>
+        <operation>equals</operation>
+        <value>Internal Fleet</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Fleet_Requests__c.Fleet_Request__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

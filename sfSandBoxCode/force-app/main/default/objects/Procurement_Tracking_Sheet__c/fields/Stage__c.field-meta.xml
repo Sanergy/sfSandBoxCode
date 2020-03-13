@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>a point, period, or step in a process or development.</inlineHelpText>
+    <label>Stage</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>true</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Team Lead Approved</fullName>
+                <default>false</default>
+                <label>Team Lead Approved</label>
+            </value>
+            <value>
+                <fullName>Partial Receipt</fullName>
+                <default>false</default>
+                <label>Items Partially  Received</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Maintenance Team Lead Approved</fullName>
+                <default>false</default>
+                <label>Maintenance Team Lead Approved</label>
+            </value>
+            <value>
+                <fullName>Submitted for Approval</fullName>
+                <default>false</default>
+                <label>Submitted for Approval</label>
+            </value>
+            <value>
+                <fullName>Requesting Team Lead Approved</fullName>
+                <default>false</default>
+                <label>Requesting Team Lead Approved</label>
+            </value>
+            <value>
+                <fullName>Approved By Finance</fullName>
+                <default>false</default>
+                <label>Approved By Finance</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>QHSE Approved</fullName>
+                <default>false</default>
+                <label>QHSE Approved</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+                <label>Recalled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

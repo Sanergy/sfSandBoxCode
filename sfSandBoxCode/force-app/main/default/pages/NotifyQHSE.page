@@ -1,0 +1,34 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="NotifyQHSEController">
+  <apex:form >
+        <apex:sectionHeader title="{!Vendor_Invoice__c.Name}" subtitle="Please Enter Accepted Receive Quantity"/>
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock title="Invoice Items" id="pb">
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select All" action="{!selectAll}" reRender="pb"  />
+                <apex:commandButton value="Unselect All" action="{!unselectAll}" />
+                <apex:commandButton value="Notify QHSE" action="{!receiveToInventory}"/>
+                <apex:commandButton value="Return To VI" action="{!cancel}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable id="itemList" value="{!items}" var="item" title="Invoice Items">
+                <apex:column headerValue="Process">    
+                    <apex:inputCheckbox value="{!item.selected}" id="chkProcessRow" />   
+                </apex:column>    
+                
+                <apex:column headerValue="Vendor Invoice">
+                    <apex:outputlink value="/{!item.item.Vendor_Invoice__c}">{!item.item.Vendor_Invoice__r.Name}</apex:outputlink>
+                </apex:column>
+                
+                <apex:column headerValue="Vendor Invoice Item">
+                    <apex:outputlink value="/{!item.item.Id}">{!item.item.Name}</apex:outputlink>
+                </apex:column>
+                                               
+                <apex:column headerValue="Name" value="{!item.item.Item_Description__c}" />
+                <apex:column headerValue="Pending Quantity" value="{!item.item.Quantity__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

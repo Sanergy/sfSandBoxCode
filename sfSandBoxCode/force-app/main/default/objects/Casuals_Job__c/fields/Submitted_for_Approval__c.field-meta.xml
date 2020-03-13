@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submitted_for_Approval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field is set as true once record is submitted for approval. Field is never unchecked once checked.</description>
+    <externalId>false</externalId>
+    <label>Submitted for Approval</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

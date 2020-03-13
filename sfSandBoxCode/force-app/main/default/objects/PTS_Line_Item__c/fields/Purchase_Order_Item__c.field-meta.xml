@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchase_Order_Item__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Purchase Order Item</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Purchase_Order_Item__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Created</value>
+        </filterItems>
+        <filterItems>
+            <field>Purchase_Order_Item__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Contract Expired</value>
+        </filterItems>
+        <filterItems>
+            <field>Purchase_Order_Item__c.Inventory_Item__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Inventory_Item__c</valueField>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Purchase_Order_Item__c</referenceTo>
+    <relationshipLabel>Procurement Request Line Items</relationshipLabel>
+    <relationshipName>Procurement_Request_Line_Items</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

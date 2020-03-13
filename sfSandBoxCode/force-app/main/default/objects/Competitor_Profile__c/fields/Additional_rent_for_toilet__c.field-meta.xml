@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_rent_for_toilet__c</fullName>
+    <description>If in a Plot, Is rent relatively higher than other plots in area?</description>
+    <externalId>false</externalId>
+    <label>Additional rent for plot toilet</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+<apex:page Controller="EmployeesWhoAreOnLeave" docType="html-5.0" >
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+    </head>
+    <body>       
+        <apex:sectionHeader subtitle="Who's out in the next 30 days"/> 
+        <apex:form >            
+            <apex:pageBlock >
+                <apex:pageBlockTable value="{!EmployeesOnLeave}" var="leave">
+                    <apex:column styleClass="fas fa-user"></apex:column>                   
+                    <apex:column headerValue="Employee Name" value="{!leave.Employee__r.Name}"/>                    
+                    <apex:column headerValue="Start Date" value="{!leave.Leave_Start_Date__c}"/>
+                    <apex:column headerValue="End Date" value="{!leave.Leave_End_Date__c}"/>
+                    <apex:column headerValue="Department" value="{!leave.Employee__r.Sanergy_Department__r.Name}"/>                    
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:form>
+    </body>  
+</apex:page>

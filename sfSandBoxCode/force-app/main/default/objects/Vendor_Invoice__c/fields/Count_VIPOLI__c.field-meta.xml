@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_VIPOLI__c</fullName>
+    <externalId>false</externalId>
+    <label>Count VIPOLI</label>
+    <summaryForeignKey>Vendor_Invoice_Purchase_Order_Line_Item__c.Vendor_Invoice__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

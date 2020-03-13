@@ -1,0 +1,52 @@
+<apex:page docType="html-5.0" standardController="Opportunity" extensions="OpportunityShipController">
+    <apex:form >
+        <apex:sectionHeader title="{!Opportunity.Name}" subtitle="Ship Opportunity Sale"/>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageMessage severity="info" summary="This action will Ship from Inventory for this sale"/>
+        
+        <apex:pageBlock title="Opportunity Products" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select all" action="{!selectAll}" rerender="table"/>
+                <apex:commandButton value="Unselect all" action="{!unselectAll}" rerender="table"/>
+                <apex:commandButton value="Ship From Inventory" action="{!shipFromInventory}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!products}" var="prod" id="table" title="Opportunity Products">
+                <apex:column >
+                    <apex:inputCheckbox value="{!prod.selected}"/>
+                </apex:column>
+               
+                <apex:column headerValue="Name" value="{!prod.product2.Inventory_Product__r.Name}" />
+                <apex:column headerValue="Site">
+                    <apex:selectList value="{!prod.site}" multiselect="false" size="1">
+                        <apex:actionSupport event="onchange" action="{!prod.setLocations}" />
+                        <apex:selectOptions value="{!sites}"/>
+                    </apex:selectList>
+                </apex:column>
+                <apex:column headerValue="Location">
+                    <apex:selectList value="{!prod.location}" multiselect="false" size="1">
+                        <apex:actionSupport event="onchange" action="{!prod.setLots}" />
+                        <apex:selectOptions value="{!prod.locations}"/>
+                    </apex:selectList>
+                </apex:column>
+                <apex:column headerValue="Batch">
+                    <apex:selectList value="{!prod.lot}" multiselect="false" size="1">
+                        <apex:actionSupport event="onchange" action="{!prod.selectLot}" />
+                        <apex:selectOptions value="{!prod.lots}"/>
+                    </apex:selectList>
+                </apex:column>
+                <apex:column headerValue="Quantity at Location" value="{!prod.selectedLot.Quantity__c}" />
+                <apex:column headerValue="Quantity Bought" value="{!prod.product.Quantity}" />
+                <apex:column headerValue="Quantity Shipped" value="{!prod.product.Quantity_Shipped__c}" />
+                <apex:column headerValue="Quantity Pending" value="{!prod.pendingQuantity }" />
+                <apex:column headerValue="Quantity to Ship">
+                   <apex:input value="{!prod.shipQuantity }"/>
+                </apex:column>                
+                <apex:column headerValue="Unit Price" value="{!prod.product.UnitPrice}" />
+                <apex:column headerValue="Total Price" value="{!prod.product.TotalPrice}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

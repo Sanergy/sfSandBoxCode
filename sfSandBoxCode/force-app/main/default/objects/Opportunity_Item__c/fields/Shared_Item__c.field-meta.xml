@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shared_Item__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if this item is shared e.g. shared between Basic FLT Package &amp; Basic FLT Package - Upstructure</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check this box if this item is shared e.g. shared between Basic FLT Package &amp; Basic FLT Package - Upstructure</inlineHelpText>
+    <label>Shared Item</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

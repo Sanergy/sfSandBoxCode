@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateMustNotBeTodayOrInThePast</fullName>
+    <active>false</active>
+    <description>Payment Due Date Must Be Tomorrow onwards</description>
+    <errorConditionFormula>OR(Scheduled_Payment_Date__c   =   TODAY(),
+    Scheduled_Payment_Date__c  &lt; TODAY() )</errorConditionFormula>
+    <errorDisplayField>Scheduled_Payment_Date__c</errorDisplayField>
+    <errorMessage>Payment Due Date must not be Today Or Before Today</errorMessage>
+</ValidationRule>

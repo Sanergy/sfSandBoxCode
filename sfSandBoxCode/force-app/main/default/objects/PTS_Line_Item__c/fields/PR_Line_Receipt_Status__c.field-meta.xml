@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PR_Line_Receipt_Status__c</fullName>
+    <defaultValue>&#39;Open&#39;</defaultValue>
+    <externalId>false</externalId>
+    <label>PR Line Receipt Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>false</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Items Partially Received</fullName>
+                <default>false</default>
+                <label>Items Partially Received</label>
+            </value>
+            <value>
+                <fullName>All Items Received</fullName>
+                <default>false</default>
+                <label>All Items Received</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,36 @@
+<apex:page StandardController="Purchase_Order__c"  extensions="CreateVendorInvoiceFromPO">
+    <apex:form >   
+        <apex:pageBlock title="CREATED VENDOR INVOICE DETAILS">
+            <apex:pageblocksection >   
+            </apex:pageblocksection>            
+        </apex:pageBlock>           
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                
+                <apex:commandButton value="Update Invoice" action="{!editInvoice}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+             
+            
+            <apex:pageBlockTable value="{!vins}" var="c" id="table">
+                <apex:column >
+                    
+                </apex:column>  
+                <apex:column headerValue="Vendor Invoice" width="70" value="{!c.Name}" />             
+                <apex:column headerValue="Vendor" value="{!c.Vendor__c}" />
+                
+                <apex:column headerValue="Invoice Number">
+                    <apex:inputField value="{!c.Invoice_Number__c}" />
+                </apex:column>
+                
+                <apex:column headerValue="Currency" value="{!c.Currency_Config_Currency__c}" />
+                
+                <apex:column headerValue="Invoice Date">
+                    <apex:inputField value="{!c.Vendor_Invoice_date__c}" />
+                </apex:column>
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

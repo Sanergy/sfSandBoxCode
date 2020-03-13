@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closings_due_to_lack_of_water__c</fullName>
+    <externalId>false</externalId>
+    <label>Closings due to lack of water</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type_of_toilet__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Once a week</fullName>
+                <default>false</default>
+                <label>Once a week</label>
+            </value>
+            <value>
+                <fullName>More than Once a Week</fullName>
+                <default>false</default>
+                <label>More than Once a Week</label>
+            </value>
+            <value>
+                <fullName>&gt;4 days in a month</fullName>
+                <default>false</default>
+                <label>&gt;4 days in a month</label>
+            </value>
+            <value>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+                <label>Seasonal</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Water Based Toilet</controllingFieldValue>
+            <valueName>None</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Water Based Toilet</controllingFieldValue>
+            <valueName>Once a week</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Water Based Toilet</controllingFieldValue>
+            <valueName>More than Once a Week</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Water Based Toilet</controllingFieldValue>
+            <valueName>&gt;4 days in a month</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Water Based Toilet</controllingFieldValue>
+            <valueName>Seasonal</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WO_Item_Issuance_Started__c</fullName>
+    <externalId>false</externalId>
+    <formula>Work_Order_Status__c = &quot;5-Pick List records generated&quot;  || 
+ Work_Order_Status__c = &quot;7-Partial Receipt&quot;  || 
+ Work_Order_Status__c = &quot;8-Receipts completed&quot;  || 
+ Work_Order_Status__c = &quot;9-Closed&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>WO Item Issuance Started</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

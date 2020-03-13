@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rate_Units_Should_Not_Be_Empty</fullName>
+    <active>true</active>
+    <description>Rate Units Should Not Be Empty</description>
+    <errorConditionFormula>ISPICKVAL( Rate_Units__c ,&quot;&quot;)</errorConditionFormula>
+    <errorDisplayField>Rate_Units__c</errorDisplayField>
+    <errorMessage>Please fill out the &quot;Rate Units&quot; field value</errorMessage>
+</ValidationRule>

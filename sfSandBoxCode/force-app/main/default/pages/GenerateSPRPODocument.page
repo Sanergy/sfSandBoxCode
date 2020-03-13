@@ -1,0 +1,319 @@
+<apex:page renderAs="pdf" standardController="Special_Procurement__c" standardStylesheets="false" extensions="GenerateSPRPODocument">
+    <head>
+        <style>
+            body{font-size: 22px; font-family: Helvetica,sans-serif !important; color: #222 !important;}
+            .col-6{width: 50%; float: right}
+            .bordered{font-weight:bold; font-size: 12px}
+            .container {width: 100%;}table {width: 100%;}td {width: 50%; color: black;}
+        </style>
+    </head>
+    <body><apex:panelGrid columns="1" width="700" cellpadding="0" cellspacing="0" rules="all" frame="box" border="1">
+    <!-- The first column -->
+    <apex:panelGrid columns="2" width="100%"  cellpadding="0" cellspacing="0" rules="all">
+        <!-- Output panel used to be able to layout the row -->
+        <apex:outputPanel style="padding:5px; font-size: 14px;" layout="block" >
+            <apex:outputText value="GENERAL TERMS AND CONDITIONS"/>
+        </apex:outputPanel>
+
+        <!-- Another header column -->
+        <apex:outputPanel style="padding:5px; font-size: 14px;" layout="block" >
+            
+        </apex:outputPanel>
+
+        <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" rules="all" style="font-size: 12px;">
+            <ul type="1" start="50">
+                <li > Scope of Agreement<br/>
+                    These terms and conditions and the Purchase Order (PO or LPO) constitute the complete and exclusive agreement between the parties unless modified by mutual prior agreement in writing.
+                </li>
+                <li>Alterations to Order<br/>
+                    The company shall have the right at any time prior to the delivery date to specify alterations in the order or instruction. All bills of lading shall conform to the specifications issued by the Company.
+                </li>
+                <li>Price and Payment<br/>
+                    The Company shall not pay above the unit price and total price specified and shall pay all agreed invoices as per the payment terms specified with receipt subject to confirmation of conformity to standard, quantity and quality by the Company.
+                </li>
+                <li>Delays and delivery<br/>
+                    The Company shall not be obligated to receive or accept any goods or services outside the agreed timelines unless such delivery has been communicated at least 7 days in advance.
+                </li>
+                <li>Delivery<br/>
+                    All Deliverables shall be presented to such company site as may be specified in the order for inspection before acceptance. Non-conformity may be reported within 60 days of receipt and shall be remedied by the Supplier at no extra cost within 3 days of such report. Failure or Delays in reporting such non-conformity by the Company shall not at any time be deemed to be a waiver of its right.
+                </li>
+                <li>Warranties and Covenants<br/>
+                    Supplier expressly covenants and warrants that all Deliverables shall conform to the specifications, drawings, samples or other description upon which the Order is based, shall be suitable for the purpose intended, merchantable, free from defects in material and workmanship, and free from liens, or encumbrances of title, and that Deliverables of Sellers design will be free from defect in design and a warranty certificate of not less than the time specified and shall be issued at the point of delivery.
+                </li>  
+                <li>Compliance<br/>
+                    The Seller or Supplier shall remain responsible for ensuring their compliance with all applicable international, national and county laws in addition to all rules and regulations that may be from time to time be in force which affect their ability to legally carry out their obligations as outlined in the order.
+                </li> 
+                 <li>Environmental, Health, and Safety Requirements<br/>
+                    Seller or supplier agrees to comply with the Company’s environmental, health and safety standards.
+                </li> 
+                   
+                <li>Access to Facilities<br/>
+                    In the event the Supplier requires access to the Company’s premises, they shall produce such verification or work authorization documentation as may be required by the Company or be denied access to the detriment. Non-conformity to these specifications shall only be waived at the sole discretion of the Company.
+                </li>
+                            
+                </ul>
+        </apex:panelGrid> 
+
+            <apex:panelGrid style="font-size: 12px; padding-right: 30px;" columns="1" width="80%" cellpadding="0" cellspacing="0" rules="all">
+            <ul type="1" start="8">            
+                
+                <li> Indemnification<br/>
+                    Supplier shall indemnify, protect, defend and save the Company, its officers, directors and affiliates and their officers and directors harmless from all suits, claims, losses, damages, injuries, costs or expenses (including attorneys’ fees) arising out of or caused by Seller/Supplier’s performance hereof or any defects in the Deliverables.
+                     </li>
+                <li>Termination<br/>
+                   Company may terminate any existing agreement attached to this Terms and conditions for no cause at any time without notice or at the lapse of the 3 days notice of breach.
+                </li>
+                <li>Assignment<br/>
+                    The Seller or Supplier shall not at any time during their engagement with the Company assign their obligations under the order unless such assignment is expressly pre-authorized by the Company.
+                </li>
+                <li>Offset<br/>
+                    The Company reserves the right at any time to offset its incurred costs occasioned by the Supplier’s negligence if a complaint issued is not remedied within 3 days of dispatch of such communication to the Seller or Supplier by the Company.
+                </li>
+                <li>Dispute Resolution and Governing Law<br/>
+                    The terms and conditions set out herein shall be governed in accordance to the laws of Kenya. Any dispute arising out of or relating to this Agreement or a termination hereof shall be resolved by way of consultation and if remaining unresolved after 15 days, escalated to one mutually agreed Arbitrator; If the parties cannot agree to an Arbitrator, they shall each appoint an arbitrator and the 2 arbitrators shall select a 3rd arbitrator. Arbitration proceedings shall be in accordance to the Arbitration Act, Kenya of 2009 and all its amendments that may be in force. Each party shall bear the cost of their respective arbitrator and share equally the cost of the third arbitrators. The decision of the arbitrator shall be final and binding on the parties. 
+                </li>
+                <li >Miscellaneous <br/>
+                    i) The relationship between the parties is solely one of independent contracting.<br/>
+                  
+                   ii) The Supplier shall be liable for any damages incurred by the Company as a result the Supplier’s acts or omissions under this Agreement. The rights and remedies herein reserved to the Company shall be cumulative and additional to any other or further rights and remedies provided in law or equity.<br/>
+                
+                  iii) If in any instance any provision of this Agreement shall be determined to be invalid or unenforceable under any applicable law, such provision shall not apply in such instance, but the remaining provisions shall be given effect in accordance with their terms unless the purposes of the Agreement can no longer be preserved by doing so.<br/>
+
+                  iv) This Agreement shall be construed as if drafted jointly by the parties and no provision in this Agreement shall be interpreted for or against any party because that party or that party’s legal representative drafted the provision.<br/>
+                
+                </li>
+                </ul>
+        </apex:panelGrid>  
+       
+
+    </apex:panelGrid>
+
+   </apex:panelGrid>
+    
+    
+    
+        <apex:panelGrid columns="2" styleClass="col-12">
+            <apex:panelGrid columns="1" styleClass="col-6" width="400">
+                <apex:image value="{!If(CONTAINS(Special_Procurement__c.Requesting_Company__r.Name, 'Sanergy') ,URLFOR($Resource.Sanergy_Logo),URLFOR($Resource.freshlife_logo)) }" styleClass="col-16" width="200" />
+            </apex:panelGrid>                    
+            <apex:panelGrid columns="1" styleClass="col-6" width="400">
+                <h2>PURCHASE ORDER</h2>
+                <apex:panelGrid columns="2" styleClass="col-6">
+                    <apex:outputText value="P.O. DATE" style="font-weight:bold; font-size: 12px;"/>
+                    <apex:outputText value="{0, date, d MMM','  yyyy}" style="font-weight:bold; font-size: 12px">
+                        <apex:param value="{!Special_Procurement__c.createdDate}" /> 
+                    </apex:outputText>
+                    <apex:outputText value="P.O. NUMBER" style="font-weight:bold; font-size: 12px"/>
+                    <apex:outputText value="{!Special_Procurement__c.Name}" style="font-weight:bold; font-size: 12px"/>   
+                    <apex:outputText value="P.O. CURRENCY" style="font-weight:bold; font-size: 12px"/>
+                    <apex:outputText value="{!Special_Procurement__c.Vendor_Currency__c}" style="font-weight:bold; font-size: 12px"/>                  
+                </apex:panelGrid> 
+            </apex:panelGrid>          
+         </apex:panelGrid>
+         
+         <apex:panelGrid columns="1" width="1000">
+              <apex:outputText value="{!Special_Procurement__c.Requesting_Company__r.Name}" style="font-weight:bold; font-size: 12px;"/>
+              <apex:outputText value="Address: PO Box 24523, Nairobi, Kenya | Phone: +254 788 511 824" style="font-size: 12px"/>
+         </apex:panelGrid>
+         
+         <apex:panelGrid columns="2" style="padding:0px; vertical-align:top" width="700">
+            <apex:panelGrid columns="1" styleClass="col-6" width="300" cellpadding="0" style="vertical-align:top; padding:0px; background:#7e7e7e; color: #fff" >
+                <h5 style="margin:0px">SUPPLIER INFORMATION</h5> 
+            </apex:panelGrid>                    
+            <apex:panelGrid columns="1" styleClass="col-6" width="300" cellpadding="0" style="margin:0px; vertical-align:top; padding:0px;background:#7e7e7e; color: #fff " >
+                <h5 style="margin:0px">DELIVERY INFORMATION</h5>
+            </apex:panelGrid>
+             <!--<apex:outputText value="{!Purchase_Order__c.Vendor_Account__r.name}" style="font-weight:bold; font-size: 12px"/>
+                <apex:outputText value="Vendor Code" style="font-weight:bold; font-size: 12px"/>
+                <apex:outputText value="{!poLine.poLineItem.Purchase_Order_Item__r.Vendor_Code__c}" style="font-weight:bold; font-size: 12px"/>
+                <apex:outputText value="Vendor Description" style="font-weight:bold; font-size: 12px"/>
+                <apex:outputText value="{!poLine.poLineItem.Purchase_Order_Item__r.Vendor_Description__c}" style="font-weight:bold; font-size: 12px"/>
+                
+ 
+                <apex:pageBlock >
+               <apex:pageBlockTable value="{!sprlineWrapper}" var="sprLine">
+               <apex:column value="{!Special_Procurement__c.Vendor__r.name}"/>
+               <apex:column value="{!sprLine.sprLineItem.Purchase_Order_Item__r.Vendor_Code__c}"/>
+               <apex:column value="{!sprLine.sprLineItem.Purchase_Order_Item__r.Vendor_Description__c}"/>
+               </apex:pageBlockTable>
+               </apex:pageBlock>
+         -->
+             <table border="0" cellpadding="4" style="font-size: 12px" >
+                    <tr>
+                        <td colspan="4" width = "100%">
+                            <b>{!Special_Procurement__c.Vendor__r.Name}</b><br/>                               
+                            {!Special_Procurement__c.Vendor__r.BillingCity} <br/>  
+                        	{!Special_Procurement__c.Vendor__r.BillingPostalCode}<br/>                             
+   							{!Special_Procurement__c.Vendor__r.BillingCountry} <br/>  
+                        </td>
+                    </tr>
+                </table> 
+            <apex:panelGrid columns="2" styleClass="col-6" style="vertical-align:top; padding:0px; margin:0px">
+                <table border="1" cellpadding="4" style="font-size: 12px" >
+                    <tr>
+                        <td>Delivery Mode</td>
+                        <td>As per Agreement</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Date</td>
+                        <td>{!sprCreatedDate}</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Address</td>
+                        <td> Sameer Park - Office</td>
+                    </tr>
+                </table>                  
+            </apex:panelGrid> 
+             
+         </apex:panelGrid>  
+        <hr/>
+        <table border="1" style="font-size: 12px" cellpadding="4" >
+            <tr style="color:#fff; background: #7e7e7e">
+                <th>#</th>
+                <th style="width:300px">DETAILED DESCRIPTION</th>
+                <th style="width:10px">QTY</th>
+                <th style="width:50px">UoM</th>
+                <th style="width:100px">UNIT PRICE</th>
+                <th style="width:100px">TOTAL VAT</th>                
+                <th style="width:100px">TOTAL PRICE</th>
+            </tr>
+            <apex:repeat var="sprLine" value="{!sprlineWrapper}">
+             <tr>
+                 <td>{!sprLine.rnk}</td>
+                 <td>{!sprLine.sprLineItem.Item__c}</td>
+                 <td>{!sprLine.sprLineItem.Quantity_Requested__c}</td>
+                 <td>Each</td>
+                 <td>
+                    <apex:outputText value="{0, number, ###,###.##}">
+                        <apex:param value="{!sprLine.sprLineItem.Unit_Net_Price__c}"/>
+                    </apex:outputText>
+                 </td>
+                 <td>
+                    <apex:outputText value="{0, number, ###,###.##}">
+                        <apex:param value="{!sprLine.sprLineItem.Total_VAT__c}"/>
+                    </apex:outputText>
+                 </td>                 
+                 <td>
+                    <apex:outputText value="{0, number, ###,###.##}">
+                        <apex:param value="{!sprLine.sprLineItem.Total_Price__c}"/>
+                    </apex:outputText>
+                 </td>
+            </tr>
+            </apex:repeat>
+            
+            <tr style="font-weight: bold" >
+                <td colspan="3"  rowspan="4" >
+                <table width="100%" border="0" style="font-size: 12px" cellpadding="4" height="100%" class="container">
+                    <tr>
+                        <td style="background:#bdbdbd" colspan="3" width="100%">
+                            Other comments or special instructions
+                        </td>
+                       
+                    </tr>
+                <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                
+                </table>
+                
+                
+                </td>
+                
+                <td rowspan="4">
+                </td>
+                
+         <td rowspan="2" colspan="4">
+         <table border="1" style="font-size: 12px" cellpadding="4" width="100%" class="container">       
+              <tr> 
+                <td width="50%">
+                <apex:outputText style="font-weight: bold" value="SUBTOTAL"/>                
+                </td>
+                <td width="50%">
+                    <apex:outputText value="{!Special_Procurement__c.Vendor_Currency__c} {0,number,###,###.##}">
+                        <apex:param value="{!Special_Procurement__c.Total_Amount_Requested__c}"/>
+                    </apex:outputtext>
+               </td>
+              </tr>
+              
+              
+              <tr style="font-weight: bold">
+                
+                <td width="50%">
+                <apex:outputText style="font-weight: bold" value="VAT/TAX"/>
+                </td>
+                <td width="50%">
+                <apex:outputText value="{!Special_Procurement__c.Vendor_Currency__c} {0,number,###,###.##}">
+                <apex:param value="{!totalTax}"/>
+                </apex:outputtext>
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                
+                <td width="50%">
+                <apex:outputText style="font-weight: bold" value="TOTAL"/>
+                </td>
+                <td width="50%">                              
+                <apex:outputText value="{!Special_Procurement__c.Vendor_Currency__c} {0,number,###,###.##}">
+                <apex:param value="{!Special_Procurement__c.Total_Amount_Requested__c}"/>
+                </apex:outputtext>                
+                </td>
+            </tr>
+            <tr style="font-weight: bold">
+                
+                <td width="50%">
+                <apex:outputText style="font-weight: bold" value="PAYMENT TERMS"/>
+                </td>
+                <td width="50%">
+                </td>
+            </tr>
+              
+          </table>      
+         </td>      
+               
+               
+            </tr>
+            
+        </table>  
+        
+        <apex:panelGrid columns="2">
+             <apex:panelGrid columns="2" width="300">
+                <apex:outputText value="Prepared by" style="font-weight: bold; font-size: 12px;"/>
+                <apex:outputText value="{!$User.FirstName} {!$User.LastName}" style="font-size: 12px"/>
+                <apex:outputText value="Date" style="font-weight: bold; font-size: 12px"/>
+                <apex:outputText value="{0, date, d MMM','  yyyy}" style="font-size: 12px">
+                    <apex:param value="{!TODAY()}" /> 
+                </apex:outputText>
+                <apex:outputText value="Signature" style="font-weight: bold; font-size: 12px"/>
+                <apex:outputText value="" style="font-size: 12px"/>                    
+            </apex:panelGrid>
+            
+            <apex:panelGrid columns="2" width="300">
+                <apex:outputText value="Authorized by" style="font-weight: bold; font-size: 12px;"/>
+                <apex:outputText value="" style=" font-size: 12px"/>
+                <apex:outputText value="Date" style="font-weight: bold; font-size: 12px"/>
+                <apex:outputText value="" style=" font-size: 12px"/>
+                <apex:outputText value="Signature" style="font-weight: bold; font-size: 12px"/>
+                <apex:outputText value="" style="font-size: 12px"/>                       
+            </apex:panelGrid>
+        </apex:panelGrid>  
+        <hr/>
+        <center style="font-size: 12px">
+            <p>This Purchase Order is subject to the terms and conditions specified below and/or on the next page.</p>
+            
+            <p>For more questions and information: {!If(CONTAINS(Special_Procurement__c.Requesting_Company__r.Name, 'Sanergy'), 'Florence Kimathi Phone: +254724622126', 'Priscilla Salano Phone: +254720374177')} E-mail: procurement@saner.gy</p>
+        </center>
+        <!--
+        <apex:panelGrid columns="1" width="700" border="1" rendered="{!terms.size > 0}">
+            <h5>SPECIAL ITEM TERMS AND CONDITIONS</h5>
+            <ol>
+                 <apex:repeat var="term" value="{!terms}">
+                     <li style="font-size: 10px">{!term}</li>
+                 </apex:repeat>
+            </ol>
+        </apex:panelGrid>
+-->
+        <hr/>   
+               
+     </body>
+</apex:page>

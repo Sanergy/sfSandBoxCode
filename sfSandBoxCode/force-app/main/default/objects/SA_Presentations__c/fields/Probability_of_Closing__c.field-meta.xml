@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Probability_of_Closing__c</fullName>
+    <externalId>false</externalId>
+    <label>Probability of Closing</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Almost 0 percent</fullName>
+                <default>false</default>
+                <label>Almost 0 percent</label>
+            </value>
+            <value>
+                <fullName>25 percent</fullName>
+                <default>false</default>
+                <label>25 percent</label>
+            </value>
+            <value>
+                <fullName>50 percent</fullName>
+                <default>false</default>
+                <label>50 percent</label>
+            </value>
+            <value>
+                <fullName>75 percent</fullName>
+                <default>false</default>
+                <label>75 percent</label>
+            </value>
+            <value>
+                <fullName>Almost 100 percent</fullName>
+                <default>false</default>
+                <label>Almost 100 percent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

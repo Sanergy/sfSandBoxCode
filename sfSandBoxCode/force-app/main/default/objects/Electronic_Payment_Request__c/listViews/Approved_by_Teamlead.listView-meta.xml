@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved_by_Teamlead</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>department__c</columns>
+    <columns>Vendor_Company__c</columns>
+    <columns>Invoice_Date__c</columns>
+    <columns>Invoice_Number__c</columns>
+    <columns>Gross_Payment_Amount__c</columns>
+    <columns>Team_Lead_Approval_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Team_Lead_Approval_Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <filters>
+        <field>Cash_Entry__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Approved by Teamlead</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>Systems_Administrator</role>
+        <roleAndSubordinates>Chief_Financial_Officer</roleAndSubordinates>
+    </sharedTo>
+</ListView>

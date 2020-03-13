@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Housing_Level__c</fullName>
+    <externalId>false</externalId>
+    <label>Housing Level</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Level 1: Temporary [No foundation, earthen floor]-No electricity</fullName>
+                <default>false</default>
+                <label>Level 1: Temporary [No foundation, earthen floor]-No electricity</label>
+            </value>
+            <value>
+                <fullName>Level 2: Semi permanent [Iron sheet, permanent floor, Electricity]</fullName>
+                <default>false</default>
+                <label>Level 2: Semi permanent [Iron sheet, permanent floor, Electricity]</label>
+            </value>
+            <value>
+                <fullName>Level 3: Permanent/block house</fullName>
+                <default>false</default>
+                <label>Level 3: Permanent/block house</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

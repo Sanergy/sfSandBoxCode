@@ -1,0 +1,53 @@
+<apex:page standardController="Inventory_Requisition__c" extensions="RequisitionIssuanceController">
+      <apex:form >
+    
+       <apex:sectionHeader title="Issue Items" subtitle="Issue Items"/>
+       <apex:pageMessages ></apex:pageMessages>
+           <apex:pageBlock >
+                 <apex:pageBlockButtons >
+                      <apex:commandButton value="Select All" action="{!selectAll}" rerender="table"/>
+                       <apex:commandButton value="Unselect All" action="{!unselectAll}" rerender="table"/>
+                      <apex:commandButton value="Issue Selected" action="{!processSelected}"/>
+                      <apex:commandButton value="Cancel" action="{!cancel}" rerender="table"/>
+                 </apex:pageBlockButtons> 
+                   
+                <apex:pageBlockSection title="Inventory Issuance Information" columns="1">
+                  
+                    <apex:pageBlockTable title="Issue Items" value="{!issuanceList}" var="item" id="table">
+                       
+                        <apex:column >    
+                            <apex:inputCheckbox value="{!item.selected}" />   
+                        </apex:column>
+                        <apex:column headerValue="Requisition Item Name">
+                            <apex:outputlink value="/{!item.item.Id}">{!item.item.Name}</apex:outputlink>
+                        </apex:column>
+                        <apex:column headerValue="Inventory Item Name" value="{!item.item.Inventory_Item__r.Name}" />
+                        <apex:column headerValue="GLA" value="{!item.item.GLA__r.Name}" />
+                        <apex:column headerValue="Site">
+                            <apex:selectList value="{!item.site}" multiselect="false" size="1">
+                                <apex:actionSupport event="onchange" action="{!item.setLocs}" rerender="table"/>
+                                    <apex:selectOptions value="{!sites}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Location">
+                            <apex:selectList value="{!item.location}" multiselect="false" size="1">
+                                <apex:actionSupport event="onchange" action="{!item.setLots}" rerender="table" />
+                                <apex:selectOptions value="{!item.locations}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Batch">
+                            <apex:selectList value="{!item.lot}" multiselect="false" size="1">
+                                <apex:actionSupport event="onchange" action="{!item.selectLot}" rerender="table" />
+                                <apex:selectOptions value="{!item.lots}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Quantity at Location" value="{!item.selectedLot.Quantity__c}"  />
+                        <apex:column headerValue="Quantity Remaining" value="{!item.item.Quantity_Remaining__c}" />
+                        <apex:column headerValue="Issue Quantity" >
+                            <apex:inputText value="{!item.issueQuantity}" />
+                        </apex:column>
+                   </apex:pageBlockTable>
+                </apex:pageBlockSection>      
+           </apex:pageBlock>
+    </apex:form>  
+</apex:page>

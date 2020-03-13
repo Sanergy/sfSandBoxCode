@@ -1,0 +1,8 @@
+<apex:page StandardController="Inventory_Item__c" extensions="LocationAddController" tabStyle="Inventory_Item__c">
+
+    <apex:sectionHeader title="Inventory Adjust for item" subtitle="{!Inventory_Item__c.name}"/>
+    <apex:form >   
+               
+       
+    </apex:form>
+</apex:page>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recon_EPR_Generated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Reconciliation EPR Generated</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reconciliation EPR Generated</inlineHelpText>
+    <label>Recon EPR Generated</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Make__c</fullName>
+    <description>The Laptops Brand</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Whats the Brand of the Laptop?</inlineHelpText>
+    <label>Make</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dell</fullName>
+                <default>false</default>
+                <label>Dell</label>
+            </value>
+            <value>
+                <fullName>Acer</fullName>
+                <default>false</default>
+                <label>Acer</label>
+            </value>
+            <value>
+                <fullName>Toshiba</fullName>
+                <default>false</default>
+                <label>Toshiba</label>
+            </value>
+            <value>
+                <fullName>HP</fullName>
+                <default>false</default>
+                <label>HP</label>
+            </value>
+            <value>
+                <fullName>Lenovo ThinkPad</fullName>
+                <default>false</default>
+                <label>Lenovo ThinkPad</label>
+            </value>
+            <value>
+                <fullName>Asus</fullName>
+                <default>false</default>
+                <label>Asus</label>
+            </value>
+            <value>
+                <fullName>Lenovo</fullName>
+                <default>false</default>
+                <label>Lenovo</label>
+            </value>
+            <value>
+                <fullName>Apple</fullName>
+                <default>false</default>
+                <label>Apple</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

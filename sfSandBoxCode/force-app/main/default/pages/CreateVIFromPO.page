@@ -1,0 +1,36 @@
+<apex:page StandardController="Purchase_Order__c"  extensions="CreateVendorInvoiceFromPO">
+    <apex:form >   
+        <apex:pageBlock title="PO LINES TO BE PROCESSED">
+            <apex:pageblocksection >   
+            </apex:pageblocksection>            
+        </apex:pageBlock>           
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                
+                <apex:commandButton value="Create Invoice" action="{!createInvoice}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+             
+            
+            <apex:pageBlockTable value="{!items}" var="c" id="table">
+                <apex:column >
+                    
+                </apex:column>  
+                <apex:column headerValue="PO Line Name" width="70" value="{!c.Name}" />             
+                <apex:column headerValue="Item Description" value="{!c.Item__c}" />
+                <apex:column headerValue="Item Category" value="{!c.Item_Type__c}" />
+                <apex:column headerValue="Variation Notes">
+                    <apex:inputField value="{!c.Variation_Notes__c}" />
+                </apex:column>
+                <apex:column headerValue="Company" value="{!c.Requesting_Company__c}" />
+                <apex:column headerValue="Quantity Requested" value="{!c.Quantity_Requested__c}" />
+                <apex:column headerValue="Total Gross Price" value="{!c.Total_Price__c}" />
+                <apex:column headerValue="Quantity Accepted" value="{!c.Quantity_Accepted__c}" />
+                <apex:column headerValue="Status" value="{!c.Status__c}" />
+                <apex:column headerValue="PTS Line" value="{!c.PTS_Line_Item__c}" />
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

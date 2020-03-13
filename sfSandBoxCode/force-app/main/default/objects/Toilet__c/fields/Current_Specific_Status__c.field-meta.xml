@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Specific_Status__c</fullName>
+    <description>Current Specific Status of the Toilet</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Current Specific Status of the Toilet</inlineHelpText>
+    <label>Current Specific Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Operational_Status__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Closed - By FLI</fullName>
+                <default>false</default>
+                <label>Closed - By FLI</label>
+            </value>
+            <value>
+                <fullName>Closed - By FLO</fullName>
+                <default>false</default>
+                <label>Closed - By FLO</label>
+            </value>
+            <value>
+                <fullName>Closed - Debranded</fullName>
+                <default>false</default>
+                <label>Closed - Debranded</label>
+            </value>
+            <value>
+                <fullName>Closed - Demolished</fullName>
+                <default>false</default>
+                <label>Closed - Demolished</label>
+            </value>
+            <value>
+                <fullName>Closed - QA Check</fullName>
+                <default>false</default>
+                <label>Closed - QA Check</label>
+            </value>
+            <value>
+                <fullName>Closed - Relocated</fullName>
+                <default>false</default>
+                <label>Closed - Relocated</label>
+            </value>
+            <value>
+                <fullName>Closed - Repossessed</fullName>
+                <default>false</default>
+                <label>Closed - Repossessed</label>
+            </value>
+            <value>
+                <fullName>Closed - Resold</fullName>
+                <default>false</default>
+                <label>Closed - Resold</label>
+            </value>
+            <value>
+                <fullName>Open - Company-Owned</fullName>
+                <default>false</default>
+                <label>Open - Company-Owned</label>
+            </value>
+            <value>
+                <fullName>Open - New</fullName>
+                <default>false</default>
+                <label>Open - New</label>
+            </value>
+            <value>
+                <fullName>Open - Re-installed</fullName>
+                <default>false</default>
+                <label>Open - Re-installed</label>
+            </value>
+            <value>
+                <fullName>Open - Re-opened</fullName>
+                <default>false</default>
+                <label>Open - Re-opened</label>
+            </value>
+            <value>
+                <fullName>Open - Relocated</fullName>
+                <default>false</default>
+                <label>Open - Relocated</label>
+            </value>
+            <value>
+                <fullName>Open - Resold</fullName>
+                <default>false</default>
+                <label>Open - Resold</label>
+            </value>
+            <value>
+                <fullName>Open - Rebranded</fullName>
+                <default>false</default>
+                <label>Open - Rebranded</label>
+            </value>
+            <value>
+                <fullName>Open - Reopened</fullName>
+                <default>false</default>
+                <label>Open - Reopened</label>
+            </value>
+            <value>
+                <fullName>Pending Launch</fullName>
+                <default>false</default>
+                <label>Pending Launch</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Open - Company-Owned</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Open - New</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Open - Re-installed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Open - Re-opened</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Open - Relocated</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Open</controllingFieldValue>
+            <valueName>Open - Resold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - By FLI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - By FLO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Debranded</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Demolished</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - QA Check</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Relocated</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Repossessed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Closed - Resold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pending Launch</controllingFieldValue>
+            <valueName>Pending Launch</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_TL_approval</fullName>
+    <active>true</active>
+    <description>Validate the Team Lead Approval</description>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Team_Lead_Approval_Status__c,&quot;Approved&quot;) ,
+ No_of_Line_Items__c&lt;1
+)</errorConditionFormula>
+    <errorDisplayField>Team_Lead_Approval_Status__c</errorDisplayField>
+    <errorMessage>Line items have to be added before Team Lead can approve</errorMessage>
+</ValidationRule>

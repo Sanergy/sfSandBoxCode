@@ -1,0 +1,37 @@
+<apex:page Controller="EmployeeDirectory" docType="html-5.0">
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous" />
+    </head>
+    <apex:form >
+        <apex:input value="{!searchText}" id="theTextInput" type="search" />&nbsp;&nbsp;
+        
+        <apex:selectList size="1" value="{!filterValue}">
+            <apex:selectOptions value="{!dynamiclist}"/>
+        </apex:selectList>
+        
+        <apex:commandButton value="Search" action="{!getEmployeeDetails}"/> <br/>
+        <apex:pageBlock title="Employee Directory">
+            
+            <apex:repeat value="{!employees}" var="emp">
+                <table>
+                    <tr>
+                        <td style="width:160px;padding:5px 0px 0px 5px; ">
+                            <apex:image url="http://emp.saner.gy/photos/{!emp.HR_Unique_Record_ID__c}.jpg" /> <br/><br/> 
+                			<i class="fas fa-user" style="color:green;"></i>&nbsp;&nbsp;<b><apex:outputText label="{!emp.id}" value="{!emp.Name}"/></b> <br/>
+                        </td>
+                        <td style="padding-left:20px;padding:5px 0px 0px 5px;" >
+                            <i class="far fa-envelope" style="color:green;"></i>&nbsp;&nbsp;<apex:outputText >{!emp.Work_Email__c}</apex:outputText> <br/>
+                            <i class="fas fa-gavel" style="color:green;"></i>&nbsp;&nbsp;<apex:outputText >{!emp.Employee_Role__r.Name}</apex:outputText> <br/>
+                            <i class="fas fa-briefcase" style="color:green;"></i>&nbsp;&nbsp;<apex:outputText >{!emp.Sanergy_Department__r.Name}</apex:outputText><br/>
+                            <i class="fas fa-briefcase" style="color:green;"></i>&nbsp;&nbsp;<apex:outputText >{!emp.Sanergy_Department_Unit__r.Name}</apex:outputText><br/>
+                            <i class="far fa-building" style="color:green;"></i>&nbsp;&nbsp;<apex:outputText >{!emp.Primary_Location__c}</apex:outputText> <br/>
+                            <i class="fas fa-phone" style="color:green;"></i>&nbsp;&nbsp;<apex:outputText >{!emp.Primary_Phone__c}</apex:outputText> <br/>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <hr/>
+            </apex:repeat>       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

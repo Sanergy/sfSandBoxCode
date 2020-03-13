@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Returned__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Asset returned to inventory</description>
+    <externalId>false</externalId>
+    <label>Asset Returned</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

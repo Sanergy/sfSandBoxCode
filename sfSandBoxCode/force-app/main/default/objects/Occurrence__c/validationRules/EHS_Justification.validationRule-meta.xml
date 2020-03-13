@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EHS_Justification</fullName>
+    <active>true</active>
+    <description>Fill EHS justification if Root cause analysis is declined</description>
+    <errorConditionFormula>AND( 
+ISPICKVAL( Root_cause_analysis__c , &quot;Other&quot;) , 
+ISBLANK( EHS_Justification__c ))</errorConditionFormula>
+    <errorDisplayField>EHS_Justification__c</errorDisplayField>
+    <errorMessage>Please give a justification for declining the corrective action</errorMessage>
+</ValidationRule>

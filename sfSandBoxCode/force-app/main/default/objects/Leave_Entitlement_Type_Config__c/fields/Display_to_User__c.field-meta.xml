@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_to_User__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box so that to show this config to the drop down for the user to select when creating leave</description>
+    <externalId>false</externalId>
+    <label>Display to User</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

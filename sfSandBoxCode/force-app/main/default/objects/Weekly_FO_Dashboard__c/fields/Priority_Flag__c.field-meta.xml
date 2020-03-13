@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority_Flag__c</fullName>
+    <description>Flag Key to prioritise records and bubble the ones requiring immediate attention to the top</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Flag Key to prioritise records and bubble the ones requiring immediate attention to the top</inlineHelpText>
+    <label>Priority Flag</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

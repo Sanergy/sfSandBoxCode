@@ -1,0 +1,24 @@
+<apex:page standardController="Purchase_Order__c" extensions="PurchaseOrderActionController">
+      <apex:form >
+    
+       <apex:sectionHeader title="{!Purchase_Order__c.Name}" subtitle="Notify Vendor"/>
+          <apex:pageMessages ></apex:pageMessages>
+           <apex:pageBlock >
+                 <apex:pageBlockButtons >
+                     
+                     <apex:commandButton value="Notify Vendor" action="{!POVendorNotify}" onclick="if(!confirm('Proceed to Notify Vendor?\n\nAn email will be sent to the Vendor as well if an Invoice Email has been provided')){return false};"/>
+                      <apex:commandButton value="Cancel" action="{!cancel}"/>
+                 </apex:pageBlockButtons> 
+                   
+                <apex:pageBlockSection title="Vendor Invoice Information">
+                    <apex:outputField value="{!Purchase_Order__c.Name}"/>
+                    <apex:outputField value="{!Purchase_Order__c.Vendor_Account__r.c2g__CODAInvoiceEmail__c}"/>
+                    <apex:outputField value="{!Purchase_Order__c.Order_Status__c}"/>
+                    <apex:outputField value="{!Purchase_Order__c.Vendor_Account__c}"/>
+                    <apex:outputField value="{!Purchase_Order__c.PO_Currency__c}" />
+                    <apex:outputField value="{!Purchase_Order__c.Total_Amount__c}" />
+                    
+                </apex:pageBlockSection>      
+           </apex:pageBlock>
+    </apex:form>  
+</apex:page>

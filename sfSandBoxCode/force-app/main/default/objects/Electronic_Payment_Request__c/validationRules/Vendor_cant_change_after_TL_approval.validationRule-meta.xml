@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_cant_change_after_TL_approval</fullName>
+    <active>true</active>
+    <description>Vendor cant  change after TL approval</description>
+    <errorConditionFormula>AND(
+  ISCHANGED( Vendor_Company__c ),
+   RecordType.Name = &quot;EPR - Finance Approval&quot;
+)</errorConditionFormula>
+    <errorDisplayField>Vendor_Company__c</errorDisplayField>
+    <errorMessage>Vendor Company cannot be changed if Team Lead has approved the EPR</errorMessage>
+</ValidationRule>

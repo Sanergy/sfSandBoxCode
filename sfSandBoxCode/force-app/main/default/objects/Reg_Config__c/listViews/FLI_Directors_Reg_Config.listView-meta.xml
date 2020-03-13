@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLI_Directors_Reg_Config</fullName>
+    <filterScope>Queue</filterScope>
+    <label>FLI Directors</label>
+    <queue>FLI_Directors</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

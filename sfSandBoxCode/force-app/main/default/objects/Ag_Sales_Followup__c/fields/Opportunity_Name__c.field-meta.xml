@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Opportunity</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Opportunity.RecordType.Name</field>
+            <operation>startsWith</operation>
+            <value>Agricultural</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Ag Sales Followup</relationshipLabel>
+    <relationshipName>Ag_Sales_Followup</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,85 @@
+<apex:page Controller="FFSCapitalisation" docType="html-5.0" action="{!show}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"  />  
+
+    <apex:form enctype="multipart/form-data" >
+        <apex:pageBlock title="Journal Line Items"  id="pgBlkHdr">
+            <table width="100%">
+                <tr width="100%">
+                	<td  width="50%">
+                        <p align="left">
+                            <apex:input value="{!periodSearchText}" id="theTextInput" type="search" />&nbsp;&nbsp;
+                            <apex:commandButton value="Search Journals" action="{!SearchJournals}" rerender="pgBlk,jnls,jnlLI,pbJLLI"/> &nbsp;&nbsp;
+                            <apex:commandButton value="Create Journal" action="{!CreateJournal}"  onclick="if(!confirm('Proceed with creating the Journal?')){return false};"  rerender="pgBlk,jnls,jnlLI,pbJLLI"/>
+                            <apex:actionFunction name="saveNow" action="{!CreateJournal}"/>
+                        </p>
+                    </td>
+                    <td width="50%">
+                        <p align="right">
+                            Line Items to Process:
+                            <apex:input value="{!noOfLineItemsToProcess}" id="jnlsToProcess" type="number" html-min="1" html-max="500" html-step="1" title="(Line Items to Process)" />&nbsp;&nbsp; 
+                        </p>
+                       
+                    </td>
+                </tr>
+            </table>
+
+                        
+        </apex:pageBlock>
+        <apex:pageBlock title=""  id="pgBlk">
+            <apex:pageMessages escape="false" ></apex:pageMessages>
+
+            <apex:pageBlockSection title="Pending Journal Line Items to be Capitalised" collapsible="true" id="jnls" >
+                <apex:pageBlockTable value="{!jnlsToCreate}" var="jnls" id="tblJNL" style="width:200%;">
+                    
+                    <apex:column headerValue="Period">
+                    	<apex:outputText >{!jnls['Period']}</apex:outputText>
+                    </apex:column>   
+                    <apex:column headerValue="Dimension 1">
+                    	<apex:outputText >{!jnls['DIM1']}</apex:outputText>
+                    </apex:column>                     
+                    <apex:column headerValue="GLA">
+                    	<apex:outputText >{!jnls['GLA']}</apex:outputText>
+                    </apex:column> 
+                    <apex:column headerValue="Debit Value">  
+                        <apex:outputText value="{0,number, ###,###.##}">
+                            <apex:param value="{!jnls['Value']}"/>
+                        </apex:outputText>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+
+            
+            <apex:pageBlockSection title="History of Updates " collapsible="true" id="pbJLLI" >
+                <apex:pageBlockTable value="{!jnLIx}" var="j" id="tblJNwL" style="width:200%;">
+                    <apex:column headerValue="Time Updated" value="{!j.TimeUpdated}"></apex:column>
+                    <apex:column headerValue="Journal Link"><apex:outputLink title="JNL"  value="{!j.JNLID}" >JNL </apex:outputLink></apex:column>
+                    <apex:column headerValue="Period" value="{!j.Period}"></apex:column>
+                    <apex:column headerValue="DIM1" value="{!j.DIM1}"></apex:column>
+                    <apex:column headerValue="GLA" value="{!j.GLA}"></apex:column>
+                    <apex:column headerValue="DebitValue"> 
+                        <apex:outputText value="{0,number, ###,###.##}">
+                            <apex:param value="{!j.DebitValue}"/>
+                        </apex:outputText>
+                    </apex:column>  
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Journal Line Items" collapsible="true" id="jnlLI">
+                <apex:pageBlockTable value="{!jnlLineItems}" var="jnlLI" id="table" style="width:150%;">
+                    <apex:column headerValue="Journal Name" >
+                        <apex:outputLink title="JNL"  value="{!sfInstanceURL}/{!jnlLI.c2g__Journal__c}" target="blank" >{!jnlLI.c2g__Journal__r.Name} </apex:outputLink>
+                    </apex:column>                  
+                    <apex:column headerValue="Line Item Name">
+                        <apex:outputLink title="JNL"  value="{!sfInstanceURL}/{!jnlLI.Id}" target="blank" >{!jnlLI.Name} </apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Dimension 1" value="{!jnlLI.c2g__Dimension1__r.Name}" />                   
+                    <apex:column headerValue="GLA" value="{!jnlLI.c2g__GeneralLedgerAccount__r.Name}" />
+                    <apex:column headerValue="Period" value="{!jnlLI.c2g__Journal__r.c2g__Period__r.Name}" />	
+                    <apex:column headerValue="Debit Value" value="{!jnlLI.c2g__Value__c}" />      
+                    <apex:column headerValue="Product Type" value="{!jnlLI.c2g__Journal__r.Product_Type__c}" />   
+                    <apex:column headerValue="Line Description" value="{!jnlLI.c2g__LineDescription__c}" /> 
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

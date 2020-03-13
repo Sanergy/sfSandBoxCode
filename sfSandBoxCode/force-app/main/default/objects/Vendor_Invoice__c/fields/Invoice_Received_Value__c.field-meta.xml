@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Received_Value__c</fullName>
+    <description>Value of received items</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Value of received items - Should match the value on the paper invoice minus returns</inlineHelpText>
+    <label>Invoice Received Value</label>
+    <summarizedField>Vendor_Invoice_Items__c.Received_Value__c</summarizedField>
+    <summaryForeignKey>Vendor_Invoice_Items__c.Vendor_Invoice__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

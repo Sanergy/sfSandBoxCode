@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Date__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF 
+( 
+(TEXT(Specific_Status__c) = &quot;Open - New&quot; || TEXT(Specific_Status__c) = &quot;Open - Re-launched&quot;), 
+Toilet_Status__r.Opportunity__r.Actual_Launch_Date__c + 365, 
+IF( 
+TEXT(Status__c) = &quot;Open&quot;, Toilet_Status__r.Opportunity__r.Actual_Launch_Date__c, NULL 
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

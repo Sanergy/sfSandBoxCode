@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opening_hours__c</fullName>
+    <externalId>false</externalId>
+    <label>Opening hours</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All day + All night</fullName>
+                <default>false</default>
+                <label>All day + All night</label>
+            </value>
+            <value>
+                <fullName>Till Late [10pm]</fullName>
+                <default>false</default>
+                <label>Till Late [10pm]</label>
+            </value>
+            <value>
+                <fullName>All day[6.00am-6.00pm]</fullName>
+                <default>false</default>
+                <label>All day[6.00am-6.00pm]</label>
+            </value>
+            <value>
+                <fullName>Other timing</fullName>
+                <default>false</default>
+                <label>Other timing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

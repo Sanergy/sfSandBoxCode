@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proposed_Number_of_FLTs_to_be_installed__c</fullName>
+    <externalId>false</externalId>
+    <label>Proposed Number of FLTs to be installed?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>One FLT (6ft by 8ft or by 10ft with up structure)</fullName>
+                <default>false</default>
+                <label>One FLT (6ft by 8ft or by 10ft with up structure)</label>
+            </value>
+            <value>
+                <fullName>Two FLTs (10ft by 8ft or by 10ft with up structure)</fullName>
+                <default>false</default>
+                <label>Two FLTs (10ft by 8ft or by 10ft with up structure)</label>
+            </value>
+            <value>
+                <fullName>Three FLTs (12ft by 8ft or by 10ft with up structure)</fullName>
+                <default>false</default>
+                <label>Three FLTs (12ft by 8ft or by 10ft with up structure)</label>
+            </value>
+            <value>
+                <fullName>Four FLTs (14ft by 8ft or by 10ft with up structure)</fullName>
+                <default>false</default>
+                <label>Four FLTs (14ft by 8ft or by 10ft with up structure)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

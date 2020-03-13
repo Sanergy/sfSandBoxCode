@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_casual_dates_against_JR_Dates</fullName>
+    <active>true</active>
+    <description>Ensure that the casual chosen is valid for the Job Requisition Period</description>
+    <errorConditionFormula>OR(
+ Casual__r.Contractual_Start_Date__c  &gt;  Start_Date__c  ,
+ Casual__r.Contractual_End_Date__c    &lt;  End_Date__c
+)</errorConditionFormula>
+    <errorMessage>The chosen casual&#39;s contractual period is not valid for this Job requisition.</errorMessage>
+</ValidationRule>

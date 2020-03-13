@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_business__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What type of other businesses does the franchisee run?</inlineHelpText>
+    <label>Type of business</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

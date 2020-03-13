@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_Waste_Day_OPEN__c</fullName>
+    <description>Summary of waste data for days that the toilet is open (all days that waste weights are greater than 0)</description>
+    <externalId>false</externalId>
+    <label>Sum of Waste/ Day - OPEN</label>
+    <summarizedField>Collection_Data__c.Total_Waste_kg_day__c</summarizedField>
+    <summaryFilterItems>
+        <field>Collection_Data__c.Total_Waste_kg_day__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Collection_Data__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Waste Data</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Collection_Data__c.Toilet__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

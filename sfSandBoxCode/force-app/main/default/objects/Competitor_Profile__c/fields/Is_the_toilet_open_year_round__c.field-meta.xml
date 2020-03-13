@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_the_toilet_open_year_round__c</fullName>
+    <externalId>false</externalId>
+    <label>Is the toilet open year round?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes, without problems</fullName>
+                <default>false</default>
+                <label>Yes, without problems</label>
+            </value>
+            <value>
+                <fullName>Yes, but difficult to access during rains</fullName>
+                <default>false</default>
+                <label>Yes, but difficult to access during rains</label>
+            </value>
+            <value>
+                <fullName>No, closes during rainy season</fullName>
+                <default>false</default>
+                <label>No, closes during rainy season</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

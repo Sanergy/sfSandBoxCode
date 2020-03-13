@@ -1,0 +1,47 @@
+<apex:page StandardController="Procurement_Tracking_Sheet__c" recordSetvar="Procurement_Tracking_Sheet__c" extensions="CreatePOLinesFromPTSLines">
+    <apex:form >
+        
+        <apex:pageBlock title="CREATE PURCHASE ORDERS">
+            <apex:pageblocksection >   
+            </apex:pageblocksection>            
+        </apex:pageBlock>
+        
+        <apex:pageMessages ></apex:pageMessages> 
+        <apex:pageBlock title="PTS Lines">      
+        
+             
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create Purchase Orders" action="{!createPOLines}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>             
+            
+            <apex:pageBlockTable value="{!linesSelected}" var="c" id="table" title="Purchase Order">
+                <apex:column headerValue="Purchase Item">    
+                    <apex:outputlink value="/{!c.ptsLine}">{!c.ptsLine.name}</apex:outputlink>   
+                </apex:column> 
+                      
+                <apex:column headerValue="Item" value="{!c.ptsLine.Item__c}" />
+                <apex:column headerValue="Item Specification" value="{!c.ptsLine.Specifications__c}" />
+                <apex:column headerValue="Requesting Company" value="{!c.ptsLine.Requesting_Company__c}" />
+                <apex:column headerValue="Item Category" value="{!c.ptsLine.Item_Type__c}" />
+                <apex:column headerValue="Selected Vendor" value="{!c.ptsLine.Vendor__c}" />
+                <apex:column headerValue="Purchase Item">
+                    <apex:inputField value="{!c.poLine.Purchase_Order_Item__c}" required="true"/>
+                </apex:column>
+                <apex:column headerValue="Variation Notes">
+                    <apex:inputField value="{!c.poLine.Variation_Notes__c}" />
+                </apex:column>
+                <apex:column headerValue="Unit Price" value="{!c.poLine.Unit_Price__c}" />
+                <apex:column headerValue="Item Vatable?" value="{!c.poLine.Vatable__c}" />
+                <apex:column headerValue="VAT Inclusive?" value="{!c.poLine.VAT_inclusive__c}" />
+                <apex:column headerValue="Inv. UOM" value="{!c.inventoryUom}" />
+                <apex:column headerValue="Quantity" value="{!c.ptsLine.Quantity_Remaining__c}" />
+                <apex:column headerValue="PO UOM" value="{!c.purchaseUom}" />
+                <apex:column headerValue="PO Quantity" value="{!c.poLine.Quantity_Requested__c}" />
+                <apex:column headerValue="Currency" value="{!c.mCurrency }" />
+                
+               
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

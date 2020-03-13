@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_FLI_Waste_Source__c</fullName>
+    <description>Source of Non FLI Waste</description>
+    <externalId>false</externalId>
+    <label>Non FLI Waste Source</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Dont Waste - Garden City</fullName>
+                <default>false</default>
+                <label>Dont Waste - Garden City</label>
+            </value>
+            <value>
+                <fullName>EPZ</fullName>
+                <default>false</default>
+                <label>EPZ</label>
+            </value>
+            <value>
+                <fullName>Mavoko Market</fullName>
+                <default>false</default>
+                <label>Mavoko Market</label>
+            </value>
+            <value>
+                <fullName>Muthurwa Market</fullName>
+                <default>false</default>
+                <label>Muthurwa Market</label>
+            </value>
+            <value>
+                <fullName>Nairobi Dam</fullName>
+                <default>false</default>
+                <label>Nairobi Dam</label>
+            </value>
+            <value>
+                <fullName>Sanergy Office</fullName>
+                <default>false</default>
+                <label>Sanergy Office</label>
+            </value>
+            <value>
+                <fullName>Steers</fullName>
+                <default>false</default>
+                <label>Steers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

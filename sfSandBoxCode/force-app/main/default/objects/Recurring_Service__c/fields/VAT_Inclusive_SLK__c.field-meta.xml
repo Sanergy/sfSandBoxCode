@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAT_Inclusive_SLK__c</fullName>
+    <externalId>false</externalId>
+    <formula>Purchase_Order_Item_SLK__r.VAT_Inclusive__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>VAT Inclusive?(SLK)</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

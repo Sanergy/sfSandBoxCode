@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_all_required_documentation__c</fullName>
+    <externalId>false</externalId>
+    <label>Has all required documentation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Non-conforming</fullName>
+                <default>false</default>
+                <label>Non-conforming</label>
+            </value>
+            <value>
+                <fullName>Conforming</fullName>
+                <default>false</default>
+                <label>Conforming</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

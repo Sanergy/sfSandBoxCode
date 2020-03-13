@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_fields_status_readyForDelivery</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+  ISPICKVAL(  Trial_status__c  ,&quot;Ready for Delivery&quot;),
+  OR(
+     ISPICKVAL(   Delivery_Method__c   ,&quot;&quot;),
+     ISPICKVAL(   Off_loading_help_needed__c   ,&quot;&quot;),
+     ISBLANK(   Delivery_instructions__c),
+     ISBLANK(   Preferred_delivery_pickup_date_time__c),
+     ISBLANK(   Number_of_off_loading_personnel__c )
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Account__c</errorDisplayField>
+    <errorMessage>Please fill all fields in the &quot;Delivery Information&quot; section if the Trial Status field is set to &quot;Ready For Delivery&quot;.</errorMessage>
+</ValidationRule>

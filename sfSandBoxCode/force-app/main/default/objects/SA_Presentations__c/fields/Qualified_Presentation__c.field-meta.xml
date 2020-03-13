@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qualified_Presentation__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(
+ISPICKVAL( Presented_to__c , &quot;Landlord&quot;),
+ISPICKVAL( Presented_to__c , &quot;Commercial Renting Land&quot;),
+ISPICKVAL( Presented_to__c , &quot;Head Teacher&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Qualified Presentation</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

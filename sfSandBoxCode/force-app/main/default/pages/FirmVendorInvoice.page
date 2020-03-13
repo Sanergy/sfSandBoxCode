@@ -1,0 +1,70 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="VendorInvoiceMapping" recordSetVar="Vendor_Invoice__c" >
+    <apex:form >   
+        <apex:sectionHeader title="{!vi.Name}" subtitle="FIRM VENDOR INVOICE {!vi.Name}"/>
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Firm VI" action="{!FirmVI}"/>
+                <apex:commandButton value="Return to VI" action="{!cancel}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Vendor Invoice Information">
+                <apex:outputField value="{!vi.VI_Company__c}"/>
+                <apex:facet name="blank"></apex:facet>
+                <apex:outputField value="{!vi.Name}"/>
+                <apex:outputField value="{!vi.Vendor__c}"/>
+                <apex:outputField value="{!vi.Invoice_Number__c}"/>
+                <apex:outputField value="{!vi.VI_Status__c}"/>
+                <apex:outputField value="{!vi.Invoice_Total__c}"/>
+                <apex:outputField value="{!vi.Total_Payments__c}"/>
+                <apex:outputField value="{!vi.Comments__c}"/>
+                <apex:outputField value="{!vi.Contract_Number__c}"/>
+                <apex:outputField value="{!vi.Payment_Terms__c}"/>
+                <apex:outputField value="{!vi.Payment_Terms_Due_Date__c}"/>
+            </apex:pageBlockSection> 
+            <apex:pageBlockSection title="Vendor Invoice Items" columns="1">
+                <apex:pageBlockTable value="{!VIPOitems}" var="item" id="table">
+                    <apex:column headerValue="Status"><apex:outputText value="{!item.Status__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="VIPOL Item">
+                        <apex:outputlink value="/{!item.Id}">{!item.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="PO Line Item">
+                        <apex:outputlink value="/{!item.Purchase_Order_Line_Item__c}">{!item.Purchase_Order_Line_Item__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="PR Line Item">
+                        <apex:outputlink value="/{!item.Purchase_Order_Line_Item__c}">{!item.Purchase_Order_Line_Item__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="Description"><apex:outputText value="{!item.Purchase_Order_Line_Item__r.Item__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Purchase UoM"><apex:outputText value="{!item.Purchase_Order_Line_Item__r.UoM__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Qty Requested">
+                        <apex:outputText value="{0,number, ###,###.###}" id="qtyReq" >
+                            <apex:param value="{!item.Purchase_Order_Line_Item__r.Quantity_Requested__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Unit Net Price">
+                        <apex:outputText value="{0,number, ###,###.###}" id="unitNetPrice" >
+                            <apex:param value="{!item.Purchase_Order_Line_Item__r.Unit_Net_Price__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Unit VAT">
+                        <apex:outputText value="{0,number, ###,###.###}" id="unitVATPrice" >
+                            <apex:param value="{!item.Purchase_Order_Line_Item__r.VAT_Amount__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Unit Gross Price">
+                        <apex:outputText value="{0,number, ###,###.###}" id="unitGrossPrice" >
+                            <apex:param value="{!item.Purchase_Order_Line_Item__r.Unit_Gross_Price__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Gross Amount">
+                        <apex:outputText value="{0,number, ###,###.###}">
+                            <apex:param value="{!item.Purchase_Order_Line_Item__r.Total_Price__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

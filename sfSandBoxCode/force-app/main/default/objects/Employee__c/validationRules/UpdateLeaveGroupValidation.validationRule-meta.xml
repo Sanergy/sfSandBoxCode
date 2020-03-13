@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UpdateLeaveGroupValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED( Leave_Group__c ),
+OR(ISPICKVAL( Employment_Status__c ,&#39;Casual&#39;),
+ISPICKVAL(Employment_Status__c , &#39;Consultant&#39;),
+ISPICKVAL(Employment_Status__c , &#39;Fellow&#39;),
+ISPICKVAL(Employment_Status__c , &#39;Terminated&#39;))
+)</errorConditionFormula>
+    <errorMessage>Consultants, Terminated, Fellows and Casuals have no leave group</errorMessage>
+</ValidationRule>

@@ -1,0 +1,161 @@
+<apex:page standardController="Employee__c" extensions="CreateLeaveRequestFromEmployee" >
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>function setFocusOnLoad() {}</script>
+        <script>
+        
+        function checkInput(id1){
+            //alert('Input Changed');  
+            
+            //fetch the user inputed value
+            var valx = $.trim(document.getElementById(id1).value);
+            var elem = document.getElementById(id1);
+            
+            //get Request for leave button id
+            var leaveBtnId = document.querySelector('[id*=":reqLeave"]').id;
+            
+            if(parseFloat(valx) >= 0 && parseFloat(valx) <=1){
+                
+                elem.style.border = '1px solid grey';
+                document.getElementById(leaveBtnId).disabled = false;  //disable button default action
+                
+            }else{
+                
+                elem.style.border = '2px solid red';
+                alert('Please Enter Values Between 0 and 1');
+                document.getElementById(leaveBtnId).disabled = true;  //enable button default action
+                
+            }
+            
+        }
+        
+        </script>  
+    </body>
+    
+    <apex:sectionHeader subtitle="Employee Leave Request"/>
+    <apex:form id="frm1">     
+        <apex:pageBlock id="pgblock1" >        
+            <apex:pageMessages id="showmsg" ></apex:pageMessages>
+            <apex:pageBlockSection title="Leave Entitlement Utilizations: Please Select One">				                
+                <apex:pageBlockTable value="{!LeaveUtilizations}" var="item" id="table" title="Leave Entitlement Utilizations" style="width:154%;">                    
+                    <apex:column headerValue="Leave Type" value="{!item.leaveUtilization.Leave_Type_Name__c}" />
+                    <apex:column headerValue="Maximum No. Of Leave Days" value="{!item.leaveUtilization.Total_No_of_Leave_Days__c}" />
+                    <apex:column headerValue="Leave Days Accrued" value="{!item.leaveUtilization.Leave_Days_Accrued__c}"  />
+                    <apex:column headerValue="Leave Days Approved" value="{!item.leaveUtilization.Leave_Days_Used__c}" />
+                    <apex:column headerValue="Leave Days Remaining" value="{!item.leaveUtilization.Leave_Days_Remaining__c}" />
+                </apex:pageBlockTable>        
+            </apex:pageBlockSection>  
+            
+            <br/>
+            <br/>
+            
+            <table style = "width:100%;" >
+                <tr>
+                    <td width="100" height="50"></td> 
+                    <td height="50">
+                        <apex:selectList value="{!selectedObject}" size="1" multiselect="false">
+                            <apex:selectOptions value="{!objectOptions}"/>  
+                        </apex:selectList> <br/>
+                    </td>                     
+                </tr>
+                
+                <tr>
+                    <td width="100" height="50">
+                        Leave Start Date
+                    </td>
+                    <td height="50">
+                        <apex:inputField label="" value="{!leaveRequest.Leave_Start_Date__c}" /> <br/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td width="100">
+                        Leave End Date
+                    </td>
+                    
+                    <td height="50">
+                        <apex:inputField label="" value="{!leaveRequest.Leave_End_Date__c}"/> <br/>                                
+                    </td>
+                </tr>
+                <tr>
+                    <td> Comments
+                    </td>
+                    <td>
+                        <apex:inputField style="width:500px" value="{!leaveRequest.Comments__c}" /> <br/>
+                    </td> 
+                </tr>                
+                <tr>
+                    <td> Coverage Plans
+                    </td>
+                    <td>
+                        <apex:inputField style="width:500px" value="{!leaveRequest.Coverage_Plans__c}"  required="true" html-placeholder="Provide name(s) of Person(s) to Cover for you or enter NA if Not Applicable"/> <br/>
+                    </td> 
+                </tr>
+                <tr>
+                    <td colspan = "2" >
+                        <span style="padding:2em 0em  2em oem;"><apex:outputText value="{!leaveDaysAccruedText}" /> </span>
+                    </td>
+                </tr>
+            </table>           
+            
+            <!-- <apex:pageBlockSection title="Leave Request for: {!Employee__c.Name}">
+
+<apex:outputText value="{!Employee__c.Employment_Start_Date__c }" rendered="false"/>
+<apex:outputText value="{!Employee__c.Sanergy_Department_Unit__c }" rendered="false"/>				                  
+<apex:outputText value="{!Employee__c.Sanergy_Department_Unit__r.Approver__c }" rendered="false"/> <br/><br/>
+</apex:pageBlockSection>-->
+            
+            <apex:panelGrid width="100%" id="panelgrd1">
+                <apex:pageBlockSection >
+                    <apex:pageBlockSectionItem >
+                        <apex:commandButton action="{!calculateLeave}" value="View Leave Days" />
+                        <apex:commandButton value="Request For Leave" action="{!createLeaveRequest}" reRender="showmsg" id="reqLeave"  rendered="{!ishide}"/>
+                        
+                    </apex:pageBlockSectionItem>
+                    <br/>
+                    <apex:pageBlockTable value="{!SanergyCalendars}" var="item" id="table" title="Sanergy Calendar" style="width:200%;">                   
+                        <apex:column headerValue="Date" value="{!item.sanergyCalendar.Date__c}" />
+                        <apex:column headerValue="Day" value="{!item.sanergyCalendar.Weekday_Name__c}" />
+                        <!-- <apex:column headerValue="Requested Days" >
+<apex:selectList multiselect="false" size="1" value="{!item.daysRequested}">
+<apex:selectOptions value="{!item.options}"/>
+</apex:selectList> 
+</apex:column> -->
+                        <apex:column headerValue="Requested Days" id="col1">
+                            <apex:inputText value="{!item.sanergyCalendar.is_Weekend_or_Holiday__c}" id="reqDays" size="2" onchange="checkInput(this.id)" />
+                        </apex:column>
+                        <apex:column headerValue="Comments" value="{!item.sanergyCalendar.Description__c}"  />
+                        <apex:column headerValue="Is Holiday" value="{!item.sanergyCalendar.IsHoliday__c}" />
+                        <apex:column headerValue="Is Weekend" value="{!item.sanergyCalendar.IsWeekend__c}" />
+                    </apex:pageBlockTable> 
+                </apex:pageBlockSection>
+            </apex:panelGrid>             
+            
+            <!--<apex:pageBlockSection title="Sanergy Calendar:">                 
+<apex:pageBlockTable value="{!SanergyCalendars}" var="item" id="table" title="Sanergy Calendar">                   
+<apex:column headerValue="Date" value="{!item.sanergyCalendar.Date__c}" />
+<apex:column headerValue="Day" value="{!item.sanergyCalendar.Weekday_Name__c}" />
+<apex:column headerValue="Comments" value="{!item.sanergyCalendar.Description__c}"  />
+<apex:column headerValue="Is Holiday" value="{!item.sanergyCalendar.IsHoliday__c}" />
+<apex:column headerValue="Is Weekend" value="{!item.sanergyCalendar.IsWeekend__c}" />
+</apex:pageBlockTable>        
+</apex:pageBlockSection>-->
+            
+            <!--<apex:pageBlockSection title="Previous leave requests for: {!Employee__c.Name}">                 
+<apex:pageBlockTable value="{!LeaveRequests}" var="item" id="table" title="Leave Requests" style="width:119%;">                   
+<apex:column headerValue="Leave Type" value="{!item.employeeLeaveRequest.Leave_Type__c}" />
+<apex:column headerValue="Leave Start Date" value="{!item.employeeLeaveRequest.Leave_Start_Date__c}" />
+<apex:column headerValue="Leave End Date" value="{!item.employeeLeaveRequest.Leave_End_Date__c}" />
+<apex:column headerValue="No. of Leave Days Requested" value="{!item.employeeLeaveRequest.No_Of_Leave_Days_Requested__c}" />
+<apex:column headerValue="No. of Leave Days Approved" value="{!item.employeeLeaveRequest.No_Of_Approved_Leave_Days__c}" />
+<apex:column headerValue="Leave Approved ?" value="{!item.employeeLeaveRequest.Leave_Approved__c}" />
+<apex:column headerValue="Approval Status" value="{!item.employeeLeaveRequest.Approval_Status__c}" />
+</apex:pageBlockTable>        
+</apex:pageBlockSection>-->
+            
+            <apex:pageBlockButtons > 
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

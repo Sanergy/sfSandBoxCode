@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Item_in_Work_Order__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if this item is the Primary Item in Work Order</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checked if this item is the Primary Item in Work Order</inlineHelpText>
+    <label>Primary Item in Work Order</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

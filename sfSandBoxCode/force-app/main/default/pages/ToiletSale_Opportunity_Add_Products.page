@@ -1,0 +1,17 @@
+<apex:page standardController="Opportunity" extensions="OpportunityProductsController">
+   <apex:form >
+       <apex:pageBlock >
+            <apex:pageMessage title=" ADD PRODUCTS" severity="Confirm" summary="Please confirm the automatic addition of products to this opportunity."/>
+            <apex:pageBlockSection title="Opportunity Information">
+                <apex:outputField value="{!opportunity.name}"/>
+                <apex:outputField value="{!opportunity.Franchise_Type__c}"/>
+                <apex:outputField value="{!opportunity.FLTs_Approved__c}"/>
+                <apex:outputField value="{!opportunity.Existing_FLO__c}"/>
+                <apex:outputField value="{!opportunity.Existing_Location__c}"/>
+            </apex:pageBlockSection>
+                 <apex:commandButton action="{!addProducts}" value="Add Products"/>
+                 <apex:commandButton action="{!removeAllProducts}" value="Delete Products"/>
+                 <apex:commandButton action="{!cancel}" value="Cancel"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

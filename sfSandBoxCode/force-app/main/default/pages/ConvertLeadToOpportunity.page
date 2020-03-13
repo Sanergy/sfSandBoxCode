@@ -1,0 +1,47 @@
+<apex:page docType="html-5.0" StandardController="Lead" extensions="ConvertLeadToOpportunity">
+
+    <apex:form >
+        <script>
+            function checkDepositPaidAndFLRLease(){            
+                var fieldPrefixDepositPaid= document.querySelector('[id*=":depositPaid"]').id;
+                var deposit_paid = document.getElementById(fieldPrefixDepositPaid).value;
+                var fieldPrefixFLRLease= document.querySelector('[id*=":FLRLease"]').id;
+                var flr_lease = document.getElementById(fieldPrefixDepositPaid).value;                
+                
+                if(deposit_paid == false || flr_lease == false){
+                    alert('Please ensure the Deposit & FLR Lease fields are checked.');
+                    return true;
+                }else{
+                    convertLead();
+                    return true;
+                }
+            }        
+        </script>
+        <apex:sectionHeader title="{!Lead.Name}"  subtitle="Convert Lead" />
+        <apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock id="LeadHeader">
+            <apex:pageBlockButtons >
+                <!--<apex:commandButton value="Convert Lead" onclick="checkDepositPaidAndFLRLease()" reRender="depositPaid"/>
+                <apex:actionFunction action="{!convertLeadToOpportunity}" name="convertLead" rerender="depositPaid"/>-->                
+                <apex:commandButton value="Convert Lead" action="{!convertLeadToOpportunity}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+           
+            <apex:panelGrid width="100%" >                 
+                <apex:pageBlockSection title="Lead: {!Lead.Name}" >
+                    <apex:outputText value="{!lead.Company}" label="Lead"/>
+                    <apex:outputText value="{!lead.Existing_FLO__c}"/>                    
+                    <apex:outputText value="{!lead.Phone}" label="Phone No."/>
+                    <apex:outputText value="{!lead.Existing_Location__c}"/> 
+                    <apex:outputText value="{!lead.FLTS_Requested__c}" label="FLT's Requested"/> 
+                    <apex:outputText value="{!lead.Deposit_Paid__c}" id="depositPaid"/>
+                    <apex:outputText value="{!lead.Location__r.Name}" label="Location"/>
+                    <apex:outputText value="{!lead.FLR_Lease__c}" id="FLRLease"/>
+                    <apex:outputText value="{!lead.Sub_Area_Lookup__r.Area__c}"/>
+                    <apex:outputText value="{!lead.Primary_Salesperson__r.Name}" label="Primary Salesperson"/>
+                    <apex:outputText value="{!lead.Sub_Area_Lookup__r.Name}"/>                    
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

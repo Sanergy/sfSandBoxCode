@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PO_and_PIN_Mutually_exclusive</fullName>
+    <active>true</active>
+    <description>Ensure that the PIN and PO are mutually exclusive</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(Payable_Invoice__c)),
+NOT(ISBLANK(Purchase_Order_Header__c))
+)</errorConditionFormula>
+    <errorMessage>PO and PIN fields cannot be both specified at the same time.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Procurement_Delivery_Deadline__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Deadline by which samples should be collected and delivered to the appropriate lab.</inlineHelpText>
+    <label>Procurement &amp; Delivery Deadline</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

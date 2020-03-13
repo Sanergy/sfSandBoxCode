@@ -1,0 +1,230 @@
+<apex:page docType="html-5.0" controller="RequisitionWorkBenchController" title="Requisitions Workbench" tabStyle="Account">
+    
+    <apex:form >
+        <apex:sectionHeader subtitle="REQUISITIONS WORKBENCH"/>
+            <apex:pageBlock id="rBlock" >                         
+                <apex:pageMessages />
+                
+                <apex:pageblockButtons >
+                    <apex:commandButton value="Add New Items" action="{!showNewItemPopup}" rerender="popup_new_Items" rendered="{!selectedStatus == 'Planned'}"/>
+                    <apex:commandButton value="Search Requisitions" action="{!refreshList}"/>
+                    <apex:commandButton value="Firm Selected" rendered="{!selectedStatus == 'Planned'}" action="{!firmRequests}"/>
+                    <apex:commandButton value="Run MRP" rendered="{!selectedStatus == 'Planned'}" action="{!showManualRunPopup}" rerender="popup_manual_run"/>
+                    <apex:commandButton value="Cancel Selected" rendered="{!selectedStatus == 'Planned'}" action="{!cancelRequests}"/>
+                    <apex:commandButton value="Approve Selected" rendered="{!selectedStatus == 'Firmed'}" action="{!approveRequests}"/>
+                    <apex:commandButton value="Change Vendor" rendered="{!selectedStatus == 'Approved'}" action="{!showPopup}" rerender="tstpopup"/>
+                </apex:pageblockButtons> 
+                
+                <apex:pageblocksection columns="1"> 
+                    <apex:selectList label="Status" value="{!selectedStatus}" multiselect="false" size="1" required="true">
+                        <apex:selectOptions value="{!statuses}"/>
+                    </apex:selectList>
+                    
+                    <apex:actionStatus startText="Please wait.." stopText="" id="counterStatus"/>
+       
+       <!--------------------------------- PLANNED REQUISITIONS -------------------------------->
+                    <apex:pageblocksection title="PLANNED REQUISITIONS" columns="1" collapsible="false" rendered="{!selectedStatus == 'Planned'}"> 
+                        <apex:panelGrid columns="4" >
+                            
+                        </apex:panelGrid>
+                         
+                        <apex:pageBlockTable value="{!rList}" var="w">
+                            <apex:column width="20">
+                                <apex:inputCheckbox value="{!w.selected}"/>
+                            </apex:column>
+                            <apex:column headerValue="Inventory Item" value="{!w.tracker.Inventory_Item__c}" width="120"/>
+                            <apex:column headerValue="Company" value="{!w.tracker.Inventory_Item__r.Item_Company__c}" width="120"/>
+                            <apex:column headerValue="Req. Quantity" width="100">
+                                <apex:inputField required="true" value="{!w.tracker.Quantity_Pending__c}"/>
+                            </apex:column>                            
+                            <apex:column headerValue="PR Line" value="{!w.tracker.Procurement_Request_Line_Item__c}" width="120"/> 
+                            <apex:column headerValue="Inventory UoM" value="{!w.tracker.Inventory_Item__r.Inventory_UoM__r.name}" width="120"/> 
+                            <apex:column headerValue="Quantity on Hand" value="{!w.tracker.Inventory_Item__r.Inventory_Stock__c}" width="120"/>
+                            <apex:column headerValue="Minimum Quantity" value="{!w.tracker.Inventory_Item__r.Minimum_Quantity__c}" width="120"/>
+                            <apex:column headerValue="Policy Quantity" value="{!w.tracker.Inventory_Item__r.Policy_Quantity__c}" width="120"/>
+                            <apex:column headerValue="Created Date" value="{!w.tracker.CreatedDate}" width="120"/>
+                            <apex:column headerValue="Status" value="{!w.tracker.Status__c}" width="120"/>
+                       </apex:pageBlockTable>                
+                    </apex:pageblocksection> 
+                    
+       <!--------------------------------- FIRMED REQUISITIONS -------------------------------->
+                    <apex:pageblocksection title="FIRMED REQUISITIONS" columns="1" collapsible="false" rendered="{!selectedStatus == 'Firmed'}"> 
+                        <apex:panelGrid columns="4" >
+                            
+                        </apex:panelGrid>
+                         
+                        <apex:pageBlockTable value="{!rList}" var="w">
+                             <apex:column width="20">
+                                <apex:inputCheckbox value="{!w.selected}"/>
+                            </apex:column>
+                            <apex:column headerValue="PR Line" value="{!w.tracker.Procurement_Request_Line_Item__c}" width="250"/>
+                            <apex:column headerValue="Inventory Item" value="{!w.tracker.Inventory_Item__c}" width="400"/>
+                            <apex:column headerValue="Vendor" value="{!w.tracker.Procurement_Request_Line_Item__r.Purchase_Order_Item__r.Vendor__c}" width="400"/>
+                            <apex:column headerValue="Requested Quantity" value="{!w.tracker.Procurement_Request_Line_Item__r.Quantity__c}" width="120" />
+                            <apex:column headerValue="Purchase UOM" value="{!w.tracker.Procurement_Request_Line_Item__r.Purchase_Uom__c}" width="120"/>
+                                                        
+                            <apex:column headerValue="Total Quote Amount">
+                                <apex:outputText value="{!w.tracker.Procurement_Request_Line_Item__r.Quote_Currency__r.name} {0, number, #,###.00}">
+                                    <apex:param value="{!w.tracker.Procurement_Request_Line_Item__r.Total_Quote_Price__c}"/>
+                                </apex:outputtext>
+                            </apex:column> 
+                           
+                            <apex:column headerValue="Budget Amount">
+                                <apex:outputText value="{!w.tracker.Procurement_Request_Line_Item__r.Currency_Config__r.name} {0, number, #,###.00}">
+                                    <apex:param value="{!w.tracker.Procurement_Request_Line_Item__r.Budget_Amount__c}"/>
+                                </apex:outputtext>
+                            </apex:column>   
+                            
+                            
+                            
+                            <apex:column headerValue="Inventory UOM" value="{!w.tracker.Inventory_Item__r.Inventory_UoM__r.name}" width="120"/>
+                            <apex:column headerValue="Quantity on Hand" value="{!w.tracker.Inventory_Item__r.Inventory_Stock__c}" width="120"/>
+                            <apex:column headerValue="Policy Quantity" value="{!w.tracker.Inventory_Item__r.Policy_Quantity__c}" width="120"/>
+                       </apex:pageBlockTable>                
+                    </apex:pageblocksection> 
+                    
+       <!--------------------------------- APPROVED REQUISITIONS -------------------------------->
+                    <apex:pageblocksection title="APPROVED REQUISITIONS" columns="1" collapsible="false" rendered="{!selectedStatus == 'Approved'}"> 
+                        <apex:panelGrid columns="4" >
+                            
+                        </apex:panelGrid>
+                         
+                        <apex:pageBlockTable value="{!rList}" var="w">
+                            <apex:column width="20">
+                                <apex:inputCheckbox value="{!w.selected}"/>
+                            </apex:column>
+                            <apex:column headerValue="PR Line" value="{!w.tracker.Procurement_Request_Line_Item__c}" width="250"/>
+                            <apex:column headerValue="PO Line" value="{!w.tracker.PO_Line__c}" width="250"/>
+                            <apex:column headerValue="Inventory Item" value="{!w.tracker.Inventory_Item__c}" width="400"/>
+                            <apex:column headerValue="Vendor" value="{!w.tracker.PO_Line__r.Purchase_Order_Item__r.Vendor__c}" width="400"/>
+                            <apex:column headerValue="Purchase Quantity" value="{!w.tracker.PO_Line__r.Quantity_Requested__c}" width="120" />
+                            <apex:column headerValue="Purchase UOM" value="{!w.tracker.PO_Line__r.UoM__c}" width="120"/>
+                            <apex:column headerValue="Order Price">
+                                <apex:outputText value="{!w.tracker.PO_Line__r.Purchase_Order__r.PO_Currency__r.name} {0, number, #,###.00}">
+                                    <apex:param value="{!w.tracker.PO_Line__r.Total_Price__c}"/>
+                                </apex:outputtext>
+                            </apex:column>                            
+                            <apex:column headerValue="Budget Amount">
+                                <apex:outputText value="{!w.tracker.Procurement_Request_Line_Item__r.Currency_Config__r.name} {0, number, #,###.00}">
+                                    <apex:param value="{!w.tracker.Procurement_Request_Line_Item__r.Budget_Amount__c}"/>
+                                </apex:outputtext>
+                            </apex:column>                            
+                            <apex:column headerValue="PO Item Price">
+                                <apex:outputText value="{!w.tracker.PO_Line__r.Purchase_Order_Item__r.Currency__r.name} {0, number, #,###.00}">
+                                    <apex:param value="{!w.tracker.PO_Line__r.Purchase_Order_Item__r.Gross_Value__c}"/>
+                                </apex:outputtext>
+                            </apex:column>
+                            <apex:column headerValue="Inventory UOM" value="{!w.tracker.PO_Line__r.Inventory_Item_UOM__c}" width="120"/>
+                            <apex:column headerValue="Quantity on Hand" value="{!w.tracker.PO_Line__r.Quantity_At_Hand__c}" width="120"/>
+                            <apex:column headerValue="Policy Quantity" value="{!w.tracker.PO_Line__r.Reorder_Quantity__c}" width="120"/>
+                            <apex:column headerValue="Reorder Level" value="{!w.tracker.PO_Line__r.Reorder_Level__c}" width="120"/>
+                       </apex:pageBlockTable>                
+                    </apex:pageblocksection> 
+                </apex:pageblocksection>   
+            </apex:pageBlock>
+         
+         <!--------------------------------- CHANGE VENDOR POPUP-------------------------------->
+            
+            <apex:outputPanel id="tstpopup">
+                <apex:pageBlock >
+                    <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+                    <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                         <apex:pageBlockTable value="{!selectedForVendorChange}" var="w">
+                            
+                            <apex:column headerValue="Inventory Item" value="{!w.tracker.Inventory_Item__c}" width="400"/>
+                            
+                            <apex:column headerValue="PO Item Price">
+                                <apex:selectList value="{!w.selectedVendor }" multiselect="false" size="1" required="true">
+                                    <apex:selectOptions value="{!w.options}"/>
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column headerValue="Explanation For Changing Vendor">
+                                <apex:inputField value="{!w.poLine.Variation_Notes__c}" />
+                            </apex:column>
+                           </apex:pageBlockTable>
+                        <apex:commandButton value="Save Changes" action="{!saveVendorChange}"/>
+                        <apex:commandButton value="Cancel"  immediate="true" action="{!closePopup}"/>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+            </apex:outputPanel>
+            
+            <!--------------------------------- NEW ITEMS POPUP -------------------------------->
+            
+            <apex:outputPanel id="popup_new_Items">
+                <apex:pageBlock >
+                    <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayNewItemPopup }"/>
+                    <apex:outputPanel title="Add Items To Workbench" styleClass="custPopup" layout="block" rendered="{!displayNewItemPopup }">
+                         
+                         <apex:pageBlockTable value="{!itemsToAdd}" var="w">  
+                            <apex:column headerValue="Select Inventory Item">
+                                <apex:inputField value="{!w.tracker.Inventory_Item__c}"  required="false"/>
+                            </apex:column>                            
+                            <apex:column headerValue="Quantity To Add" >
+                                <apex:inputField value="{!w.tracker.Quantity_Pending__c}" required="false"/>
+                            </apex:column> 
+                             <apex:column >
+                                <apex:commandlink action="{!removeItemLine}" rerender="popup_new_Items">                         
+                                    <apex:param name="removeItemIndex" value="{!w.index}"/>  
+                                    <apex:commandbutton value="Remove" />
+                                </apex:commandlink>
+                            </apex:column> 
+                         </apex:pageBlockTable>
+                        
+                         <p></p>
+                         <apex:commandButton value="New Line"  rerender="popup_new_Items" action="{!addNewItemLine}" />
+                         <apex:commandButton value="Create Requests"  action="{!saveItemsToAdd}"/> 
+                         <apex:commandButton value="Cancel"  rerender="popup_new_Items" action="{!closeNewItemPopup}" immediate="true"/>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+            </apex:outputPanel>
+            
+            <!--------------------------------- CONFIRM MANUAL RUN POPUP -------------------------------->
+            
+            <apex:outputPanel id="popup_manual_run">
+                <apex:pageBlock >
+                    <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayManualRunPopup }"/>
+                    <apex:outputPanel title="Add Items To Workbench" styleClass="custPopup" layout="block" rendered="{!displayManualRunPopup }">
+                            
+                     <p>You are about to create replenishment requests for purchase inventory items below the minimum threshold quantity. Please confirm this action.</p>
+                     <p>You will get an email confirmation of the results.</p>
+                     <apex:commandButton value="Continue"  action="{!manualRunMPR}" />
+                     <apex:commandButton value="Cancel"  rerender="popup_manual_run" action="{!closeManualRunPopup}" />
+                    </apex:outputPanel>
+                </apex:pageBlock>
+            </apex:outputPanel>
+            
+    </apex:form>
+        <style type="text/css">
+        .custPopup{
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            max-height: 300px;
+            overflow-y: scroll;
+            /* These are the 3 css properties you will need to change so the popup 
+            displays in the center of the screen. First set the width. Then set 
+            margin-left to negative half of what the width is. You can add 
+            the height property for a fixed size pop up if you want.*/
+            width: 500px;
+            margin-left: -250px;
+            top:100px;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+
+    </style>
+</apex:page>

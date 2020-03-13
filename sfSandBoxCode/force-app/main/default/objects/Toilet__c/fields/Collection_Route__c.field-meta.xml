@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Collection_Route__c</fullName>
+    <externalId>false</externalId>
+    <label>Collection Route</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CLOSED</fullName>
+                <default>false</default>
+                <label>CLOSED</label>
+            </value>
+            <value>
+                <fullName>Ruben Collection Spot</fullName>
+                <default>false</default>
+                <label>Ruben Collection Spot</label>
+            </value>
+            <value>
+                <fullName>KR Collection Center</fullName>
+                <default>false</default>
+                <label>KR Collection Center</label>
+            </value>
+            <value>
+                <fullName>Paradise Collection Center</fullName>
+                <default>false</default>
+                <label>Paradise Collection Center</label>
+            </value>
+            <value>
+                <fullName>Simba Cool</fullName>
+                <default>false</default>
+                <label>Simba Cool</label>
+            </value>
+            <value>
+                <fullName>KN Collection Center</fullName>
+                <default>false</default>
+                <label>KN Collection Center</label>
+            </value>
+            <value>
+                <fullName>Truck Round 1</fullName>
+                <default>false</default>
+                <label>Truck Round 1</label>
+            </value>
+            <value>
+                <fullName>Kingstone</fullName>
+                <default>false</default>
+                <label>Kingstone</label>
+            </value>
+            <value>
+                <fullName>Tuk Tuk</fullName>
+                <default>false</default>
+                <label>Tuk Tuk</label>
+            </value>
+            <value>
+                <fullName>Kayaba Collection Center</fullName>
+                <default>false</default>
+                <label>Kayaba Collection Center</label>
+            </value>
+            <value>
+                <fullName>Limuru - Mabroukie</fullName>
+                <default>false</default>
+                <label>Limuru - Mabroukie</label>
+            </value>
+            <value>
+                <fullName>Kiambiu Collection Center</fullName>
+                <default>false</default>
+                <label>Kiambiu Collection Center</label>
+            </value>
+            <value>
+                <fullName>Mathare Collection Center</fullName>
+                <default>false</default>
+                <label>Mathare Collection Center</label>
+            </value>
+            <value>
+                <fullName>Tassia collection center</fullName>
+                <default>false</default>
+                <label>Tassia collection center</label>
+            </value>
+            <value>
+                <fullName>Kariobangi south collection spot</fullName>
+                <default>false</default>
+                <label>Kariobangi south collection spot</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

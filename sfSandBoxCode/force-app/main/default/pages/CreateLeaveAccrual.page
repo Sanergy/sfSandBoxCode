@@ -1,0 +1,18 @@
+<apex:page standardController="Leave_Accrual_Schedule__c" extensions="CreateLeaveAccrual" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Create Leave Accruals" >
+                   <apex:commandButton value="New Leave Accrual" action="{!ProcessJob}">
+                    </apex:commandButton>
+                <br/>
+                <br/>
+                <apex:repeat value="{!accrualScheduleList}" var="accrual">
+                     <apex:outputField value="{!accrual.Name}"></apex:outputField>
+                     <apex:outputField value="{!accrual.Period_Start_Date__c}"></apex:outputField>
+                     <apex:outputField value="{!accrual.Comments__c}"></apex:outputField>
+                     <apex:outputField value="{!accrual.Job_Run__c}"></apex:outputField>
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

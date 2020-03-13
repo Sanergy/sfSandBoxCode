@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_Of_Action__c</fullName>
+    <description>Type Of Action</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Type Of Action</inlineHelpText>
+    <label>Type Of Action</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Demotion</fullName>
+                <default>false</default>
+                <label>Demotion</label>
+            </value>
+            <value>
+                <fullName>Final Warning Letter</fullName>
+                <default>false</default>
+                <label>Final Warning Letter</label>
+            </value>
+            <value>
+                <fullName>First Warning Letter</fullName>
+                <default>false</default>
+                <label>First Warning Letter</label>
+            </value>
+            <value>
+                <fullName>Salary Reduction</fullName>
+                <default>false</default>
+                <label>Salary Reduction</label>
+            </value>
+            <value>
+                <fullName>Summary Dismissal</fullName>
+                <default>false</default>
+                <label>Summary Dismissal</label>
+            </value>
+            <value>
+                <fullName>Suspension</fullName>
+                <default>false</default>
+                <label>Suspension</label>
+            </value>
+            <value>
+                <fullName>Termination</fullName>
+                <default>false</default>
+                <label>Termination</label>
+            </value>
+            <value>
+                <fullName>Verbal Warning</fullName>
+                <default>false</default>
+                <label>Verbal Warning</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unionizable_or_Non_Unionizable_Choice__c</fullName>
+    <externalId>false</externalId>
+    <label>Unionizable or Non-Unionizable Choice</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unionizable</fullName>
+                <default>false</default>
+                <label>Unionizable</label>
+            </value>
+            <value>
+                <fullName>Non-Unionizable</fullName>
+                <default>false</default>
+                <label>Non-Unionizable</label>
+            </value>
+            <value>
+                <fullName>Unionized</fullName>
+                <default>false</default>
+                <label>Unionized</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

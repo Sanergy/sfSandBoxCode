@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_type__c</fullName>
+    <externalId>false</externalId>
+    <label>License type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NTSA Inspection</fullName>
+                <default>false</default>
+                <label>NTSA Inspection</label>
+            </value>
+            <value>
+                <fullName>NEMA License</fullName>
+                <default>false</default>
+                <label>NEMA License</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Subsidized Annual SBPs</fullName>
+                <default>false</default>
+                <label>Subsidized Annual SBPs</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved_Supplementary_Item__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Approve an item that will be included in the supplementary work order</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Approve an item that will be included in the supplementary work order</inlineHelpText>
+    <label>Approved Supplementary Item</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

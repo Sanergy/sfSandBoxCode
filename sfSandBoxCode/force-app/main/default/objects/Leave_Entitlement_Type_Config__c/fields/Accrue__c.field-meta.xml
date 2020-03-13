@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accrue__c</fullName>
+    <description>Is the Leave Type accrued at beginning of the month or at the end of the month ?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the Leave Type accrued at beginning of the month or at the end of the month ?</inlineHelpText>
+    <label>Accrue</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Start Month</fullName>
+                <default>false</default>
+                <label>Start Month</label>
+            </value>
+            <value>
+                <fullName>End Month</fullName>
+                <default>false</default>
+                <label>End Month</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

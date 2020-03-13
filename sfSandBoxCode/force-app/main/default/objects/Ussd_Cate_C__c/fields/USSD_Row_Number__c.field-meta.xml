@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>USSD_Row_Number__c</fullName>
+    <description>Row Number to be displayed on USSD</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Row Number to be displayed on USSD</inlineHelpText>
+    <label>USSD Row Number</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

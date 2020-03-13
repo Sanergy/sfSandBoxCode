@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_date_not_more_than_Job_end</fullName>
+    <active>true</active>
+    <errorConditionFormula>End_Date__c  &gt;  Casuals_Job__r.End_Date__c</errorConditionFormula>
+    <errorDisplayField>End_Date__c</errorDisplayField>
+    <errorMessage>End date cannot be more than the end date of the Job</errorMessage>
+</ValidationRule>

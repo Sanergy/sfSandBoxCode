@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>no_of_received_line_items__c</fullName>
+    <description>The number of line items that have been received for the particular PTS</description>
+    <externalId>false</externalId>
+    <label>no_of_received_line_items</label>
+    <summarizedField>PTS_PO_Line_item__c.Items_delivererd__c</summarizedField>
+    <summaryFilterItems>
+        <field>PTS_PO_Line_item__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Received</value>
+    </summaryFilterItems>
+    <summaryForeignKey>PTS_PO_Line_item__c.PTS_Line_Item__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Termination_Reason__c</fullName>
+    <description>Reason for Termination</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reason for Termination</inlineHelpText>
+    <label>Termination Reason</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Absconded duty</fullName>
+                <default>false</default>
+                <label>Absconded duty</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Disciplinary issues - Termination</fullName>
+                <default>false</default>
+                <label>Disciplinary issues - Termination</label>
+            </value>
+            <value>
+                <fullName>End of contract</fullName>
+                <default>false</default>
+                <label>End of contract</label>
+            </value>
+            <value>
+                <fullName>End of Fellowship</fullName>
+                <default>false</default>
+                <label>End of Fellowship</label>
+            </value>
+            <value>
+                <fullName>End of Research</fullName>
+                <default>false</default>
+                <label>End of Research</label>
+            </value>
+            <value>
+                <fullName>Further studies</fullName>
+                <default>false</default>
+                <label>Further studies</label>
+            </value>
+            <value>
+                <fullName>Gross misconduct - Summary Dismissal</fullName>
+                <default>false</default>
+                <label>Gross misconduct - Summary Dismissal</label>
+            </value>
+            <value>
+                <fullName>Medical reasons</fullName>
+                <default>false</default>
+                <label>Medical reasons</label>
+            </value>
+            <value>
+                <fullName>Not disclosed</fullName>
+                <default>false</default>
+                <label>Not disclosed</label>
+            </value>
+            <value>
+                <fullName>Other employment</fullName>
+                <default>false</default>
+                <label>Other employment</label>
+            </value>
+            <value>
+                <fullName>Performance</fullName>
+                <default>false</default>
+                <label>Performance</label>
+            </value>
+            <value>
+                <fullName>Redundancy</fullName>
+                <default>false</default>
+                <label>Redundancy</label>
+            </value>
+            <value>
+                <fullName>Relocation</fullName>
+                <default>false</default>
+                <label>Relocation</label>
+            </value>
+            <value>
+                <fullName>Resignation</fullName>
+                <default>false</default>
+                <label>Resignation</label>
+            </value>
+            <value>
+                <fullName>Attendance</fullName>
+                <default>false</default>
+                <label>Attendance</label>
+            </value>
+            <value>
+                <fullName>Disciplinary issues</fullName>
+                <default>false</default>
+                <label>Disciplinary issues</label>
+            </value>
+            <value>
+                <fullName>Gross misconduct</fullName>
+                <default>false</default>
+                <label>Gross misconduct</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Resuming studies</fullName>
+                <default>false</default>
+                <label>Resuming studies</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

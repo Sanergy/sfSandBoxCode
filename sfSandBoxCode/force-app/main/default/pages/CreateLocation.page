@@ -1,0 +1,84 @@
+<apex:page standardController="Opportunity" extensions="CreateLocation">
+    
+    <apex:form >        
+        <apex:sectionHeader title="{!Opportunity.Name}"  subtitle="Create Location/Toilet" />
+        <apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock >
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Create Location" action="{!createNewLocation}" rendered="{!showLocationButton}"/>
+                <apex:commandButton value="Create Toilet" action="{!createNewToilet}" rendered="{!showToiletButton}"/>                
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:panelGrid width="100%" >                 
+                <apex:pageBlockSection title="Opportunity: {!Opportunity.Name}" >
+                    <apex:outputText value="{!Opportunity.Name}"/>
+                    <apex:outputText value="{!Opportunity.Area__c}"/>
+                    <apex:outputText value="{!Opportunity.Account.Name}"/>
+                    <apex:outputText value="{!Opportunity.Sub_Area_Lookup__r.Name}"/>                    
+                    <apex:outputText value="{!Opportunity.Franchise_Type__c}"/>
+                    <apex:outputText value="{!Opportunity.Location__r.Name}" label="Location"/>
+                    <apex:outputText value="{!Opportunity.No_of_FLTs__c	}" label="No. Of FLT's Requested"/> 
+                    <apex:outputText value="{!Opportunity.StageName}"/>                     
+                    <apex:outputText value="{!Opportunity.FLTs_Approved__c	}" label="No. Of FLT's Approved"/>                  
+                    <apex:outputText value="{!Opportunity.Next_Stage__c}"/>                    
+                    <apex:outputText value="{!Opportunity.Primary_Salesperson__r.Name}" label="Primary Salesperson"/> 
+                    <apex:inputText label="No. of FLTs to create" value="{!numberOfFLTSToCreate}" required="{!IF((showLocationButton==true || showToiletPendingLaunchButton == true),false,true)}"/>              
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+            <!--Toilets To Launch-->
+            <apex:panelGrid >
+                <apex:pageBlockSection title="Toilets Pending Launch">
+                    <apex:panelGroup >
+                        <apex:pageBlockSectionItem >                    
+                            <!--<apex:inputCheckbox value="{!selectAllCheckbox}">
+                                <apex:actionSupport event="onchange" reRender="toiletPendingLaunch" action="{!selectUnselectAll}"/>
+                            </apex:inputCheckbox>-->
+                        </apex:pageBlockSectionItem>
+                            
+                        <apex:pageBlockSectionItem >                     	
+                            <apex:commandButton action="{!toiletPendingLaunchNotification}" 
+                                                value="Notify SA - Toilet Pending Launch" 
+                                                onclick="if(!confirm('Are you sure?')){return false};" 
+                                                rendered="{!showToiletPendingLaunchButton}"/>
+                        </apex:pageBlockSectionItem>                         
+                            
+                        <apex:pageBlockTable var="flt" value="{!ToiletsPendingLaunch}" id="toiletPendingLaunch">
+                            <apex:column headerValue="Select">                        
+                                <apex:inputCheckbox value="{!flt.selected}"/>
+                            </apex:column>                           
+                            <apex:column value="{!flt.toilets.Name}"/>
+                            <apex:column value="{!flt.toilets.Location__r.Name}"/>
+                            <apex:column value="{!flt.toilets.Opportunity__r.Name}"/>
+                            <apex:column value="{!flt.toilets.Operational_Status__c}"/>
+                            <apex:column value="{!flt.toilets.Current_Specific_Status__c}"/>
+                            <apex:column value="{!flt.toilets.Collection_Route__c}"/>
+                            <!--<apex:column headerValue="Toilet Launch Date">
+                                <apex:inputField value="{!flt.toilets.Opening_Date__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="Action">                           
+                                <apex:commandButton action="{!toiletPendingLaunchNotification}" value="Notify SA - Toilet Pending Launch" onclick="if(!confirm('Are you sure?')){return false};" rendered="{!flt.showToiletLaunchButton}"/>
+                            </apex:column>-->
+                        </apex:pageBlockTable> 
+                    </apex:panelGroup>
+                </apex:pageBlockSection>
+            </apex:panelGrid>
+            
+            <!--All Toilets In This Location-->
+            <!--<apex:panelGrid >-->
+                <apex:pageBlockSection title="All Toilets" id="AllToiletBlock" >
+                    <apex:pageBlockTable var="flts" value="{!AllToilets}" id="allToilets">                                 
+                        <apex:column value="{!flts.toilets.Name}"/>
+                        <apex:column value="{!flts.toilets.Location__r.Name}"/>
+                        <apex:column value="{!flts.toilets.Opportunity__r.Name}"/>
+                        <apex:column value="{!flts.toilets.Operational_Status__c}"/>
+                        <apex:column value="{!flts.toilets.Current_Specific_Status__c}"/>
+                        <apex:column value="{!flts.toilets.Collection_Route__c}"/>
+                        <apex:column value="{!flts.toilets.Opening_Date__c}"/>
+                    </apex:pageBlockTable> 
+                </apex:pageBlockSection>
+            <!--</apex:panelGrid>-->            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

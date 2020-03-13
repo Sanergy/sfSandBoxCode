@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Garbage_disposal_method__c</fullName>
+    <externalId>false</externalId>
+    <label>Garbage disposal method</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Level 1: Scattering</fullName>
+                <default>false</default>
+                <label>Level 1: Scattering</label>
+            </value>
+            <value>
+                <fullName>Level 2: Taking dump site</fullName>
+                <default>false</default>
+                <label>Level 2: Taking dump site</label>
+            </value>
+            <value>
+                <fullName>Level 3: Paid garbage service [youth groups…]</fullName>
+                <default>false</default>
+                <label>Level 3: Paid garbage service [youth groups…]</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

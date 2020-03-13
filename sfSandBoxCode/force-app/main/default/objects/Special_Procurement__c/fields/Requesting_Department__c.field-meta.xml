@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requesting_Department__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>A lookup from the FFA confic_dim1 object</description>
+    <externalId>false</externalId>
+    <label>Requesting Department</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>FFA_Config_Object__c.isActive__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.Teamlead__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </filterItems>
+        <filterItems>
+            <field>FFA_Config_Object__c.Type__c</field>
+            <operation>equals</operation>
+            <value>dim1</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipName>Special_Procurements</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

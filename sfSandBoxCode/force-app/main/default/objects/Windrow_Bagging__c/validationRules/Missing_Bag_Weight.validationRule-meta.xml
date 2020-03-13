@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Missing_Bag_Weight</fullName>
+    <active>true</active>
+    <description>Error if Windrow Bagging Record is missing the bag weight type.</description>
+    <errorConditionFormula>AND(IF( ISBLANK(TEXT(Bag_Weight_Kg__c)) , 1, 0) =1)</errorConditionFormula>
+    <errorDisplayField>Bag_Weight_Kg__c</errorDisplayField>
+    <errorMessage>Please select the bag type</errorMessage>
+</ValidationRule>

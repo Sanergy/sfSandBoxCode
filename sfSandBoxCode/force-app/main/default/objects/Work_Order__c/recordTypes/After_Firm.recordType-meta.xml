@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>After_Firm</fullName>
+    <active>true</active>
+    <description>Record type after Firm</description>
+    <label>After Firm</label>
+    <picklistValues>
+        <picklist>Issue_Status__c</picklist>
+        <values>
+            <fullName>Complete Issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partial Issuance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unissued</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Firmed</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Work in progress</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Work_Order_Type__c</picklist>
+        <values>
+            <fullName>WO-Disassembly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WO-Manufactured</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WO-Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

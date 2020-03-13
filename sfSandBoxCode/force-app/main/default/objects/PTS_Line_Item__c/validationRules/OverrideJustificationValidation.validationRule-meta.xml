@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OverrideJustificationValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK(Override_Justification__c)  ,
+ Override_PR_Item_Cost_Check__c = true,
+ PR_Item_And_PO_Item_Cost_Difference__c = true)</errorConditionFormula>
+    <errorDisplayField>Override_Justification__c</errorDisplayField>
+    <errorMessage>Please give a reason for overriding Cost check</errorMessage>
+</ValidationRule>

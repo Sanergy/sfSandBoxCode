@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agent__c</fullName>
+    <externalId>false</externalId>
+    <label>Agent</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Human Resource</fullName>
+                <default>false</default>
+                <label>Human Resource</label>
+            </value>
+            <value>
+                <fullName>ICT HelpDesk</fullName>
+                <default>false</default>
+                <label>ICT HelpDesk</label>
+            </value>
+            <value>
+                <fullName>Sanergy Help Desk</fullName>
+                <default>false</default>
+                <label>Sanergy Help Desk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

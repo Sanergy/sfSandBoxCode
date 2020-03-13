@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PR_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>PR Source</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Special Payment Request</fullName>
+                <default>false</default>
+                <label>Special Payment Request</label>
+            </value>
+            <value>
+                <fullName>Recurring Service</fullName>
+                <default>false</default>
+                <label>Recurring Service</label>
+            </value>
+            <value>
+                <fullName>Asset Maintenance Task - PM</fullName>
+                <default>false</default>
+                <label>Asset Maintenance Task - PM</label>
+            </value>
+            <value>
+                <fullName>Asset Maintenance Task - BM</fullName>
+                <default>false</default>
+                <label>Asset Maintenance Task - BM</label>
+            </value>
+            <value>
+                <fullName>Autonomous Maintenance Type -AM</fullName>
+                <default>false</default>
+                <label>Autonomous Maintenance Type -AM</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dimension_4__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Dimension 4</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>FFA_Config_Object__c.Type__c</field>
+            <operation>equals</operation>
+            <value>dim4</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipName>Payroll_Modes</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

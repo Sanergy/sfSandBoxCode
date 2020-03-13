@@ -1,0 +1,35 @@
+<apex:page standardController="Inventory_Count__c" extensions="ProcessCountVarianceController">
+  <apex:form >
+        <apex:sectionHeader title="{!Inventory_Count__c.Name}" subtitle="Confirm to process the selected inventory count transactions"/>
+        <apex:pageMessages ></apex:pageMessages>
+             
+        <apex:pageBlock title="Inventory Counts for {!Inventory_Count__c.Count_Date__c}" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select All" action="{!selectAll}" rerender="table"/>
+                <apex:commandButton value="Unselect All" action="{!unselectAll}" rerender="table"/>
+                <apex:commandButton value="Update Inventory Counts" action="{!updateInventoryCounts}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable id="itemList" value="{!items}" var="item" title="Item Counts">
+                <apex:column >
+                    <apex:inputCheckbox value="{!item.selected}"/>
+                </apex:column>
+                <apex:column headerValue="Item Count">
+                    <apex:outputlink value="/{!item.item.Id}">{!item.item.Name}</apex:outputlink>
+                </apex:column>
+                <apex:column headerValue="Inventory Item">
+                    <apex:outputlink value="/{!item.item.Inventory_Item__c}">{!item.item.Inventory_Item__r.Name}</apex:outputlink>
+                </apex:column>
+                <apex:column headerValue="UOM" value="{!item.item.UoM__c}" />
+                <apex:column headerValue="Inventory Stock" value="{!item.item.Inventory_Stock__c}" />
+                <apex:column headerValue="Physical Count" value="{!item.item.Physical_Count__c}" />
+                <apex:column headerValue="Quantity Variance" value="{!item.item.Quantity_Variance__c}" />
+                <apex:column headerValue="Currency" value="{!item.item.Currency__c}" />
+                <apex:column headerValue="Unit Price" value="{!item.item.Unit_Price__c}" />
+                <apex:column headerValue="Value Variance" value="{!item.item.Value_Variance__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

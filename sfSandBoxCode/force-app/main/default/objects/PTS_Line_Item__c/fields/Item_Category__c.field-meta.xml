@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Category__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Stock Item - Items that are usually kept in our inventory
+One-off Item - Items that are not kept in our inventory
+Services -  Refers to services</inlineHelpText>
+    <label>Item Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Stock Item</fullName>
+                <default>false</default>
+                <label>Stock Item</label>
+            </value>
+            <value>
+                <fullName>One-off Item</fullName>
+                <default>false</default>
+                <label>One-off Item</label>
+            </value>
+            <value>
+                <fullName>Service Item</fullName>
+                <default>false</default>
+                <label>Service Item</label>
+            </value>
+            <value>
+                <fullName>Direct Item</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Direct Item</label>
+            </value>
+            <value>
+                <fullName>Indirect Item</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Indirect Item</label>
+            </value>
+            <value>
+                <fullName>Service</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Service</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

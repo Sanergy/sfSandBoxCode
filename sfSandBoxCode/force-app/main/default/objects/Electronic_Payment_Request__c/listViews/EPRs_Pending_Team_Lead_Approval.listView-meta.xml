@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPRs_Pending_Team_Lead_Approval</fullName>
+    <booleanFilter>1</booleanFilter>
+    <columns>Next_Step_Due_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>department__c</columns>
+    <columns>Vendor_Company__c</columns>
+    <columns>Invoice_Date__c</columns>
+    <columns>Invoice_Number__c</columns>
+    <columns>Gross_Payment_Amount__c</columns>
+    <columns>Team_Lead_Approval_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Next_Step__c</field>
+        <operation>equals</operation>
+        <value>Pending Team Lead Approval</value>
+    </filters>
+    <label>EPRs - (1) Pending Team Lead Approval</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>HR_Officer</role>
+        <role>Systems_Administrator</role>
+        <roleAndSubordinates>Chief_Financial_Officer</roleAndSubordinates>
+    </sharedTo>
+</ListView>

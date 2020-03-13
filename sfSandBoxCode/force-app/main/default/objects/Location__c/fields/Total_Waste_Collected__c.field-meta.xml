@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Waste_Collected__c</fullName>
+    <description>Total waste collected at this toilet since opening</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total waste collected at this toilet since opening</inlineHelpText>
+    <label>Total Waste Collected</label>
+    <summarizedField>Toilet__c.Summary_Waste_Day__c</summarizedField>
+    <summaryForeignKey>Toilet__c.Location__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

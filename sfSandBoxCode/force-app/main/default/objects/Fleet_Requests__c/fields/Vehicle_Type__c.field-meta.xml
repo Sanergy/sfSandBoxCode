@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicle_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Vehicle Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No Preference</fullName>
+                <default>false</default>
+                <label>No Preference</label>
+            </value>
+            <value>
+                <fullName>Pick-up truck</fullName>
+                <default>false</default>
+                <label>Pick-up truck</label>
+            </value>
+            <value>
+                <fullName>4*4 truck</fullName>
+                <default>false</default>
+                <label>4*4 truck</label>
+            </value>
+            <value>
+                <fullName>3tn truck</fullName>
+                <default>false</default>
+                <label>3tn truck</label>
+            </value>
+            <value>
+                <fullName>5tn truck</fullName>
+                <default>false</default>
+                <label>5tn truck</label>
+            </value>
+            <value>
+                <fullName>7tn truck</fullName>
+                <default>false</default>
+                <label>7tn truck</label>
+            </value>
+            <value>
+                <fullName>Heavy goods vehicle</fullName>
+                <default>false</default>
+                <label>Heavy goods vehicle</label>
+            </value>
+            <value>
+                <fullName>Saloon</fullName>
+                <default>false</default>
+                <label>Saloon</label>
+            </value>
+            <value>
+                <fullName>7 - seater</fullName>
+                <default>false</default>
+                <label>7 - seater</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

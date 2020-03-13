@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vaccination__c</fullName>
+    <externalId>false</externalId>
+    <label>Vaccination</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cholera</fullName>
+                <default>false</default>
+                <label>Cholera</label>
+            </value>
+            <value>
+                <fullName>Hepatitis A</fullName>
+                <default>false</default>
+                <label>Hepatitis A</label>
+            </value>
+            <value>
+                <fullName>Hepatitis B</fullName>
+                <default>false</default>
+                <label>Hepatitis B</label>
+            </value>
+            <value>
+                <fullName>Polio</fullName>
+                <default>false</default>
+                <label>Polio</label>
+            </value>
+            <value>
+                <fullName>Tetanus</fullName>
+                <default>false</default>
+                <label>Tetanus</label>
+            </value>
+            <value>
+                <fullName>Typhoid</fullName>
+                <default>false</default>
+                <label>Typhoid</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

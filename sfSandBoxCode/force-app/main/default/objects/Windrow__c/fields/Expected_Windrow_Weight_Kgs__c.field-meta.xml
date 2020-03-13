@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_Windrow_Weight_Kgs__c</fullName>
+    <description>Expected Windrow Weight - Total Dry Weight of all Windrow Runs</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Expected Windrow Weight - Total Dry Weight of all Windrow Runs</inlineHelpText>
+    <label>Expected Windrow Weight(Kgs)</label>
+    <summarizedField>Windrow_Run__c.Dry_Weight_of_Waste_Kg__c</summarizedField>
+    <summaryForeignKey>Windrow_Run__c.Windrow__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

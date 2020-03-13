@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quantity_Impact__c</fullName>
+    <description>Determines whether the transactions increases or decreases the inventory</description>
+    <externalId>false</externalId>
+    <inlineHelpText>I (Increase), D (Decrease), S (Scrap), U(Unit Price Change)</inlineHelpText>
+    <label>Quantity Impact</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>I</fullName>
+                <color>#0B6FCE</color>
+                <default>false</default>
+                <label>I</label>
+            </value>
+            <value>
+                <fullName>D</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+                <label>D</label>
+            </value>
+            <value>
+                <fullName>S</fullName>
+                <color>#E27001</color>
+                <default>false</default>
+                <label>S</label>
+            </value>
+            <value>
+                <fullName>U</fullName>
+                <color>#A845DC</color>
+                <default>false</default>
+                <label>U</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

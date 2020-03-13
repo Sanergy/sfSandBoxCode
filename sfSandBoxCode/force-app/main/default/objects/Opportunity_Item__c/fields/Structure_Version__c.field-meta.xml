@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Structure_Version__c</fullName>
+    <externalId>false</externalId>
+    <label>Structure Version</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>V2</fullName>
+                <default>false</default>
+                <label>V2</label>
+            </value>
+            <value>
+                <fullName>V3</fullName>
+                <default>false</default>
+                <label>V3</label>
+            </value>
+            <value>
+                <fullName>V2-V3 Hybrid</fullName>
+                <default>false</default>
+                <label>V2-V3 Hybrid</label>
+            </value>
+            <value>
+                <fullName>Pit Conversion</fullName>
+                <default>false</default>
+                <label>Pit Conversion</label>
+            </value>
+            <value>
+                <fullName>Basic FLT</fullName>
+                <default>false</default>
+                <label>Basic FLT</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

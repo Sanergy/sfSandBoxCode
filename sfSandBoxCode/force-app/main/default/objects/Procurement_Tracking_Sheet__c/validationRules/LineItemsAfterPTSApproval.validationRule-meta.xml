@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineItemsAfterPTSApproval</fullName>
+    <active>true</active>
+    <description>Line Items cannot be added after PTS Approval</description>
+    <errorConditionFormula>AND( ISPICKVAL( Team_Lead_Approval_Status__c , &#39;Approved&#39;)  ,
+ISCHANGED( No_of_Line_Items__c ) )</errorConditionFormula>
+    <errorMessage>Line Items cannot be added or removed after PTS Approval</errorMessage>
+</ValidationRule>

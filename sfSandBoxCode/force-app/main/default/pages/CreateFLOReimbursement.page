@@ -1,0 +1,267 @@
+<apex:page StandardController="Opportunity" extensions="CreateFLOReimbursement" cache="false" docType="html-5.0">
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+    <script>
+    $(document).ready(function()
+                      {
+                          $("[id$='fltTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          $("[id$='sprTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          $("[id$='eprTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          $("[id$='prodTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          // Make table cell focusable
+                          // http://css-tricks.com/simple-css-row-column-highlighting/
+                          if ( $('.focus-highlight').length ) {
+                              $('.focus-highlight').find('td, th')
+                              .attr('tabindex', '1')
+                              // add touch device support
+                              .on('touchstart', function() {
+                                  $(this).focus();
+                              });
+                          }
+                      });
+    
+    function updateDataTable()
+    {
+        $("[id$='fltTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        $("[id$='sprTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        $("[id$='eprTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        $("[id$='prodTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        // Make table cell focusable
+        // http://css-tricks.com/simple-css-row-column-highlighting/
+        if ( $('.focus-highlight').length ) {
+            $('.focus-highlight').find('td, th')
+            .attr('tabindex', '1')
+            // add touch device support
+            .on('touchstart', function() {
+                $(this).focus();
+            });
+        }
+    }
+    
+    function updateDataTableRows() 
+    {
+        
+        $(".table-striped").find("tr").each(function () {
+            var status= $(this).find(".status").html();  
+            if(status=="Failed")
+            {
+                $(this).addClass("failed")
+            }
+        });
+    }
+    
+    //Function to calculate the total of all the EPR Recon Lines table.
+    function CalculateTotals(){
+        var fieldPrefixlinetotal = document.querySelector('[id*=":linetotal"]').id;
+        
+        fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":"));
+        fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //alert(numberOfRows);
+        var colItemTotal = 0.0;
+        
+        //loop through and get Recon Total
+        for(var i=0; i<numberOfRows; i++){
+            colTotal =  document.getElementById(fieldPrefixlinetotal + i +':linetotal').value;
+            colTotal = (isNaN(parseFloat((colTotal).replace(',', ''))) ? 0 : parseFloat((colTotal).replace(',', '')));
+            colItemTotal += parseFloat(colTotal);
+        }
+        //display total line item value sum
+        document.getElementById('sumEPRItemTotal').value = colItemTotal;
+        var fieldPrefixUnreconciled = document.querySelector('[id*=":sumtotunrecon"]').id;
+        colUnreconciled =  document.getElementById(fieldPrefixUnreconciled).innerText;
+        colUnreconciled = (isNaN(parseFloat((colUnreconciled).replace(',', ''))) ? 0 : parseFloat((colUnreconciled).replace(',', '')));
+        colUnreconciled = (isNaN(parseFloat(colUnreconciled)) ? 0 : parseFloat(colUnreconciled));
+        colUnreconciled = colUnreconciled * -1;//Balance will be a negative value if we are to generate a Recon EPR
+        
+        document.getElementById('cmdGenerateSPR').value = colUnreconciled - colItemTotal;
+        
+        if(colItemTotal  > colUnreconciled) //Balance will be a negative value if we are to generate a Recon EPR
+        {
+            alert('EPR Value [' + colItemTotal + '] will exceed UnReconciled Value [' + (colUnreconciled ) + ']');
+            return true;
+        }
+        //if Recon EPR matches balance
+        if(colItemTotal > 0 && colItemTotal  == colUnreconciled){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    function GenerateReconEPR(){
+        var fldDepAmnt = document.querySelector('[id*=":txtDepositAmt"]').id;
+        var txtDepositAmt = document.getElementById(fldDepAmnt).textContent;
+        var fldMPesaNo = document.querySelector('[id*=":txtMPesaNo"]').id;
+        var txtMPesaNo = document.getElementById(fldMPesaNo).textContent;
+        var fldMPesaCode = document.querySelector('[id*=":txtMPesaCode"]').id;
+        var txtMPesaCode = document.getElementById(fldMPesaCode).textContent;
+        var fldeprReimbursement = document.querySelector('[id*=":eprReimbursement"]').id;
+        var eprReimbursement = document.getElementById(fldeprReimbursement).value;
+        errMsg = ''
+        if(txtDepositAmt == ''){
+            errMsg = errMsg + '/n Deposit amount is required';
+        }
+        if(txtMPesaNo == ''){
+            errMsg = errMsg + '/n FLO MPesa number is required';
+        }
+        if(txtMPesaCode == ''){
+            errMsg = errMsg + '/n FLO MPesa Code is required';
+        }
+        if(eprReimbursement == '' || Number(eprReimbursement) > Number(txtDepositAmt)){
+            errMsg = errMsg + '/n Reimbursement Amount is invalid';
+        }        
+        
+        if(errMsg == '') {
+            generateSPR();
+        }
+        else
+        {
+            alert('One or more conditions not met to generate the Recon EPR: /n' + errMsg);
+        }
+    }
+    </script>    
+    
+    <apex:sectionHeader title="Opportunity {!opp.name}" subtitle="FLO Reimbursement"/>
+    <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock id="pbAttach">    
+            <apex:pageBlockSection >
+                <apex:outputText label="Account Name">
+                    <apex:outputLink value="/{!opp.Account.Id}">{!opp.Account.Name}</apex:outputLink>
+                </apex:outputText>
+                <apex:outputField label="Primary Salesperson" value="{!opp.Primary_Salesperson__c}"/>
+                <apex:outputField label="Opportunity Stage" value="{!opp.StageName}"/>
+                <apex:outputField label="Stage Date" value="{!opp.Stage_Date__c}"/>
+                <apex:outputField label="Sub Area" value="{!opp.Sub_Area_Lookup__r.Name}"/>
+                <apex:outputText label="Location">
+                    <apex:outputLink value="/{!opp.Location__r.Id}">{!opp.Location__r.Name}</apex:outputLink>
+                </apex:outputText>
+                <apex:outputField label="Deposit Paid Date" value="{!opp.Deposit_Paid_Date__c}"/>
+                <apex:outputField label="Deposit Amount" value="{!opp.Deposit_Amount_Received__c}" id="txtDepositAmt"/>
+                <apex:outputField label="Close Date" value="{!opp.CloseDate}"/>
+                <apex:selectList label="FLT to Reimburse" size="1" id="fltList" onChange="setCountry(this.value);" value="{!EPRItemFLT}">
+                    <apex:selectOptions value="{!oppFLTs}"/>
+                </apex:selectList> 	
+                <apex:outputText label="MPesa Phone No" value="{!opp.Account.Mobile_Payment_Phone_Number__c}" id="txtMPesaNo"/>
+                <apex:outputText label="MPesa Confirmation Code" value="{!opp.M_Pesa_Code__c}" id="txtMPesaCode"/>
+                <apex:input label="Reimbursement Amount" value="{!EPRValue}" id="eprReimbursement" type="number" html-min="1" html-max="{!opp.Deposit_Amount_Received__c}" html-step="1" title="(Reimbursement Amount)" />
+                
+                <apex:inputTextArea label="Notes" value="{!EPRItemNotes}"  />
+            </apex:pageBlockSection>
+            <div id ="divMessage">
+            </div>
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Generate SPR" id="cmdGenerateSPR" disabled="{!hideButtons}" onclick="GenerateReconEPR(); return false;" reRender="pb,accsTable,pbAdmin,pbButtons" oncomplete="updateDataTable();"/>
+                <apex:actionFunction name="generateSPR" action="{!CreateFLOReimbursementSPR}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageblock >
+            <apex:pageBlockSection ></apex:pageBlockSection>
+        </apex:pageblock>
+        <h2>FLTS</h2>
+        <apex:dataTable title="FLTs" var="flt" value="{!flts}" id="fltTable" styleclass="tablesorter" style="text-align:center;">
+            <apex:column headerValue="FLT" style="text-align:center;">
+                <apex:outputLink value="/{!flt.id}">{!flt.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Opening Date" value="{!flt.Opening_Date__c}"/>
+            <apex:column headerValue="Operational Status" value="{!flt.Operational_Status__c}" style="text-align:center;"/>
+            <apex:column headerValue="Specific Status" value="{!flt.Current_Specific_Status__c}" style="text-align:center;"/>
+            <apex:column headerValue="Operational Status" value="{!flt.Operational_Status__c}" style="text-align:center;"/>
+            <apex:column headerValue="Reimbursed" value="{!flt.FLO_Reimbursed__c}" style="text-align:center;"/>
+            
+        </apex:dataTable>
+        <apex:pageblock >
+            <apex:pageBlockSection >
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        <h2>SPRS</h2>
+        <apex:dataTable title="SPRs" var="spr" value="{!sprs}" id="sprTable" styleclass="tablesorter">
+            <apex:column headerValue="SPR" style="text-align:center;">
+                <apex:outputLink value="/{!spr.id}">{!spr.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Requestor" value="{!spr.Requestor__c}" style="text-align:center;"/>
+            <apex:column headerValue="Vendor" value="{!spr.Vendor__c}"/>
+            <apex:column headerValue="SPR Type" value="{!spr.Type__c}" style="text-align:center;"/>
+            <apex:column headerValue="Payment Date" value="{!spr.Required_Date__c}" style="text-align:center;"/>
+            
+            <apex:column headerValue="Approval Status" value="{!spr.Approval_Status__c}" style="text-align:center;"/>
+            <apex:column headerValue="Total Payments" style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!spr.Total_Payments__c}" /> 
+                </apex:outputText>
+            </apex:column> 
+            <apex:column headerValue="Comments" value="{!spr.Comments__c}"/>
+            <apex:column headerValue="Payment Method" value="{!spr.Payment_Method__c}"/>
+        </apex:dataTable>
+        
+        <apex:pageblock >
+            <apex:pageBlockSection >
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        <h2>EPRs Made to {!opp.Account.Name}</h2>
+        <apex:dataTable title="EPRs" var="epr" value="{!EPRs}" id="eprTable" styleclass="tablesorter">
+            <apex:column headerValue="EPR" style="text-align:center;">
+                <apex:outputLink value="/{!epr.id}">{!epr.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column headerValue="Company" value="{!epr.Company__c}"/>
+            <apex:column headerValue="Department" value="{!epr.department__r.Name}" style="text-align:center;"/>
+            <apex:column headerValue="EPR Type" value="{!epr.EPR_Type__c}" style="text-align:center;"/>
+            <apex:column headerValue="Payment Date" value="{!epr.Payment_Date__c}" style="text-align:center;"/>
+            <apex:column headerValue="Mobile Number" value="{!epr.Mobile_Number__c}"/>
+            <apex:column headerValue="Payment Type" value="{!epr.Payment_Type__c}" style="text-align:center;"/>
+            <apex:column headerValue="EPR Amount" style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!epr.Gross_Payment_Amount__c}" /> 
+                </apex:outputText>
+            </apex:column> 
+            <apex:column headerValue="Confirmation Number" value="{!epr.Confirmation_Number__c}"/>
+            <apex:column headerValue="MPesa Payment #" value="{!epr.MPESA_payment_number__c}"/>
+            <apex:column headerValue="Comments" value="{!epr.Comments__c}"/>
+            <apex:column headerValue="Notes" value="{!epr.Notes__c}"/>
+        </apex:dataTable>
+        
+        <apex:pageblock >
+            <apex:pageBlockSection >
+                
+            </apex:pageBlockSection>
+        </apex:pageblock>        
+        <h2>Opportunity Products</h2>
+        <apex:dataTable title="Opportunity Products" var="oppProd" value="{!oppProducts}" id="prodTable" styleclass="tablesorter">
+            <apex:column headerValue="Product Name" value="{!oppProd.Product2.Name}"/>
+            <apex:column headerValue="Quantity" style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!oppProd.Quantity}" /> 
+                </apex:outputText>
+            </apex:column> 
+            <apex:column headerValue="Unit Price" style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!oppProd.UnitPrice}" /> 
+                </apex:outputText>
+            </apex:column>
+            <apex:column headerValue="Total Price" style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!oppProd.TotalPrice}" /> 
+                </apex:outputText>
+            </apex:column>
+        </apex:dataTable>
+    </apex:form>
+  <!--  <apex:form id="frmAttach">
+        <apex:pageblock >
+            <apex:pageBlockSection title="Add Attachments">
+                    <apex:inputFile accept="doc, txt, pdf" value="{!attachBody}" filename="{!fileName}" contentType="{!contentType}" />
+                    <apex:commandButton action="{!AttachFile}" value="Attach" />
+            </apex:pageBlockSection> 
+        </apex:pageblock>
+    </apex:form> -->
+    <apex:pageBlock >..</apex:pageBlock>
+</apex:page>

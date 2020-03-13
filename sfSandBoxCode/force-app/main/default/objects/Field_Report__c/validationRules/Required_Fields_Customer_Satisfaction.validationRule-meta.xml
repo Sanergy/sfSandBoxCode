@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Fields_Customer_Satisfaction</fullName>
+    <active>true</active>
+    <description>Requires CSat questions for the CSat record type</description>
+    <errorConditionFormula>AND(RecordTypeId = &quot;Customer Satisfaction Survey&quot;,
+OR(
+ISPICKVAL( How_professional_are_FL_staff__c ,&quot; &quot;),
+ISPICKVAL( How_responsive_is_FL_to_your_questions__c,&quot; &quot;),
+ISPICKVAL( Are_you_satisfied_with_the_FL_employees__c,&quot;&quot;),
+ISPICKVAL( How_satisfied_are_you_with_the_courtesy__c,&quot;&quot;),
+ISPICKVAL( Satisfaction_with_FL_as_a_company__c ,&quot;&quot;),
+ISPICKVAL( Satisfaction_with_FL_model__c ,&quot;&quot;),
+ISPICKVAL( expand_your_business_by_purchasing_more__c ,&quot;&quot;),
+ISPICKVAL( how_satisfied_are_you_with_FL_FO__c ,&quot;&quot;),
+ISPICKVAL( how_quickly_is_the_issue_acknowledged_an__c ,&quot;&quot;),
+ISPICKVAL( how_satisfied_are_you_with_FL_Waste_Coll__c ,&quot;&quot;),
+ISPICKVAL( How_punctual_are_FL_Waste_Collectors__c ,&quot;&quot;),
+ISPICKVAL( Satisfaction_with_the_FL_Installation__c ,&quot;&quot;),
+ISPICKVAL( Satisfied_with_FL_Maintenance_Repair__c ,&quot;&quot;),
+ISPICKVAL( how_quickly_are_maintenance_acknowledged__c ,&quot;&quot;),
+ISPICKVAL( Satisfied_with_FL_Marketing_Team__c ,&quot;&quot;),
+ISPICKVAL( Marketing_Team_to_your_requests_for_mark__c ,&quot;&quot;)
+))</errorConditionFormula>
+    <errorMessage>You are missing one or more required fields for the Customer Satisfaction Survey. Please go back and fill these fields.</errorMessage>
+</ValidationRule>

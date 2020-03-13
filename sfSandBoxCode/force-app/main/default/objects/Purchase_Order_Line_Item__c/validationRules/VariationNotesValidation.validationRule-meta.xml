@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VariationNotesValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+     ISBLANK(Variation_Notes__c)  ,
+     Return_For_Approval__c = true)</errorConditionFormula>
+    <errorDisplayField>Variation_Notes__c</errorDisplayField>
+    <errorMessage>Please add Notes for the difference in PO Line and PO Item costs</errorMessage>
+</ValidationRule>

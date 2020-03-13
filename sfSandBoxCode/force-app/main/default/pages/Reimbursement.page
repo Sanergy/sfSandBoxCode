@@ -1,0 +1,481 @@
+<apex:page docType="html-5.0" standardController="Special_Procurement__c" extensions="Reimbursement">
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+    <script>
+    $(document).ready(function()
+                      {
+                          $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          
+                          // Make table cell focusable
+                          // http://css-tricks.com/simple-css-row-column-highlighting/
+                          if ( $('.focus-highlight').length ) {
+                              $('.focus-highlight').find('td, th')
+                              .attr('tabindex', '1')
+                              // add touch device support
+                              .on('touchstart', function() {
+                                  $(this).focus();
+                              });
+                          }
+                      });
+    
+    function updateDataTable()
+    {
+        $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        
+        // Make table cell focusable
+        // http://css-tricks.com/simple-css-row-column-highlighting/
+        if ( $('.focus-highlight').length ) {
+            $('.focus-highlight').find('td, th')
+            .attr('tabindex', '1')
+            // add touch device support
+            .on('touchstart', function() {
+                $(this).focus();
+            });
+        }
+    }
+    
+    function updateDataTableRows() 
+    {
+        
+        $(".table-striped").find("tr").each(function () {
+            var status= $(this).find(".status").html();  
+            if(status=="Failed")
+            {
+                $(this).addClass("failed")
+            }
+        });
+    }
+    </script>    
+    
+    
+    <script>function setFocusOnLoad() {
+    //  CalculateTotals();
+    CalculateItemTotals();
+    CalculateTChargesTotals();
+    CalculateVatTotals();
+    //calculateUnReconciled();
+    }</script>
+    <script>
+    var subBtn = '';
+    var total = 0.0;
+    
+    //Onchange of the Tcharge, Vat , and Item feilds should trigger an addition of the entire row  
+    function checkInput(id1){
+        //fetch the user inputed value
+        var valx = $.trim(document.getElementById(id1).value);
+        var dd = document.getElementById(id1).id;
+        var n = id1.substring(0,id1.lastIndexOf(":")+1);
+        
+        var colVat = document.getElementById(n +'vat').value;
+        var colTcharge = document.getElementById(n +'tcharge').value;
+        var colItem = document.getElementById(n +'item').value;
+        
+        // parseFloat($("#fullcost").text().replace(',', '')); 
+        var colVat1 = (isNaN(parseFloat((colVat).replace(',', ''))) ? 0 : parseFloat((colVat).replace(',', '')));
+        var colTcharge1 = (isNaN(parseFloat((colTcharge).replace(',', ''))) ? 0 : parseFloat((colTcharge).replace(',', '')));
+        var colItem1 = (isNaN(parseFloat((colItem).replace(',', ''))) ? 0 : parseFloat((colItem).replace(',', '')));
+        
+        var added = colVat1 + colTcharge1 + colItem1;
+        document.getElementById(n +'linetotal').value = added;
+        CalculateTotals();
+    }
+    
+    
+    //Function to calculate the total of all the field items in the entire table.
+    function CalculateTotals(){
+        var fieldPrefixVat = document.querySelector('[id*=":vat"]').id;
+        var fieldPrefixTcharge = document.querySelector('[id*=":tcharge"]').id;
+        var fieldPrefixItem = document.querySelector('[id*=":item"]').id;
+        var fieldPrefixlinetotal = document.querySelector('[id*=":linetotal"]').id;
+        var Total = document.querySelector('[id*=":sumtot"]').id;
+        
+        fieldPrefixTcharge =  fieldPrefixTcharge.substring(0,fieldPrefixTcharge.lastIndexOf(":"));
+        fieldPrefixTcharge =  fieldPrefixTcharge.substring(0,fieldPrefixTcharge.lastIndexOf(":")+1);
+        //alert('f1 = ' + fieldPrefix);
+        
+        fieldPrefixItem =  fieldPrefixItem.substring(0,fieldPrefixItem.lastIndexOf(":"));
+        fieldPrefixItem =  fieldPrefixItem.substring(0,fieldPrefixItem.lastIndexOf(":")+1);
+        
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":"));
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":")+1);
+        
+        fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":"));
+        fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //alert(numberOfRows);
+        
+        var colVat = 0.0;
+        var colTcharge = 0.0;
+        var colItem = 0.0;
+        var colVatTotal = 0.0;
+        var colTchargeTotal = 0.0;
+        var colItemTotal = 0.0;
+        var allColTotal = 0.0;
+        
+        for(var i=0; i<numberOfRows; i++){
+            colVat =  document.getElementById(fieldPrefixVat + i +':vat').value;
+            colTcharge =  document.getElementById(fieldPrefixTcharge + i +':tcharge').value;
+            colItem =  document.getElementById(fieldPrefixItem + i +':item').value;
+            
+            colVat = (isNaN(parseFloat((colVat).replace(',', ''))) ? 0 : parseFloat((colVat).replace(',', '')));
+            colTcharge = (isNaN(parseFloat((colTcharge).replace(',', ''))) ? 0 : parseFloat((colTcharge).replace(',', '')));
+            colItem = (isNaN(parseFloat((colItem).replace(',', ''))) ? 0 : parseFloat((colItem).replace(',', '')));
+            
+            colVatTotal += parseFloat(colVat);
+            colTchargeTotal += parseFloat(colTcharge);
+            colItemTotal += parseFloat(colItem);
+            allColTotal = colVatTotal+ colTchargeTotal+colItemTotal;
+            document.getElementById(fieldPrefixlinetotal + i +':linetotal').value = colVat + colTcharge + colItem;
+        }
+        document.getElementById(Total).value = allColTotal;
+        CalculateItemTotals();
+        CalculateVatTotals();
+        CalculateTChargesTotals();
+        var fieldPrefixUnreconciled = document.querySelector('[id*=":sumtotunrecon"]').id;
+        // alert(fieldPrefixUnreconciled);
+        var colUnreconciled =0.0;
+        colUnreconciled =  document.getElementById(fieldPrefixUnreconciled).value;
+        // alert(colUnreconciled);
+        
+        colUnreconciled = (isNaN(parseFloat(colUnreconciled)) ? 0 : parseFloat(colUnreconciled));
+        colUnreconciled = colUnreconciled - allColTotal;
+        document.getElementById('sumtotunrecon').value = colUnreconciled;
+        
+    }
+    
+    
+    //Function to calculate the Vat total of all the field items in the entire table.
+    function CalculateVatTotals(){
+        var fieldPrefixVat = document.querySelector('[id*=":vat"]').id;
+        
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":"));
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //alert(numberOfRows);
+        
+        var colVat = 0.0;
+        var colVatTotal = 0.0;
+        
+        for(var i=0; i<numberOfRows; i++){
+            colVat =  document.getElementById(fieldPrefixVat + i +':vat').value;
+            colVat = (isNaN(parseFloat((colVat).replace(',', ''))) ? 0 : parseFloat((colVat).replace(',', '')));
+            colVatTotal += parseFloat(colVat);
+        } 
+        document.getElementById('sumVat').value = colVatTotal;
+    }
+    
+    //Function to calculate the Transaction charges total of all the field items in the entire table.
+    function CalculateTChargesTotals(){
+        var fieldPrefixTcharge = document.querySelector('[id*=":tcharge"]').id;
+        
+        fieldPrefixTcharge =  fieldPrefixTcharge.substring(0,fieldPrefixTcharge.lastIndexOf(":"));
+        fieldPrefixTcharge =  fieldPrefixTcharge.substring(0,fieldPrefixTcharge.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        
+        var colTcharge = 0.0;
+        var colTchargeTotal = 0.0;
+        
+        for(var i=0; i<numberOfRows; i++){
+            colTcharge =  document.getElementById(fieldPrefixTcharge + i +':tcharge').value;
+            colTcharge = (isNaN(parseFloat((colTcharge).replace(',', ''))) ? 0 : parseFloat((colTcharge).replace(',', '')));
+            
+            colTchargeTotal += parseFloat(colTcharge);
+        } 
+        document.getElementById('sumTcharge').value = colTchargeTotal;
+    }
+    
+    //Function to calculate the total Of all the items in the entire table.
+    function CalculateItemTotals(){
+        var fieldPrefixItem = document.querySelector('[id*=":item"]').id;
+        
+        fieldPrefixItem =  fieldPrefixItem.substring(0,fieldPrefixItem.lastIndexOf(":"));
+        fieldPrefixItem =  fieldPrefixItem.substring(0,fieldPrefixItem.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //alert(numberOfRows);
+        var colItem = 0.0;
+        var colItemTotal = 0.0;
+        for(var i=0; i<numberOfRows; i++){
+            colItem =  document.getElementById(fieldPrefixItem + i +':item').value;
+            colItem = (isNaN(parseFloat((colItem).replace(',', ''))) ? 0 : parseFloat((colItem).replace(',', '')));
+            
+            colItemTotal += parseFloat(colItem);
+        } 
+        document.getElementById('sumItem').value = colItemTotal;
+        //CalculateTotals();
+    }  
+    
+    function Check(id1){
+        //get the id's where the vat and pin keywords exist
+        var fieldPrefixVat = document.querySelector('[id*=":vat"]').id;
+        var fieldPrefixPin = document.querySelector('[id*=":pin"]').id;
+        var fieldPrefixGla = document.querySelector('[id*=":gla"]').id;
+        var fieldPrefixDim = document.querySelector('[id*=":dim"]').id;
+        var subBtn = document.querySelector('[id*=":save"]').id;
+        
+        //get the first part of the two field's id's 
+        //The next statement gets the substing of the first result to get the position of the row 
+        fieldPrefixPin =  fieldPrefixPin.substring(0,fieldPrefixPin.lastIndexOf(":"));
+        fieldPrefixPin =  fieldPrefixPin.substring(0,fieldPrefixPin.lastIndexOf(":")+1);
+        
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":"));
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":")+1);
+        
+        //get the first part of the two field's id's 
+        //The next statement gets the substing of the first result to get the position of the row 
+        fieldPrefixGla =  fieldPrefixGla.substring(0,fieldPrefixGla.lastIndexOf(":"));
+        fieldPrefixGla =  fieldPrefixGla.substring(0,fieldPrefixGla.lastIndexOf(":")+1);
+        
+        fieldPrefixDim =  fieldPrefixDim.substring(0,fieldPrefixDim.lastIndexOf(":"));
+        fieldPrefixDim =  fieldPrefixDim.substring(0,fieldPrefixDim.lastIndexOf(":")+1);
+        
+        //get the number of rows
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //loop through the rows to check for the pin entry
+        var errorMessage = '';
+        for(var i=0; i<numberOfRows; i++){
+            colGla =  document.getElementById(fieldPrefixGla + i +':gla').value;
+            colDim =  document.getElementById(fieldPrefixDim + i +':dim').value;
+            colVat =  document.getElementById(fieldPrefixVat + i +':vat').value;
+            colPin =  document.getElementById(fieldPrefixPin + i +':pin').value;
+            
+            colVat = (isNaN(parseFloat((colVat).replace(',', ''))) ? 0 : parseFloat((colVat).replace(',', '')));
+            
+            if((colGla == null ||  colGla == '') || (colDim == null ||  colDim == '')){
+                errorMessage +=  'Please Provide Gla and Dim 1 : Row ('+parseFloat(i+1)+')<br>';
+                
+            }
+            
+            if(colVat > 0 && (colPin == null ||  colPin == '')){
+                errorMessage +=  'Please Provide KRA Pin: Row ('+parseFloat(i+1)+')<br>';
+            }
+        }
+        if(errorMessage.length > 0){
+            //alert(errorMessage);
+            document.getElementById("divMessage").innerHTML = 'Error:<br>' +' '+ errorMessage;
+            // document.getElementById(subBtn).disabled = true;
+        }
+        else {
+            //if submission else user is saving as draft
+            if(id1 == 'SUBMIT'){
+                var r = confirm("Confirm that you have completed reconciliation. \r\n\r\nAfter submitting you cannot make any further edits. \r\n\r\nContinue?");
+                if (r == true) {
+                    submitRecon();
+                }
+                else {
+                    alert("The reconciliation was not submitted.");
+                }
+            }
+            else {
+            	saveNow();
+            }
+        }
+    }
+    
+    function checkPinDimandGLA(id) {
+        var subBtn = document.querySelector('[id*=":save"]').id;
+        
+        //get the id's where the gla,pin,vat and dim keywords exist
+        var fieldPrefixVat = document.querySelector('[id*=":vat"]').id;
+        var fieldPrefixPin = document.querySelector('[id*=":pin"]').id;
+        var fieldPrefixGla = document.querySelector('[id*=":gla"]').id;
+        var fieldPrefixDim = document.querySelector('[id*=":dim"]').id;
+        
+        //get the first part of the two field's id's 
+        //The next statement gets the substing of the first result to get the position of the row 
+        fieldPrefixGla =  fieldPrefixGla.substring(0,fieldPrefixGla.lastIndexOf(":"));
+        fieldPrefixGla =  fieldPrefixGla.substring(0,fieldPrefixGla.lastIndexOf(":")+1);
+        
+        fieldPrefixDim =  fieldPrefixDim.substring(0,fieldPrefixDim.lastIndexOf(":"));
+        fieldPrefixDim =  fieldPrefixDim.substring(0,fieldPrefixDim.lastIndexOf(":")+1); 
+        
+        //get the first part of the two field's id's 
+        //The next statement gets the substing of the first result to get the position of the row 
+        fieldPrefixPin =  fieldPrefixPin.substring(0,fieldPrefixPin.lastIndexOf(":"));
+        fieldPrefixPin =  fieldPrefixPin.substring(0,fieldPrefixPin.lastIndexOf(":")+1);
+        
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":"));
+        fieldPrefixVat =  fieldPrefixVat.substring(0,fieldPrefixVat.lastIndexOf(":")+1);
+        
+        //get the number of rows
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //loop through the rows to check for the pin entry
+        for(var i=0; i<numberOfRows; i++){
+            colGla =  document.getElementById(fieldPrefixGla + i +':gla').value;
+            colDim =  document.getElementById(fieldPrefixDim + i +':dim').value;
+            colVat =  document.getElementById(fieldPrefixVat + i +':vat').value;
+            colPin =  document.getElementById(fieldPrefixPin + i +':pin').value;
+            colPinID = document.getElementById(fieldPrefixPin + i +':pin');
+            if(colPin != null && colPin != '' && /^[a-zA-Z]{1}[0-9]{9}[a-zA-Z]{1}$/.test(colPin) == false)
+            {
+                alert('[' + colPin + ']: is not a valid KRA PIN');
+                colPinID.value = '';
+                colPinID.focus(); //set focus
+            }
+            //  colGla = (isNaN(parseFloat((colGla).replace(',', ''))) ? 0 : parseFloat((colGla).replace(',', '')));
+            //colDim = (isNaN(parseFloat((colDim).replace(',', ''))) ? 0 : parseFloat((colDim).replace(',', '')));
+            colVat = (isNaN(parseFloat((colVat).replace(',', '.'))) ? 0 : parseFloat((colVat).replace(',', '.')));
+            
+            if((colVat > 0 && (colPin != null ||  colPin != '')) && ((colGla != null ||  colGla != '') && (colDim != null ||  colDim != ''))){
+                document.getElementById(subBtn).disabled = false;
+            }
+        }
+    }
+    </script>  
+    
+    
+    <apex:form >
+        <apex:pageBlock title="{!spr1.Name} - Reconciliation" id="pb" >
+            <apex:pageMessages />
+            <apex:variable var="rowNumber" value="{!0}"/>
+            <apex:variable var="fieldPrefix" value="{!''}"/>
+            
+            <apex:pageBlockSection >
+                <apex:outputText label="Requested Amount :" id="totRequested" value="{!spr1.Total_Amount_Requested__c}">
+                </apex:outputText>
+                <apex:outputText label="Total Item Amount :" id="totItem" >
+                    <input type="text" id="sumItem" disabled="true"  onchange="CalculateTotals()"/>
+                </apex:outputText>
+                <apex:outputText label="Total Reconciled :" id="totSum" >
+                    <apex:inputText id="sumtot" value="{!spr1.Reconciled_Total__c}" style="background-color:Gray;" /> 
+                      <!--<input type="text" id="sumtot" disabled="true" />-->
+                </apex:outputText>
+                <apex:outputText label="Total Vat :" id="totVat" >
+                    <input type="text" id="sumVat" disabled="true" onchange="CalculateTotals()" />
+                </apex:outputText>                
+                <apex:outputText label="Total UnReconciled :" id="totSumUnrecon" >
+                    <apex:inputField value="{!spr1.Reconciled_Balance__c}" id="sumtotunrecon"  onchange="CalculateTotals()" />
+                </apex:outputText>
+                <apex:outputText label="Total Transaction Charges :" id="totTcharges" >
+                    <input type="text" id="sumTcharge" disabled="true" onchange="CalculateTotals()" />
+                </apex:outputText>
+                <apex:outputField value="{!spr1.Reconciliation_Submitted__c}"/>
+                
+            </apex:pageBlockSection>
+            <div id ="divMessage">
+            </div>
+           
+            <apex:pageBlockButtons id="pbButtons">
+                <apex:commandButton action="{!addRORow}" value="Add Item Row" reRender="frmAttach,pb,accsTable,pbAdmin,pbButtons" oncomplete="updateDataTable();" disabled="{!spr1.Reconciliation_Submitted__c}"/>
+                <apex:commandButton value="Save" id="save" onclick="Check(this.id); return false;" reRender="frmAttach,pb,accsTable,pbAdmin,pbButtons" disabled="{!spr1.Reconciliation_Submitted__c}" />
+                <apex:actionFunction name="saveNow" action="{!saveRORows}"/>
+                <apex:commandButton value="Submit Reconciliation" onclick="Check('SUBMIT'); return false;" reRender="pb,accsTable,pbAdmin,pbButtons" disabled="{!spr1.Reconciliation_Submitted__c}"/>
+                <apex:actionFunction name="submitRecon" action="{!SubmitRecon}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:dataTable title="SPR Reconciliations" var="ro" value="{!wrpReconItems}" id="accsTable" styleclass="tablesorter"> 
+            <apex:column headerValue="No." style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!ro.reconIndex}" /> 
+                </apex:outputText>
+            </apex:column> 
+            <apex:column headerValue="Recon Name">
+                <apex:outputLink target="blank" value="/{!ro.recon.Id}">{!ro.recon.Name}</apex:outputLink> 
+            </apex:column>
+            <apex:column headerValue="RowID"  value="{!ro.rowID}"/>
+            <apex:column headerValue="Date" >
+                <apex:inputField value="{!ro.recon.Date__c}"/>
+            </apex:column>
+            <apex:column headerValue="Payee / Vendor" >
+                <apex:inputField value="{!ro.recon.Supplier__c}"/>
+            </apex:column>
+            <apex:column headerValue="Item Amount" >
+                <apex:inputField value="{!ro.recon.Item_Amount__c}" id="item" onchange="checkInput(this.id)" />
+            </apex:column>
+            <apex:column headerValue="VAT" >
+                <apex:inputField value="{!ro.recon.VAT__c}" id="vat" onchange="checkInput(this.id)"/>
+            </apex:column>
+            <apex:column headerValue="Transaction Charge" >
+                <apex:inputField value="{!ro.recon.Transaction_Charge__c}" id="tcharge" onchange="checkInput(this.id)"/>
+            </apex:column>
+            <apex:column headerValue="Total">
+                <apex:input id="linetotal" onchange="CalculateTotals(this.id)"/>     
+            </apex:column>
+            <apex:column headerValue="KRA PIN" >
+                <apex:inputField value="{!ro.recon.KRA_PIN__c}" id="pin" onchange="checkPinDimandGLA(this.id)" />
+            </apex:column>
+            <apex:column headerValue="Expense Description" >
+                <apex:inputField value="{!ro.recon.Expense_Description__c}"/>
+            </apex:column> 
+            <apex:column headerValue="GLA" >
+                <apex:inputField value="{!ro.recon.GLA__c}" id="gla" onchange="checkPinDimandGLA(this.id)" />
+            </apex:column> 
+            <apex:column headerValue="DIM 1" >
+                <apex:inputField value="{!ro.recon.DIM_1__c}" id="dim" onchange="checkPinDimandGLA(this.id)"/>
+            </apex:column>
+            <apex:column headerValue="Comments" >
+                <apex:inputField value="{!ro.recon.Comments__c}"/>
+            </apex:column>
+            <apex:column headerValue="Action" >
+                <apex:commandButton value="Delete" action="{!deleteRORow}" reRender="frmAttach,pb,accsTable,pbAdmin" oncomplete="updateDataTable();" disabled="{!spr1.Reconciliation_Submitted__c}">
+                    <apex:param name="rowIndex" value="{!ro.rowID}"/>
+                </apex:commandButton>
+            </apex:column> 
+            
+        </apex:dataTable>
+        <apex:pageblock >
+            <apex:pageBlockSection id="pbAdmin">
+                <p align="right" id="numRows">
+                    <apex:outputText id="numberOfRows" value="{!reconRowIndex}"/>
+                </p>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form> 
+    <apex:form id="frmAttach">
+        <apex:pageblock >
+            <apex:pageBlockSection title="Attachments">
+                <apex:pageBlockTable var="ro" value="{!wrpReconItems}">
+                    <apex:column headerValue="Recon Name">
+                        <apex:outputLink target="blank" value="/{!ro.recon.Id}">{!ro.recon.Name}</apex:outputLink> 
+                    </apex:column>
+                    <apex:column headerValue="RowID"  value="{!ro.rowID}"/>
+                    <apex:column headerValue="Attachments" >
+                        <apex:repeat value="{!ro}" var="att">
+                            <apex:inputFile accept="doc, txt, pdf" value="{!att.attachBody}" filename="{!att.fileName}" contentType="{!att.contentType}" />
+                            <apex:commandButton action="{!ro.AttachFile}" value="Attach" />
+                        </apex:repeat>
+                    </apex:column>
+                    <apex:column headerValue=""  value="{!ro.attMsg}"/>
+                    <apex:column headerValue=" Current Attachments" >
+                        <ol>
+                            <apex:repeat value="{!ro.currAttachments}" var="att">
+                                <li>
+                                    <apex:outputLink value="/{!att.Id}"  target="blank" style="font-size: 1.1em;">{!att.name}</apex:outputLink> &nbsp;
+                                    <apex:commandButton action="{!ro.DeleteAttach}" value="Delete">
+                                        <apex:param id="paramAttachToDel" value="{!att}" assignTo="{!attachToDel}"/>
+                                    </apex:commandButton>                                    
+                                </li>
+                            </apex:repeat>
+                        </ol>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection> 
+        </apex:pageblock>
+    </apex:form>
+    <apex:pageBlock >..</apex:pageBlock>
+    <chatter:feed entityId="{!spr1.Id}"/>
+</apex:page>

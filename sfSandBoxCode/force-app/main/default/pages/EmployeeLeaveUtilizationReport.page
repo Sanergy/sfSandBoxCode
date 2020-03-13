@@ -1,0 +1,77 @@
+<apex:page standardController="Leave_Entitlement_Utilization__c" extensions="LeaveUtlizationReport" contentType="{!IF(ishide = true, 'application/vnd.ms-excel#report.xls', '')}"
+          standardStylesheets="false" docType="html-5.0">
+    
+    <apex:form id="frm1" rendered="{!IF(ishide = true, false, true)}">  
+            <apex:sectionHeader subtitle="Employee Leave Request"/>
+
+        <apex:pageBlock id="pgblock1">        
+            <apex:pageMessages id="showmsg" ></apex:pageMessages>
+            
+            <table style = "width:100%;" >
+                
+                <tr>
+                    <td width="100" height="50">
+                        Leave Start Date
+                    </td>
+                    <td height="50">
+                        <!--<apex:inputField value="{!StartDate}" /> <br/>-->
+                        <apex:input type="date" value="{!StartDate}"></apex:input>  <br/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td width="100">
+                        Leave End Date
+                    </td>
+                    
+                    <td height="50">
+                       <!-- <apex:inputField value="{!EndDate}"/> <br/> --> 
+                        <apex:input value="{!EndDate}" type="date"></apex:input> <br/>
+                    </td>
+                </tr>
+                
+            </table> 
+
+
+            <apex:panelGrid width="100%" id="panelgrd1">
+                <apex:pageBlockSection >
+                    <apex:pageBlockSectionItem >
+                        <apex:commandButton action="{!getLeaveRequestUtilizations}" value="View Leaves" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:commandButton value="Export to Excel" action="{!Export}" reRender="" id="reqLeave" rendered="{!AND(ishide = false, leaveUtilizationList.size != 0)}" reRender=""/>
+                        
+                    </apex:pageBlockSectionItem>
+                    <br/>
+                    
+                </apex:pageBlockSection>
+            </apex:panelGrid>  
+    
+    </apex:pageBlock>            
+       </apex:form>  
+                  <apex:pageBlock >  
+            
+            <apex:pageBlockSection title="Leave Entitlement Utilizations Report.">				                
+                <apex:pageBlockTable value="{!leaveUtilizationList}" var="item" id="table" title="Leave Entitlement Report" style="width:80%;">                    
+                    <apex:column headerValue="Department Unit" value="{!item.utilization.Employee__r.Department_Unit__c}" />
+                    <apex:column headerValue="Employee Name" value="{!item.utilization.Employee__r.Name}" />
+                    <apex:column headerValue="Job Title" value="{!item.utilization.Employee__r.Job_Title__c}"  />
+                    <apex:column headerValue="Leave Group Name" value="{!item.utilization.Employee__r.Leave_Group__r.Name}" />
+                    <apex:column headerValue="Days Accrued per Month" value="{!item.utilization.Leave_Entitlement_Type_Config__r.Days_Accrued_Per_Month__c}" />
+                    <apex:column headerValue="Leave Type" value="{!item.utilization.Leave_Type__c}" />
+                    <apex:column headerValue="Accrued to today" value="{!item.utilization.Leave_Days_Accrued__c}" />
+                    <apex:column headerValue="Accrued to Date Selected" value="{!accruedToEndDate}" />
+                    <apex:column headerValue="Balance To EOY" value="{!BalToEndYear}"  />
+                    <apex:column headerValue="Accrued to EoY" value="{!accruedToEoY}" />-->
+                    <apex:column headerValue="Used Days" value="{!item.utilization.Leave_Days_Used__c}" />
+                </apex:pageBlockTable>        
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection >
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+    
+</apex:page>

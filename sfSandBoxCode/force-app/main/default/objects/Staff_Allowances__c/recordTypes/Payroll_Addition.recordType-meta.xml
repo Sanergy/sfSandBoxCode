@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payroll_Addition</fullName>
+    <active>true</active>
+    <label>Payroll Addition</label>
+    <picklistValues>
+        <picklist>Allowance_Frequency__c</picklist>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-off</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Allowance_Type__c</picklist>
+        <values>
+            <fullName>Airtime Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bonus Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meal Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overtime Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral Commission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transport Allowance</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Data_Mobile_Network__c</picklist>
+        <values>
+            <fullName>Airtel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Safaricom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Voice_Mobile_Network__c</picklist>
+        <values>
+            <fullName>Airtel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Safaricom</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

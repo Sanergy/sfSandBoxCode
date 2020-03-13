@@ -1,0 +1,26 @@
+<apex:page StandardController="Purchase_Order_Line_Item__c"  extensions="GeneratePreviousPOsPRsAndPOItemsOnPO">
+    <apex:form >   
+                 
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            
+            <apex:pageBlockTable value="{!inventoryTransactionList}" var="c" id="table">
+                <apex:column >
+                    
+                </apex:column>  
+                <apex:column headerValue="Transaction Name" width="70" value="{!c.Name}" />  
+                <apex:column headerValue="Inventory Item" value="{!c.Item__c}" />           
+                <apex:column headerValue="Quantity Impact" value="{!c.Quantity_Impact__c}" />           
+                <apex:column headerValue="Comments" value="{!c.Comments__c}" />
+                <apex:column headerValue="Transaction Quantity" value="{!c.Transaction_Quantity__c}" />
+                <apex:column headerValue="Transaction Date" value="{!c.Transaction_Date__c}" />
+                <apex:column headerValue="Transaction Value" value="{!c.Transaction_Value__c}" />
+                <apex:column headerValue="Transaction Id" value="{!c.Transaction_ID__c}" />
+                <apex:column headerValue="Item Company" value="{!c.Item_Company__c}" />
+                <apex:column headerValue="Journal Entry Number" value="{!c.Journal_Entry_Number__c}" />
+                <apex:column headerValue="Location" value="{!c.Location__c}" />
+                <apex:column headerValue="Location Lot" value="{!c.Location_Lot__c}" />
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

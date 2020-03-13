@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Card_Type__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Card Type</label>
+    <referenceTo>Card_Type__c</referenceTo>
+    <relationshipLabel>Card Type Reasons</relationshipLabel>
+    <relationshipName>Card_Type_Reasons</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

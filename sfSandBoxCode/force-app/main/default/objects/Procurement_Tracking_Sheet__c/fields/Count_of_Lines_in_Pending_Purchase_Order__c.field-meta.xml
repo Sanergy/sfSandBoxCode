@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_of_Lines_in_Pending_Purchase_Order__c</fullName>
+    <externalId>false</externalId>
+    <label>Count of Lines in Pending Purchase Order</label>
+    <summaryFilterItems>
+        <field>PTS_Line_Item__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Pending Purchase Order</value>
+    </summaryFilterItems>
+    <summaryForeignKey>PTS_Line_Item__c.Procurement_Tracking_Sheet__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Team_Lead_Approval_Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>a condition set following approval steps</inlineHelpText>
+    <label>Approval Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending</fullName>
+                <default>true</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Pre-Approved</fullName>
+                <default>false</default>
+                <label>Pre-Approved</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Declined</fullName>
+                <default>false</default>
+                <label>Declined</label>
+            </value>
+            <value>
+                <fullName>Approved By Maintenance Team Lead</fullName>
+                <default>false</default>
+                <label>Approved By Maintenance Team Lead</label>
+            </value>
+            <value>
+                <fullName>Declined By Maintenance Team Lead</fullName>
+                <default>false</default>
+                <label>Declined By Maintenance Team Lead</label>
+            </value>
+            <value>
+                <fullName>Declined By Requesting Department Team Lead</fullName>
+                <default>false</default>
+                <label>Declined By Requesting Department Team Lead</label>
+            </value>
+            <value>
+                <fullName>Approved By Finance</fullName>
+                <default>false</default>
+                <label>Approved By Finance</label>
+            </value>
+            <value>
+                <fullName>Declined By Finance</fullName>
+                <default>false</default>
+                <label>Declined By Finance</label>
+            </value>
+            <value>
+                <fullName>Approved By Requesting Department Team Lead</fullName>
+                <default>false</default>
+                <label>Approved By Requesting Department Team Lead</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

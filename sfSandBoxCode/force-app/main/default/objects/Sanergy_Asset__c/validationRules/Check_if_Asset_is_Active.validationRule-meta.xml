@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_if_Asset_is_Active</fullName>
+    <active>true</active>
+    <description>If Asset Status is issued, inventory or Out for 3rd Party Repair;  the checkbox(Active) needs to be ticked.</description>
+    <errorConditionFormula>OR(
+AND(ISPICKVAL( Asset_Status__c , &quot;Issued&quot;), Active__c = FALSE),
+AND(ISPICKVAL( Asset_Status__c , &quot;Inventory&quot;),  Active__c = FALSE),
+AND(ISPICKVAL( Asset_Status__c , &quot;Out for 3rd Party Repair&quot;),  Active__c = FALSE))</errorConditionFormula>
+    <errorDisplayField>Active__c</errorDisplayField>
+    <errorMessage>Kindly Confirm that the asset is active.</errorMessage>
+</ValidationRule>

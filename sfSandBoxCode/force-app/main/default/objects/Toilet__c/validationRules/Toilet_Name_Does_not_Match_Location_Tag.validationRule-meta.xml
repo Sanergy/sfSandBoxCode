@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Toilet_Name_Does_not_Match_Location_Tag</fullName>
+    <active>true</active>
+    <description>Check whether the Toilet Name matches the Location Name</description>
+    <errorConditionFormula>NOT (CONTAINS ( Name , Location__r.Name))</errorConditionFormula>
+    <errorMessage>The Toilet Name does not match with the Location Name</errorMessage>
+</ValidationRule>

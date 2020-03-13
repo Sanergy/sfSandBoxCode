@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Who_is_responsible_for_cleaning__c</fullName>
+    <description>Mystery Loo- Schools</description>
+    <externalId>false</externalId>
+    <label>Who is responsible for cleaning?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Caretaker</fullName>
+                <default>false</default>
+                <label>Caretaker</label>
+            </value>
+            <value>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+                <label>Teacher</label>
+            </value>
+            <value>
+                <fullName>Pupils</fullName>
+                <default>false</default>
+                <label>Pupils</label>
+            </value>
+            <value>
+                <fullName>Any User</fullName>
+                <default>false</default>
+                <label>Any User</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

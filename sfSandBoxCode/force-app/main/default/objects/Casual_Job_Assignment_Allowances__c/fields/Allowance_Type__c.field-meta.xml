@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allowance_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Allowance Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lunch</fullName>
+                <default>false</default>
+                <label>Lunch</label>
+            </value>
+            <value>
+                <fullName>Holiday</fullName>
+                <default>false</default>
+                <label>Holiday</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Toilet_Location_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ NOT(ISPICKVAL(Payment_Option__c, &#39;Upfront&#39;)),
+ No_of_FLI_FLTs__c +  No_of_Kiva_FLTs__c &lt;&gt;  No_of_Toilets__c 
+)</errorConditionFormula>
+    <errorMessage>The sum of the No. of FLI FLTs and KIVA FLTs should match with the number of toilets</errorMessage>
+</ValidationRule>

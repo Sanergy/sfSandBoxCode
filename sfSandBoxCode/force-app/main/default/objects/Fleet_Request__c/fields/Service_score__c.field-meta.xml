@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_score__c</fullName>
+    <description>Rating of service on a scale of 1 - 10</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Rate the service on a scale of 1 - 10</inlineHelpText>
+    <label>Service score</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

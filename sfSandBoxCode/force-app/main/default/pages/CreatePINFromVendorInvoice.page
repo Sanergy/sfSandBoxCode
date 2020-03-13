@@ -1,0 +1,307 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="VendorInvoiceMapping" recordSetVar="Vendor_Invoice__c" docType="html-5.0">
+    <script>
+    function setFocusOnLoad() {
+        CalculateWHTaxTotal();
+    }
+	window.onload=setFocusOnLoad;
+    
+    //Function to Calculate Witholding Tax
+    function CalculateWHTaxTotal(){
+        var fieldPrefixWHVATAmount = document.querySelector('[id*=":WHVATAmount"]').id;
+        fieldPrefixWHVATAmount =  fieldPrefixWHVATAmount.substring(0,fieldPrefixWHVATAmount.lastIndexOf(":"));
+        fieldPrefixWHVATAmount =  fieldPrefixWHVATAmount.substring(0,fieldPrefixWHVATAmount.lastIndexOf(":")+1);
+        
+        var fieldPrefixNetTotal = document.querySelector('[id*=":NetTotal"]').id;
+        fieldPrefixNetTotal =  fieldPrefixNetTotal.substring(0,fieldPrefixNetTotal.lastIndexOf(":"));
+        fieldPrefixNetTotal =  fieldPrefixNetTotal.substring(0,fieldPrefixNetTotal.lastIndexOf(":")+1);
+        
+        var fieldPrefixWHTaxAmount = document.querySelector('[id*=":WHTaxAmount"]').id;
+        fieldPrefixWHTaxAmount =  fieldPrefixWHTaxAmount.substring(0,fieldPrefixWHTaxAmount.lastIndexOf(":"));
+        fieldPrefixWHTaxAmount =  fieldPrefixWHTaxAmount.substring(0,fieldPrefixWHTaxAmount.lastIndexOf(":")+1);
+        
+        var fieldPrefixWHTaxRate = document.querySelector('[id*=":WHTaxRate"]').id;
+        fieldPrefixWHTaxRate =  fieldPrefixWHTaxRate.substring(0,fieldPrefixWHTaxRate.lastIndexOf(":"));
+        fieldPrefixWHTaxRate =  fieldPrefixWHTaxRate.substring(0,fieldPrefixWHTaxRate.lastIndexOf(":")+1);
+                
+        var NumRowsField = document.querySelector('[id*=":VIPOLIForPINRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;  
+        numberOfRows = parseFloat(numberOfRows);
+
+        var fldCompanyName = document.querySelector('[id*=":CompanyName"]').id;
+        var CompanyName = document.getElementById(fldCompanyName).textContent; 
+        
+        var fldTotalPayments = document.querySelector('[id*=":TotalPayments"]').id;
+        var TotalPayments = document.getElementById(fldTotalPayments).textContent; 
+        TotalPayments = (isNaN(parseFloat((TotalPayments).replace(',', ''))) ? 0 : parseFloat((TotalPayments).replace(',', '')));
+        TotalPayments = TotalPayments.toFixed(2);
+        
+        var fldReconInvoiceTotal = document.querySelector('[id*=":ReconInvoiceTotal"]').id;
+        var ReconInvoiceTotal = document.getElementById(fldReconInvoiceTotal).textContent;  
+        ReconInvoiceTotal = parseFloat(ReconInvoiceTotal);
+        
+        var fldReconPINNetValue = document.querySelector('[id*=":ReconPINNetValue"]').id;
+        var ReconPINNetValue = document.getElementById(fldReconPINNetValue).value;  
+        ReconPINNetValue = (isNaN(parseFloat((ReconPINNetValue).replace(',', ''))) ? 0 : parseFloat((ReconPINNetValue).replace(',', '')));
+        ReconPINNetValue = ReconPINNetValue.toFixed(2);
+        ReconPINNetValue = parseFloat(ReconPINNetValue);
+
+        var fldReconPINTaxValue = document.querySelector('[id*=":ReconPINTaxValue"]').id;
+        var ReconPINTaxValue = document.getElementById(fldReconPINTaxValue).value;  
+        ReconPINTaxValue = (isNaN(parseFloat((ReconPINTaxValue).replace(',', ''))) ? 0 : parseFloat((ReconPINTaxValue).replace(',', '')));
+        ReconPINTaxValue = ReconPINTaxValue.toFixed(2);
+        ReconPINTaxValue = parseFloat(ReconPINTaxValue);
+        
+        var colNetTotal = 0.0;
+        var colWHTaxRate = 0.0;
+        var colWHTaxTotal = 0.0;
+        var colWHVATLine = 0.0;
+        var colWHVATTotal = 0.0;
+        var colItemsTotal = 0.0;
+        var WHVATTotal = 0.0;
+        var WHTaxTotal = 0.0;
+        var GrossPINTotal = 0.0;
+        
+        for(var i=0; i<numberOfRows; i++){
+            colNetTotal =  document.getElementById(fieldPrefixNetTotal + i +':NetTotal').textContent;
+            colNetTotal = (isNaN(parseFloat((colNetTotal).replace(',', ''))) ? 0 : parseFloat((colNetTotal).replace(',', '')));
+            
+            colWHTaxRate =  document.getElementById(fieldPrefixWHTaxRate + i +':WHTaxRate').value;
+            colWHTaxRate = (isNaN(parseFloat((colWHTaxRate).replace(',', ''))) ? 0 : parseFloat((colWHTaxRate).replace(',', '')));
+            
+            colWHTaxTotal = ((colNetTotal * colWHTaxRate)/100) * -1;
+            
+            //set line total
+            document.getElementById(fieldPrefixWHTaxAmount + i +':WHTaxAmount').value = colWHTaxTotal.toFixed(2);
+            WHTaxTotal = WHTaxTotal + colWHTaxTotal;
+            WHTaxTotal = WHTaxTotal.toFixed(2);
+            
+            //if Sanergy then apply WHVAT Calculation @ 0.375
+            if(CompanyName == 'Sanergy Limited'){
+                colWHVATTotal =  document.getElementById(fieldPrefixWHVATAmount + i +':WHVATAmount').textContent;
+                colWHVATTotal = (isNaN(parseFloat((colWHVATTotal).replace(',', ''))) ? 0 : parseFloat((colWHVATTotal).replace(',', '')));
+                
+                //increment WHVAT
+                WHVATTotal = WHVATTotal + colWHVATTotal;
+            }
+        } 
+        //Update Recon Total
+        //set Gross VI Tax totals  
+        var GrossWHTaxAmount = document.querySelector('[id*=":WHTaxTotal"]').id;
+        document.getElementById(GrossWHTaxAmount).textContent = WHTaxTotal; 
+        
+        var GrossWHVATAmount = document.querySelector('[id*=":WHVATTotal"]').id;
+        document.getElementById(GrossWHVATAmount).textContent = WHVATTotal; 
+        
+        //Final value to be set on the PIN to allow for rounding off
+        var fldReconPINTotal = document.querySelector('[id*=":ReconPINTotal"]').id;
+        ReconPINTotal = ReconPINNetValue + ReconPINTaxValue;
+        ReconPINTotal = ReconPINTotal.toFixed(2);
+        ReconPINTotal = parseFloat(ReconPINTotal);
+        document.getElementById(fldReconPINTotal).textContent = ReconPINTotal ;  
+        
+        //Calculate the Gross PIN value
+        GrossPINTotal = parseFloat(TotalPayments) + parseFloat(WHTaxTotal)  + parseFloat(WHVATTotal) + parseFloat(ReconPINNetValue) + parseFloat(ReconPINTaxValue);
+        GrossPINTotal = Number(GrossPINTotal).toLocaleString('en'); 
+        var fldGrossPINTotal = document.querySelector('[id*=":GrossPINTotal"]').id;
+        document.getElementById(fldGrossPINTotal).textContent = GrossPINTotal;
+
+    }
+    /*
+    //Function to calculate Recon PIN Total.
+       function CalculatePINTotal(){
+           var ReconInvoiceTotal = document.querySelector('[id*=":ReconInvoiceTotal"]').id;
+           var ReconInvoiceTotal = document.getElementById(ReconInvoiceTotal).textContent;  
+           ReconInvoiceTotal = parseFloat(ReconInvoiceTotal);
+           
+           var ReconPINNetValue = document.querySelector('[id*=":ReconPINNetValue"]').id;
+           var ReconPINNetValue = document.getElementById(ReconPINNetValue).value;  
+           ReconPINNetValue = parseFloat(ReconPINNetValue);
+           
+           var ReconPINTaxValue = document.querySelector('[id*=":ReconPINTaxValue"]').id;
+           var ReconPINTaxValue = document.getElementById(ReconPINTaxValue).value;  
+           ReconPINTaxValue = parseFloat(ReconPINTaxValue);
+           
+           //Final value to be set on the PIN to allow for rounding off
+           var ReconPINTotal = document.querySelector('[id*=":ReconPINTotal"]').id;
+           document.getElementById(ReconPINTotal).textContent = ReconPINNetValue + ReconPINTaxValue + ReconInvoiceTotal;   
+       }
+       */
+    </script>
+    <apex:form >    
+        <apex:sectionHeader title="{!vi.Name}" subtitle="CREATE PIN FOR VENDOR INVOICE {!vi.Name}"/>
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Create PIN" action="{!CreatePIN}"/>
+                <apex:commandButton value="Return to VI" action="{!cancel}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Vendor Invoice Information">
+                <apex:outputField value="{!vi.Name}"/>
+                <apex:outputField value="{!vi.Vendor__c}"/>
+                <apex:outputField value="{!vi.Invoice_Number__c}"/>
+                <apex:outputField value="{!vi.VI_Status__c}"/>
+                <apex:outputField value="{!vi.Invoice_Total__c}"/>
+                <apex:outputField value="{!vi.Total_Payments__c}" id="TotalPayments"/>
+                <apex:outputField value="{!vi.Invoice_Received_Value__c}"/>
+                <apex:outputField value="{!vi.Reconciled_Invoice_Total__c}" id="ReconInvoiceTotal"/>
+                <apex:outputField value="{!vi.Receipt_Variance__c}"/>
+                <apex:outputField value="{!vi.Payment_Variance__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Withholding Tax Total"></apex:outputLabel>
+                    <apex:outputText id="WHTaxTotal" ></apex:outputText>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Withholding VAT Total"></apex:outputLabel>
+                    <apex:outputText id="WHVATTotal" ></apex:outputText>
+                </apex:pageBlockSectionItem>                
+                <apex:inputText label="PIN Recon Net Value" value="{!ReconPINNetValue}" id="ReconPINNetValue" onchange="CalculateWHTaxTotal()" />
+                <apex:inputText label="PIN Recon Tax Value" value="{!ReconPINTaxValue}" id="ReconPINTaxValue" onchange="CalculateWHTaxTotal()"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PIN Recon GLA"></apex:outputLabel>
+                    <c:AdvancedLookup sObjectName="c2g__codaGeneralLedgerAccount__c"
+                                      value="{!ReconPINGLA}" 
+                                      searchFields="Name" 
+                                      formFields="Name,c2g__ReportingCode__c"
+                                      canCreate="false"
+                                      fieldLabel="Name"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PIN Recon DIM 1"></apex:outputLabel>
+                    <c:AdvancedLookup sObjectName="c2g__codaDimension1__c"
+                                      value="{!ReconPINDIM1}" 
+                                      searchFields="Name" 
+                                      formFields="Name,c2g__ReportingCode__c"
+                                      canCreate="false"
+                                      fieldLabel="Name"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PIN Recon DIM 2"></apex:outputLabel>
+                    <c:AdvancedLookup sObjectName="c2g__codaDimension2__c"
+                                      value="{!ReconPINDIM2}" 
+                                      searchFields="Name" 
+                                      formFields="Name,c2g__ReportingCode__c"
+                                      canCreate="false"
+                                      fieldLabel="Name"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PIN Recon DIM 3"></apex:outputLabel>
+                    <c:AdvancedLookup sObjectName="c2g__codaDimension3__c"
+                                      value="{!ReconPINDIM3}" 
+                                      searchFields="Name" 
+                                      formFields="Name,c2g__ReportingCode__c"
+                                      canCreate="false"
+                                      fieldLabel="Name"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PIN Recon DIM 4"></apex:outputLabel>
+                    <c:AdvancedLookup sObjectName="c2g__codaDimension4__c"
+                                      value="{!ReconPINDIM4}" 
+                                      searchFields="Name" 
+                                      formFields="Name,c2g__ReportingCode__c"
+                                      canCreate="false"
+                                      fieldLabel="Name"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="PIN Recon Total"></apex:outputLabel>
+                    <apex:outputText id="ReconPINTotal" ></apex:outputText>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Gross PIN Total"></apex:outputLabel>
+                    <apex:outputText id="GrossPINTotal" ></apex:outputText>
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!vi.VI_PIN__c}"/>
+                
+            </apex:pageBlockSection> 
+            <apex:pageBlockSection title="Vendor Invoice Items" columns="1">
+                <apex:pageBlockTable value="{!VIPOLIforPIN}" var="item" id="table">
+                    <apex:column headerValue="Status"><apex:outputText value="{!item.vipoli.Status__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="VIPOL Item">
+                        <apex:outputlink value="/{!item.vipoli.Id}">{!item.vipoli.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="PO Line Item">
+                        <apex:outputlink value="/{!item.vipoli.Purchase_Order_Line_Item__c}">{!item.vipoli.Purchase_Order_Line_Item__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <!--<apex:column headerValue="VIPOL Item"><apex:outputText value="{!item.vipoli.Name}"></apex:outputText></apex:column>
+<apex:column headerValue="PO line Item"><apex:outputText value="{!item.vipoli.Purchase_Order_Line_Item__r.Name}"></apex:outputText></apex:column>-->
+                    <apex:column headerValue="Description"><apex:outputText value="{!item.vipoli.Purchase_Order_Line_Item__r.Item__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Purchase UoM"><apex:outputText value="{!item.vipoli.Purchase_Order_Line_Item__r.UoM__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Qty Requested">
+                        <apex:outputText value="{0,number, ###,###.###}" id="qtyReq" >
+                            <apex:param value="{!item.vipoli.Purchase_Order_Line_Item__r.Quantity_Requested__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Qty Received">
+                        <apex:outputText value="{0,number, ###,###.####}" id="qtyRec" >
+                            <apex:param value="{!item.vipoli.Purchase_Order_Line_Item__r.Quantity_Accepted__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Quantity Reconciled">
+                        <apex:outputText value="{!item.vipoli.Reconciled_Item_Quantity_Received__c}" id="QtyReceived" />
+                    </apex:column>
+                    <apex:column headerValue="Unit Cost" >
+                        <apex:outputText value="{!item.vipoli.Item_Unit_Cost__c}" id="UnitCost"/>
+                    </apex:column>
+                    <apex:column headerValue="VAT Percentage">
+                        <apex:outputText value="{!item.vipoli.Item_Vat__c}" id="Vat"/>
+                    </apex:column>
+                    <apex:column headerValue="Net Cost"> 
+                        <apex:outputText value="{!item.vipoli.Reconciled_Line_Net_Cost__c}" id="NetTotal"/>
+                    </apex:column>
+                    <apex:column headerValue="Total VAT"> 
+                        <apex:outputText value="{!item.vipoli.Reconciled_Line_VAT__c}" id="VATTotal"/>
+                    </apex:column>
+                    <apex:column headerValue="Total Cost"> 
+                        <apex:outputText value="{!item.vipoli.Reconciled_Line_Total__c}" id="ItemTotal"/>
+                    </apex:column>
+                    <apex:column headerValue="GLA" value="{!item.vipoli.Purchase_Order_Line_Item__r.GLA__c}"/>
+                    <apex:column headerValue="DIM 1" value="{!item.vipoli.Purchase_Order_Line_Item__r.Dimension_1__c}"/>
+                    <apex:column headerValue="Witholding VAT" >
+                        <apex:outputText value="{!item.WHVATAmount}" id="WHVATAmount" >
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Witholding Tax %" >
+                        <apex:inputText id="WHTaxRate" value="{!item.WHTaxRate}"  onchange="CalculateWHTaxTotal()" />
+                    </apex:column>
+                    <apex:column headerValue="Witholding Tax Amount" >
+                        <apex:inputText id="WHTaxAmount" value="{!item.WHTaxAmount}" html-readonly="true" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Vendor Invoice Payments">
+                <apex:pageBlockTable value="{!vipmt}" var="item" id="vipmttable" columnClasses="300">
+                    <apex:column headerValue="VI Payment">
+                        <apex:outputlink value="/{!item.Id}">{!item.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="EPR">
+                        <apex:outputlink value="/{!item.EPR__c}">{!item.EPR__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="Amount">
+                        <apex:outputText value="{0,number, ###,###.###}">
+                            <apex:param value="{!item.Payment_Cost__c}"/>
+                        </apex:outputText>  
+                    </apex:column>
+                    <apex:column headerValue="Payment Made">
+                        <apex:inputCheckbox value="{!item.Payment_Made__c}" disabled="true"/>
+                    </apex:column>
+                    <apex:column headerValue="Confirmation No."><apex:outputText value="{!item.EPR__r.Confirmation_Number__c}"></apex:outputText></apex:column>
+                    <apex:column headerValue="Cash Entry">
+                        <apex:outputlink value="/{!item.EPR__r.Cash_Entry__c}">{!item.EPR__r.Cash_Entry__r.Name}</apex:outputlink>
+                    </apex:column>
+                    <apex:column headerValue="Cash Entry Status"><apex:outputText value="{!item.EPR__r.Cash_Entry__r.c2g__Status__c}"></apex:outputText></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:outputText label="Company Name" value="{!CompanyName}" id="CompanyName"></apex:outputText>
+                <apex:outputText label="VIPOLI Rows" value="{!VIPOLIForPINRows}" id="VIPOLIForPINRows"></apex:outputText>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>

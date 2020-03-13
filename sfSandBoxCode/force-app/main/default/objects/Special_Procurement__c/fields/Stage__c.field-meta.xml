@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <description>The current stage of the PR</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The current stage of the PR</inlineHelpText>
+    <label>Stage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Open</fullName>
+                <default>true</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>Submitted for Approval</fullName>
+                <default>false</default>
+                <label>Submitted for Approval</label>
+            </value>
+            <value>
+                <fullName>Finance Approved</fullName>
+                <default>false</default>
+                <label>Finance Approved</label>
+            </value>
+            <value>
+                <fullName>Team Lead Approved</fullName>
+                <default>false</default>
+                <label>Team Lead Approved</label>
+            </value>
+            <value>
+                <fullName>Director Approved</fullName>
+                <default>false</default>
+                <label>Director Approved</label>
+            </value>
+            <value>
+                <fullName>EPR Generated</fullName>
+                <default>false</default>
+                <label>EPR Generated</label>
+            </value>
+            <value>
+                <fullName>Closed - Finance</fullName>
+                <default>false</default>
+                <label>Closed - Finance</label>
+            </value>
+            <value>
+                <fullName>Closed - Team Lead</fullName>
+                <default>false</default>
+                <label>Closed - Team Lead</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Recalled</fullName>
+                <default>false</default>
+                <label>Recalled</label>
+            </value>
+            <value>
+                <fullName>SPR Approved</fullName>
+                <default>false</default>
+                <label>SPR Approved</label>
+            </value>
+            <value>
+                <fullName>PP Approved</fullName>
+                <default>false</default>
+                <label>PP Approved</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

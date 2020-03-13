@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EvergrowQuantityValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+ AND( NOT( ISBLANK( Opportunity_Product4__c ) ),ISBLANK( Evergrow_5Kg_Quantity__c ) ),
+ AND( NOT( ISBLANK( Opportunity_Product3__c ) ),ISBLANK( Evergrow_25Kg_Quantity__c )),
+ AND( NOT( ISBLANK( Opportunity_Product2__c ) ),ISBLANK( Evergrow_35Kg_Quantity__c )),
+ AND( NOT( ISBLANK( Opportunity_Product__c ) ), ISBLANK( Evergrow_50Kg_Quantity__c )) 
+ 
+)</errorConditionFormula>
+    <errorMessage>Please check whether you have added Quantity for your respective Evergrow Products.</errorMessage>
+</ValidationRule>

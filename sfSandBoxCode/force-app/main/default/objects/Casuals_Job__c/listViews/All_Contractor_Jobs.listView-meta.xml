@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Contractor_Jobs</fullName>
+    <columns>NAME</columns>
+    <columns>Company__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Description__c</columns>
+    <columns>Department__c</columns>
+    <columns>Team_Lead__c</columns>
+    <columns>Expected_Total_Amount__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Contractor Jobs</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>Business_Development_Associate</roleAndSubordinates>
+        <roleAndSubordinates>Finance_Manager</roleAndSubordinates>
+        <roleAndSubordinates>Human_Resource</roleAndSubordinates>
+        <roleAndSubordinates>Systems_Administrator</roleAndSubordinates>
+    </sharedTo>
+</ListView>

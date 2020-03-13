@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QHSE_Flag__c</fullName>
+    <description>Changes to 1 if Item Type is a Non-Stock otherwise 0</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Changes to 1 if Item Type is a Non-Stock otherwise 0</inlineHelpText>
+    <label>QHSE Flag</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Condition_on_Return_Wanting</fullName>
+    <active>true</active>
+    <description>Require comments of why asset is in wanting condition on return</description>
+    <errorConditionFormula>AND 
+( 
+Asset_Returned__c = True, 
+NOT(ISPICKVAL(Item_Condition_on_Return__c , &quot;Good Condition&quot;)),
+Item_Condition_on_Return_Comments__c = &quot;&quot;
+)</errorConditionFormula>
+    <errorMessage>Describe reason item condition is other than Good Condition</errorMessage>
+</ValidationRule>

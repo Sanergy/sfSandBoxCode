@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_Date__c</fullName>
+    <description>Date that survey was conducted or the information was gathered</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the date the survey was conducted or the information was gathered</inlineHelpText>
+    <label>Survey Date</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

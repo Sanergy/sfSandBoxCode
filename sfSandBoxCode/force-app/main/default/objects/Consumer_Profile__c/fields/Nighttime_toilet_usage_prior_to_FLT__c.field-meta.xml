@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nighttime_toilet_usage_prior_to_FLT__c</fullName>
+    <externalId>false</externalId>
+    <label>Nighttime toilet usage prior to FLT</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Flying Toilet</fullName>
+                <default>false</default>
+                <label>Flying Toilet</label>
+            </value>
+            <value>
+                <fullName>Plot/workplace</fullName>
+                <default>false</default>
+                <label>Plot/workplace</label>
+            </value>
+            <value>
+                <fullName>Neighboring plot</fullName>
+                <default>false</default>
+                <label>Neighboring plot</label>
+            </value>
+            <value>
+                <fullName>Commercial Latrine</fullName>
+                <default>false</default>
+                <label>Commercial Latrine</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

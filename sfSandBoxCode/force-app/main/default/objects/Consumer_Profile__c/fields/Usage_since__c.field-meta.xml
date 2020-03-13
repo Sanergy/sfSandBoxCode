@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_since__c</fullName>
+    <externalId>false</externalId>
+    <label>How long have they been using FLT</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>First timer</fullName>
+                <default>false</default>
+                <label>First timer</label>
+            </value>
+            <value>
+                <fullName>Over one month</fullName>
+                <default>false</default>
+                <label>Over one month</label>
+            </value>
+            <value>
+                <fullName>Less than 1 month</fullName>
+                <default>false</default>
+                <label>Less than 1 month</label>
+            </value>
+            <value>
+                <fullName>Since opening</fullName>
+                <default>false</default>
+                <label>Since opening</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

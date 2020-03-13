@@ -1,0 +1,381 @@
+<apex:page docType="html-5.0" controller="BulkApprovalController" title="MY PENDING APPROVALS" tabStyle="Account">
+    
+    <style type="text/css">
+        .Approve{ color: #fff; background: green; font-weight: bold; }
+        .Reject { color: #fff; background: red; font-weight: bold;}
+        .No-Action { color: #fff; background: orange; font-weight: bold;}
+    </style>
+    
+    <!-- Javascript--->
+    <script>  
+    function changeApprovalClass( _id , action) {
+        if(action== 'Approve' ) {
+            document.getElementById(_id).styleClass = "Approve";
+        }
+        else if(action== 'Reject'){
+            document.getElementById(_id).styleClass = "Reject";
+        }
+            else if(action == 'No-Action'){
+                document.getElementById(_id).styleClass = "No-Action";
+            }
+    }
+    </script>
+    
+    <apex:form >
+        <apex:sectionHeader subtitle="MY PENDING APPROVALS"/>
+        <apex:pageBlock >
+            
+            <apex:pageMessages />
+            <apex:pageblocksection title="PENDING EPR APPROVALS" columns="1" rendered="{!wrapperEPRs.size > 0}"> 
+                <!--
+<apex:panelGrid columns="4" >
+<apex:commandLink value="Save EPR Actions" action="{!save}" styleClass="btn" style="padding: 3px 2px; text-decoration: none">                        
+<apex:param name="objectType" value="{!EPR_NAME}" />   
+</apex:commandLink>
+</apex:panelGrid>-->
+                
+                <apex:pageBlockTable value="{!wrapperEPRs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.epr.id}">{!w.epr.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Company" value="{!w.epr.Company__c}"/>
+                    <apex:column headerValue="Requestor" value="{!w.epr.Owner.name}"/>
+                    <apex:column value="{!w.epr.department__c}"/>
+                    <apex:column value="{!w.epr.Vendor_Company__c}"/>
+                    <apex:column value="{!w.epr.Notes__c}"/>
+                    <apex:column value="{!w.epr.Scheduled_Payment_Date__c}"/>
+                    <apex:column value="{!w.epr.Payment_Type__c}"/>
+                    <apex:column headerValue="Gross Amount">
+                        <apex:outputText value="{!w.epr.Payment_Currency__c} {0,number, #,###,###.##}">
+                            <apex:param value="{!w.epr.Gross_Payment_Amount__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <!--
+<apex:column headerValue="Approval Comments" width="100">
+<apex:inputTextarea value="{!w.approvalComments}" />
+</apex:column> 
+<apex:column headerValue="Approval Action">
+<apex:selectList value="{!w.selectedApprovalOption}" size="1">
+<apex:selectOptions value="{!w.approvalOptions }" />
+</apex:selectList>
+</apex:column>-->
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="PENDING SPECIAL PAYMENT REQUEST APPROVALS" columns="1" rendered="{!wrapperSPRs.size > 0}">                     
+                <apex:pageBlockTable value="{!wrapperSPRs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.spr.id}">{!w.spr.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Requestor" value="{!w.spr.Owner.name}"/>
+                    <apex:column value="{!w.spr.Type__c}"/>
+                    <apex:column value="{!w.spr.Required_Date__c}"/>
+                    <apex:column value="{!w.spr.Comments__c}"/>
+                    <apex:column value="{!w.spr.Requesting_Department__c}"/>
+                    <apex:column value="{!w.spr.Vendor__c}"/>
+                    <apex:column headerValue="Total Amount Approved">
+                        <apex:outputText value="{0,number, #,###,###.##}">
+                            <apex:param value="{!w.spr.Total_Amount__c}"/>
+                        </apex:outputText>    
+                    </apex:column>
+                    <apex:column value="{!w.spr.Stage__c}"/>
+                    <apex:column value="{!w.spr.Requesting_Company__c}"/>
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>  
+            
+            <apex:pageblocksection title="PENDING LEAVE REQUEST APPROVALS" columns="1" rendered="{!wrapperELRs.size > 0}">                     
+                <apex:pageBlockTable value="{!wrapperELRs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.elr.Id}">{!w.elr.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Requestor" value="{!w.elr.Employee__r.Name}"/>
+                    <apex:column headerValue="Leave Type" value="{!w.elr.Leave_Type__c}" />
+                    <!-- <apex:column value="{!w.elr.Leave_Entitlement_Utilization__r.Name}"/> -->
+                    <apex:column headerValue="Start Date" value="{!w.elr.Leave_Start_Date__c}"/>
+                    <apex:column headerValue="End Date" value="{!w.elr.Leave_End_Date__c}"/>
+                    <apex:column headerValue="Days Requested" value="{!w.elr.No_Of_Leave_Days_Requested__c}"/>
+                    <!-- <apex:column headerValue="Total Amount Approved">
+<apex:outputText value="{0,number, #,###,###.##}">
+<apex:param value="{!w.elr.Total_Amount__c}"/>
+</apex:outputText>    
+</apex:column> -->
+                    <apex:column value="{!w.elr.Comments__c}"/>
+                    <!--<apex:column value="{!w.elr.Employee_s_Department__r.Name}"/>
+<apex:column value="{!w.elr.Department_Team_Lead__r.Name}"/> -->
+                    <apex:column value="{!w.elr.Approval_Status__c}"/>
+                    <apex:column value="{!w.elr.Leave_Approved__c}"/>
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>                
+            
+            <apex:pageblocksection title="PENDING PROCUREMENT REQUEST APPROVALS"  columns="1" rendered="{!wrapperPRs.size > 0}"> 
+                <!--
+<apex:panelGrid columns="4" >
+<apex:commandLink value="Save PROCUREMENT REQUEST Actions" action="{!save}" styleClass="btn" style="padding: 3px 2px; text-decoration: none">                        
+<apex:param name="objectType" value="{!PR_NAME}" />   
+</apex:commandLink>
+</apex:panelGrid>-->
+                
+                <apex:pageBlockTable value="{!wrapperPRs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.pr.id}">{!w.pr.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{!w.pr.Requesting_Company__r.Name}"/>
+                    <apex:column value="{!w.pr.Requestor__c}"/>
+                    <apex:column value="{!w.pr.Request_Date__c}"/>
+                    <apex:column value="{!w.pr.Required_Date__c}"/>
+                    <apex:column value="{!w.pr.Requesting_Department__c}"/>
+                    <apex:column headerValue="Total Amount">
+                        <apex:outputText value="KES {0,number, #,###,###.##}">
+                            <apex:param value="{!w.pr.Total_Amount__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <!--
+<apex:column headerValue="Approval Comments">
+<apex:inputTextarea value="{!w.approvalComments}"/>
+</apex:column> 
+<apex:column headerValue="Approval Action">
+<apex:selectList value="{!w.selectedApprovalOption}" size="1">
+<apex:selectOptions value="{!w.approvalOptions }" />
+</apex:selectList>
+</apex:column> -->
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+            
+            <!--apex:pageblocksection title="PENDING QUOTE APPROVALS"  columns="1" rendered="{!wrapperPRLINEs.size > 0}" > 
+<apex:panelGrid columns="4" >
+<apex:commandLink value="Save QUOTE Actions" action="{!save}" styleClass="btn" style="padding: 3px 2px; text-decoration: none">                        
+<apex:param name="objectType" value="{!PR_LINE_NAME}" />   
+</apex:commandLink>
+</apex:panelGrid>
+<apex:pageBlockTable value="{!wrapperPRLINEs}" var="w">
+<apex:column headerValue="Name">
+<apex:outputLink value="/{!w.prLine.id}">{!w.prLine.name}</apex:outputLink>
+</apex:column>
+<apex:column headerValue="PR Name" value="{!w.prLine.Procurement_Tracking_Sheet__c}"/>
+<apex:column value="{!w.prLine.Item__c}" width="150"/>
+<apex:column value="{!w.prLine.Item_Category__c}"/>
+<apex:column value="{!w.prLine.Quantity__c}"/>
+<apex:column headerValue="Total Budget Amount">
+<apex:outputText value="KES {0,number, #,###,###.##}">
+<apex:param value="{!w.prLine.Estimate__c}"/>
+</apex:outputtext>
+</apex:column>
+<apex:column headerValue="Total Quote Amount">
+<apex:outputText value="KES {0,number, #,###,###.##}">
+<apex:param value="{!w.prLine.Total_Quote_Amount_In_KES__c}"/>
+</apex:outputtext>
+</apex:column>
+<apex:column value="{!w.prLine.Vendor__c}"/>
+<apex:column headerValue="Approval Comments">
+<apex:inputTextarea value="{!w.approvalComments}"/>
+</apex:column> 
+<apex:column headerValue="Approval Action">
+<apex:selectList value="{!w.selectedApprovalOption}" size="1">
+<apex:selectOptions value="{!w.approvalOptions }" />
+</apex:selectList>
+</apex:column>  </apex:pageBlockTable>                
+</apex:pageblocksection -->
+<!--            
+            <apex:pageblocksection title="PENDING FLEET REQUEST APPROVALS"  columns="1" rendered="{!wrapperFLEET.size > 0}">
+                <!--
+<apex:panelGrid columns="4" >
+<apex:commandLink value="Save FLEET REQUEST Actions" action="{!save}" styleClass="btn" style="padding: 3px 2px; text-decoration: none">                        
+<apex:param name="objectType" value="{!FLEET_NAME}" />   
+</apex:commandLink>
+</apex:panelGrid> -//->
+                
+                <apex:pageBlockTable value="{!wrapperFLEET}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.fleetRequest.id}">{!w.fleetRequest.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{!w.fleetRequest.Requesting_Employee__c}"/>
+                    <apex:column value="{!w.fleetRequest.Requesting_Department__c}"/>
+                    <apex:column value="{!w.fleetRequest.Company__c}"/>
+                    <apex:column value="{!w.fleetRequest.Reason_For_Trip__c}"/>
+                    <apex:column headerValue="Total Amount">
+                        <apex:outputText value="KES {0,number, #,###,###.##}">
+                            <apex:param value="{!w.fleetRequest.Total_Request_Cost__c}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <!--
+<apex:column headerValue="Approval Comments">
+<apex:inputTextarea value="{!w.approvalComments}"/>
+</apex:column> 
+<apex:column headerValue="Approval Action">
+<apex:selectList value="{!w.selectedApprovalOption}" size="1">
+<apex:selectOptions value="{!w.approvalOptions }" />
+</apex:selectList>
+</apex:column> -//-> 
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="PENDING CONTRACTOR JOB APPROVALS"  columns="1" rendered="{!wrapperJOBs.size > 0}"> 
+                <!--
+<apex:panelGrid columns="4" >
+<apex:commandLink value="Save CONTRACTOR JOB Actions" action="{!save}" styleClass="btn" style="padding: 3px 2px; text-decoration: none">                        
+<apex:param name="objectType" value="{!CONTRACTOR_JOB_NAME}" />   
+</apex:commandLink>
+</apex:panelGrid>-//->
+                
+                <apex:pageBlockTable value="{!wrapperJOBs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.contractorJob.id}">{!w.contractorJob.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Requestor" value="{!w.contractorJob.Owner.name}"/>
+                    <apex:column value="{!w.contractorJob.Department__c}"/>
+                    <apex:column value="{!w.contractorJob.Start_Date__c}"/>
+                    <apex:column value="{!w.contractorJob.End_Date__c}"/>
+                    <apex:column value="{!w.contractorJob.Company__c}"/>
+                    <apex:column value="{!w.contractorJob.Description__c}"/>
+                    <apex:column headerValue="Total Estimate Amount">
+                        <apex:outputText value="KES {0,number, #,###,###.##}">
+                            <apex:param value="{!w.contractorJob.Expected_Total_Amount__c}"/>
+                        </apex:outputtext>
+                    </apex:column>
+                    <!--
+<apex:column headerValue="Approval Comments">
+<apex:inputTextarea value="{!w.approvalComments}"/>
+</apex:column> 
+<apex:column headerValue="Approval Action">
+<apex:selectList value="{!w.selectedApprovalOption}" size="1">
+<apex:selectOptions value="{!w.approvalOptions }" />
+</apex:selectList>
+</apex:column>-//->
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+-->           
+            <apex:pageblocksection title="PENDING PURCHASE ORDERS"  columns="1" rendered="{!wrapperPOs.size > 0}"> 
+                <!--
+<apex:panelGrid columns="4" >
+<apex:commandLink value="Save PURCHASE ORDER Actions" action="{!save}" styleClass="btn" style="padding: 3px 2px; text-decoration: none">                        
+<apex:param name="objectType" value="{!PURCHASE_ORDER_NAME}" />   
+</apex:commandLink>
+</apex:panelGrid>-->
+                
+                <apex:pageBlockTable value="{!wrapperPOs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.purchaseOrder.id}">{!w.purchaseOrder.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Requestor" value="{!w.purchaseOrder.Owner.name}"/>
+                    <apex:column headerValue="Vendor" value="{!w.purchaseOrder.Vendor_Account__r.name}"/>
+                    <apex:column headerValue="Company" value="{!w.purchaseOrder.Company__r.name}"/>
+                    <apex:column headerValue="Firm Date" value="{!w.purchaseOrder.Firm_Date__c}"/>
+                    <apex:column headerValue="Status" value="{!w.purchaseOrder.Order_Status__c}"/>
+                    <apex:column headerValue="Total Amount">
+                        <apex:outputText value="{!w.purchaseOrder.PO_Currency__r.Name} {0,number, #,###,###.##}">
+                            <apex:param value="{!w.purchaseOrder.Total_Amount__c}"/>
+                        </apex:outputtext>
+                    </apex:column>
+                    <!--
+<apex:column headerValue="Approval Comments">
+<apex:inputTextarea value="{!w.approvalComments}"/>
+</apex:column> 
+<apex:column headerValue="Approval Action">
+<apex:selectList value="{!w.selectedApprovalOption}" size="1">
+<apex:selectOptions value="{!w.approvalOptions }" />
+</apex:selectList>
+</apex:column>--> 
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="PENDING PURCHASE ORDER ITEMS "  columns="1" rendered="{!WrapperPOIs.size > 0}"> 
+                
+                <apex:pageBlockTable value="{!WrapperPOIs}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.purchaseOrderItem.id}">{!w.purchaseOrderItem.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Status" value="{!w.purchaseOrderItem.Status__c}"/>
+                    <apex:column headerValue="Vendor" value="{!w.purchaseOrderItem.Vendor__r.Name}"/>
+                    <apex:column headerValue="Type of Vendor" value="{!w.purchaseOrderItem.Vendor_Type__c}"/>                    
+                    <apex:column headerValue="Inventory Item" value="{!w.purchaseOrderItem.Inventory_Item__r.Name}"/>
+                    <apex:column headerValue="Purchase UOM" value="{!w.purchaseOrderItem.Purchase_UoM__r.Name}"/>
+                    <apex:column headerValue="Company" value="{!w.purchaseOrderItem.Company_Name__c}"/>
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>            
+            
+            <apex:pageblocksection title="PENDING RECRUITMENT REQUISITION "  columns="1" rendered="{!WrapperRecruitRequisition.size > 0}"> 
+                
+                <apex:pageBlockTable value="{!WrapperRecruitRequisition}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.recruitmentRequisition.id}">{!w.recruitmentRequisition.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Requestor" value="{!w.recruitmentRequisition.Job_Title__c}"/>
+                    <apex:column headerValue="Employee Role" value="{!w.recruitmentRequisition.Employee_Role__c}"/>
+                    <apex:column headerValue="Requestor" value="{!w.recruitmentRequisition.Requestor__c}"/>
+                    <apex:column headerValue="Salary" value="{!w.recruitmentRequisition.Salary__c}"/>
+                    <apex:column headerValue="Start Date" value="{!w.recruitmentRequisition.Start_Date__c}"/>
+                    <apex:column headerValue="End Date" value="{!w.recruitmentRequisition.End_Date__c}"/>
+                    <apex:column headerValue="Candidate Specification" value="{!w.recruitmentRequisition.Candidate_Specification__c}"/>
+
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="PENDING EMPLOYEE ROLE"  columns="1" rendered="{!WrapperEmpRoles.size > 0}"> 
+                
+                <apex:pageBlockTable value="{!WrapperEmpRoles}" var="w">
+                    <apex:column headerValue="Name">
+                        <apex:outputLink value="/{!w.employeeRole.id}">{!w.employeeRole.name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Requestor" value="{!w.employeeRole.Job_Title__c}"/>
+                    <apex:column headerValue="Vendor" value="{!w.employeeRole.Line_Manager__c}"/>
+                    <apex:column headerValue="Company" value="{!w.employeeRole.Department__c}"/>
+                    <apex:column headerValue="Firm Date" value="{!w.employeeRole.Sanergy_Department_Unit__c}"/>
+                    <apex:column headerValue="Status" value="{!w.employeeRole.Stage__c}"/>
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="PENDING STAFF ALLOWANCES APPROVALS"  columns="1" rendered="{!wrapperALLOWANCES.size > 0}">
+                
+                <apex:panelGrid columns="4" >
+                    <apex:commandButton value="Save STAFF ALLOWANCES Actions" action="{!saveAllowanceActions}"/>
+                    <apex:commandButton value="Flag All as Approve" action="{!markAllAllowancesApp}" rerender="allowances"/>
+                    <apex:commandButton value="Flag All as Reject" action="{!markAllAllowancesRej}" rerender="allowances"/>
+                </apex:panelGrid>
+                
+                <apex:pageBlockTable value="{!wrapperALLOWANCES}" var="w" id="allowances">   
+                    <apex:column headerValue="Allowance Name" width="120">
+                        <apex:outputLink value="/{!w.allowances.id}">{!w.allowances.name}</apex:outputLink>
+                    </apex:column>                    
+                    <apex:column headerValue="Employee" value="{!w.allowances.Employee__c}"/>
+                    <apex:column headerValue="Payroll Period" value="{!w.payrollPeriod}"/>
+                    <apex:column headerValue="Allowance Type" value="{!w.allowances.recordType.name}"/>
+                    <apex:column headerValue="Department Unit" value="{!w.allowances.Department_Unit__c}"/>     
+                    <apex:column headerValue="Allowance Frequency" value="{!w.allowances.Allowance_Frequency__c}"/>
+                    <apex:column headerValue="Allowance Description" value="{!w.allowances.Allowance_Description__c}"/>
+                    <apex:column headerValue="Total Allowance Amount" value="{!w.allowances.Total_Allowance_Amount__c}"/>                        
+                    <apex:column headerValue="Last Verified Date" value="{!w.allowances.Last_Verified_Date__c}"/>                         
+                    <apex:column headerValue="Approval Action" >
+                        <apex:selectList value="{!w.selectedApprovalOption}" size="1"  styleClass="{!w.selectedApprovalOption}">
+                            <apex:selectOptions value="{!w.approvalOptions }" />
+                            <apex:actionSupport event="onchange" reRender="allowances" />
+                        </apex:selectList>
+                    </apex:column>
+                </apex:pageBlockTable>                
+            </apex:pageblocksection>   
+            
+            <!-- <apex:pageblocksection title="Sanergy Assets Maintenance"  columns="1" > 
+<apex:pageBlockTable value="{!MaintenanceTaskWrapper}" var="w" id="maintTask">  
+<apex:column headerValue="Name" value="{!w.maintTask.Name}"/>
+<apex:column headerValue="Service Date" value="{!w.maintTask.Service_Date__c}"/>
+<apex:column headerValue="Proposed Service Date" value="{!w.maintTask.Proposed_Service_Date__c}"/>
+<apex:column headerValue="Requesting Company" value="{!w.maintTask.Requesting_Company__c}"/>     
+<apex:column headerValue="Status" value="{!w.maintTask.Status__c}"/>
+</apex:pageBlockTable>
+</apex:pageblocksection> -->
+            
+            <apex:pageblocksection title="Sanergy Assets Maintenance"  columns="1" > 
+                <apex:pageBlockTable value="{!maintTask}" var="w" id="maintTask">  
+                    <apex:column headerValue="Name" >
+                        <apex:outputLink value="/{!w.Name}">{!w.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Assigned To" value="{!w.Assigned_To__r.Name}"/>
+                    <apex:column headerValue="Status" value="{!w.Status__c}"/>
+                    <apex:column headerValue="Description" value="{!w.Unit_Description__c}"/>
+                    <apex:column headerValue="Service Date" value="{!w.Service_Date__c}"/>
+                    <apex:column headerValue="Completion Date" value="{!w.Completion_Date__c}"/>    
+                </apex:pageBlockTable>
+            </apex:pageblocksection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,33 @@
+<apex:page standardController="Candidate__c" extensions="ConvertCandidateToEmployee" docType="html-5.0">
+    <apex:sectionHeader subtitle="Convert Candidate To Employee"/>
+	<apex:form >                
+    	<apex:pageMessages ></apex:pageMessages>        
+        <apex:pageBlock >            
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Convert Candidate to Employee" action="{!ConvertCandidate}" onclick="if(!confirm('Convert Candidate to Employee?')){return false};"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>            
+            </apex:pageBlockButtons>
+            
+             <apex:pageBlockSection title="Convert Candidate: {!Candidate__c.Name}">
+                 <apex:outputField value="{!Candidate__c.Id}"/>
+                 <apex:outputField value="{!Candidate__c.Name}"/>
+                 <apex:outputField value="{!RecReq.Employee_Role__r.Name}"/>
+                 <apex:outputField value="{!RecReq.Employee_Role__r.Sanergy_Department_Unit__c}"/>
+                   </apex:pageBlockSection>  
+            <apex:pageBlockSection title="Requisition Items">
+                 <apex:pageBlockTable value="{!wrpRecReqLineItems}" var="recReqItem" id="table" title="Onboarding Tasks">
+                     <apex:column headerValue="Select" >
+                         <apex:inputCheckbox value="{!recReqItem.itemSelected}"/>
+                     </apex:column>
+                     <apex:column headerValue="Record Name" value="{!recReqItem.recReq.Name}"/>
+                     <apex:column headerValue="Category" value="{!recReqItem.recReq.RecordType.Name}"/>
+                     <apex:column headerValue="Type" value="{!recReqItem.recReq.Type__c}"/>
+                     <apex:column headerValue="Description" value="{!recReqItem.recReq.Description__c}"/>
+                     <apex:column headerValue="Maximum" value="{!recReqItem.recReq.Maximum__c}"/>
+                     <apex:column headerValue="Amount" value="{!recReqItem.recReq.Amount__c}"/>
+                     <apex:column headerValue="Returnable" value="{!recReqItem.recReq.Returnable__c}"/>									
+                 </apex:pageBlockTable> 
+            </apex:pageBlockSection>        
+        </apex:pageBlock>
+    </apex:form>    
+</apex:page>

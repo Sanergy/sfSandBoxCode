@@ -1,0 +1,46 @@
+<apex:page standardController="Work_Order__c" extensions="ReverseWorkOrderController">
+    <apex:form >
+        <apex:sectionHeader title="{!Work_Order__c.Name}" subtitle="Reverse Work Order"/>
+        <apex:pageBlock >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockButtons rendered="{!manufacturedWO}">                
+                <apex:commandButton value="Reverse Work Order" action="{!reverseWorkOrderReceipt}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="WOrk Order Details" rendered="{!manufacturedWO}" >
+                <apex:outputField value="{!Work_Order__c.Name}"/>
+                <apex:outputField value="{!Work_Order__c.Status__c}"/>                   
+                <apex:outputField value="{!Work_Order__c.Inventory_Item__c}" />            
+                <apex:outputField value="{!Work_Order__c.UOM__c}" />
+                <apex:outputField value="{!Work_Order__c.Work_Order_Type__c}" />
+                <apex:outputField value="{!Work_Order__c.Material_Cost__c}" />
+                <apex:outputField value="{!Work_Order__c.Inventory_Item_Quantity__c}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Inventory Transactions" rendered="{!manufacturedWO}" >
+                <apex:pageBlockTable value="{!WorkOrderReceiptInventoryTransactions}" var="item" id="table">
+                    <apex:column headerValue="Select">
+                        <apex:inputCheckbox value="{!item.selected}"/>
+                    </apex:column>
+                    <apex:column headerValue="Inventory Item" value="{!item.item.Item__r.Name}" />                    
+                    <apex:column headerValue="Inventory UOM" value="{!item.item.Item__r.Inventory_UoM__r.Name}" />
+                    <apex:column headerValue="Transaction ID" value="{!item.item.Transaction_ID__c}" />
+                    <apex:column headerValue="Transaction Quantity" value="{!item.item.Transaction_Quantity__c}" />
+                    <apex:column headerValue="Reverse Site">
+						<apex:outputText value="{!item.site}"></apex:outputText>                        
+                    </apex:column>
+                    <apex:column headerValue="Reverse Location">
+                        <apex:outputText value="{!item.location}"></apex:outputText>                        
+                    </apex:column>                    
+                    <apex:column headerValue="Reverse Lot">
+                        <apex:outputText value="{!item.lot}"></apex:outputText>                        
+                    </apex:column>
+                    <apex:column headerValue="Quantity To Reverse" >
+                        <apex:inputText value="{!item.reverseQuantity}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

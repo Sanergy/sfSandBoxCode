@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grouping__c</fullName>
+    <externalId>false</externalId>
+    <label>Grouping</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Structure Package</fullName>
+                <default>false</default>
+                <label>Structure Package</label>
+            </value>
+            <value>
+                <fullName>Paint Package</fullName>
+                <default>false</default>
+                <label>Paint Package</label>
+            </value>
+            <value>
+                <fullName>Toilet Support Package</fullName>
+                <default>false</default>
+                <label>Toilet Support Package</label>
+            </value>
+            <value>
+                <fullName>Location Support Package</fullName>
+                <default>false</default>
+                <label>Location Support Package</label>
+            </value>
+            <value>
+                <fullName>Upstructure Package</fullName>
+                <default>false</default>
+                <label>Upstructure Package</label>
+            </value>
+            <value>
+                <fullName>Pit Conversion Package</fullName>
+                <default>false</default>
+                <label>Pit Conversion Package</label>
+            </value>
+            <value>
+                <fullName>Basic FLT Package</fullName>
+                <default>false</default>
+                <label>Basic FLT Package</label>
+            </value>
+            <value>
+                <fullName>Basic FLT Package - Upstructure</fullName>
+                <default>false</default>
+                <label>Basic FLT Package - Upstructure</label>
+            </value>
+            <value>
+                <fullName>BIB Package</fullName>
+                <default>false</default>
+                <label>BIB Package</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Model of the Laptop</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Whats the Model of the Laptop</inlineHelpText>
+    <label>Model</label>
+    <length>255</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

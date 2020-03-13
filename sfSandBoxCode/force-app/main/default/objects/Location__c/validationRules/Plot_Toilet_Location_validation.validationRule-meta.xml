@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plot_Toilet_Location_validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND
+(
+ NOT(
+   OR(
+     ISPICKVAL( Franchise_Type__c , &quot;Non-Commercial-Plot&quot;),
+     ISPICKVAL( Franchise_Type__c , &quot;Hybrid-Plot&quot;)
+     ) 
+    ),
+ NOT(
+    ISPICKVAL(  Plot_Toilet_Location__c  , &quot;&quot;)
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Plot_Toilet_Location__c</errorDisplayField>
+    <errorMessage>The Plot Toilet Location field should only be filled if the &quot;Franchisee type&quot; field is either &quot;Non-Commercial-Plot&quot; or &quot;Hybrid-Plot&quot;</errorMessage>
+</ValidationRule>

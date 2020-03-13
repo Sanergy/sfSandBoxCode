@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredDateNotLessThanToday</fullName>
+    <active>false</active>
+    <description>Required date should not be in the past compared to Request date.</description>
+    <errorConditionFormula>AND( Required_Date__c  &lt;   DATEVALUE( CreatedDate ) )</errorConditionFormula>
+    <errorDisplayField>Required_Date__c</errorDisplayField>
+    <errorMessage>Required Date cannot be in the past.</errorMessage>
+</ValidationRule>

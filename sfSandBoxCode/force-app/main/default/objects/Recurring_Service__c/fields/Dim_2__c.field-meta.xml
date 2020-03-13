@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dim_2__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Dim 2</label>
+    <referenceTo>FFA_Config_Object__c</referenceTo>
+    <relationshipLabel>Recurring Services (Dim 2)</relationshipLabel>
+    <relationshipName>Recurring_Services1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

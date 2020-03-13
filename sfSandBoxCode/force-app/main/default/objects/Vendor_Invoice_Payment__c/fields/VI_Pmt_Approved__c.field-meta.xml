@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VI_Pmt_Approved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set as approved only if generated directly from the VI or created by an approved user from the Manual VI Payment Sanergy Settings</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set as approved only if generated directly from the VI or created by an approved user from the Manual VI Payment Sanergy Settings</inlineHelpText>
+    <label>VI Pmt Approved</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

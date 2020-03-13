@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reconciliation_Submitted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>User has submitted reconciliations for processing</description>
+    <externalId>false</externalId>
+    <inlineHelpText>User has submitted reconciliations for processing</inlineHelpText>
+    <label>Reconciliation Submitted</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

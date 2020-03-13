@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_To_PR_For_Approval__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(IF(( Unit_Net_Price__c -  PTS_Line_Item__r.Budget_Amount_Per_item__c ) &gt; (0.05 * PTS_Line_Item__r.Budget_Amount_Per_item__c ), true, false),
+IF(( Unit_Net_Price__c - PTS_Line_Item__r.Budget_Amount_Per_item__c  ) &gt; (1000), true, false))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Return To PR For Approval</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

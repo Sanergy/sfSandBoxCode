@@ -1,0 +1,27 @@
+<apex:page standardController="Leave_Entitlement_Type_Config__c" extensions="CreateLeaveEntitlementUtilization">
+      <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock title="Employees List" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select All" action="{!selectAll}" rerender="employeeList"/>
+                <apex:commandButton value="Unselect All" action="{!unselectAll}" rerender="employeeList"/>
+                <apex:commandButton value="Create Utilization" action="{!createUtilizations}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable id="employeeList" value="{!Employees}" var="empy" title="Employee List ">
+                <apex:column >    
+                    <apex:inputCheckbox value="{!empy.selected}" />   
+                </apex:column>    
+                <apex:column headerValue="EmployeeName" value="{!empy.emp.Name}"></apex:column>
+                <apex:column headerValue="Leave Group" value="{!empy.emp.Leave_Group__c}"></apex:column>
+                <apex:column headerValue="Employee StartDate" value="{!empy.emp.Employment_Start_Date__c}" />
+                <apex:column headerValue="Gender" value="{!empy.emp.Gender__c}" />
+                <apex:column headerValue="Employee Active?" value="{!empy.emp.Employee_Active__c}"></apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

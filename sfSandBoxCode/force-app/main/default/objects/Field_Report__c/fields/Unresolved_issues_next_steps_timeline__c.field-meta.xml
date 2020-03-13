@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unresolved_issues_next_steps_timeline__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>For issues not addressed, please enter the way forward and timeline communicated to FLO</inlineHelpText>
+    <label>Unresolved issues - next steps/timeline</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

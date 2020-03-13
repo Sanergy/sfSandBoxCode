@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WO_Debit_GLA__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>WO Debit GLA</label>
+    <referenceTo>c2g__codaGeneralLedgerAccount__c</referenceTo>
+    <relationshipLabel>Inventory Commodity Codes (WO Debit GLA)</relationshipLabel>
+    <relationshipName>Inventory_Item_Groups3</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

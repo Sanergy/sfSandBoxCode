@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Extra_Container</fullName>
+    <active>true</active>
+    <label>Extra Container</label>
+    <picklistValues>
+        <picklist>Closure_Type__c</picklist>
+        <values>
+            <fullName>Permanent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Temporary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Collection_Route__c</picklist>
+        <values>
+            <fullName>CLOSED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KN Collection Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KR Collection Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kariobangi south collection spot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kayaba Collection Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kiambiu Collection Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kingstone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mathare Collection Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paradise Collection Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ruben Collection Spot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Simba Cool</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tassia collection center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Truck Round 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tuk Tuk</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Current_Specific_Status__c</picklist>
+        <values>
+            <fullName>Closed - By FLI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - By FLO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Debranded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Demolished</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - QA Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Repossessed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Resold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Company-Owned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Re-installed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Re-opened</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Relocated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Resold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Launch</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Explanation_1__c</picklist>
+        <values>
+            <fullName>Along pipeline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Along power line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Along road reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cannibalization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change of ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Community member%28s%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaint of strict hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connected to sewer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumables are too expensive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLO moved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLO non-adherence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government demolition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Infrequent collection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal interaction with FLI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pit latrines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public toilet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Residential upgrading</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>River reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road expansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tenants refused to pay landlord</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tenants vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Too expensive - personal reason</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With landlords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With neighbors</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Explanation_2__c</picklist>
+        <values>
+            <fullName>Along pipeline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Along power line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Along road reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cannibalization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change of ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Community member%28s%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaint of strict hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connected to sewer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumables are too expensive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLO moved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLO non-adherence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government demolition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Infrequent collection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal interaction with FLI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pit latrines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public toilet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Residential upgrading</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>River reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road expansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tenants refused to pay landlord</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tenants vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Too expensive - personal reason</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With landlords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With neighbors</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Explanation_3__c</picklist>
+        <values>
+            <fullName>Along pipeline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Along power line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Along road reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cannibalization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change of ownership</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Community member%28s%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaint of strict hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connected to sewer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consumables are too expensive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLO moved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FLO non-adherence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government demolition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Infrequent collection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal interaction with FLI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pit latrines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public toilet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Residential upgrading</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>River reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road expansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tenants refused to pay landlord</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tenants vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Too expensive - personal reason</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With landlords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>With neighbors</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Flooring_Type__c</picklist>
+        <values>
+            <fullName>Tiles</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operational_Status__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Pending Launch</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_Name__c</picklist>
+        <values>
+            <fullName>Add-On Sanitation Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sanitation Center</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_1__c</picklist>
+        <values>
+            <fullName>Dispute</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Found another toilet option</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government Demolition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Related</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_2__c</picklist>
+        <values>
+            <fullName>Dispute</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Found another toilet option</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government Demolition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Related</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_3__c</picklist>
+        <values>
+            <fullName>Dispute</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Found another toilet option</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government Demolition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hygiene</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Related</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Squat_Plate_Type__c</picklist>
+        <values>
+            <fullName>Black 60cm x 80cm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ecoplate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Original Blue 60cm x 80cm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Superstructure_Type__c</picklist>
+        <values>
+            <fullName>V3 %28Walls %2B Tiled Floor %2B Door %2B Door jam%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Toilet_Gender_Requirement__c</picklist>
+        <values>
+            <fullName>Both</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Female</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Male</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Toilet_Type__c</picklist>
+        <values>
+            <fullName>Commercial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hybrid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Institution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>School</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Toilet_Up_structure__c</picklist>
+        <values>
+            <fullName>N</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Urine_Collection_Container_Type__c</picklist>
+        <values>
+            <fullName>25L</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Waste_Container_Type__c</picklist>
+        <values>
+            <fullName>35L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>45L</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

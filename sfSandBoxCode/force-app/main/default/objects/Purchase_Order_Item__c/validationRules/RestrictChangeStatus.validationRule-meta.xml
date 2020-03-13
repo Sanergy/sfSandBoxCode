@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictChangeStatus</fullName>
+    <active>false</active>
+    <description>only DS and Temp RS Can change this field</description>
+    <errorConditionFormula>AND(OR(ISCHANGED( Status__c ),ISCHANGED( Item_Cost__c ) ), AND($User.Id != &#39;005D0000004ZrkJ&#39;, $User.Id != &#39;005D0000004Derm&#39;,$User.Id != &#39;005D0000008tWxc&#39;,$User.Id != &#39;0057E000003e0ot&#39;,$User.Id != &#39;005D0000008kHZI&#39;,$User.Id != &#39;0057E000006s3Kp&#39;))</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>You do not have permission to edit this field</errorMessage>
+</ValidationRule>

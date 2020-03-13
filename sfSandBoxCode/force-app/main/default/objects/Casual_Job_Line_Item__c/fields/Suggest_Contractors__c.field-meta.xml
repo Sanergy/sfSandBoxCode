@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Suggest_Contractors__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Give details of the contractor(s) you would like to be considered for this Job Specification</inlineHelpText>
+    <label>Suggest Contractors</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

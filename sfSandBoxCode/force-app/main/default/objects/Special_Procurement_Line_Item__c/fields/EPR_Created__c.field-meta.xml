@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EPR_Created__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Value is &#39;True&#39; if EPR has been created otherwise &#39;False&#39;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Value is &#39;True&#39; if EPR has been created otherwise &#39;False&#39;</inlineHelpText>
+    <label>EPR Created</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

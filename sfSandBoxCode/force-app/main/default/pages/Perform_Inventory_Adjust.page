@@ -1,0 +1,80 @@
+<apex:page StandardController="Inventory_Item__c" extensions="LocationAddController" tabStyle="Inventory_Item__c">
+    
+     <style>
+            .activeTab {background-color: #f1f1f1; color:black; background-image:none ; font-size:12px; font-weight: bold}
+            .inactiveTab { background-color: lightgrey; color:black; background-image:none; font-size:12px}
+            .tabcontent { font-size:12px}
+    </style>
+
+    <apex:sectionHeader title="Inventory Adjust for item" subtitle="{!Inventory_Item__c.name}"/>
+    <apex:form >   
+               
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock id="table" title="Inventory Item Adjust" > 
+            <center>
+                <apex:commandButton value="Save" action="{!performLocationAdd}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </center>   
+            <apex:pageBlockSection columns="2" collapsible="false" title="Inventory Item Information"> 
+                <apex:outputField value="{!Inventory_Item__c.name}"/> 
+                <apex:outputField value="{!Inventory_Item__c.Item_Group__c}" />
+                <apex:outputField value="{!Inventory_Item__c.Inventory_Stock__c}" />
+                <apex:outputField value="{!Inventory_Item__c.Inventory_UoM__c}" />                 
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" collapsible="false" title="Inventory Item Locations">
+            <apex:panelGrid columns="2">
+                <apex:commandButton value="New Location" action="{!pageNewLocation}" />
+                <apex:commandButton value="Adjust Location Quantities" action="{!pageUpdateQuantities}" />
+            </apex:panelGrid>                
+                
+                <apex:repeat value="{!wrapper}" var="c">
+                    <apex:tabPanel switchType="client" selectedTab="name2" id="theTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab" contentClass="tabcontent">
+
+                        <apex:tab label="{!c.loc.name} lots" name="name1" id="tabOne">
+                            <apex:pageBlockTable value="{!c.lots}" var="c">
+                                <apex:column width="10"> 
+                                    <apex:inputCheckbox value="{!c.selected}"/>
+                                </apex:column> 
+                                <apex:column headerValue="Lot Name" width="100"> 
+                                    <apex:outputField value="{!c.lots.Lot_Name__c}"/>
+                                </apex:column> 
+                                <apex:column headerValue="Batch Date" width="100"> 
+                                    <apex:outputField value="{!c.lots.Batch_Date__c}"/>
+                                </apex:column> 
+                                <apex:column headerValue="Expiry Date" width="100"> 
+                                    <apex:outputField value="{!c.lots.Expire_Date__c}"/>
+                                </apex:column> 
+                                <apex:column headerValue="Quantity in Stock" width="100"> 
+                                    <apex:outputField value="{!c.lots.Quantity__c}"/>
+                                </apex:column>
+                                <apex:column headerValue="Adjust Value" width="100"> 
+                                    <apex:outputField value="{!c.lots.Adjust_Quantity__c}"/>
+                                </apex:column>
+                                <apex:column headerValue="Adjust Type" width="100"> 
+                                    <apex:outputText value="{!c.selectedAction}"/>
+                                </apex:column> 
+                                <apex:column headerValue="New Quantity" width="100"> 
+                                    <apex:outputText value="{!c.newQuantity}"/>
+                                </apex:column>                         
+                            </apex:pageBlockTable>                           
+                        </apex:tab>
+                        
+                        <apex:tab label="{!c.loc.name} details" name="name2" id="tabTwo">
+                            <apex:pageBlockSection columns="1"> 
+                                <apex:outputField value="{!c.loc.name}"/>
+                                <apex:outputField value="{!c.loc.Location__c}"/>
+                                <apex:outputField value="{!c.loc.Location_Quantity__c}"/>
+                            </apex:pageBlockSection>
+                        </apex:tab>
+                        
+                    </apex:tabPanel>
+                    <apex:commandLink value="Add lots" action="{!pageNewLots}" >
+                        <apex:param name="locId" value="{!c.index}"/>
+                    </apex:commandLink>                   
+                    <hr/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictPOItemChange</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISCHANGED( Purchase_Order_Item__c )</errorConditionFormula>
+    <errorMessage>You are not allowed to change PO Item after PO Creation</errorMessage>
+</ValidationRule>

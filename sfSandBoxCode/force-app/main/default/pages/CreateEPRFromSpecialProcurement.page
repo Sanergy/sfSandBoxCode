@@ -1,0 +1,216 @@
+<apex:page StandardController="Special_Procurement__c" extensions="CreateEPRFromSpecialProcurement" cache="false" docType="html-5.0">
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+    <script>
+    $(document).ready(function()
+                      {
+                          $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          
+                          // Make table cell focusable
+                          // http://css-tricks.com/simple-css-row-column-highlighting/
+                          if ( $('.focus-highlight').length ) {
+                              $('.focus-highlight').find('td, th')
+                              .attr('tabindex', '1')
+                              // add touch device support
+                              .on('touchstart', function() {
+                                  $(this).focus();
+                              });
+                          }
+                      });
+    
+    function updateDataTable()
+    {
+        $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        
+        // Make table cell focusable
+        // http://css-tricks.com/simple-css-row-column-highlighting/
+        if ( $('.focus-highlight').length ) {
+            $('.focus-highlight').find('td, th')
+            .attr('tabindex', '1')
+            // add touch device support
+            .on('touchstart', function() {
+                $(this).focus();
+            });
+        }
+    }
+    
+    function updateDataTableRows() 
+    {
+        
+        $(".table-striped").find("tr").each(function () {
+            var status= $(this).find(".status").html();  
+            if(status=="Failed")
+            {
+                $(this).addClass("failed")
+            }
+        });
+    }
+    
+    //Function to calculate the total of all the EPR Recon Lines table.
+    function CalculateTotals(){
+        var fieldPrefixlinetotal = document.querySelector('[id*=":linetotal"]').id;
+        
+        fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":"));
+        fieldPrefixlinetotal =  fieldPrefixlinetotal.substring(0,fieldPrefixlinetotal.lastIndexOf(":")+1);
+        
+        var NumRowsField = document.querySelector('[id*=":numberOfRows"]').id;
+        var numberOfRows = document.getElementById(NumRowsField).textContent;
+        
+        numberOfRows = parseFloat(numberOfRows);
+        //alert(numberOfRows);
+        var colItemTotal = 0.0;
+        
+        //loop through and get Recon Total
+        for(var i=0; i<numberOfRows; i++){
+            colTotal =  document.getElementById(fieldPrefixlinetotal + i +':linetotal').value;
+            colTotal = (isNaN(parseFloat((colTotal).replace(',', ''))) ? 0 : parseFloat((colTotal).replace(',', '')));
+            colItemTotal += parseFloat(colTotal);
+        }
+        //display total line item value sum
+        document.getElementById('sumEPRItemTotal').value = colItemTotal;
+        var fieldPrefixUnreconciled = document.querySelector('[id*=":sumtotunrecon"]').id;
+        colUnreconciled =  document.getElementById(fieldPrefixUnreconciled).innerText;
+        colUnreconciled = (isNaN(parseFloat((colUnreconciled).replace(',', ''))) ? 0 : parseFloat((colUnreconciled).replace(',', '')));
+        colUnreconciled = (isNaN(parseFloat(colUnreconciled)) ? 0 : parseFloat(colUnreconciled));
+        colUnreconciled = colUnreconciled * -1;//Balance will be a negative value if we are to generate a Recon EPR
+        
+        document.getElementById('sumReconBal').value = colUnreconciled - colItemTotal;
+        
+        if(colItemTotal  > colUnreconciled) //Balance will be a negative value if we are to generate a Recon EPR
+        {
+            alert('EPR Value [' + colItemTotal + '] will exceed UnReconciled Value [' + (colUnreconciled ) + ']');
+            return true;
+        }
+        //if Recon EPR matches balance
+        if(colItemTotal > 0 && colItemTotal  == colUnreconciled){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    function GenerateReconEPR(){
+        if(CalculateTotals = true) {
+            saveNow();
+        }
+        else
+        {
+            alert('One or more conditions not met to generate the Recon EPR');
+        }
+    }
+    </script>    
+    
+    <apex:sectionHeader title="Special Procurement {!Special_Procurement__c.name}" subtitle="Special Procurement Payment"/>
+    <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock id="pb">    
+            <apex:pageBlockSection >
+                <apex:outputField label="SPR Type" value="{!sp.Type__c}" />
+                <apex:outputField label="Requesting Department" value="{!sp.Requesting_Department__c}"/>
+                <apex:outputField label="Vendor Account" value="{!sp.Vendor__c}"/>
+                <apex:outputField label="Required Date" value="{!sp.Required_Date__c}"/>
+                <apex:outputField label="Amount Requested" value="{!sp.Total_Amount_Requested__c}"/>
+                <apex:outputField label="Amount Approved" value="{!sp.Total_Amount__c}"/>
+                <apex:outputField label="Reconciled Balance" value="{!sp.Reconciled_Balance__c}"/>
+                <apex:outputField label="Total Payments" value="{!sp.Total_Payments__c}"/>
+                <apex:outputText label="EPR Value" value="{0}"> 
+                    <apex:param value="{!EPRValue}" /> 
+                </apex:outputText>
+            </apex:pageBlockSection>
+            <div id ="divMessage">
+            </div>
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Generate EPR" action="{!createEPR}" disabled="{!hideButtons}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+			<apex:pageBlockSection title="Pending Special Procurement Items" columns="1">
+				<apex:pageBlockTable value="{!items}" var="item" id="table" title="Special Procurement Items">
+                    <apex:column headerValue="Special Procurement Item Name" value="{!item.Name}"  width="300" />
+                    <apex:column headerValue="Status" value="{!item.Status__c}"  width="300" />
+                    <apex:column headerValue="Item" value="{!item.Item__c}"  width="300" />
+                    <apex:column headerValue="Quantity Requested" value="{!item.Quantity_Requested__c}"  width="300" />
+                    <apex:column headerValue="Unit Price" value="{!item.Unit_Price__c}"  width="300" />
+                    <apex:column headerValue="Total Price" value="{!item.Total_Price__c}"  width="300" />
+				</apex:pageBlockTable>				
+			</apex:pageBlockSection>             
+        </apex:pageBlock>        
+    </apex:form>
+    <!--
+    <apex:form id="frmReconEPR">
+        <apex:pageBlock title="{!sp.Name} - Generate EPR Reconciliation" id="pb" >
+            <apex:variable var="rowNumber" value="{!0}"/>
+            <apex:variable var="fieldPrefix" value="{!''}"/>
+            
+            <apex:pageBlockSection >
+                <apex:outputText label="Requested Amount :" id="totRequested" value="{!sp.Total_Amount_Requested__c}">
+                </apex:outputText>
+                <apex:outputText label="EPR Amount :" id="totItem" >
+                    <input type="text" id="sumEPRItemTotal" disabled="true"  onchange="CalculateTotals()"/>
+                </apex:outputText>
+                <apex:outputText label="Total Reconciled :" id="totSum" value="{!sp.Reconciled_Total__c}"/>
+                <apex:outputText label="EPR Recon Balance :" id="totReconBal" >
+                    <input type="text" id="sumReconBal" disabled="true"/>
+                </apex:outputText>                
+                <apex:outputText label="Total UnReconciled :" id="totSumUnreconciled" >
+                    <apex:inputField value="{!sp.Reconciled_Balance__c}" id="sumtotunrecon"  onchange="CalculateTotals()" />
+                </apex:outputText>                
+            </apex:pageBlockSection>
+            <div id ="divMessage">
+            </div>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!addRORow}" value="Add Item" reRender="pb,accsTable,pbAdmin" oncomplete="updateDataTable();"/>
+                <apex:commandButton value="Generate Recon EPR" id="GenReconEPR" onclick="GenerateReconEPR(); return false;" oncomplete="updateDataTable();" reRender="pb,accsTable,pbAdmin" />
+                <apex:actionFunction name="saveNow" action="{!createReconEPR}"/>
+                
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:dataTable title="SPR Reconciliations" var="ro" value="{!wrpReconEPRs}" id="accsTable" styleclass="tablesorter"> 
+            <apex:column headerValue="No." style="text-align:center;" headerClass="centertext">
+                <apex:outputText value="{0}" style="text-align:center;"> 
+                    <apex:param value="{!ro.reconIndex}" /> 
+                </apex:outputText>
+            </apex:column> 
+            <apex:column headerValue="RowID"  value="{!ro.rowID}"/>
+            <apex:column headerValue="Total">
+                <apex:inputField id="linetotal" value="{!ro.eprLI.Unit_Price__c}" onchange="CalculateTotals(this.id)"/>     
+            </apex:column>
+            <apex:column headerValue="Expense Description" >
+                <apex:inputField value="{!ro.eprLI.Item__c}"/>
+            </apex:column> 
+            <apex:column headerValue="GLA" >
+                <apex:inputField value="{!ro.eprLI.GLA__c}"/>
+            </apex:column> 
+            <apex:column headerValue="DIM 1" >
+                <apex:inputField value="{!ro.eprLI.Department_dim1__c}"/>
+            </apex:column> 
+            <apex:column headerValue="DIM 2" >
+                <apex:inputField value="{!ro.eprLI.Location_Dim2__c}"/>
+            </apex:column>
+            <apex:column headerValue="DIM 3" >
+                <apex:inputField value="{!ro.eprLI.Dim_3__c}"/>
+            </apex:column>
+            <apex:column headerValue="DIM 4" >
+                <apex:inputField value="{!ro.eprLI.Grant_Funding_Availale_dim4__c}"/>
+            </apex:column>            
+            <apex:column headerValue="Action" >
+                <apex:commandButton value="Delete" action="{!deleteRORow}" reRender="pb,accsTable,pbAdmin" oncomplete="updateDataTable();">
+                    <apex:param name="rowIndex" value="{!ro.rowID}"/>
+                </apex:commandButton>
+            </apex:column> 
+            
+        </apex:dataTable>
+        <apex:pageblock >
+            <apex:pageBlockSection id="pbAdmin">
+                <p align="right" id="numRows">
+                    <apex:outputText id="numberOfRows" value="{!reconRowIndex}"/>
+                </p>
+            </apex:pageBlockSection>
+        </apex:pageblock>       
+    </apex:form>
+-->
+</apex:page>

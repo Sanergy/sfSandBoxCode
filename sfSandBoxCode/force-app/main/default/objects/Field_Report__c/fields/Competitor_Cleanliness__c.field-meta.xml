@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor_Cleanliness__c</fullName>
+    <externalId>false</externalId>
+    <label>Competitor Cleanliness</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Very Clean</fullName>
+                <default>false</default>
+                <label>Very Clean</label>
+            </value>
+            <value>
+                <fullName>Clean</fullName>
+                <default>false</default>
+                <label>Clean</label>
+            </value>
+            <value>
+                <fullName>Dirty</fullName>
+                <default>false</default>
+                <label>Dirty</label>
+            </value>
+            <value>
+                <fullName>Very Dirty</fullName>
+                <default>false</default>
+                <label>Very Dirty</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

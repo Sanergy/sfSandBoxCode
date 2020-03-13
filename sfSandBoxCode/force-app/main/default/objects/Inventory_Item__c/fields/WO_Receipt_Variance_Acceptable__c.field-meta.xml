@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WO_Receipt_Variance_Acceptable__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check if Work Order Receipt Variance is Acceptable</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Check if Work Order Receipt Variance is Acceptable</inlineHelpText>
+    <label>WO Receipt Variance Acceptable</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

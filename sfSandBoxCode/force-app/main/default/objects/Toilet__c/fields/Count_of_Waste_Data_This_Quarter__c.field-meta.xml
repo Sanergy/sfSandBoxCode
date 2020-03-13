@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_of_Waste_Data_This_Quarter__c</fullName>
+    <description>Counts the number of non-zero waste data records this quarter</description>
+    <externalId>false</externalId>
+    <label>Count of Waste Data - This Quarter</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

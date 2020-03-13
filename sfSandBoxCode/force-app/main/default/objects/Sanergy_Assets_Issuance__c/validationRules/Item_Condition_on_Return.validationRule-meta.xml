@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Condition_on_Return</fullName>
+    <active>true</active>
+    <description>Describe item condition on return of asset</description>
+    <errorConditionFormula>AND 
+( 
+Asset_Returned__c = True, 
+ISPICKVAL(  Item_Condition_on_Return__c , &quot;&quot;)
+)</errorConditionFormula>
+    <errorMessage>If asset has been returned, select the condition of the returned asset.</errorMessage>
+</ValidationRule>

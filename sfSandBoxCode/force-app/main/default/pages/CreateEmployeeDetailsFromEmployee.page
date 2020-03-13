@@ -1,0 +1,400 @@
+<apex:page Controller="CreateEmployeeDetailsFromEmployee" docType="html-5.0" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"  />
+    <apex:form enctype="multipart/form-data" >
+        <!--<apex:input value="{!searchTexts}" id="textInput" type="search" />&nbsp;&nbsp; -->
+        <!--<apex:commandButton value="Search" action="{!fetchEmployeeDetails}" /> <br/> -->
+        <apex:pageBlock title="Employee Details" id="block1">
+            <table>
+                <tr>
+                    <td style="width:30%;vertical-align:center;">
+                        <apex:repeat value="{!myInfo}" var="emp1">
+                            <apex:image url="http://emp.saner.gy/photos/{!emp1.HR_Unique_Record_ID__c}.jpg" style="padding:20% 0% 0% 20%;" />
+                           <!-- <apex:inputFile value="{!fileContent}" fileName="{!name}" fileSize="{!size}" accept="image/jpeg, image/png"/>
+                            <apex:commandButton value="Upload" action="{!Upload}"  /> -->
+                        </apex:repeat>
+                        <!-- <apex:inputFile value="{!document.body}" filename="{!document.name}"/> -->
+                    </td>
+                    <td style="width:300%;">
+                        <apex:pageBlockSection collapsible="false" columns="2" >
+                            <apex:repeat value="{!myInfo}" var="emp">
+                                <apex:outputText label="Full Name" value="{!emp.Name}"  style="width:150%;"></apex:outputText>
+                                <apex:outputText label="Employee Role" value="{!emp.Employee_Role__c}"></apex:outputText>
+                                <!-- <apex:outputText value="{!emp.Employee_Image__c}"></apex:outputText> -->
+                                <apex:outputText label="First Name" value="{!emp.Employee_First_Name__c}"></apex:outputText>
+                                <apex:outputText label="Job Title" value="{!emp.Job_Title__c}"></apex:outputText>                   
+                                <apex:outputText label="Middle Name" value="{!emp.Employee_Middle_Name__c}"></apex:outputText>
+                                <apex:outputText label="Company Division" value="{!emp.Company_Division__c}"></apex:outputText>
+                                <apex:outputText label="Last Name" value="{!emp.Employee_Last_Name__c}"></apex:outputText>
+                                <apex:outputText label="Department" value="{!emp.Sanergy_Department__r.Name}"></apex:outputText>  
+                                <apex:outputText label="Gender" value="{!emp.Gender__c}"></apex:outputText>
+                                <apex:outputText label="Department Unit" value="{!emp.Sanergy_Department_Unit__r.Name}"></apex:outputText>
+                                <apex:outputText label="Marital Status" value="{!emp.Marital_Status__c}"></apex:outputText>
+                                <apex:outputText label="Line Manager" value="{!emp.Sanergy_Department_Unit__r.Line_Manager__r.Name}"></apex:outputText>
+                                <apex:outputText label="Nationality" value="{!emp.Nationality__c}"></apex:outputText>
+                                <apex:outputText label="Team Lead" value="{!emp.Team_Lead_SF_Account__r.Name}"></apex:outputText>
+                                <apex:outputText label="Talent Partner" value="{!emp.Sanergy_Department_Unit__r.Talent_Partner__r.Name}"></apex:outputText>
+                                <apex:outputText label="Primary Location" value="{!emp.Primary_Location__c}"></apex:outputText> 
+                                <apex:outputText label="Preferred Payment Method" value="{!emp.Preferred_Payment_Method__c}"></apex:outputText>
+                                <apex:outputText label="Employee Active" value="{!emp.Employee_Active__c}"></apex:outputText> 
+                                <apex:outputText label="HR Employee ID" value="{!emp.HR_Employee_ID__c}"></apex:outputText>
+                                <apex:outputText label="Leave Group" value="{!emp.Leave_Group__r.Name}"></apex:outputText> 
+                                <!--    <apex:outputText label="Recruitment Requisition" value="{!emp.Recruitment_Requisition__r.Name}"></apex:outputText>-->
+                                <apex:outputText label="Payroll" value="{!emp.Payroll_ID__c}"></apex:outputText>
+                                
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                    </td>
+                </tr>
+            </table>
+            
+            
+            <apex:pageBlockSection collapsible="true" columns="2" title="Contacts Details" id="blocksec1a">
+                <apex:repeat value="{!myInfo}" var="emp">
+                    <apex:outputText label="Primary Phone" value="{!emp.Primary_Phone__c}"></apex:outputText>
+                    <apex:outputText label="Address Line One" value="{!emp.Address_Line_1__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Secondary_Phone__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Address_Line_2__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Home_Email__c}"></apex:outputText>                     
+                    <apex:outputText value="{!emp.Post_Code__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Work_Email__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.City__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Country__c}"></apex:outputText>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection collapsible="true" columns="2" title="Dates Section" id="blocksec1b">
+                <apex:repeat value="{!myInfo}" var="emp">
+                    <apex:outputText label="Date Of Birth" value="{0,date,long}">
+                        <apex:param value="{!emp.Date_of_Birth__c}"/>
+                    </apex:outputText>
+                    <apex:outputText label="Leave Accrual Start Date" value="{0,date,long}">
+                        <apex:param value="{!emp.Leave_Accrual_Start_Date__c}"/>                  
+                    </apex:outputText> 
+                    <apex:outputText value="{!emp.Age__c}"></apex:outputText>
+                    <apex:outputText label="Date Issued" value="{0,date,long}">
+                        <apex:param value="{!emp.Date_Issued__c}"/>                   
+                    </apex:outputText> 
+                    <apex:outputText label="Employment Start Date" value="{0,date,long}">
+                        <apex:param value="{!emp.Employment_Start_Date__c}"/>                    
+                    </apex:outputText>  
+                    <apex:outputText label="Date Received" value="{0,date,long}">
+                        <apex:param value="{!emp.Date_Received__c}"/>                    
+                    </apex:outputText> 
+                    <apex:outputText value="{!emp.Length_of_Service__c}"></apex:outputText> 
+                    <apex:outputText label="End Date" value="{0,date,long}">
+                        <apex:param value="{!emp.End_Date__c}"/>                   
+                    </apex:outputText>
+                    <apex:outputText value="{!emp.X3_Month_Probation_Review_Date__c}">
+                        <apex:param value="{!emp.Date_of_Birth__c}"/>                   
+                    </apex:outputText>
+                    <apex:outputText label="Termination Date" value="{0,date,long}">
+                        <apex:param value="{!emp.Termination_Date__c}"/>                    
+                    </apex:outputText>  
+                    <apex:outputText label="Probation" value="{0,date,long}">
+                        <apex:param value="{!emp.Probation_End_Date__c}"/>                 
+                    </apex:outputText>
+                    
+                </apex:repeat>	
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection collapsible="true" columns="2" title="Academic Qualifications" id="blocksec1">
+                <apex:repeat value="{!myInfo}" var="emp">
+                    <apex:outputText value="{!emp.Education__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Other_Academic_Qualification_1__c}"></apex:outputText> 
+                    <apex:outputText label="Course Undertaken" value="{!emp.Specific_Course_Undertaken__c}"></apex:outputText> 
+                    <apex:outputText value="{!emp.Other_Academic_Qualification_2__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Other_Academic_Qualification_3__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Other_Academic_Qualification_4__c}"></apex:outputText>
+                    
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection collapsible="true" columns="2" title="Id Numbers" id="blocksec2">
+                <apex:repeat value="{!myInfo}" var="emp">
+                    <apex:outputText value="{!emp.KRA_PIN__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.Identification_Document__c}"></apex:outputText> 
+                    <apex:outputText value="{!emp.NHIF_Number__c}"></apex:outputText> 
+                    <apex:outputText value="{!emp.Identification_Number__c}"></apex:outputText>
+                    <apex:outputText value="{!emp.NSSF_PIN__c}"></apex:outputText>                    
+                    <apex:outputText value="{!emp.Passport_No__c}"></apex:outputText>                   
+                    
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection collapsible="true" columns="2" title="Additional Details" id="blocksec3">
+                <apex:repeat value="{!myInfo}" var="emp">
+                    <apex:outputText value="{!emp.Employment_Status__c}"></apex:outputText> 
+                    <apex:outputText value="{!emp.HR_Number__c}"></apex:outputText> 
+                    <!-- <apex:outputText value="{!emp.Employee_SF_Account__c}"></apex:outputText>  -->
+                    <apex:outputText value="{!emp.HR_Unique_Record_ID__c}"></apex:outputText>  
+                    <apex:outputText value="{!emp.Tickets_Created__c}"></apex:outputText>
+                    
+                    
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="My Job Information" collapsible="true" id="blocksec4">
+                <apex:pageBlockTable value="{!empJobInfo}" var="JobInfo" id="table" style="width:215%;">
+                    <apex:column headerValue="Job Title" value="{!JobInfo.Job_Title__r.Name}" />
+                    <apex:column headerValue="Company Name" value="{!JobInfo.Company__r.Name}" />                   
+                    <apex:column headerValue="Department" value="{!JobInfo.Department__r.Name}" />
+                    <apex:column headerValue="Reports To" value="{!JobInfo.Reports_To__r.Name}" />	
+                    <apex:column headerValue="Effective Date" value="{!JobInfo.Effective_Date__c}" />                   
+                    <apex:column headerValue="Location" value="{!JobInfo.Location__r.Name}" />	                 
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="My Team" collapsible="true" id="blocksec5">
+                <apex:pageBlockTable value="{!empUnderAManager}" var="empUnder" id="table" style="width:156%;">
+                    <!-- <apex:column headerValue="Employee Name" value="{!empUnder.Name}" /> -->
+                    <apex:column headerValue="Employee Name">
+                        <apex:outputLink value="/apex/CreateEmployeeDetailsFromEmployee?id={!empUnder.Id}&sfdc.tabName=01rD0000000Q7n9" target="_blank">{!empUnder.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Employee Role" value="{!empUnder.Employee_Role__r.Name}" />
+                    <apex:column headerValue="Department Unit" value="{!empUnder.Sanergy_Department_Unit__r.Name}" />
+                    <apex:column headerValue="Location" value="{!empUnder.Primary_Location__c}" />
+                    <apex:column headerValue="Employee Work Email" value="{!empUnder.Work_Email__c}" />	
+                    <apex:column headerValue="Employee Phone Number" value="{!empUnder.Primary_Phone__c}" />	
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="block2" >
+            <apex:pageBlockSection title="Leave Entitlement Utilization" collapsible="true" id="blocksec6">
+                <apex:pageBlockTable value="{!leaveUtil}" var="util" id="table" style="width:195%;">
+                    <apex:column headerValue="Leave  Type" value="{!util.Leave_Year__c}" />
+                    <apex:column headerValue="Leave  Type" value="{!util.Leave_Type__c}" />
+                    <apex:column headerValue="Total  Number of Leave Days" value="{!util.Total_No_of_Leave_Days__c}" />	
+                    <apex:column headerValue="Days Accrued" value="{!util.Leave_Days_Accrued__c}" />
+                    <apex:column headerValue="Days Approved" value="{!util.Leave_Days_Used__c}" />
+                    <apex:column headerValue="Days Remaining" value="{!util.Leave_Days_Remaining__c}" />										
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Leave Accrual" collapsible="true" id="blocksec7">
+                <apex:pageBlockTable value="{!leaveAccrual}" var="accural" id="table" style="width:242%;">
+                    <apex:column headerValue="Leave Year" value="{!accural.Leave_Entitlement_Utilization__r.Leave_Year__c}" />
+                    <apex:column headerValue="Leave Name" value="{!accural.Leave_Entitlement_Utilization__r.Leave_Type__c}" />
+                    <apex:column headerValue="Leave Period" value="{!accural.Period__c}" />
+                    <apex:column headerValue="Days  Accrued" value="{!accural.Days_Accrued__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Leave Request" collapsible="true" id="blocksec8">
+                <apex:pageBlockTable value="{!leaveRequest}" var="request" id="table">
+                    <apex:column ><apex:outputLink value="/{!request.Id}" id="link1"><i class="fas fa-external-link-alt" style="color:blue;"></i></apex:outputLink></apex:column> 
+                    <apex:column headerValue="Leave Year" >
+                        <apex:outputText value="{0,number, #####}">
+                            <apex:param value="{!request.Leave_Entitlement_Utilization__r.Leave_Year__c}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Leave Type" value="{!request.Leave_Type__c}" />
+                    <apex:column headerValue="Start Date" value="{!request.Leave_Start_Date__c}" />
+                    <apex:column headerValue="End Date" value="{!request.Leave_End_Date__c}" />
+                    <apex:column headerValue="Requested Days" value="{!request.No_Of_Leave_Days_Requested__c}" />
+                    <apex:column headerValue="Status" value="{!request.Approval_Status__c}" />
+                    <apex:column headerValue="Comments" value="{!request.Comments__c}" />
+                    <apex:column headerValue="Stage" value="{!request.Stage__c}" />
+                    <apex:column headerValue="Leave Approved" value="{!request.Leave_Approved__c}" />
+                    <apex:column headerValue="Number Of Approved Days" value="{!request.No_Of_Approved_Leave_Days__c}"  />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="My Issued Assets" collapsible="true" id="blocksec9">
+                <apex:pageBlockTable value="{!sanergyAssetIssued}" var="assets" id="table" style="width:144%;">
+                    <apex:column headerValue="Asset Name" value="{!assets.Asset_Name__c}" />
+                    <apex:column headerValue="Issue Type" value="{!assets.Issue_Type__c}" />
+                    <apex:column headerValue="Date Issued" value="{!assets.Date_Issued__c}"  />
+                    <apex:column headerValue="Date Due" value="{!assets.Date_Due__c}" />	
+                    <apex:column headerValue="Asset Returned" value="{!assets.Asset_Returned__c}" />
+                    <apex:column headerValue="Date Returned" value="{!assets.Date_Returned__c}" />
+                    <apex:column headerValue=" Asset Condition On Return " value="{!assets.Item_Condition_on_Return__c}" />	
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Payroll Modifications" collapsible="true" id="blocksec10">
+                <apex:pageBlockTable value="{!payrollMod}" var="Payroll" id="table" style="width:114%;">
+                    <apex:column headerValue="Payroll Mod Name" value="{!Payroll.Name}" />
+                    <apex:column headerValue="Record Type" value="{!Payroll.RecordType.Name}" />
+                    <apex:column headerValue="Allowance Description" value="{!Payroll.Allowance_Description__c}" />
+                    <apex:column headerValue="Total Allowance Amount" value="{!Payroll.Total_Allowance_Amount__c}" />
+                    <apex:column headerValue="Start Date" value="{!Payroll.Start_Date__c}" />	
+                    <apex:column headerValue="End Date" value="{!Payroll.End_Date__c}" />
+                    <apex:column headerValue="Allowance Frequency" value="{!Payroll.Allowance_Frequency__c}" />
+                    <apex:column headerValue="Is Active" value="{!Payroll.isActive__c}" />	
+                    <apex:column headerValue="Is Verified" value="{!Payroll.Verified__c}" />				    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="My Vaccinations" collapsible="true" id="blocksec11">
+                <apex:pageBlockTable value="{!empVaccination}" var="empVacc" id="table" style="width:145%;">
+                    <apex:column headerValue="Vaccination Name" value="{!empVacc.Vaccination__c}" />
+                    <apex:column headerValue="Vaccination Dose" value="{!empVacc.Dose__c}" />
+                    <apex:column headerValue="Vaccination Due Date" value="{!empVacc.Due_Date__c}" />
+                    <apex:column headerValue="Vaccination Administered" value="{!empVacc.Administered__c}" />
+                    <apex:column headerValue="Vaccination Date Administered" value="{!empVacc.Date_Administered__c}" />				    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>     
+            
+            
+            <apex:pageBlockSection title="My Banking Information" collapsible="true" id="blocksec12">
+                <apex:pageBlockTable value="{!empBankInfo}" var="bankInfo" id="table" style="width:140%;" >
+                    <apex:column headerValue="BI Effective Date" value="{!bankInfo.BI_Effective_Date__c}" />
+                    <apex:column headerValue="BI Bank Name" value="{!bankInfo.BI_Bank_Name__c}" />
+                    <apex:column headerValue="BI Bank Branch" value="{!bankInfo.BI_Bank_Branch__c}" />
+                    <apex:column headerValue="BI Bank Account Number" value="{!bankInfo.BI_Bank_Account_Number__c}" />
+                    <apex:column headerValue="BI Bank Title" value="{!bankInfo.BI_Bank_Title__c}" />	
+                    <apex:column headerValue="BI Comments" value="{!bankInfo.BI_Comments__c}" />
+                    <apex:column headerValue="CurrencyIsoCode" value="{!bankInfo.CurrencyIsoCode}" />			    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="My Trainings" collapsible="true" id="blocksec13">
+                <apex:pageBlockTable value="{!empTrainings}" var="trainings" id="table" style="width:168%;" >
+                    <apex:column headerValue="Employee Training Record" value="{!trainings.Employee_Training_Record__r.Name}" />
+                    <apex:column headerValue="Training Completion Date" value="{!trainings.Training_Completion_Date__c}" />
+                    <apex:column headerValue="Training Cost" value="{!trainings.Training_Cost__c}" />
+                    <apex:column headerValue="Credits" value="{!trainings.Credits__c}" />
+                    <apex:column headerValue="Hours" value="{!trainings.Hours__c}" />
+                    <apex:column headerValue="Notes" value="{!trainings.Notes__c}" />				    
+                    <apex:column headerValue="Currency" value="{!trainings.Currency__r.Name}" />				    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Employee Union" collapsible="true" id="blocksec14">
+                <apex:pageBlockTable value="{!empUnion}" var="unions" id="table" style="width:168%;" >
+                    <apex:column headerValue="Effective Date" value="{!unions.Effective_Date__c}" />
+                    <apex:column headerValue="Payee" value="{!unions.Payee__c}" />
+                    <apex:column headerValue="Comments" value="{!unions.Comments__c}" />
+                    <apex:column headerValue="Pay Rate" value="{!unions.Pay_Rate__c}" />
+                    <apex:column headerValue="Pay Type" value="{!unions.Pay_Type__c}" />
+                    <apex:column headerValue="Unionizable or Non Unionizable Choice" value="{!unions.Unionizable_or_Non_Unionizable_Choice__c}" />				    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Employee Beneficiaries" collapsible="true" id="blocksec15">
+                <apex:pageBlockTable value="{!empBenefitDependents}" var="benefits" id="table" style="width:168%;" >
+                    <apex:column headerValue="First Name" value="{!benefits.First_Name__c}" />
+                    <apex:column headerValue="Middle Name" value="{!benefits.Middle_Name__c}" />
+                    <apex:column headerValue="Last Name" value="{!benefits.Last_Name__c}" />
+                    <apex:column headerValue="Relationship" value="{!benefits.Relationship__c}" />
+                    <apex:column headerValue="Date of Birth" value="{!benefits.Date_of_Birth__c}" />
+                    <apex:column headerValue="Gender" value="{!benefits.Gender__c}" />
+                    <apex:column headerValue="Mobile Phone" value="{!benefits.Mobile_Phone__c}" />
+                    <apex:column headerValue="Date of Birth" value="{!benefits.Date_of_Birth__c}" />				    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Employee Benefits" collapsible="true" id="blocksec17">
+                <apex:pageBlockTable value="{!empBenPlan}" var="benefits" id="table" style="width:145%;" >
+                    <apex:column headerValue="Benefit Plan" value="{!benefits.Benefit_Plan__c}" />
+                    <apex:column headerValue="Company Contribution" value="{!benefits.Company_Contribution__c}" />
+                    <apex:column headerValue="Effective Date" value="{!benefits.Effective_Date__c}" />
+                    <apex:column headerValue="Eligibility Date" value="{!benefits.Eligibility_Date__c}" />
+                    <apex:column headerValue="Employee Contribution" value="{!benefits.Employee_Contribution__c}" />	
+                    <apex:column headerValue="Plan Coverage" value="{!benefits.Plan_Coverage__c}" />
+                    <apex:column headerValue="Plan Status" value="{!benefits.Plan_Status__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Employee Emergency Contacts" collapsible="true" id="blocksec18">
+                <apex:pageBlockTable value="{!empEmgncyContact}" var="emergContact" id="table" style="width:125%;" >
+                    <apex:column headerValue="Address Line 1" value="{!emergContact.A__c}" />
+                    <apex:column headerValue="Address Line 2" value="{!emergContact.Address_Line_2__c}" />
+                    <apex:column headerValue="City" value="{!emergContact.City__c}" />
+                    <apex:column headerValue="Contact Name" value="{!emergContact.Contact_Name__c}" />
+                    <apex:column headerValue="Country" value="{!emergContact.Country__c}" />	
+                    <apex:column headerValue="Email" value="{!emergContact.Email__c}" />
+                    <apex:column headerValue="Home Phone" value="{!emergContact.Home_Phone__c}" />
+                    <apex:column headerValue="Post code" value="{!emergContact.Post_Code__c}" />
+                    <apex:column headerValue="Primary Contact" value="{!emergContact.Primary_Contact__c}" />
+                    <apex:column headerValue="Relationship" value="{!emergContact.Relationship__c}" />
+                    <apex:column headerValue="Work Phone" value="{!emergContact.Work_Phone__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Employee Visa Status" collapsible="true" id="blocksec19">
+                <apex:pageBlockTable value="{!empVisa}" var="emervisa" id="table" style="width:190%;" >
+                    <apex:column headerValue="Current Status" value="{!emervisa.Current_Status__c}" />
+                    <apex:column headerValue="Current Visa" value="{!emervisa.Current_Visa__c}" />
+                    <apex:column headerValue="Documentation Available" value="{!emervisa.Documentation_Available__c}" />
+                    <apex:column headerValue="Effective Date" value="{!emervisa.Effective_Date__c}" />
+                    <apex:column headerValue="Expiry Date" value="{!emervisa.Expiry_Date__c}" />	
+                    <apex:column headerValue="Visa Status" value="{!emervisa.Visa_Status__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock> 
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec1a}').getElementsByTagName('img')[0])    
+        </script>
+        
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec1b}').getElementsByTagName('img')[0])    
+        </script>
+        
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec1}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec2}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec3}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec4}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block1.blocksec5}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec6}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec7}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec8}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec9}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec10}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec11}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec12}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec13}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec14}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec15}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec16}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec17}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec18}').getElementsByTagName('img')[0])    
+        </script>
+        <script>
+        twistSection(document.getElementById('{!$Component.block2.blocksec19}').getElementsByTagName('img')[0])    
+        </script>
+        
+    </apex:form>
+</apex:page>

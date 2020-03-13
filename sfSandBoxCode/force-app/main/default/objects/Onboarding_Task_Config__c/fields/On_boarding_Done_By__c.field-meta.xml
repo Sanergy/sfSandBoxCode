@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>On_boarding_Done_By__c</fullName>
+    <externalId>false</externalId>
+    <label>On-boarding Done By</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Director</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>Team Lead</fullName>
+                <default>false</default>
+                <label>Team Lead</label>
+            </value>
+            <value>
+                <fullName>Line Manager</fullName>
+                <default>false</default>
+                <label>Line Manager</label>
+            </value>
+            <value>
+                <fullName>Talent Partner</fullName>
+                <default>false</default>
+                <label>Talent Partner</label>
+            </value>
+            <value>
+                <fullName>Specific User</fullName>
+                <default>false</default>
+                <label>Specific User</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

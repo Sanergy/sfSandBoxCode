@@ -1,0 +1,27 @@
+<apex:page StandardController="PTS_Line_Item__c"  extensions="GeneratePreviousPOsPRsAndPOItemsOnPR">
+    <apex:form >   
+                 
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            
+            <apex:pageBlockTable value="{!purchaseOrderLineItemList}" var="c" id="table">
+                <apex:column >
+                    
+                </apex:column>  
+                <apex:column headerValue="PO Line Name" width="70" >
+                 <apex:outputLink value="/{!c.Id}" target="_blank">{!c.Name}</apex:outputLink>
+                </apex:column> 
+                <apex:column headerValue="PO Item" value="{!c.Purchase_Order_Item__c}" />           
+                <apex:column headerValue="Item Description" value="{!c.Item__c}" />
+                <apex:column headerValue="Item Category" value="{!c.Item_Type__c}" />
+                <apex:column headerValue="Company" value="{!c.Requesting_Company__c}" />
+                <apex:column headerValue="Quantity Requested" value="{!c.Quantity_Requested__c}" />
+                <apex:column headerValue="Unit Price" value="{!c.Unit_Price__c}" />
+                <apex:column headerValue="Total Gross Price" value="{!c.Total_Price__c}" />
+                <apex:column headerValue="Quantity Accepted" value="{!c.Quantity_Accepted__c}" />
+                <apex:column headerValue="Status" value="{!c.Status__c}" />
+                <apex:column headerValue="PTS Line" value="{!c.PTS_Line_Item__c}" />
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

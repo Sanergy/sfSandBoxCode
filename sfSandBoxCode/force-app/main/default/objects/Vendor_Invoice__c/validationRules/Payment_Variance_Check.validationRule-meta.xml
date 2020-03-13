@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Variance_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( VI_Status__c , &#39;Closed&#39;) ,Total_Payments__c 
+&gt; 0 ,OR(  Reconciled_Invoice_Total__c &gt; Max_Price_Var__c, Reconciled_Invoice_Total__c &lt;  Min_Price_Var__c) , ISBLANK( Payment_Variance__c ) )</errorConditionFormula>
+    <errorDisplayField>Payment_Variance__c</errorDisplayField>
+    <errorMessage>This Field Cannot be Empty</errorMessage>
+</ValidationRule>

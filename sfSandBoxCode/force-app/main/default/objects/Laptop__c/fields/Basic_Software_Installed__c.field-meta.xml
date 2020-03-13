@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Basic_Software_Installed__c</fullName>
+    <externalId>false</externalId>
+    <label>Basic Software Installed</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chrome</fullName>
+                <default>false</default>
+                <label>Chrome</label>
+            </value>
+            <value>
+                <fullName>Adobe Reader</fullName>
+                <default>false</default>
+                <label>Adobe Reader</label>
+            </value>
+            <value>
+                <fullName>DropBox</fullName>
+                <default>false</default>
+                <label>DropBox</label>
+            </value>
+            <value>
+                <fullName>AntiVirus</fullName>
+                <default>false</default>
+                <label>AntiVirus</label>
+            </value>
+            <value>
+                <fullName>Printer</fullName>
+                <default>false</default>
+                <label>Printer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

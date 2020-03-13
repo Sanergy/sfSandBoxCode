@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CheckIfFLIPercentageValueIsEmpty</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT( ISBLANK(Purchase_Order_Item_FLI__c ) ) ,ISBLANK(FLI_percentage_value__c ) 
+)</errorConditionFormula>
+    <errorDisplayField>FLI_percentage_value__c</errorDisplayField>
+    <errorMessage>Please provide the FLI percentage value</errorMessage>
+</ValidationRule>

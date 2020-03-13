@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VI_Payment_Status__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( AND( Total_Payments__c = 0, Payment_Confirmed__c  = 0) ,&#39;No Payments Requested&#39; 
+,   IF(AND(Total_Payments__c &gt; 0, Total_Payments__c &lt; Total_Invoice_Cost_del__c,Payment_Confirmed__c = 0) , &#39;Partial Payments Requested &amp; No Payments Done&#39;,  IF(AND(Total_Payments__c &gt; 0, Total_Payments__c &lt; Total_Invoice_Cost_del__c,Payment_Confirmed__c &gt; 0, Payment_Confirmed__c &lt; Total_Payments__c ) , &#39;Partial Payments Requested &amp; Partial Payments Done&#39;, IF(AND(Total_Payments__c &gt; 0, Total_Payments__c &lt; Total_Invoice_Cost_del__c,Payment_Confirmed__c &gt; 0, Payment_Confirmed__c = Total_Payments__c ) , &#39;Partial Payments Requested &amp; Full Payments Done&#39;, IF(AND(Total_Payments__c &gt; 0, Total_Payments__c = Total_Invoice_Cost_del__c,Payment_Confirmed__c = 0) , &#39;Full Payments Requested &amp; No  Payments Done&#39;, IF(AND(Total_Payments__c &gt; 0, Total_Payments__c = Total_Invoice_Cost_del__c,Payment_Confirmed__c &gt; 0, Payment_Confirmed__c &lt; Total_Payments__c ) , &#39;Full Payments Requested &amp; Partial Payments Done&#39;, IF(AND(Total_Payments__c &gt; 0, Total_Payments__c = Total_Invoice_Cost_del__c,Payment_Confirmed__c &gt; 0, Payment_Confirmed__c = Total_Payments__c ) , &#39;Full Payments Done&#39;, null))))))  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>VI Payment Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,32 @@
+<apex:page standardController="Opportunity" extensions="CreateFleetRequestForFarmstarDelivery">
+    <apex:sectionHeader title="" subtitle="Create Fleet Request for FLT Launch"/>
+
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageblocksection title="Opportunity {!Opportunity.Name}" collapsible="false">
+                <apex:outputField value="{!Opportunity.id}" rendered="false"/>
+                <apex:outputField value="{!Opportunity.Purchase_Tons__c}"/>
+                <apex:outputField value="{!Opportunity.Delivery__c}" />
+            </apex:pageBlockSection>
+           
+            <apex:pageblocksection title="Kindly Fill in the Fleet Request Information below." collapsible="false">
+                   <apex:inputField value="{!fleet.Requesting_Employee__c}"/>
+                   <apex:inputField value="{!leg.Pickup_Location__c}"/>
+                   <apex:inputField value="{!leg.Departure_Date__c}"/>
+                   <apex:inputField value="{!leg.Other_Pickup_Location__c}"/>
+                   <apex:inputField value="{!leg.Departure_Time__c}"/>
+                   <apex:inputField value="{!leg.Destination__c}"/>
+                   <apex:inputField value="{!fleet.Reason_For_Trip__c}"/>
+                   <apex:inputField value="{!leg.Other_Destination__c}"/>
+                   <apex:inputField value="{!leg.Cargo_Details__c}"/>
+                   <apex:inputField value="{!leg.Number_of_Passengers__c}"/>
+                   <apex:inputField value="{!leg.Vehicle_Type__c}"/>
+                   <apex:inputField value="{!leg.Driver_Required__c}"/>
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Create Request" action="{!createRequest}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

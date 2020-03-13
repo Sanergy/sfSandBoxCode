@@ -1,0 +1,41 @@
+<apex:page StandardController="Work_Order__c"  extensions="GenerateWorkOderItems">
+    <apex:form >   
+        <apex:pageBlock title="GENERATE WORK ORDER ITEMS">
+        <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection title="WOrk Order Details">
+                <apex:outputField value="{!Work_Order__c.Name}"/>
+                <apex:outputField value="{!Work_Order__c.Status__c}"/>    
+                <apex:outputField value="{!Work_Order__c.Inventory_Item__c}" />
+                <apex:outputField value="{!Work_Order__c.Inventory_Item_Quantity__c}" /> 
+                <apex:outputField value="{!Work_Order__c.UOM__c}" />
+                </apex:pageBlockSection>            
+        </apex:pageBlock>           
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Generate" action="{!generateWOItems}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            
+            <apex:pageblocksection title="SELECT BOMs/RECIPE">             
+            
+                    <apex:selectList value="{!Recipe}" multiselect="false" size="1">
+                        <apex:actionSupport event="onchange" action="{!setRecs}" rerender="table" />
+                        <apex:selectOptions value="{!recipies}"/>
+                    </apex:selectList>
+                        
+            </apex:pageblocksection> 
+           
+            
+            <apex:pageBlockTable value="{!items}" var="c" id="table">
+                <apex:column >
+                                                    
+                </apex:column>               
+                <apex:column headerValue="Inventory Item" value="{!c.woItem.Inventory_Item__c}" />
+                <apex:column headerValue="Quantity" value="{!c.woItem.BOM_Quantity__c}" />
+                
+                </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

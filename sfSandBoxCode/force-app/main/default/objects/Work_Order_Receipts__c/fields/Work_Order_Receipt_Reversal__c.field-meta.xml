@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Work_Order_Receipt_Reversal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if this Work Order Receipt has been reversed</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checked if this Work Order Receipt has been reversed</inlineHelpText>
+    <label>Work Order Receipt Reversal</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

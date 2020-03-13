@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_Open_no_greater_than_7</fullName>
+    <active>true</active>
+    <errorConditionFormula>Number_of_Days_Open_in_a_Typical_Week__c &gt; 7</errorConditionFormula>
+    <errorMessage>&quot;Number of days open in a typical week&quot; cannot exceed 7.</errorMessage>
+</ValidationRule>

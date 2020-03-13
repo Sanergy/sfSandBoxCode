@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LineItemsAfterSPRApproval</fullName>
+    <active>true</active>
+    <description>Line Items cannot be added after SPR Approval</description>
+    <errorConditionFormula>AND( ISPICKVAL(  Approval_Status__c , &#39;Approved By Director&#39;) ,
+ISCHANGED( No_of_Line_Items__c ) )</errorConditionFormula>
+    <errorMessage>Line Items cannot be added or removed after SPR Approval</errorMessage>
+</ValidationRule>

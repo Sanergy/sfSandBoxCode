@@ -1,0 +1,29 @@
+<apex:page StandardController="Procurement_Tracking_Sheet__c" recordSetvar="Procurement_Tracking_Sheet__c" extensions="CreatePOLinesFromPTSLines">
+    <apex:form >
+        
+        <apex:pageBlock title="CREATED PURCHASE ORDERS">
+            <apex:pageblocksection >   
+            </apex:pageblocksection>            
+        </apex:pageBlock>
+        
+        <apex:pageMessages ></apex:pageMessages> 
+        <apex:pageBlock >      
+        
+             
+            <apex:pageBlockButtons >    
+                <apex:commandButton value="Close" action="{!cancel}"/>
+            </apex:pageBlockButtons>             
+            
+            <apex:pageBlockTable value="{!createdPOs}" var="c" id="table">     
+                <apex:column headerValue="PO Name">
+                   <apex:outputLink value="/{!c.id}">{!c.Name}</apex:outputLink>
+                </apex:column>
+                <apex:column headerValue="Vendor" value="{!c.Vendor_Account__c}" />
+                <apex:column headerValue="Status" value="{!c.Company__r.name}" />
+                <apex:column headerValue="Total Cost" value="{!c.Total_Amount__c}" />
+                <apex:column headerValue="Status" value="{!c.PO_Currency__r.name}" />
+                <apex:column headerValue="Status" value="{!c.Order_Status__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

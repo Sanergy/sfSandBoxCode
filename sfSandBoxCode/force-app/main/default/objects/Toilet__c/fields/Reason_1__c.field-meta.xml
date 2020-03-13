@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_1__c</fullName>
+    <externalId>false</externalId>
+    <label>Closure Reason 1</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Government Demolition</fullName>
+                <default>false</default>
+                <label>Government Demolition</label>
+            </value>
+            <value>
+                <fullName>Dispute</fullName>
+                <default>false</default>
+                <label>Dispute</label>
+            </value>
+            <value>
+                <fullName>Hygiene</fullName>
+                <default>false</default>
+                <label>Hygiene</label>
+            </value>
+            <value>
+                <fullName>Payment</fullName>
+                <default>false</default>
+                <label>Payment</label>
+            </value>
+            <value>
+                <fullName>Found another toilet option</fullName>
+                <default>false</default>
+                <label>Found another toilet option</label>
+            </value>
+            <value>
+                <fullName>Service Related</fullName>
+                <default>false</default>
+                <label>Service Related</label>
+            </value>
+            <value>
+                <fullName>Relocation</fullName>
+                <default>false</default>
+                <label>Relocation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

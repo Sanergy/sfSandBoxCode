@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_monthly_income__c</fullName>
+    <externalId>false</externalId>
+    <label>Average monthly income from business</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0 - 5000 Ksh</fullName>
+                <default>false</default>
+                <label>0 - 5000 Ksh</label>
+            </value>
+            <value>
+                <fullName>5000 - 15000 Ksh</fullName>
+                <default>false</default>
+                <label>5000 - 15000 Ksh</label>
+            </value>
+            <value>
+                <fullName>15000 Ksh +</fullName>
+                <default>false</default>
+                <label>15000 Ksh +</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

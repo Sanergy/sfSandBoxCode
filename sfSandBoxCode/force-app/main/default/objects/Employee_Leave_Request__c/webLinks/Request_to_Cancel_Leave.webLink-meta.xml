@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Request_to_Cancel_Leave</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Request to Cancel Leave</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/20.0/connection.js&quot;)}
+var opptyObj = new sforce.SObject(&quot;Employee_Leave_Request__c&quot;);
+opptyObj.Id = &#39;{!Employee_Leave_Request__c.Id}&#39;;
+
+if(&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Approved by HR&#39; || 
+&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Declined by Team Lead&#39; ||
+&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Declined by HR&#39;)
+{
+
+var r = confirm(&quot; Are You Sure You want to Cancel This Leave Request?&quot;);
+if(r==true){
+opptyObj.Comments__c = &#39;User Requested Cancellation&#39;;
+opptyObj.Approval_Status__c = &#39;Pending Cancellation&#39;;
+opptyObj.Leave_Started__c = false;
+
+
+var result = sforce.connection.update([opptyObj]);
+alert(&quot;Cancellation Requested&quot;);
+
+window.parent.location.href=&quot;/{!Employee_Leave_Request__c.Id}&quot;;
+
+}
+
+}
+
+else if(&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Pending Approval&#39; || 
+&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Approved by Team Lead&#39;){
+
+var r = confirm(&quot; Are You Sure You want to Cancel This Leave Request?&quot;);
+if(r==true){
+
+alert(&quot;This record is currently in an approval process.Kindly Just Recall Approval Request&quot;);
+window.parent.location.href=&quot;/{!Employee_Leave_Request__c.Id}&quot;;
+}
+}
+
+else if(&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Approved by HR&#39; || 
+&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Declined by Team Lead&#39; ||
+&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Declined by HR&#39;) 
+{
+var r = confirm(&quot; Are You Sure You want to Cancel This Leave Request?&quot;);
+if(r==true){
+
+opptyObj.Comments__c = &#39;User Requested Cancellation&#39;;
+opptyObj.Approval_Status__c = &#39;Pending Cancellation&#39;;
+opptyObj.Leave_Started__c = false;
+
+var result = sforce.connection.update([opptyObj]);
+navigateToUrl(&#39;/p/process/Submit?id={!Employee_Leave_Request__c.Id}&amp;retURL=%2F{!Employee_Leave_Request__c.Id}&#39;);
+
+alert(&quot;Cancellation Requested&quot;);
+window.parent.location.href=&quot;/{!Employee_Leave_Request__c.Id}&quot;;
+
+}
+}
+
+else if(&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Pending Approval&#39; || 
+&#39;{!Employee_Leave_Request__c.Approval_Status__c}&#39;== &#39;Approved by Team Lead&#39;){
+
+var r = confirm(&quot; Are You Sure You want to Cancel This Leave Request?&quot;);
+if(r==true){
+
+alert(&quot;This record is currently in an approval process.Kindly Just Recall Approval Request&quot;);
+
+window.parent.location.href=&quot;/{!Employee_Leave_Request__c.Id}&quot;;
+}
+}</url>
+</WebLink>

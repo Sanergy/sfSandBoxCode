@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Total_Reconciled_Total_Diff__c</fullName>
+    <description>This is the difference between the invoice Total and the Reconciled Invoice Total</description>
+    <externalId>false</externalId>
+    <formula>Invoice_Total__c - Reconciled_Invoice_Total__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is the difference between the invoice Total and the Reconciled Invoice Total</inlineHelpText>
+    <label>Invoice Total &amp; Reconciled Total Diff</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

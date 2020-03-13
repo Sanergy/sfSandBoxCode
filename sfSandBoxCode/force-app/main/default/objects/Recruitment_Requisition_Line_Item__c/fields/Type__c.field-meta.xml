@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Phone</fullName>
+                <default>false</default>
+                <label>Phone</label>
+            </value>
+            <value>
+                <fullName>Computer</fullName>
+                <default>false</default>
+                <label>Computer</label>
+            </value>
+            <value>
+                <fullName>Accessory</fullName>
+                <default>false</default>
+                <label>Accessory</label>
+            </value>
+            <value>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+                <label>Vehicle</label>
+            </value>
+            <value>
+                <fullName>Email Account</fullName>
+                <default>false</default>
+                <label>Email Account</label>
+            </value>
+            <value>
+                <fullName>Dropbox Account</fullName>
+                <default>false</default>
+                <label>Dropbox Account</label>
+            </value>
+            <value>
+                <fullName>Salesforce Account</fullName>
+                <default>false</default>
+                <label>Salesforce Account</label>
+            </value>
+            <value>
+                <fullName>Intranet Account</fullName>
+                <default>false</default>
+                <label>Intranet Account</label>
+            </value>
+            <value>
+                <fullName>Airtime</fullName>
+                <default>false</default>
+                <label>Airtime</label>
+            </value>
+            <value>
+                <fullName>Meals</fullName>
+                <default>false</default>
+                <label>Meals</label>
+            </value>
+            <value>
+                <fullName>Transport</fullName>
+                <default>false</default>
+                <label>Transport</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

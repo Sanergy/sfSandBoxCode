@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lime_to_Add_Kg__c</fullName>
+    <description>Total Hydrated Lime to Add (Kg) - Dry Weight * 0.3</description>
+    <externalId>false</externalId>
+    <formula>Dry_Weight_of_Waste_Kg__c * 0.3</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lime to Add(Kg)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

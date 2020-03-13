@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sample_Source__c</fullName>
+    <description>Supplier from which sample was taken</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Supplier from which sample was taken</inlineHelpText>
+    <label>Sample Source</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

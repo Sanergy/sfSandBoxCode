@@ -1,0 +1,8 @@
+<apex:page standardController="c2g__codaPurchaseInvoice__c" extensions="ClonePINController">
+    <apex:form >
+        <apex:sectionHeader title="{!c2g__codaPurchaseInvoice__c.Name}" subtitle="Clone record confirmation"/>
+        <apex:pageMessage severity="info" summary="Click Clone to confirm you wish to clone this record."/>
+        <apex:commandButton value="Clone" action="{!clonePin}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+    </apex:form>
+</apex:page>

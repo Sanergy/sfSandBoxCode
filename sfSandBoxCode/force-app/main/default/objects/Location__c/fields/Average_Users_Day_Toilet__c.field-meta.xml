@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Average_Users_Day_Toilet__c</fullName>
+    <externalId>false</externalId>
+    <formula>( Average_Waste_Day__c /  of_Toilets__c ) /  Waste_User_Ratio__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Average users at each of a location&#39;s toilets  Includes days when the toilet may have been closed.</inlineHelpText>
+    <label>Average Users/Day/Toilet</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

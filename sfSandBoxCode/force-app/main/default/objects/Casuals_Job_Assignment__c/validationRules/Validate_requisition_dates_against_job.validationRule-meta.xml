@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_requisition_dates_against_job</fullName>
+    <active>true</active>
+    <description>Ensure that the dates for the job requisition are within the job&#39;s date duration</description>
+    <errorConditionFormula>OR(
+  Start_Date__c &lt;   Casual_Job_Line_Item__r.Start_Date__c  ,
+  End_Date__c   &gt;   Casual_Job_Line_Item__r.End_Date__c 
+)</errorConditionFormula>
+    <errorMessage>The Start Date and End Date of this Casual-Job Assignment should not fall out of the time duration specified on the job line item</errorMessage>
+</ValidationRule>

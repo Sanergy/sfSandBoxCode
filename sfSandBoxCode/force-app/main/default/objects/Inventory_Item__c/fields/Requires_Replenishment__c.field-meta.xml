@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_Replenishment__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+   (Inventory_Stock__c + Pending_Replenishment_Quantity__c) &lt;  Reorder_Point__c ,
+    ISPICKVAL(Planning_Policy__c, &quot;Reorder Point&quot;),
+    OR(
+       ISPICKVAL( Item_Source__c, &quot;Purchased&quot;),
+       ISPICKVAL( Item_Source__c, &quot;Manufactured&quot;)
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Requires Replenishment</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

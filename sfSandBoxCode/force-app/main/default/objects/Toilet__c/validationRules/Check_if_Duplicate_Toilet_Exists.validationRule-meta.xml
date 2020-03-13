@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_if_Duplicate_Toilet_Exists</fullName>
+    <active>false</active>
+    <errorConditionFormula>VLOOKUP($ObjectType.Toilet__c.Fields.Name, 
+$ObjectType.Toilet__c.Fields.Name , Name ) = Name</errorConditionFormula>
+    <errorMessage>The toilet name already exists</errorMessage>
+</ValidationRule>

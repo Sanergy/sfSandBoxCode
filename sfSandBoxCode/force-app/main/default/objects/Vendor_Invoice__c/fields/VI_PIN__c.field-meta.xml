@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VI_PIN__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>VI Payable Invoice</description>
+    <externalId>false</externalId>
+    <inlineHelpText>VI Payable Invoice</inlineHelpText>
+    <label>VI PIN</label>
+    <referenceTo>c2g__codaPurchaseInvoice__c</referenceTo>
+    <relationshipLabel>Vendor Invoices</relationshipLabel>
+    <relationshipName>VI_PIN</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

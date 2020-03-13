@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateMRPInventoryItemsandPRs</fullName>
+    <active>false</active>
+    <description>MRP inventory item should not be attached to PR created by employee</description>
+    <errorConditionFormula>AND( ISPICKVAL( Inventory_Item__r.Planning_Policy__c , &quot;Reorder Point&quot;) ,
+ ISPICKVAL( Procurement_Tracking_Sheet__r.Requestor_Type__c , &quot;Employee&quot;) )</errorConditionFormula>
+    <errorMessage>You are not allowed to attach an MRP Inventory Item to employee created Procurement Request</errorMessage>
+</ValidationRule>

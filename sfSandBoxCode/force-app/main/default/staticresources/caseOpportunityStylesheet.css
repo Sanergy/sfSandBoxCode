@@ -1,0 +1,28 @@
+*{
+	font-size: 12px;
+}
+.headerText{
+	font-size:14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.outBorder {
+    border:3px groove #A3A3A3;
+    width: 100%;
+}
+.inBorder{
+   border:1px solid #A3A3A3;
+   padding: 5px 10px;
+}
+.approver_column{
+	width: 33%;
+}
+.section_requester{
+	font-weight: bold;
+}
+.flo_receipt_footer{
+	width: 400px;
+}
+.receiptTable{
+	font-weight: bold;
+}

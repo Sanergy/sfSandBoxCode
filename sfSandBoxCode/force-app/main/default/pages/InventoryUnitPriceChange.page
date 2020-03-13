@@ -1,0 +1,47 @@
+<apex:page standardController="Inventory_Item__c" extensions="InventoryUnitPriceChange"  docType="html-5.0">
+      <apex:form >
+    <apex:sectionHeader title="Unit Price Change"/>
+    <apex:pageMessages ></apex:pageMessages>
+    
+    <apex:pageBlock title="Unit Price Change" >
+        
+        <apex:pageBlockButtons >
+           <apex:commandButton value="Change The Unit Price" action="{!CreateInventoryTransaction}"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockTable id="itemList" value="{!items}" var="item" title="Inventory Items">
+            <apex:column headerValue="Inventory Item">
+             <apex:outputText value="{!item.item.Name}"></apex:outputText>
+            </apex:column>
+           <apex:column headerValue="Current Unit Price">
+               <apex:outputField value="{!item.item.unit_cost__c}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+        
+        <apex:pageBlockSection >
+        <apex:input type="number" html-step="any"  value="{!newPrice}"> New Unit Price:  </apex:input>
+         </apex:pageBlockSection>
+         <apex:pageBlockSection > 
+        <apex:inputTextarea value="{!Comments}"> Add Comments: </apex:inputTextarea>
+         </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+          
+     <apex:pageBlock title="Manufactured Items Unit Costs To Be Affected " >
+       
+        <apex:pageBlockTable id="listBOMItems" value="{!Bom}" var="item" title="BOM Items">
+            <apex:column headerValue="Inventory Item">
+             <apex:outputText value="{!item.BomItem.Parent_Item__r.Name}"></apex:outputText>
+            </apex:column>
+            
+           <apex:column headerValue="Current Unit Price">
+               <apex:outputField value="{!item.BomItem.Parent_Item__r.unit_cost__c}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+        
+        
+        
+    </apex:pageBlock>         
+    </apex:form>
+</apex:page>

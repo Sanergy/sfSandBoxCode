@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allowance_Benefit</fullName>
+    <active>true</active>
+    <label>Allowance</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Airtime Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bonus Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meal Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overtime Allowance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral Commission</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transport Allowance</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

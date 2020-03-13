@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FLT_comparison__c</fullName>
+    <externalId>false</externalId>
+    <label>How does FLT compare with other toilets</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Better quality &amp; service</fullName>
+                <default>false</default>
+                <label>Better quality &amp; service</label>
+            </value>
+            <value>
+                <fullName>Same standards</fullName>
+                <default>false</default>
+                <label>Same standards</label>
+            </value>
+            <value>
+                <fullName>Poor quality</fullName>
+                <default>false</default>
+                <label>Poor quality</label>
+            </value>
+            <value>
+                <fullName>Difficult to use</fullName>
+                <default>false</default>
+                <label>Difficult to use</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

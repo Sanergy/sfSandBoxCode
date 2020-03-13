@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approver_LM_Validation</fullName>
+    <active>true</active>
+    <description>Approver SF Account should be the same as LM User Account</description>
+    <errorConditionFormula>Approver__c &lt;&gt;  Line_Manager_SF_Account__c</errorConditionFormula>
+    <errorDisplayField>Approver__c</errorDisplayField>
+    <errorMessage>Approver Account should be the same as the Dept Unit Line Manager Account</errorMessage>
+</ValidationRule>

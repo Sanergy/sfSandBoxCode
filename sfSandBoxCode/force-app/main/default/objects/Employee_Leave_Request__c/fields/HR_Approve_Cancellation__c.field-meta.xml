@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HR_Approve_Cancellation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>The HR checks this box to agree to cancel a leave request</description>
+    <externalId>false</externalId>
+    <label>HR Approve Cancellation</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

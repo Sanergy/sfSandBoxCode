@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approximate_customers_per_day__c</fullName>
+    <description>Approximate number of customers per day</description>
+    <externalId>false</externalId>
+    <label>Approximate customers per day</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>&lt;25</fullName>
+                <default>false</default>
+                <label>&lt;25</label>
+            </value>
+            <value>
+                <fullName>26-50</fullName>
+                <default>false</default>
+                <label>26-50</label>
+            </value>
+            <value>
+                <fullName>51-100</fullName>
+                <default>false</default>
+                <label>51-100</label>
+            </value>
+            <value>
+                <fullName>101-250</fullName>
+                <default>false</default>
+                <label>101-250</label>
+            </value>
+            <value>
+                <fullName>Over 250</fullName>
+                <default>false</default>
+                <label>Over 250</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

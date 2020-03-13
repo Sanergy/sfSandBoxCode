@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_SLK_And_FLI_Percentages_AddTo_100</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR
+( 
+	(SLK_percentage_value__c  +  FLI_percentage_value__c  &lt;&gt; 100),
+	(
+		AND
+		(
+			Shared_service__c  =  true,  
+			OR
+			(
+				ISBLANK(Purchase_Order_Item_FLI__c), ISBLANK(Purchase_Order_Item_SLK__c ) 
+			)
+		)
+	)
+)</errorConditionFormula>
+    <errorMessage>SLK % and FLI % should add up to 100%
+
+FLI PO Item and SLK PO Item cannot be blank</errorMessage>
+</ValidationRule>

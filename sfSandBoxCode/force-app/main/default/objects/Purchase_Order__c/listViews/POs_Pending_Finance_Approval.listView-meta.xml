@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>POs_Pending_Finance_Approval</fullName>
+    <columns>Next_Step_Due_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Company__c</columns>
+    <columns>Vendor_Account__c</columns>
+    <columns>Expected_Date__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>PO_Currency__c</columns>
+    <columns>Total_Amount__c</columns>
+    <columns>Order_Status__c</columns>
+    <columns>Firm_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Next_Step__c</field>
+        <operation>equals</operation>
+        <value>Pending Finance Approval</value>
+    </filters>
+    <label>POs - (2) Pending Finance Approval</label>
+    <language>en_US</language>
+</ListView>

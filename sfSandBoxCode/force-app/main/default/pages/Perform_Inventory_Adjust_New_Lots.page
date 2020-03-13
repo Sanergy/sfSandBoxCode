@@ -1,0 +1,55 @@
+<apex:page StandardController="Inventory_Item__c" extensions="LocationAddController" tabStyle="Inventory_Item__c">
+   
+
+    <apex:sectionHeader title="Inventory Adjust for item" subtitle="{!Inventory_Item__c.name}"/>
+    <apex:form >   
+               
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock id="table" title="New Location Lot" > 
+            <center>
+                <apex:commandButton value="Finish" action="{!saveNewLots}" />
+                <apex:commandButton value="Cancel" immediate="true" action="{!pageItemAdjust}"/>
+            </center>   
+            <apex:pageBlockSection columns="2" collapsible="false" title="Inventory Item Information"> 
+                <apex:outputField value="{!Inventory_Item__c.name}"/> 
+                <apex:outputField value="{!Inventory_Item__c.Item_Group__c}" />
+                <apex:outputField value="{!Inventory_Item__c.Inventory_Stock__c}" />
+                <apex:outputField value="{!Inventory_Item__c.Inventory_UoM__c}" />                 
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="2" collapsible="false" title="New Location">
+                <apex:outputField value="{!wr.loc.Location_Name__c}"/> 
+                <apex:outputField value="{!wr.loc.Max_Location_Quantity__c}"/>  
+                <apex:outputField value="{!wr.loc.Location__c}"/> 
+                <apex:outputField value="{!wr.loc.re_order_Level__c}"/>              
+            </apex:pageBlockSection>
+            
+           <apex:pageBlockSection columns="1" title="Item Lots"  >                 
+                <apex:pageBlockTable value="{!lots}" var="c">
+                    <apex:column headerValue="Lot Name" > 
+                        <apex:inputField value="{!c.lots.Lot_Name__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Batch Date">
+                        <apex:inputField value="{!c.lots.Batch_Date__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Expiry Date" >
+                        <apex:inputField value="{!c.lots.Expire_Date__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Quantity to Add" >
+                        <apex:inputField value="{!c.lots.Adjust_Quantity__c}" />
+                    </apex:column> 
+                    <apex:column headerValue="Department" width="200"> 
+                        <apex:inputField value="{!c.lots.Dimension_1__c}" required="true"/>
+                    </apex:column>                      
+                    <apex:column >
+                        <apex:commandButton immediate="true" value="Delete" action="{!removeLot}" rerender="table" disabled="{!lots.size < 2}" >
+                            <apex:param name="removeLotIndex" value="{!c.index}"/>
+                        </apex:commandButton>
+                    </apex:column>
+                </apex:pageBlockTable> 
+                 <apex:commandButton value="New Lot" action="{!addLotLine}" rerender="table" />    
+           </apex:pageBlockSection>
+           
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

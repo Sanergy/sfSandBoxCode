@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictEditingVendorUOMandInventoryItem</fullName>
+    <active>false</active>
+    <description>Restrict Editing Vendor, UOM and Inventory Item</description>
+    <errorConditionFormula>AND( OR(ISCHANGED( Inventory_UOM__c ),ISCHANGED( Vendor__c  ),ISCHANGED( Inventory_Item__c  )) )</errorConditionFormula>
+    <errorDisplayField>Approval_Status__c</errorDisplayField>
+    <errorMessage>You cannot change  UOM, Vendor and Inventory Item</errorMessage>
+</ValidationRule>

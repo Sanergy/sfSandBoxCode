@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_if_Actual_EPR_Date_has_Changed</fullName>
+    <active>true</active>
+    <description>Check if the Actual EPR Date has been changed and add a comment if it has</description>
+    <errorConditionFormula>AND( EPR_Request_Type__c = &#39;Procurement&#39;,
+     Scheduled_Payment_Date__c  &lt;&gt;  
+     Vendor_Invoice_Actual_Payment_Date__c,
+     ISBLANK( Comments__c ),
+     NOT(ISNEW()), 
+     NOT( ISNULL(Scheduled_Payment_Date__c))
+)</errorConditionFormula>
+    <errorDisplayField>Comments__c</errorDisplayField>
+    <errorMessage>Please provide an explanation on the Comment field !</errorMessage>
+</ValidationRule>

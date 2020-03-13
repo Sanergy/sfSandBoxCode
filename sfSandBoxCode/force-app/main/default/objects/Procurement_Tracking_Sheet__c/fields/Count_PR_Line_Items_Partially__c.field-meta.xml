@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_PR_Line_Items_Partially__c</fullName>
+    <externalId>false</externalId>
+    <label>Count PR Line Items Partially</label>
+    <summaryFilterItems>
+        <field>PTS_Line_Item__c.PR_Line_Receipt_Status__c</field>
+        <operation>equals</operation>
+        <value>Items Partially Received</value>
+    </summaryFilterItems>
+    <summaryForeignKey>PTS_Line_Item__c.Procurement_Tracking_Sheet__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

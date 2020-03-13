@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KIVA_and_FLI_payment_option_validation</fullName>
+    <active>true</active>
+    <description>Ensure that if payment option is Kiva &amp; FLI, both FLI toilets and Kiva toilets contain values</description>
+    <errorConditionFormula>AND(
+(ISPICKVAL(Payment_Option__c, &#39;Kiva &amp; FLI&#39;)),
+OR( 
+No_of_FLI_FLTs__c =0,
+No_of_Kiva_FLTs__c =0 
+
+))</errorConditionFormula>
+    <errorMessage>Specify the value of both the No. of FLI toilets and No. of Kiva toilets if the payment option is   Kiva &amp; FLI.</errorMessage>
+</ValidationRule>

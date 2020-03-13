@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Windrow_Batch__c</fullName>
+    <description>Windrow Batch</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Windrow Batch</inlineHelpText>
+    <label>Windrow Batch</label>
+    <referenceTo>Windrow_Batch__c</referenceTo>
+    <relationshipLabel>Windrow Batch Line Items</relationshipLabel>
+    <relationshipName>Windrow_Batch_Line_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

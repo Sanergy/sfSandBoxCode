@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Accident_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Type_of_Accident__c ,
+&quot;First Aid - Internal First Aid Only&quot;, &quot;Minor cuts, burns, lacerations etc., without going to medical facility outside the plant&quot;,
+&quot;Safety - Internal First Aid &amp; Medical Check&quot;, &quot;Accidents requiring and employee to go to a medical facility for observation or treatment by a medical doctor&quot;,
+&quot;Lost Work Days Accident - IFA, MC and sickoff excluding incident day&quot;, &quot;Accidents that require and employee to go to a medical facility, after which the employee stays away for more than a day, excluding the initial day of visiting the doctor&quot;,
+&quot;Serious Safety - Injuries involving fractures,major burns, unconsciousness, etc&quot;, &quot;Accidents involving loss of consciousness, fractures and broken bones, Major burns, loss of sight, Multiple injury of more than 1 person, Amputations&quot;,
+&quot;Fatal - Injured body found mismatched with life&quot;, &quot;Accidents where an injured body is found mismatched with life. Otherwise any unconsciousness shall be treated as &#39;serious accident&#39;&quot;, &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Type of Accident Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

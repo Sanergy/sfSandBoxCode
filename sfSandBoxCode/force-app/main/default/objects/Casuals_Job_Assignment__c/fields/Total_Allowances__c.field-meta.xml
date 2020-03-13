@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Allowances__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>SUM of all Allowances from TimeSheets</inlineHelpText>
+    <label>Total TimeSheets Allowances</label>
+    <summarizedField>Casuals_Timesheet__c.Total_Allowancess__c</summarizedField>
+    <summaryForeignKey>Casuals_Timesheet__c.Job_Requisition__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

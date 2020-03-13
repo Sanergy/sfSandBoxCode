@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Toilet_cleanliness__c</fullName>
+    <externalId>false</externalId>
+    <label>Toilet cleanliness</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Very clean (No smell, flies, feces around)</fullName>
+                <default>false</default>
+                <label>Very clean (No smell, flies, feces around)</label>
+            </value>
+            <value>
+                <fullName>Somehow clean</fullName>
+                <default>false</default>
+                <label>Somehow clean</label>
+            </value>
+            <value>
+                <fullName>Very Dirty (Smelly, full, flies, feces)</fullName>
+                <default>false</default>
+                <label>Very Dirty (Smelly, full, flies, feces)</label>
+            </value>
+            <value>
+                <fullName>Dirty</fullName>
+                <default>false</default>
+                <label>Dirty</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

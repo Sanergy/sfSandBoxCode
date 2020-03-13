@@ -1,0 +1,10 @@
+<apex:page docType="html-5.0">
+    <apex:form >   
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >   <br/>    
+            <p>
+               <apex:commandLink value="Open Payslips (Opens in new Tab)" onclick="window.open('http://reports.saner.gy:3535/ReportServer/Pages/ReportViewer.aspx?%2fReg%2fEmployee+Payslip+-+Personal&rs:Command=Render', '_blank');"/> 
+            </p>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

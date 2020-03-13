@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Raw_Biogas_Yield_ml_L__c</fullName>
+    <description>millilitres of Biogas/litre of substrate waste</description>
+    <externalId>false</externalId>
+    <inlineHelpText>millilitres of Biogas/litre of substrate waste</inlineHelpText>
+    <label>Raw Biogas Yield (ml/L)</label>
+    <precision>11</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

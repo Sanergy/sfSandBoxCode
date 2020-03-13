@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item__c</fullName>
+    <description>Item to be issued</description>
+    <externalId>false</externalId>
+    <label>Item</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Airtime</fullName>
+                <default>false</default>
+                <label>Airtime</label>
+            </value>
+            <value>
+                <fullName>Apron</fullName>
+                <default>false</default>
+                <label>Apron</label>
+            </value>
+            <value>
+                <fullName>Camera - Advanced</fullName>
+                <default>false</default>
+                <label>Camera - Advanced</label>
+            </value>
+            <value>
+                <fullName>Camera - Basic</fullName>
+                <default>false</default>
+                <label>Camera - Basic</label>
+            </value>
+            <value>
+                <fullName>Clipboard</fullName>
+                <default>false</default>
+                <label>Clipboard</label>
+            </value>
+            <value>
+                <fullName>Data</fullName>
+                <default>false</default>
+                <label>Data</label>
+            </value>
+            <value>
+                <fullName>Detergent-1 L</fullName>
+                <default>false</default>
+                <label>Detergent-1 L</label>
+            </value>
+            <value>
+                <fullName>Diary</fullName>
+                <default>false</default>
+                <label>Diary</label>
+            </value>
+            <value>
+                <fullName>Dust Coat</fullName>
+                <default>false</default>
+                <label>Dust Coat</label>
+            </value>
+            <value>
+                <fullName>Ear Muffs</fullName>
+                <default>false</default>
+                <label>Ear Muffs</label>
+            </value>
+            <value>
+                <fullName>Field Bag</fullName>
+                <default>false</default>
+                <label>Field Bag</label>
+            </value>
+            <value>
+                <fullName>Folder</fullName>
+                <default>false</default>
+                <label>Folder</label>
+            </value>
+            <value>
+                <fullName>Gloves pema PVC M16”</fullName>
+                <default>false</default>
+                <label>Gloves pema PVC M16”</label>
+            </value>
+            <value>
+                <fullName>Gumboots</fullName>
+                <default>false</default>
+                <label>Gumboots</label>
+            </value>
+            <value>
+                <fullName>Helmet</fullName>
+                <default>false</default>
+                <label>Helmet</label>
+            </value>
+            <value>
+                <fullName>Laptop - Advanced</fullName>
+                <default>false</default>
+                <label>Laptop - Advanced</label>
+            </value>
+            <value>
+                <fullName>Laptop Bag</fullName>
+                <default>false</default>
+                <label>Laptop Bag</label>
+            </value>
+            <value>
+                <fullName>Laptop - Basic</fullName>
+                <default>false</default>
+                <label>Laptop - Basic</label>
+            </value>
+            <value>
+                <fullName>Laptop - Intermediate</fullName>
+                <default>false</default>
+                <label>Laptop - Intermediate</label>
+            </value>
+            <value>
+                <fullName>Leather Gloves</fullName>
+                <default>false</default>
+                <label>Leather Gloves</label>
+            </value>
+            <value>
+                <fullName>Mask</fullName>
+                <default>false</default>
+                <label>Mask</label>
+            </value>
+            <value>
+                <fullName>Modem</fullName>
+                <default>false</default>
+                <label>Modem</label>
+            </value>
+            <value>
+                <fullName>Overalls</fullName>
+                <default>false</default>
+                <label>Overalls</label>
+            </value>
+            <value>
+                <fullName>Phone - Basic</fullName>
+                <default>false</default>
+                <label>Phone - Basic</label>
+            </value>
+            <value>
+                <fullName>Phone - Intermediate</fullName>
+                <default>false</default>
+                <label>Phone - Intermediate</label>
+            </value>
+            <value>
+                <fullName>Phone - Smartphone</fullName>
+                <default>false</default>
+                <label>Phone - Smartphone</label>
+            </value>
+            <value>
+                <fullName>Raincoat</fullName>
+                <default>false</default>
+                <label>Raincoat</label>
+            </value>
+            <value>
+                <fullName>Respirator</fullName>
+                <default>false</default>
+                <label>Respirator</label>
+            </value>
+            <value>
+                <fullName>Safety Glasses</fullName>
+                <default>false</default>
+                <label>Safety Glasses</label>
+            </value>
+            <value>
+                <fullName>Safety Workboots</fullName>
+                <default>false</default>
+                <label>Safety Workboots</label>
+            </value>
+            <value>
+                <fullName>Shirt - Polo</fullName>
+                <default>false</default>
+                <label>Shirt - Polo</label>
+            </value>
+            <value>
+                <fullName>Shirt - T-Shirt</fullName>
+                <default>false</default>
+                <label>Shirt - T-Shirt</label>
+            </value>
+            <value>
+                <fullName>Soap</fullName>
+                <default>false</default>
+                <label>Soap</label>
+            </value>
+            <value>
+                <fullName>Spray Bottle Carrier</fullName>
+                <default>false</default>
+                <label>Spray Bottle Carrier</label>
+            </value>
+            <value>
+                <fullName>Tape Measure</fullName>
+                <default>false</default>
+                <label>Tape Measure</label>
+            </value>
+            <value>
+                <fullName>Tools Belt</fullName>
+                <default>false</default>
+                <label>Tools Belt</label>
+            </value>
+            <value>
+                <fullName>Vaseline</fullName>
+                <default>false</default>
+                <label>Vaseline</label>
+            </value>
+            <value>
+                <fullName>Video Camera</fullName>
+                <default>false</default>
+                <label>Video Camera</label>
+            </value>
+            <value>
+                <fullName>Welding Goggles</fullName>
+                <default>false</default>
+                <label>Welding Goggles</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

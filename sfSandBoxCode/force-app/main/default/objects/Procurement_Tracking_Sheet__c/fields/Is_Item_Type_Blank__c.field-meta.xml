@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Item_Type_Blank__c</fullName>
+    <description>How many times [Item Type] field is left blank on the PR Line Items</description>
+    <externalId>false</externalId>
+    <inlineHelpText>How many times [Item Type] field is left blank on the PR Line Items</inlineHelpText>
+    <label>Is Item Type Blank</label>
+    <summarizedField>PTS_Line_Item__c.Is_Item_Type_Blank__c</summarizedField>
+    <summaryForeignKey>PTS_Line_Item__c.Procurement_Tracking_Sheet__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

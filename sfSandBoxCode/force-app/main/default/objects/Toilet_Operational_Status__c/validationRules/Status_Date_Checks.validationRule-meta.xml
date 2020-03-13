@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Date_Checks</fullName>
+    <active>false</active>
+    <description>Check that dates are valid</description>
+    <errorConditionFormula>IF(
+ISBLANK(Date_From__c) 
+|| ( Date_From__c &gt;  Date_To__c ) 
+|| (ISBLANK(Date_To__c) &amp;&amp;  Current_Record__c = FALSE)
+,1,0)
+=1</errorConditionFormula>
+    <errorMessage>Date From cannot be blank or less than Date To. If Current Record, Date To should be left blank.</errorMessage>
+</ValidationRule>

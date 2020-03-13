@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AddEmployeeRoleIfOnboardingSelected</fullName>
+    <active>false</active>
+    <description>Adds employee role if On-boarding Done By is selected i.e. from director to talent partner</description>
+    <errorConditionFormula>AND( ISPICKVAL (  On_boarding_Done_By__c , &#39;Team Lead&#39;) ||ISPICKVAL (  On_boarding_Done_By__c , &#39;Line Manager&#39;) || ISPICKVAL (  On_boarding_Done_By__c , &#39;Talent Partner&#39;),ISBLANK(Employee_Role__c) )</errorConditionFormula>
+    <errorDisplayField>Employee_Role__c</errorDisplayField>
+    <errorMessage>Please Enter Employee Role</errorMessage>
+</ValidationRule>

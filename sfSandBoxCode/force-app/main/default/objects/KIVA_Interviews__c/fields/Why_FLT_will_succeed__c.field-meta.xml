@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Why_FLT_will_succeed__c</fullName>
+    <description>Why interviewee thinks FLT will attract atleast 50 users/day:</description>
+    <externalId>false</externalId>
+    <label>Why FLT will succeed:</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

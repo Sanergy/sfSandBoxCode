@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculated_Single_Usage_Fees__c</fullName>
+    <externalId>false</externalId>
+    <formula>((Customers_Boys__c +  Customers_Girls__c )  *  Location__r.Single_Use_Fee_Children__c ) + (( Customers_Men__c +  Customers_Women__c ) *  Location__r.Single_Use_Fee_Adults__c )</formula>
+    <label>Calculated Single Usage Fees</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnlyKanyiShouldChangeUnitCost</fullName>
+    <active>false</active>
+    <description>OnlyKanyiShouldChangeUnitCost</description>
+    <errorConditionFormula>AND(ISCHANGED( unit_cost__c ), OR($User.Id != &#39;005D0000008w3r2&#39;, $User.Id != &#39;005D0000002ShvT&#39;,$User.Id !=&#39;005D0000002ShvU&#39;,$User.Id != &#39;005D0000008kHZI&#39;,$User.Id != &#39;005D0000004ZrkJ&#39;))</errorConditionFormula>
+    <errorDisplayField>unit_cost__c</errorDisplayField>
+    <errorMessage>You do not have the permissions to change the unit cost</errorMessage>
+</ValidationRule>

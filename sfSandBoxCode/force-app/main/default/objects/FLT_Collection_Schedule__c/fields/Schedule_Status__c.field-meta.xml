@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Schedule_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Schedule Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Closed by FLI</fullName>
+                <default>false</default>
+                <label>Closed by FLI</label>
+            </value>
+            <value>
+                <fullName>Closure Chosen by FLO</fullName>
+                <default>false</default>
+                <label>Closure Chosen by FLO</label>
+            </value>
+            <value>
+                <fullName>Collect</fullName>
+                <default>false</default>
+                <label>Collect</label>
+            </value>
+            <value>
+                <fullName>DC school is closed</fullName>
+                <default>false</default>
+                <label>DC school is closed</label>
+            </value>
+            <value>
+                <fullName>Demolished</fullName>
+                <default>false</default>
+                <label>Demolished</label>
+            </value>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>Periodic</fullName>
+                <default>false</default>
+                <label>Periodic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

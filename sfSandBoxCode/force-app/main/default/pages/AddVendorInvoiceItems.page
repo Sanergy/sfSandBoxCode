@@ -1,0 +1,29 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="AddVendorInvItemsController">
+  <apex:form >
+        <apex:sectionHeader title="{!Vendor_Invoice__c.Name}" subtitle="Add Po Items"/>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageMessage severity="info" summary="Select PO Items in Vendor Invoice"/>
+        
+        <apex:pageBlock title="Purchase Order Items" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select all" action="{!selectAll}" rerender="table"/>
+                <apex:commandButton value="Unselect all" action="{!unselectAll}" rerender="table"/>
+                <apex:commandButton value="Add Invoice Items" action="{!addInvoiceItems}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockTable value="{!items}" var="item" id="table" title="Invoice Items">
+                <apex:column >
+                    <apex:inputCheckbox value="{!item.selected}"/>
+                </apex:column>
+                <apex:column headerValue="Name" value="{!item.item.Name}" />
+                <apex:column headerValue="PO Item Name" value="{!item.item.Purchase_Order_Item__r.Name}" />
+                <apex:column headerValue="Requesting Company" value="{!item.item.Requesting_Company__r.Name}" />
+                <apex:column headerValue="Order Quantity" value="{!item.item.Quantity_Requested__c}" />
+                <apex:column headerValue="Unreceived Quantity" value="{!item.item.Quantity_Remaining__c}" />
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

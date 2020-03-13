@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnsureAtLeastOneReasonOnClosure</fullName>
+    <active>true</active>
+    <description>Ensures that the user gives atleast one reason for closure incase flt is closed.</description>
+    <errorConditionFormula>AND(
+ ISPICKVAL(Operational_Status__c, &#39;Closed&#39;),
+ ISBLANK(TEXT( Reason_1__c )),
+ ISBLANK(TEXT( Reason_2__c )),
+ ISBLANK(TEXT( Reason_3__c ))
+)</errorConditionFormula>
+    <errorDisplayField>Reason_1__c</errorDisplayField>
+    <errorMessage>Please Select atleast one reason for closure</errorMessage>
+</ValidationRule>

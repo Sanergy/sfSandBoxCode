@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Firm_Task</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Firm Task</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+
+var task= new sforce.SObject(&quot;Asset_Maintenance_Task__c&quot;);
+
+task.Id = &#39;{!Asset_Maintenance_Task__c.Id}&#39;;
+task.RecordTypeId = &#39;0127E000000W7Al&#39;;
+task.Service_Date__c = new Date();
+task.Status__c = &#39;In Progress&#39;;
+
+
+var result = sforce.connection.update([task]);
+if (result[0].success==&#39;false&#39;) {
+alert(result[0].errors.message);
+} else {
+location.reload(true);
+}</url>
+</WebLink>

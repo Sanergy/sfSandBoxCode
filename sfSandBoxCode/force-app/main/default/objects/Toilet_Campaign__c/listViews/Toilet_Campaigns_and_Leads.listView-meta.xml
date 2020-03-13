@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Toilet_Campaigns_and_Leads</fullName>
+    <columns>NAME</columns>
+    <columns>Sales_Leads__c</columns>
+    <columns>New_Users__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sales_Leads__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </filters>
+    <label>Toilet Campaigns and Leads</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>Branding_Assistant</roleAndSubordinates>
+        <roleAndSubordinates>Branding_Associate</roleAndSubordinates>
+        <roleAndSubordinates>Marketing_Assistant</roleAndSubordinates>
+        <roleAndSubordinates>Marketing_Manager</roleAndSubordinates>
+    </sharedTo>
+</ListView>

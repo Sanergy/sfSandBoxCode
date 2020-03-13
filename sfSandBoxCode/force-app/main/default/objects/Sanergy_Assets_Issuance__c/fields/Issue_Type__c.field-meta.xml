@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Issue_Type__c</fullName>
+    <description>Type of asset issuance</description>
+    <externalId>false</externalId>
+    <label>Issue Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Permanent Issue to Staff</fullName>
+                <default>false</default>
+                <label>Permanent Issue to Staff</label>
+            </value>
+            <value>
+                <fullName>Short Term Issue to Staff</fullName>
+                <default>false</default>
+                <label>Short Term Issue to Staff</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

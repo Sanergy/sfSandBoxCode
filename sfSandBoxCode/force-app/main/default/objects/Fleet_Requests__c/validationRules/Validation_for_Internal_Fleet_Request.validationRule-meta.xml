@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_for_Internal_Fleet_Request</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL( Fleet_Request_Category__c, &quot;Internal Fleet&quot;),
+ISBLANK(  Designated_Driver__c )
+)</errorConditionFormula>
+    <errorMessage>If the Fleet request category is internal, kindly specify the &quot;Designated Driver&quot;</errorMessage>
+</ValidationRule>

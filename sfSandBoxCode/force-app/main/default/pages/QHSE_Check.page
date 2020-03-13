@@ -1,0 +1,44 @@
+<apex:page standardController="Vendor_Invoice__c" extensions="QHSECheckController">
+  <apex:form >
+        <apex:sectionHeader title="{!Vendor_Invoice__c.Name}" subtitle="Please Enter Accepted Receive Quantity"/>
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageMessage severity="info" summary="Enter Accepted Receive Quantity"/>
+        
+        <apex:pageBlock title="Invoice Items" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Select All" action="{!selectAll}" rerender="itemList"/>
+                <apex:commandButton value="UnSelect All" action="{!unselectAll}" rerender="itemList"/>
+                <apex:commandButton value="Accept Receive Quantity" action="{!receiveToInventory}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockTable id="itemList" value="{!items}" var="item" title="Invoice Items">
+                <apex:column >    
+                    <apex:inputCheckbox value="{!item.selected}" />   
+                </apex:column>    
+                
+                <apex:column headerValue="Vendor Invoice">
+                    <apex:outputlink value="/{!item.item.Vendor_Invoice__c}">{!item.item.Vendor_Invoice__r.Name}</apex:outputlink>
+                </apex:column>
+                
+                <apex:column headerValue="Vendor Invoice Item">
+                    <apex:outputlink value="/{!item.item.Id}">{!item.item.Name}</apex:outputlink>
+                </apex:column>
+                                               
+                <apex:column headerValue="Name" value="{!item.item.Item_Description__c}" />
+                <apex:column headerValue="Pending Quantity" >
+                    <apex:outputText value="{0,number, ###,###.####}" id="qtyPending" >
+                        <apex:param value="{!item.item.Quantity__c}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Accepted Receive Quantity"> 
+                    <apex:inputField value="{!item.item.Accepted_Receive_Quantity__c}"/>
+                </apex:column>
+                <apex:column headerValue="Reject Quantity"> 
+                    <apex:inputField value="{!item.item.Rejected_Quantity__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

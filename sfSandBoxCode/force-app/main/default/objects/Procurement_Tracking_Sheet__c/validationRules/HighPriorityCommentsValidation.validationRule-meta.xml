@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HighPriorityCommentsValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL( Priority__c , &quot;High&quot;) ,
+ ISBLANK( High_Priority_Comments__c ) )</errorConditionFormula>
+    <errorDisplayField>High_Priority_Comments__c</errorDisplayField>
+    <errorMessage>Please explain the reason for the urgent procurement request and what process changes can be made to avoid emergency requests in future</errorMessage>
+</ValidationRule>

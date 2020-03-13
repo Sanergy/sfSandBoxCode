@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequestDateBeAtLeast7Days</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(
+ AND( Departure_Date__c  - today() &lt; 2, ISNEW()),
+  Departure_Date__c  - DATEVALUE(CreatedDate) &lt; 2
+)</errorConditionFormula>
+    <errorDisplayField>Departure_Date__c</errorDisplayField>
+    <errorMessage>Departure date must not be less than 2 days</errorMessage>
+</ValidationRule>

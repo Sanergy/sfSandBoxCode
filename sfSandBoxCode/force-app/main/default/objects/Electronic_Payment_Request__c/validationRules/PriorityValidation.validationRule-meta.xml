@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PriorityValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(  ISCHANGED( Priority__c )  ,
+ISPICKVAL( Status__c , &#39;Line Manager Approved&#39;)
+)</errorConditionFormula>
+    <errorDisplayField>Priority__c</errorDisplayField>
+    <errorMessage>Priority cannot be changed once the Line Manager has approved the EPR</errorMessage>
+</ValidationRule>

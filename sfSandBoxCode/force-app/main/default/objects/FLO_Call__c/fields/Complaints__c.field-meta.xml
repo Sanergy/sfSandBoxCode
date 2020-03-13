@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaints__c</fullName>
+    <externalId>false</externalId>
+    <label>Complaints</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Chamber not cleaned</fullName>
+                <default>false</default>
+                <label>Chamber not cleaned</label>
+            </value>
+            <value>
+                <fullName>Toilet not sprayed</fullName>
+                <default>false</default>
+                <label>Toilet not sprayed</label>
+            </value>
+            <value>
+                <fullName>Misalignment of squat plate</fullName>
+                <default>false</default>
+                <label>Misalignment of squat plate</label>
+            </value>
+            <value>
+                <fullName>Misalignment of waste containers</fullName>
+                <default>false</default>
+                <label>Misalignment of waste containers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

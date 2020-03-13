@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validations_for_External_Fleet_Category</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISPICKVAL( Fleet_Request_Category__c, &quot;External Fleet&quot;),
+OR(
+ISBLANK( Recommended_Vendor__c ),
+ISBLANK( Total_Estimated_Cost__c )
+)
+)</errorConditionFormula>
+    <errorMessage>If Fleet request category is External, kindly specify the &quot;Recommended vendor&quot; and the &quot;Total Estimate Cost&quot;</errorMessage>
+</ValidationRule>

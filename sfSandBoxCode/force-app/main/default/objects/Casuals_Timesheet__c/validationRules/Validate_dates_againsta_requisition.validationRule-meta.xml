@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_dates_againsta_requisition</fullName>
+    <active>true</active>
+    <description>Ensure the timelines on the timesheet are within the requisition&#39;s timeframe</description>
+    <errorConditionFormula>OR(
+   Job_Requisition__r.Start_dDate__c &gt;  Actual_Start_Date__c,
+   Job_Requisition__r.End_dDate__c  &lt; Actual_End_Date__c
+)</errorConditionFormula>
+    <errorMessage>The start date should not be before the job assignment&#39;s start date. The end date should not be after the job assignment&#39;s end date.</errorMessage>
+</ValidationRule>

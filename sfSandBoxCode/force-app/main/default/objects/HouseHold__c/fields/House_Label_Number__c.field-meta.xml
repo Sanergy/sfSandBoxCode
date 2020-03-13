@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>House_Label_Number__c</fullName>
+    <description>House Label Number</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number displayed on house</inlineHelpText>
+    <label>House Label Number</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

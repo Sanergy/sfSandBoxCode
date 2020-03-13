@@ -1,0 +1,137 @@
+<apex:page renderAs="pdf" standardController="Opportunity" extensions="OpportunityShipController" standardStylesheets="false" >
+    <head>
+        <style>
+            body{font-size: 22px; font-family: Helvetica,sans-serif !important; color: #222 !important;}
+            .col-6{width: 50%; float: right}
+            .bordered{font-weight:bold; font-size: 12px}
+            .container {width: 100%;}table {width: 100%;}td {width: 50%; color: black;}
+            .content {margin:0px;padding:0px;position: absolute;left:-100;}
+        </style>
+    </head>
+    <body>       
+        <div style="page-break-after:always;"> 
+            <apex:panelGrid columns="2" styleClass="col-12">
+                <apex:panelGrid columns="1" styleClass="col-6" width="400">
+                    <!--<apex:image value="{!If(CONTAINS(Purchase_Order__c.Company__r.Name, 'Sanergy') ,URLFOR($Resource.Sanergy_Logo),URLFOR($Resource.freshlife_logo)) }" styleClass="col-16" width="200" />-->
+                    <apex:image value="{!URLFOR($Resource.sanergylogoCropped) }" styleClass="content" width="200"  />
+                    <apex:outputText value="Sanergy Limited" style="font-weight:bold; font-size: 12px;"/>
+                    <apex:outputText value="Address: PO Box 24523" style="font-size: 12px"/>
+                    <apex:outputText value="Nairobi, Kenya" style="font-size: 12px"/>
+                    <apex:outputText value="Phone: +254 788 511 824" style="font-size: 12px"/>
+                    <apex:outputText value="Email: info@saner.gy" style="font-size: 12px"/>
+                </apex:panelGrid>                    
+                <apex:panelGrid columns="1" styleClass="col-6" width="400">
+                    <p>&nbsp;</p><p>&nbsp;</p>
+                    <h2>DELIVERY NOTE</h2>
+                    <apex:panelGrid columns="2" styleClass="col-6">
+                        <apex:outputText value="P.O. DETAILS" style="font-weight:bold; font-size: 12px;"/>
+                        <apex:outputText value=" " style="font-size: 12px;"/>
+                        <apex:outputText value="P.O. DATE" style="font-weight:bold; font-size: 12px;"/>
+                        <apex:outputText value="{0, date, dd MMM','  yyyy}" style="font-weight:bold; font-size: 12px">
+                            <apex:param value="{!Opportunity.createdDate}" /> 
+                        </apex:outputText>
+                        <apex:outputText value="P.O. NUMBER" style="font-weight:bold; font-size: 12px"/>
+                        <apex:outputText value="{!Opportunity.name}" style="font-size: 12px"/>   
+                        <apex:outputText value="P.O. CURRENCY: " style="font-weight:bold; font-size: 12px"/>
+                        <apex:outputText value="{!Opportunity.CurrencyIsoCode}" style="font-weight:bold; font-size: 12px"/>                  
+                    </apex:panelGrid> 
+                </apex:panelGrid>          
+            </apex:panelGrid>
+            
+            <apex:panelGrid columns="1" width="1000">
+            </apex:panelGrid>
+            
+            <apex:panelGrid columns="2" style="padding:0px; vertical-align:top" width="700">
+                <apex:panelGrid columns="1" styleClass="col-6" width="300" cellpadding="0" style="vertical-align:top; padding:0px; background:#7e7e7e; color: #fff" >
+                    <h5 style="margin:0px">CUSTOMER INFORMATION</h5>
+                </apex:panelGrid>                    
+                <apex:panelGrid columns="1" styleClass="col-6" width="300" cellpadding="0" style="margin:0px; vertical-align:top; padding:0px;background:#7e7e7e; color: #fff " >
+                    <h5 style="margin:0px">DELIVERY INFORMATION</h5>
+                </apex:panelGrid>
+                <apex:panelGrid columns="1" styleClass="col-6" width="300" cellpadding="0" style="vertical-align:top; padding:0px;">
+                    <h3>{!Opportunity.Account.Name}</h3>
+                    <p>{!Opportunity.name}</p>
+                </apex:panelGrid>
+                
+                <apex:panelGrid columns="2" styleClass="col-6" style="vertical-align:top; padding:0px; margin:0px">
+                    <table border="0" cellpadding="4" style="font-size: 12px" >
+                        <tr>
+                            <td>Delivery Mode</td>
+                            <td>{!Opportunity.Delivery_Method__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Date
+                                <apex:outputText value="{0, date, d MMM','  yyyy}" >
+                                    <apex:param value="{!Opportunity.Preferred_Delivery_Pickup_Date_Time__c}" /> 
+                                </apex:outputText>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Instructions</td>
+                            <td>{!Opportunity.Delivery__c}</td>
+                        </tr>
+                    </table>                  
+                </apex:panelGrid> 
+            </apex:panelGrid>  
+            <hr/><p></p>
+            <table border="1" style="font-size: 12px" cellpadding="4" width="100%" >
+                <tr style="color:#fff; background: #7e7e7e">
+                    <th style="width:5%">#</th>
+                    <th style="width:45%">DETAILED DESCRIPTION</th>
+                    <th style="width:30%">UoM</th>
+                    <th style="width:20%">Qty</th>
+                </tr>
+                <apex:repeat value="{!wrpDeliveryItems}" var="item">
+                    <tr>
+                        <td>{!item.invItemIndex}</td>
+                        <td>{!item.invItem.Item__r.Name}</td>
+                        <td>{!item.invItem.Item__r.Inventory_UoM__r.Name}</td>
+                        <td>{!item.invItem.Transaction_Quantity__c}</td>
+                    </tr>
+                </apex:repeat>
+                
+                <tr style="font-weight: bold" >
+                    <td colspan="4"  rowspan="4" >
+                        <table width="100%" border="0" style="font-size: 12px" cellpadding="4" height="100%" class="container">
+                            <tr>
+                                <td style="background:#bdbdbd" colspan="3" width="100%">
+                                    Other comments or special instructions
+                                </td>
+                            </tr>
+                            <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                            <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                            <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                            <tr><td colspan="3"></td></tr><tr><td colspan="3"></td></tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+            </table>  
+            
+            <apex:panelGrid columns="2">
+                <apex:panelGrid columns="2" width="300">
+                    <apex:outputText value="Prepared by" style="font-weight: bold; font-size: 12px;"/>
+                    <apex:outputText value="{!$User.FirstName} {!$User.LastName}" style="font-size: 12px"/>
+                    <apex:outputText value="Date" style="font-weight: bold; font-size: 12px"/>
+                    <apex:outputText value="{0, date, dd MMM','  yyyy}" style="font-size: 12px">
+                        <apex:param value="{!TODAY()}" /> 
+                    </apex:outputText>
+                    <apex:outputText value="Signature" style="font-weight: bold; font-size: 12px"/>
+                    <apex:outputText value="" style="font-size: 12px"/>                    
+                </apex:panelGrid>
+                
+                <apex:panelGrid columns="2" width="300">
+                    <apex:outputText value="Authorized by" style="font-weight: bold; font-size: 12px;"/>
+                    <apex:outputText value="" style=" font-size: 12px"/>
+                    <apex:outputText value="Date" style="font-weight: bold; font-size: 12px"/>
+                    <apex:outputText value="" style=" font-size: 12px"/>
+                    <apex:outputText value="Signature" style="font-weight: bold; font-size: 12px"/>
+                    <apex:outputText value="" style="font-size: 12px"/>                       
+                </apex:panelGrid>
+            </apex:panelGrid>  
+            <hr/>
+            <hr/>   
+        </div>
+        -
+    </body>
+</apex:page>

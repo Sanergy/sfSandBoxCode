@@ -1,0 +1,68 @@
+<apex:page standardController="Opportunity" title="{!Opportunity.Name} - Schedule Repayments"
+        extensions="MassEditScheduleRepyamentsExtension" sidebar="false">
+        
+    <apex:sectionHeader title="{!Opportunity.Name}" subtitle="Schedule Repayments" />
+    <script>
+    function confirmDelete(delIndex) {
+        if(window.confirm("Are you sure?")) {
+            removeRow(delIndex);
+        }
+    }
+    function setFocusOnLoad() {}
+    </script>
+
+    <apex:form id="frm">
+        <apex:pageMessages />
+        <apex:actionFunction action="{!RemovePaymentRow}" name="removeRow" status="addRowStatus" reRender="frm" immediate="true">
+            <apex:param name="delIndex" value=""></apex:param>
+        </apex:actionFunction>
+
+        <apex:pageBlock title="Mass Edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!SaveAll}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+
+            <apex:variable var="rowNum" value="{!1}" />
+            <apex:pageBlockTable value="{!Payments}" var="rpt" id="pbPaymentLineItems">
+                <apex:column >
+                    <apex:outputText value="{!ROUND(rowNum,0)}." />
+                </apex:column>
+
+                <apex:column styleClass="actionColumn">
+                    <a href="javascript:void(0)" title="Delete Record"  class="actionLink" onclick="return confirmDelete('{!rowNum}');">Del</a>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}" />
+                </apex:column>
+
+                <apex:column headerValue="{!$ObjectType.Payment__c.fields.Payment_Date__c.Label}">
+                    <apex:inputField value="{!rpt.dbPayment.Payment_Date__c}" />
+
+                    <apex:facet name="footer">
+                        <apex:outputPanel style="width:100%;text-align:left;">
+                            <apex:commandLink value="Add Row" status="addRowStatus" action="{!AddPaymentLineItem}" reRender="frm" />&nbsp;
+                            <apex:actionStatus id="addRowStatus">
+                                <apex:facet name="start">
+                                    &nbsp;&nbsp;<img style="padding-left: 10px;" src="/img/loading.gif" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:outputPanel>
+                    </apex:facet>
+                </apex:column>
+
+                <apex:column headerValue="{!$ObjectType.Payment__c.fields.Payment_Amount__c.Label}">
+                    <apex:inputField value="{!rpt.dbPayment.Payment_Amount__c}" />
+                </apex:column>
+
+                <apex:column headerValue="{!$ObjectType.Payment__c.fields.Payment_Type__c.Label}">
+                    <apex:inputField value="{!rpt.dbPayment.Payment_Type__c}" />
+                </apex:column>
+
+                <apex:column headerValue="{!$ObjectType.Payment__c.fields.Payment_Status__c.Label}">
+                    <apex:inputField value="{!rpt.dbPayment.Payment_Status__c}" />
+                </apex:column>
+
+
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

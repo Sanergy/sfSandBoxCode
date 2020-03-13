@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewOpportunitySatage</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(  Create_Opportunity__c = true,
+OR(ISPICKVAL( Opportunity_Stage__c , &quot;&quot;),
+  ISBLANK(Close_Date__c),
+  ISPICKVAL( Sales_Order_Signed__c , &quot;&quot;)
+  )
+)</errorConditionFormula>
+    <errorMessage>Please at least fill Stage, Close Date And Sales Order Signed Fields for the Opportunity you want to Create</errorMessage>
+</ValidationRule>

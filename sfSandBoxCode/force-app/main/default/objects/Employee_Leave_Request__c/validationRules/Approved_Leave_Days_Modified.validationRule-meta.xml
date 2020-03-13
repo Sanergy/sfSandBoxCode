@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved_Leave_Days_Modified</fullName>
+    <active>true</active>
+    <description>No. of Approved Leave Days != No. of Leave Days Requested</description>
+    <errorConditionFormula>(ISCHANGED( No_Of_Approved_Leave_Days__c)&amp;&amp; ISBLANK( Comments__c ) = true ) &amp;&amp; 
+(CASE($User.Id, 
+&quot;005D0000005UPHN&quot;,1, 
+&quot;005D0000008tM0V&quot;,1, 
+&quot;005D0000004Derm&quot;,1,
+&quot;005D0000008kHZI&quot;,1,0) = 0)</errorConditionFormula>
+    <errorDisplayField>Comments__c</errorDisplayField>
+    <errorMessage>Explain why you are changing the No. of Approved Leave Days</errorMessage>
+</ValidationRule>

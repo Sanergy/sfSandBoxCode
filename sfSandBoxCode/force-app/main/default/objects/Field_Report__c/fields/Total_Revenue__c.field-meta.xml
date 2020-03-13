@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Revenue__c</fullName>
+    <description>This field is populated by the formula IF(OR(Usage_Fees_Single__c&gt;0, Usage_Fees_Members__c &gt;0), (Usage_Fees_Members__c + Usage_Fees_Single__c), Calculated_Single_Usage_Fees__c ) via workflow rule.</description>
+    <externalId>false</externalId>
+    <label>Total Revenue</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_Co_ordinator__c</fullName>
+    <externalId>false</externalId>
+    <label>Field Co-ordinator</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Wali Mwalugongo</fullName>
+                <default>false</default>
+                <label>Wali Mwalugongo</label>
+            </value>
+            <value>
+                <fullName>Douglas Lifede</fullName>
+                <default>false</default>
+                <label>Douglas Lifede</label>
+            </value>
+            <value>
+                <fullName>Valbett Adera</fullName>
+                <default>false</default>
+                <label>Valbett Adera</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

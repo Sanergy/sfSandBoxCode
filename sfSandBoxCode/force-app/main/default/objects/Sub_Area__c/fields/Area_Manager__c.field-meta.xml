@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Area_Manager__c</fullName>
+    <description>Area Manager</description>
+    <externalId>false</externalId>
+    <formula>CASE ( TEXT(Area__c), 
+&quot;Jogoo Rd&quot; , &quot;Jackline Akinyi&quot;, 
+&quot;Kamkunji&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Kayaba&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Kiambiu&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Kwa Njenga&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Kwa Ruben&quot; , &quot;florence@saner.gy&quot;, 
+&quot;Kware&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Mabroukie&quot; , &quot;james.nguyo@saner.gy&quot;, 
+&quot;Makadara&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Mathare&quot; , &quot;florence@saner.gy&quot;, 
+&quot;Other&quot; , &quot;james.nguyo@saner.gy&quot;, 
+&quot;Tassia&quot; , &quot;jackline.ojwang@saner.gy&quot;, 
+&quot;Viwandani&quot; , &quot;florence@saner.gy&quot;, 
+&quot;james.nguyo@saner.gy&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Area Manager</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

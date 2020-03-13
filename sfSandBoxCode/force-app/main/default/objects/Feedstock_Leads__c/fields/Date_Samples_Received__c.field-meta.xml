@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Samples_Received__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Date that samples were received by the lab</inlineHelpText>
+    <label>Date: Samples Received</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

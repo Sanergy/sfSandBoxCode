@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Assigned_Open_Jobs__c</fullName>
+    <externalId>false</externalId>
+    <label>Assigned Open Jobs</label>
+    <summaryFilterItems>
+        <field>Casuals_Job_Assignment__c.Job_Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Casuals_Job_Assignment__c.Casual__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

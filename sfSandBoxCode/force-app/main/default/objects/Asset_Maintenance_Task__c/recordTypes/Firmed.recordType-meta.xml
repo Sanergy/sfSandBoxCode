@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Firmed</fullName>
+    <active>true</active>
+    <label>Firmed</label>
+    <picklistValues>
+        <picklist>Maintenance_Type__c</picklist>
+        <values>
+            <fullName>AM%28Autonomous Maintenance%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BM%28Break Down Maintenance%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PM%28Preventive Maintenance%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Discarded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Followup_Agenda__c</fullName>
+    <externalId>false</externalId>
+    <label>Followup Agenda</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Follow up presentation</fullName>
+                <default>false</default>
+                <label>Follow up presentation</label>
+            </value>
+            <value>
+                <fullName>Collect approval</fullName>
+                <default>false</default>
+                <label>Collect approval</label>
+            </value>
+            <value>
+                <fullName>Collect deposit</fullName>
+                <default>false</default>
+                <label>Collect deposit</label>
+            </value>
+            <value>
+                <fullName>Collect application form</fullName>
+                <default>false</default>
+                <label>Collect application form</label>
+            </value>
+            <value>
+                <fullName>Final Land Review</fullName>
+                <default>false</default>
+                <label>Final Land Review</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

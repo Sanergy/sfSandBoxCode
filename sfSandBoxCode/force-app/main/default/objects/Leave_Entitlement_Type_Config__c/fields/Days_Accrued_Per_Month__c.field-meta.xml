@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_Accrued_Per_Month__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( Leave_Type__c , &#39;Annual Leave&#39;) , (Total_No_of_Leave_Days__c / 12) , 0 )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Days Accrued Per Month</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

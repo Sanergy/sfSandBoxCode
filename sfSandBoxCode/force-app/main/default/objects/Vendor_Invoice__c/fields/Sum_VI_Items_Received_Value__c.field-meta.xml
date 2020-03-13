@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_VI_Items_Received_Value__c</fullName>
+    <externalId>false</externalId>
+    <label>Sum VI Items Received Value</label>
+    <summarizedField>Vendor_Invoice_Items__c.Receive_Quantity__c</summarizedField>
+    <summaryForeignKey>Vendor_Invoice_Items__c.Vendor_Invoice__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Status__c</fullName>
+    <description>a condition set following approval steps</description>
+    <externalId>false</externalId>
+    <inlineHelpText>a condition set following approval steps</inlineHelpText>
+    <label>Approval Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+                <label>Pending Approval</label>
+            </value>
+            <value>
+                <fullName>Approved By Finance</fullName>
+                <default>false</default>
+                <label>Approved By Finance</label>
+            </value>
+            <value>
+                <fullName>Declined By Finance</fullName>
+                <default>false</default>
+                <label>Declined By Finance</label>
+            </value>
+            <value>
+                <fullName>Approved By Team Lead</fullName>
+                <default>false</default>
+                <label>Approved By Team Lead</label>
+            </value>
+            <value>
+                <fullName>Declined By Team Lead</fullName>
+                <default>false</default>
+                <label>Declined By Team Lead</label>
+            </value>
+            <value>
+                <fullName>Approved By Director</fullName>
+                <default>false</default>
+                <label>Approved By Director</label>
+            </value>
+            <value>
+                <fullName>Declined By Director</fullName>
+                <default>false</default>
+                <label>Declined By Director</label>
+            </value>
+            <value>
+                <fullName>Approved by PP</fullName>
+                <default>false</default>
+                <label>Approved by PP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

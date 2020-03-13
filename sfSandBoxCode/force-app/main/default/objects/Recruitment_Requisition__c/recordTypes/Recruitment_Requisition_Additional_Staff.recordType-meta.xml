@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruitment_Requisition_Additional_Staff</fullName>
+    <active>true</active>
+    <label>Recruitment Requisition- Additional Staff</label>
+    <picklistValues>
+        <picklist>Candidate_Specification__c</picklist>
+        <values>
+            <fullName>Any Nationality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kenyan</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Is_recruitment_budgeted__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Location__c</picklist>
+        <values>
+            <fullName>Field</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kinanie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mathare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mukuru</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sameer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stage__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Line Manager Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Line Manager Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recruitment In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Talent Partner Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Talent Partner Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Team Lead Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Team Lead Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_employment__c</picklist>
+        <values>
+            <fullName>Fellow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fixed term contract</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permanent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

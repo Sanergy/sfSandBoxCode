@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payable_Invoice__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>PIN</label>
+    <referenceTo>c2g__codaPurchaseInvoice__c</referenceTo>
+    <relationshipLabel>Electronic Payment Requests</relationshipLabel>
+    <relationshipName>Electronic_Payment_Requests</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

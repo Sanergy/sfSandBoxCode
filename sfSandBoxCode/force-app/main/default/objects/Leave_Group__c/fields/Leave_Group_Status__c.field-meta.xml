@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Leave_Group_Status__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked if leave group is active ,otherwise the leave group is inactive</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Checked if leave group is active ,otherwise the leave group is inactive</inlineHelpText>
+    <label>Leave Group Status</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

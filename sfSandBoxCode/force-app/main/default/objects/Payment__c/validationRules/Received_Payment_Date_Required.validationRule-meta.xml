@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Received_Payment_Date_Required</fullName>
+    <active>false</active>
+    <description>Require Received Payment Date once a payment is listed as received</description>
+    <errorConditionFormula>ISPICKVAL(Payment_Status__c, &quot;Received&quot;)</errorConditionFormula>
+    <errorMessage>Please enter a Received Payment Date</errorMessage>
+</ValidationRule>

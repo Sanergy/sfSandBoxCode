@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Toilet_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Toilet Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Demolished Indefinitely</fullName>
+                <default>false</default>
+                <label>Demolished Indefinitely</label>
+            </value>
+            <value>
+                <fullName>Demolished - To be rebuilt</fullName>
+                <default>false</default>
+                <label>Demolished - To be rebuilt</label>
+            </value>
+            <value>
+                <fullName>Demolished - To be relocated</fullName>
+                <default>false</default>
+                <label>Demolished - To be relocated</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

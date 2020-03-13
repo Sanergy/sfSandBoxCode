@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Balance_Carried_Forward_Change</fullName>
+    <active>false</active>
+    <errorConditionFormula>(ISCHANGED( Unit_Price__c )) &amp;&amp; 
+(CASE($User.Id, 
+&quot;005D0000005UNZo&quot;,1,
+&quot;005D0000008RwqH&quot;,1,0) = 0)</errorConditionFormula>
+    <errorDisplayField>Balance_Carried_Forward__c</errorDisplayField>
+    <errorMessage>You cannot edit this record</errorMessage>
+</ValidationRule>

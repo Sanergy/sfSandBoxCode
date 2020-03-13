@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Leave_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Leave_Entitlement_Type_Config__r.Leave_Type__c, &#39;Annual Leave&#39;) , &#39;Annual Leave&#39;,  IF( ISPICKVAL(Leave_Entitlement_Type_Config__r.Leave_Type__c, &#39;Sick Leave&#39;) , &#39;Sick Leave&#39;,  
+IF( ISPICKVAL(Leave_Entitlement_Type_Config__r.Leave_Type__c, &#39;Maternity Leave&#39;) , &#39;Maternity Leave&#39;,
+IF( ISPICKVAL(Leave_Entitlement_Type_Config__r.Leave_Type__c, &#39;Paternity Leave&#39;) , &#39;Paternity Leave&#39;,
+IF( ISPICKVAL(Leave_Entitlement_Type_Config__r.Leave_Type__c, &#39;Exam Leave&#39;) , &#39;Exam Leave&#39;,
+IF( ISPICKVAL(Leave_Entitlement_Type_Config__r.Leave_Type__c, &#39;Compassionate Leave&#39;) , &#39;Compassionate Leave&#39;, NULL))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Leave Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

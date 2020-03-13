@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_and_end_date_maximum_difference</fullName>
+    <active>true</active>
+    <errorConditionFormula>Contractual_End_Date__c - Contractual_Start_Date__c &gt;92</errorConditionFormula>
+    <errorMessage>The the maximum difference between contractual start date and contractual end date should not be more that 6 months</errorMessage>
+</ValidationRule>

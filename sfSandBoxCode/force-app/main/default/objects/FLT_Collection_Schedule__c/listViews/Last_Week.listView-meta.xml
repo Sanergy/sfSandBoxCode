@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Week</fullName>
+    <columns>NAME</columns>
+    <columns>Day__c</columns>
+    <columns>Planned_Collection_Date__c</columns>
+    <columns>Route_Name__c</columns>
+    <columns>Schedule_Status__c</columns>
+    <columns>Toilet__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Planned_Collection_Date__c</field>
+        <operation>equals</operation>
+        <value>LAST_WEEK</value>
+    </filters>
+    <label>Last Week</label>
+    <language>en_US</language>
+</ListView>

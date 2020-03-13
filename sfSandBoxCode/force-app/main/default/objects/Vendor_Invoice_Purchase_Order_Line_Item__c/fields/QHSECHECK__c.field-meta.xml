@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QHSECHECK__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Purchase_Order_Line_Item__r.PTS_Line_Item__r.Item_Type__c = &#39;Stock&#39; , true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>QHSE?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

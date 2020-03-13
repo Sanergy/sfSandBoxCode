@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BI_Bank_Title__c</fullName>
+    <description>BI Bank Title</description>
+    <externalId>false</externalId>
+    <inlineHelpText>BI Bank Title</inlineHelpText>
+    <label>BI Bank Title</label>
+    <length>140</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,226 @@
+<apex:page standardController="Recruitment_Requisition__c" extensions="BulkCandidateStatusUpdate" docType="html-5.0">
+    <style>
+        .floating-box {
+        float: left;
+        width: 150px;
+        height: 75px;
+        margin: 10px;
+        border: 3px solid #73AD21;  
+        }
+    </style>
+    
+    <!--
+Original LInks
+<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+<apex:includeScript value="//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js" />
+<apex:stylesheet value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/css/theme.blue.css" />
+
+<apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'/js/jquery.min.js')}"/>-->
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery-3.4.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jqueryTableSorter,'js/jquery.tablesorter.combined.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jqueryTableSorter,'css/theme.blue.css')}"/>
+    
+    <script>
+    $(document).ready(function()
+                      {
+                          $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+                          
+                          // Make table cell focusable
+                          // http://css-tricks.com/simple-css-row-column-highlighting/
+                          if ( $('.focus-highlight').length ) {
+                              $('.focus-highlight').find('td, th')
+                              .attr('tabindex', '1')
+                              // add touch device support
+                              .on('touchstart', function() {
+                                  $(this).focus();
+                              });
+                          }
+                      });
+    
+    function updateDataTable()
+    {
+        $("[id$='accsTable']").tablesorter({theme: 'blue', dateFormat : "dd/mm/yyyy"});
+        
+        // Make table cell focusable
+        // http://css-tricks.com/simple-css-row-column-highlighting/
+        if ( $('.focus-highlight').length ) {
+            $('.focus-highlight').find('td, th')
+            .attr('tabindex', '1')
+            // add touch device support
+            .on('touchstart', function() {
+                $(this).focus();
+            });
+        }
+    }
+    
+    function updateDataTableRows() 
+    {
+        
+        $(".table-striped").find("tr").each(function () {
+            var status= $(this).find(".status").html();  
+            if(status=="Failed")
+            {
+                $(this).addClass("failed")
+            }
+        });
+    }
+    </script>
+    <script type="text/javascript">
+    function hideRow(id){
+        console.log(id);
+        document.getElementById(id).style.display = "none";
+    }
+    </script>
+    
+    <apex:sectionHeader subtitle="{!Recruitment_Requisition__c.Name}: Candidate Evaluations"/>
+    <apex:form >                
+        <apex:pageMessages ></apex:pageMessages>  
+        <!--
+<apex:outputPanel id="output">
+<br/>Repeat: <apex:repeat var="item" value="{!$Cache.Session.local.sfOrgPartition.list}">
+<apex:outputText value="{!item}"/>&nbsp;
+</apex:repeat>
+
+</apex:outputPanel>
+-->
+        <apex:outputPanel id="output">
+            <br/><b>Candidate Statuses: </b><br/>
+            <table>
+                <tr>
+                    <span style="background:#e5f5cb;font-weight: bold;">
+                        <apex:repeat var="item" value="{!aggCE}">
+                            <td width = "50px"><apex:outputText value="{!item['CEStatus']}"/></td>&nbsp; <td></td>
+                            <td width = "100px"><apex:outputText value="{!item['Candidates']}"/></td>
+                        </apex:repeat>
+                    </span>
+                    <td width = "100px">Required Hires: </td>&nbsp; <td width = "100px">&nbsp;&nbsp;<apex:outputText value="{!NoOfRequiredHires}"/>(<apex:outputText value="{!NoOfAcceptedHires}"/>/<apex:outputText value="{!NoOfRequiredHires}"/>)</td>&nbsp; <td></td>
+                    <td width = "100px">Total Apps: </td>&nbsp; <td width = "100px"><apex:outputText value="{!NoOfTotalApps}"/></td>
+                    
+                </tr>
+            </table>
+            
+            
+        </apex:outputPanel>
+        <apex:pageBlock id="mainPgBlock"> 
+            <table>
+                <tr>
+                    <td>Evaluation Status:  </td><td></td>
+                    <td>
+                        <apex:selectList value="{!EvalAllStatus}" required="false" size="1">
+                            <apex:selectOptions value="{!EvalAllStatusOptions}" />
+                            <apex:actionSupport event="onchange" />
+                        </apex:selectList> 
+                    </td><td></td>
+                    <td>
+                         <apex:commandButton action="{!getAllCandidates}" value="Search Candidates" /> 
+                    </td>
+                    
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td>Apply Status:  </td><td></td>
+                    <td>
+                        <apex:selectList value="{!newCandidateStatus}" required="false" size="1">
+                            <apex:selectOptions value="{!EvalStatusOptions}" />
+                            <apex:actionSupport event="onchange" />
+                        </apex:selectList> 
+                    </td><td></td>
+                    <td>
+                        <apex:inputCheckbox value="{!selectAllCheckbox}">
+                            <apex:actionSupport event="onchange" reRender="table,accsTable" action="{!selectUnselectAll}" oncomplete="updateDataTable();" />
+                        </apex:inputCheckbox>
+                        &nbsp; <apex:commandButton action="{!updateCandidateStatusDropDown}" value="Apply Status" reRender="table,accsTable" oncomplete="updateDataTable();" onclick="if(!confirm('Update Status for all selected records?')){return false};"/>
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="600px">
+                    </td>
+                    <td>
+                        <apex:commandButton action="{!updateCandidateStatus}" value="Update Evaluations" onclick="if(!confirm('Are you sure?')){return false};"/>
+                    </td><td></td>
+                    <td>
+                        <apex:commandButton value="Cancel" action="{!cancel}"/> 
+                    </td>
+                </tr>
+            </table>    
+
+        </apex:pageBlock>
+   
+        <apex:dataTable value="{!candidateEvaluationList}" var="candidate" title="Candidate Evaluations" id="accsTable" styleclass="tablesorter" align="center" >
+            <apex:column headerValue="Select" style="{!candidate.ceRowStyle};align=center;">                       
+                <apex:inputCheckbox value="{!candidate.selected}" style="{!candidate.ceRowStyle}" disabled="{!candidate.recordLocked}"/>
+            </apex:column> 
+            <apex:column headerValue="Application Date" value="{!candidate.evaluation.CreatedDate}" width="600" style="{!candidate.ceRowStyle}">
+                
+            </apex:column>
+            <apex:column headerValue="Eval Name" width="600" style="{!candidate.ceRowStyle}">
+                <apex:outputlink value="/{!candidate.evaluation.id}">{!candidate.evaluation.Name}</apex:outputlink>
+            </apex:column>
+            <apex:column headerValue="Candidate Name" width="600" style="{!candidate.ceRowStyle}">
+                <apex:outputlink value="/{!candidate.evaluation.Candidate__c}">{!candidate.evaluation.Candidate__r.Name}</apex:outputlink>
+            </apex:column>
+            <apex:column headerValue="Years of Experience" value="{!candidate.evaluation.Years_Of_Experience__c}" width="300" style="{!candidate.ceRowStyle}"/>
+            <apex:column headerValue="Desired Monthly Gross(KES)" value="{!candidate.evaluation.Expected_Salary__c}" width="300" style="{!candidate.ceRowStyle}"/>
+            <apex:column headerValue="Highest Qualification" value="{!candidate.evaluation.Candidate__r.Highest_Education__c}" width="300" style="{!candidate.ceRowStyle}"/>
+            <apex:column headerValue="Date Available" value="{!candidate.evaluation.Date_Available__c}" width="300" style="{!candidate.ceRowStyle}"/>
+            <apex:column headerValue="Rating" value="{!candidate.evaluation.Candidate_Star_Rating__c}" width="300" style="{!candidate.ceRowStyle};align=center;"/>
+            <apex:column headerValue="New Rating" style="{!candidate.ceRowStyle}">
+                <apex:selectList value="{!candidate.newCandidateRating}" size="1"  multiselect="false" disabled="{!candidate.recordLocked}" >
+                    <apex:selectOptions value="{!candidate.optionsRating}" /> 
+                </apex:selectList>
+            </apex:column>
+            
+            <apex:column headerValue="Evaluation Status" value="{!candidate.evaluation.Status__c}" width="300" style="{!candidate.ceRowStyle}"/> 
+            <apex:column headerValue="New Review Status" style="{!candidate.ceRowStyle}">
+                <apex:selectList value="{!candidate.selectedOption}" size="1" disabled="{!candidate.recordLocked}" >
+                    <apex:selectOptions value="{!candidate.options}" />                                
+                </apex:selectList>
+            </apex:column>
+            <apex:column headerValue="Comments" width="300" style="{!candidate.ceRowStyle}">
+                <apex:outputText value="{!candidate.evaluation.Comments__c}"/>
+            </apex:column>
+            <apex:column headerValue="Add Comments" width="300" style="{!candidate.ceRowStyle}">
+                <apex:inputText value="{!candidate.evalComments}"/>
+            </apex:column>
+            <apex:column headerValue="Cover Letter" width="300" style="{!candidate.ceRowStyle}">
+                <apex:commandLink onclick="JavaScript:window.open('{!candidate.evaluation.Candidate__r.Cover_Letter__c}','CoverLetter','height=600,width=800,location= center,Window Position=center'); return false;" target="_blank">Cover Letter</apex:commandLink>
+            </apex:column>
+            <apex:column headerValue="Resume" width="300"  style="{!candidate.ceRowStyle}">
+                <apex:commandLink onclick="JavaScript:window.open('{!candidate.evaluation.Candidate__r.Resume__c}','Resume','height=600,width=800,location= center,Window Position=center'); return false;" target="_blank">Resume</apex:commandLink>
+            </apex:column>
+            <apex:column headerValue="Reassign To" style="{!candidate.ceRowStyle}">
+                <c:AdvancedLookup sObjectName="Recruitment_Requisition__c"
+                                  value="{!candidate.ReassignToNewRR}" 
+                                  searchFields="Name" 
+                                  formFields="Name,Employee_Role__c"
+                                  canCreate="false"
+                                  fieldLabel="Name"/>
+            </apex:column>
+            <apex:column headerValue="Convert to Employee}">
+                <apex:commandButton action="{!candidate.ConvertToEmp}" value="..." />
+            </apex:column>
+            <apex:column headerValue="Stage History}">
+                <apex:commandButton action="{!candidate.RenderEvalStages}" value="+/-" />
+            </apex:column>
+            <apex:column headerValue="..." >
+                <apex:dataTable rendered="{!candidate.evalStagesRendered}" value="{!candidate.evaluationStages}" var="c" title="Candidate Evaluations" id="accsTable" styleclass="tablesorter" align="center" >
+                    <apex:column headerValue="Application Date" value="{!c.CreatedDate}" width="600">
+                        
+                    </apex:column>
+                    <apex:column headerValue="Evaluation Status" value="{!c.Evaluation_Status__c}" width="300" />
+                    <apex:column headerValue="Rating" value="{!c.Candidate_Star_Rating__c}" width="300" style="{!candidate.ceRowStyle};align=center;"/>
+                    <apex:column headerValue="Comments" width="300">
+                        <apex:outputText value="{!c.Comments__c}"/>
+                    </apex:column>
+                </apex:dataTable>
+            </apex:column>
+        </apex:dataTable>
+
+    </apex:form>    
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Title__c</fullName>
+    <description>Previous Job Title Name</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Previous Job Title Name</inlineHelpText>
+    <label>Job Title</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

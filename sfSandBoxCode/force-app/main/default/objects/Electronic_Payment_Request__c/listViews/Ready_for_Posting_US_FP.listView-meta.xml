@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_for_Posting_US_FP</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>department__c</columns>
+    <columns>Vendor_Company__c</columns>
+    <columns>Invoice_Date__c</columns>
+    <columns>Invoice_Number__c</columns>
+    <columns>Gross_Payment_Amount__c</columns>
+    <columns>Team_Lead_Approval_Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Team_Lead_Approval_Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <filters>
+        <field>Company__c</field>
+        <operation>equals</operation>
+        <value>Sanergy Inc (FP)</value>
+    </filters>
+    <filters>
+        <field>CREATED_DATE</field>
+        <operation>greaterThan</operation>
+        <value>12/31/2016 12:00 AM</value>
+    </filters>
+    <filters>
+        <field>Vendor_Company__c</field>
+        <operation>notEqual</operation>
+        <value>AMSCO</value>
+    </filters>
+    <label>Ready for Posting - US FP</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>Systems_Administrator</role>
+        <roleAndSubordinates>Chief_Financial_Officer</roleAndSubordinates>
+    </sharedTo>
+</ListView>

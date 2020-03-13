@@ -1,0 +1,45 @@
+<apex:page standardController="Account">
+
+<head>
+
+<script type='text/javascript' src='https://www.google.com/jsapi' />
+
+<script type="text/javascript">
+
+    //use this function to format the hover text
+    formatCurrencyLabel = function ( value ) 
+    {
+        return "$" + String(value);
+    }
+
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        // we need a table to act as the datasource for the chart
+        var data = new google.visualization.DataTable();
+        
+        // the table needs two columns
+        data.addColumn('string', 'Period');
+        data.addColumn('number', 'Annual Revenue');
+        
+        // add the rows of data which consist of a value and a formatted label
+        data.addRow(['2008', {v:{!Account.Revenue_2008__c}, f: formatCurrencyLabel({!Account.Revenue_2008__c})}]);
+        data.addRow(['2009', {v:{!Account.Revenue_2009__c}, f: formatCurrencyLabel({!Account.Revenue_2009__c})}]);
+        data.addRow(['2010', {v:{!Account.Revenue_2010__c}, f: formatCurrencyLabel({!Account.Revenue_2010__c})}]);
+        data.addRow(['2011', {v:{!Account.Revenue_2011__c}, f: formatCurrencyLabel({!Account.Revenue_2011__c})}]);
+
+        //assign the chart to the appropriate div and draw the chart
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, {width: 300, height: 200, title:'Annual Revenue Trend', legend:'none',
+                            vAxis: {minValue:0}, hAxis: {slantedTextAngle:45}});
+    };
+
+</script> 
+
+</head>
+
+<body>
+<div id="chart_div" />
+</body>
+</apex:page>

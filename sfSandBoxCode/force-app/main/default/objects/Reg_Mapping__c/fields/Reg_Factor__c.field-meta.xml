@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reg_Factor__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>REG Factor Lookup</description>
+    <externalId>false</externalId>
+    <inlineHelpText>REG Factor Lookup</inlineHelpText>
+    <label>Reg Factor</label>
+    <referenceTo>Reg_Config__c</referenceTo>
+    <relationshipLabel>Reg Mappings</relationshipLabel>
+    <relationshipName>Reg_Mappings</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

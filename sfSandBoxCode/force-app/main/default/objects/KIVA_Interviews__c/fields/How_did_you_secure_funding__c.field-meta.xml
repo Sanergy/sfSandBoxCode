@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>How_did_you_secure_funding__c</fullName>
+    <externalId>false</externalId>
+    <label>How did you secure funding?</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Personal Savings</fullName>
+                <default>false</default>
+                <label>Personal Savings</label>
+            </value>
+            <value>
+                <fullName>Loan from bank/MFI</fullName>
+                <default>false</default>
+                <label>Loan from bank/MFI</label>
+            </value>
+            <value>
+                <fullName>Loan from friends/family</fullName>
+                <default>false</default>
+                <label>Loan from friends/family</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

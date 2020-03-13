@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Toilet_Ownership__c</fullName>
+    <externalId>false</externalId>
+    <label>Toilet Ownership</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Commercial</fullName>
+                <default>false</default>
+                <label>Commercial</label>
+            </value>
+            <value>
+                <fullName>Plot (Within)</fullName>
+                <default>false</default>
+                <label>Plot (Within)</label>
+            </value>
+            <value>
+                <fullName>Plot (Outside)</fullName>
+                <default>false</default>
+                <label>Plot (Outside)</label>
+            </value>
+            <value>
+                <fullName>Community Group</fullName>
+                <default>false</default>
+                <label>Community Group</label>
+            </value>
+            <value>
+                <fullName>School</fullName>
+                <default>false</default>
+                <label>School</label>
+            </value>
+            <value>
+                <fullName>Church/Community Institution</fullName>
+                <default>false</default>
+                <label>Church/Community Institution</label>
+            </value>
+            <value>
+                <fullName>Private</fullName>
+                <default>false</default>
+                <label>Private</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Condition_on_Return__c</fullName>
+    <externalId>false</externalId>
+    <label>Item Condition on Return</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Good Condition</fullName>
+                <default>false</default>
+                <label>Good Condition</label>
+            </value>
+            <value>
+                <fullName>Minor Damage</fullName>
+                <default>false</default>
+                <label>Minor Damage</label>
+            </value>
+            <value>
+                <fullName>Major Damage</fullName>
+                <default>false</default>
+                <label>Major Damage</label>
+            </value>
+            <value>
+                <fullName>Lost</fullName>
+                <default>false</default>
+                <label>Lost</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

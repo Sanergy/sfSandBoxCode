@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>glaShouldNotStartWith1410</fullName>
+    <active>true</active>
+    <description>Checks if gla starts with 1410. if true throw an error</description>
+    <errorConditionFormula>CONTAINS(LEFT(  GLA__r.Name ,4),&quot;1410&quot;)</errorConditionFormula>
+    <errorDisplayField>GLA__c</errorDisplayField>
+    <errorMessage>Please Select A different GLA</errorMessage>
+</ValidationRule>

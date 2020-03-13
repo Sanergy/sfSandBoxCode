@@ -1,0 +1,78 @@
+<apex:page controller="EvergrowSalesPlanningDashboard">
+  <apex:form >
+        <apex:sectionHeader title="Update Opportunities" subtitle="Update Opportunities"/>
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <apex:pageBlock title="Opportunities" >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Filter List" action="{!refresh}"/>
+                <apex:commandButton value="Save Changes" action="{!save}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection columns="1" >
+                <apex:selectList value="{!selectedContacts}" multiselect="true" size="5" label="Select Salespersons">
+                    <apex:selectOptions value="{!contacts}"/>
+                </apex:selectList>
+                <apex:outputText style="font-weight:bold">Showing {!oppListSize} records</apex:outputText> 
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!oppWrapper}" var="item" id="table" title="Invoice Items" style="font-size: 12px;">
+                    <apex:column >
+                        <apex:inputCheckbox value="{!item.selected}"/>
+                    </apex:column>
+                    <apex:column headerValue="Account" value="{!item.opp.AccountId}" />
+                    
+                    <apex:column headerValue="Opportunity">    
+                    <apex:outputlink value="/{!item.opp}">{!item.opp.name}</apex:outputlink>   
+                   </apex:column>
+                    <apex:column headerValue="Stage" value="{!item.opp.StageName}" />
+                    <apex:column headerValue="Primary Salesperson" value="{!item.opp.Primary_Salesperson__c}" />
+                    <apex:column headerValue="Phone" value="{!item.opp.Phone_Number__c}" />
+                    <apex:column headerValue="Territory Pocket" value="{!item.opp.Territory_Pocket__c}" />
+                    <apex:column headerValue="Crops" value="{!item.opp.Crop_Evergrow_will_be_Used_On__c}" />
+                    
+                    <apex:column headerValue="Priority" >
+                        <apex:inputField value="{!item.opp.Priority__c}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Next Planting Date" >
+                        <apex:inputField value="{!item.opp.Planned_Planting_Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Next Planting Crops" >
+                        <apex:inputField value="{!item.opp.Next_Planting_Crop__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Next sale target KGs" >
+                        <apex:inputField value="{!item.opp.Next_Sale_Target__c}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Potential annual volume" >
+                        <apex:outputText value="{0, number, #,###.00}">
+                            <apex:param value="{!item.annualTarget}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Annual volume to date" >
+                        <apex:outputText value="{0, number, #,###.00}">
+                            <apex:param value="{!item.annualActual}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Very Next Steps" >
+                        <apex:inputField value="{!item.opp.Very_Next_Step__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Very Next Steps Date" >
+                        <apex:inputField value="{!item.opp.Very_Next_Step_Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Close Date" >
+                        <apex:inputField value="{!item.opp.CloseDate}"/>
+                    </apex:column>            
+                </apex:pageBlockTable>    
+            </apex:pageBlockSection>
+            
+                       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

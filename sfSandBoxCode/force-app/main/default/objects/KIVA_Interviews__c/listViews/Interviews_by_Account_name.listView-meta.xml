@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interviews_by_Account_name</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Name__c</columns>
+    <columns>Date_of_interview__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Name__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Interviews by Account name</label>
+    <language>en_US</language>
+</ListView>

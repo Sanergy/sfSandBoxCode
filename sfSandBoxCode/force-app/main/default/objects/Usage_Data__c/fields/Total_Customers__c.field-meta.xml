@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Customers__c</fullName>
+    <externalId>false</externalId>
+    <formula>Boys_1pm_5pm__c + Boys_5am_9am__c + Boys_5pm_9pm__c + Boys_9am_1pm__c 
+
++ Men_5am_9am__c + Men_9am_1pm__c + Men_1pm_5pm__c + Men_5pm_9pm__c
+
++ Women_5am_9am__c + Women_9am_1pm__c + Women_1pm_5pm__c + Women_5pm_9pm__c
+
++ Girls_5am_9am__c + Girls_9am_1pm__c + Girls_1pm_5pm__c + Girls_5pm_9pm__c
+
++ Boys_Misc__c + Men_Misc__c + Women_Misc__c + Girls_Misc__c
+
++ X1pm_5pm_Misc__c + X5am_9am_Misc__c + X5pm_9pm_Misc__c + X9am_1pm_Misc__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Customers</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Firm_Toilets__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Once checked, toilets cant be added</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Once checked, toilets cant be added</inlineHelpText>
+    <label>Firm Toilets</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

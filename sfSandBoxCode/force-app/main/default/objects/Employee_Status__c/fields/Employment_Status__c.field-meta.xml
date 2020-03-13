@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Employment Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Casual</fullName>
+                <default>false</default>
+                <label>Casual</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Fellow</fullName>
+                <default>false</default>
+                <label>Fellow</label>
+            </value>
+            <value>
+                <fullName>Fixed Term Contract</fullName>
+                <default>false</default>
+                <label>Fixed Term Contract</label>
+            </value>
+            <value>
+                <fullName>Part-Time</fullName>
+                <default>false</default>
+                <label>Part-Time</label>
+            </value>
+            <value>
+                <fullName>Permanent</fullName>
+                <default>false</default>
+                <label>Permanent</label>
+            </value>
+            <value>
+                <fullName>Probationary Contract</fullName>
+                <default>false</default>
+                <label>Probationary Contract</label>
+            </value>
+            <value>
+                <fullName>Terminated</fullName>
+                <default>false</default>
+                <label>Terminated</label>
+            </value>
+            <value>
+                <fullName>Pending Onboarding</fullName>
+                <default>false</default>
+                <label>Pending Onboarding</label>
+            </value>
+            <value>
+                <fullName>Pending Activation</fullName>
+                <default>false</default>
+                <label>Pending Activation</label>
+            </value>
+            <value>
+                <fullName>Fixed Contract</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fixed Contract</label>
+            </value>
+            <value>
+                <fullName>Full-Time</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Full-Time</label>
+            </value>
+            <value>
+                <fullName>Temporary</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Temporary</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

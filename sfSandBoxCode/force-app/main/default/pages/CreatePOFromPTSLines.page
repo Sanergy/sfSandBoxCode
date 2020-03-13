@@ -1,0 +1,40 @@
+<apex:page StandardController="Procurement_Tracking_Sheet__c" recordSetvar="Procurement_Tracking_Sheet__c" extensions="CreatePOLinesFromPTSLines"  docType="html-5.0">
+    <apex:form >   
+        <apex:pageBlock title="SELECT THE PTS LINES TO PROCESS">
+            <apex:pageblocksection >   
+            </apex:pageblocksection>            
+        </apex:pageBlock>           
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                
+                <apex:commandButton value="Select all" action="{!selectAll}" rerender="table"/>
+                <apex:commandButton value="Unselect all" action="{!unselectAll}" rerender="table"/>
+                <apex:commandButton value="Process Selected" action="{!processSelected}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+        <apex:input value="{!searchText}" id="theTextInput" type="search" />
+
+        <apex:commandButton value="Search" action="{!getLines}"/>
+        
+            <apex:pageBlockTable value="{!linesWrapper}" var="c" id="table">
+                <apex:column >
+                    <!-- This is our selected Boolean property in our wrapper class -->
+                    <apex:inputCheckbox value="{!c.selected}"/>
+                </apex:column>  
+                <apex:column headerValue="PTS" width="70" value="{!c.ptsLine.Procurement_Tracking_Sheet__c}" />             
+                <apex:column headerValue="Item Description" value="{!c.ptsLine.Item__c}" />
+                <apex:column headerValue="Item Category" value="{!c.ptsLine.Item_Type__c}" />
+                <apex:column headerValue="Item Specification" value="{!c.ptsLine.Specifications__c}" />
+                <apex:column headerValue="Requester" value="{!c.ptsLine.Procurement_Tracking_Sheet__r.Requestor__r.name}" />
+                <apex:column headerValue="Requesting Company" value="{!c.ptsLine.Requesting_Company__c}" />
+                <apex:column headerValue="Selected Vendor" value="{!c.ptsLine.Vendor__c}" />
+                <apex:column headerValue="Unit Cost" value="{!c.unitPrice }" />
+                <apex:column headerValue="Quantity Remaining" value="{!c.ptsLine.Quantity_Remaining__c  }" />
+                <apex:column headerValue="Total Estimated Cost" value="{!c.amtRemaining}" />
+                <apex:column headerValue="Currency" value="{!c.mCurrency }" />
+                <apex:column headerValue="Item Status" value="{!c.ptsLine.Status__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

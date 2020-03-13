@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_To__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Location to move inventory to</description>
+    <externalId>false</externalId>
+    <label>Location To</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.Inventory_Item__c</field>
+            <operation>equals</operation>
+            <valueField>Inventory_Item_Location__c.Inventory_Item__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>$Source.Location_From__c</field>
+            <operation>notEqual</operation>
+            <valueField>Inventory_Item_Location__c.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Inventory_Item_Location__c</referenceTo>
+    <relationshipLabel>Inventory Location Moves (Location To)</relationshipLabel>
+    <relationshipName>Inventory_Location_Moves1</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

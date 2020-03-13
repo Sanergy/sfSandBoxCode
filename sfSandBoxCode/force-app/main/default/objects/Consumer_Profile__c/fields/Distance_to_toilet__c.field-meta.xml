@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Distance_to_toilet__c</fullName>
+    <externalId>false</externalId>
+    <label>Distance to toilet from home/work/school</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0 - 20 meters</fullName>
+                <default>false</default>
+                <label>0 - 20 meters</label>
+            </value>
+            <value>
+                <fullName>20 - 50 meters</fullName>
+                <default>false</default>
+                <label>20 - 50 meters</label>
+            </value>
+            <value>
+                <fullName>50 – 100 meters</fullName>
+                <default>false</default>
+                <label>50 – 100 meters</label>
+            </value>
+            <value>
+                <fullName>Over 100 meters</fullName>
+                <default>false</default>
+                <label>Over 100 meters</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item_Condition_on_Return_Comments__c</fullName>
+    <description>Comments to be entered if the condition on return is other than Good Condition</description>
+    <externalId>false</externalId>
+    <label>Item Condition on Return Comments</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

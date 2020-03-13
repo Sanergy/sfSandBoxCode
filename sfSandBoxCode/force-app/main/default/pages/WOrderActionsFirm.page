@@ -1,0 +1,28 @@
+<apex:page standardController="Work_Order__c" extensions="GenerateWorkOderItems">
+      <apex:form >
+    
+       <apex:sectionHeader title="{!Work_Order__c.Name}" subtitle="Firm Work Order"/>
+           <apex:pageBlock >
+                 <apex:pageBlockButtons >
+                      <apex:commandButton value="Firm Work Order" action="{!FirmWorkOder}"/>
+                      <apex:commandButton value="Cancel" action="{!cancel}"/>
+                 </apex:pageBlockButtons>
+                   
+                <apex:pageBlockSection title="WOrk Order Details">
+                    <apex:outputField value="{!Work_Order__c.Name}"/>
+                    <apex:outputField value="{!Work_Order__c.Status__c}"/>
+                    <apex:inputField value="{!workOder.Work_Order_Type__c}" required="true"/>                                        
+                    <apex:outputField value="{!Work_Order__c.Order_Number__c}"/>
+                    <apex:outputField value="{!Work_Order__c.Inventory_Item__c}" />
+                    <apex:outputField value="{!Work_Order__c.Site__c}" />
+                    <apex:outputField value="{!Work_Order__c.Inventory_Item_Quantity__c}" />                    
+                    <apex:outputField value="{!Work_Order__c.Start_Date__c}"/>
+                    <apex:outputField value="{!Work_Order__c.Expected_End_Date__c}" />
+                    <apex:outputField value="{!Work_Order__c.UOM__c}" />
+                    <apex:outputField value="{!Work_Order__c.Actual_End_Date__c}" />                    
+                    <apex:outputField value="{!Work_Order__c.Material_Cost__c}" />                    
+                    <apex:outputField value="{!Work_Order__c.Labor_Cost__c}" />
+                </apex:pageBlockSection>      
+           </apex:pageBlock>
+    </apex:form>  
+</apex:page>

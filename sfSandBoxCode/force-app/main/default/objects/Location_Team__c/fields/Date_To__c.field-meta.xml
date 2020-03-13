@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_To__c</fullName>
+    <description>Date till which Team Member ended this role</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Date till which Team Member ended this role</inlineHelpText>
+    <label>Date To</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

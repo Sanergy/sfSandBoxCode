@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Planned_Meter_Reading__c</fullName>
+    <description>Gives you the meter Reading when this Task should be done.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Gives you the meter Reading when this Task should be done.</inlineHelpText>
+    <label>Planned  Meter Reading</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

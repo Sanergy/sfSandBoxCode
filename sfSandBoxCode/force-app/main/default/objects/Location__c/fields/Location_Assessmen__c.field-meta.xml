@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_Assessmen__c</fullName>
+    <description>Rolls up location assessment from field report</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Location assessments are done by the marketing team for commercial toilets only upon toilet launch. If a location is missing an assessment, please contact this location&#39;s marketing associate.</inlineHelpText>
+    <label>Location Assessment</label>
+    <summarizedField>Field_Report__c.Location_Assessment_Total_Score__c</summarizedField>
+    <summaryFilterItems>
+        <field>Field_Report__c.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>Marketing Assessment v2</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Field_Report__c.Location__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Squat_Plate_Type__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please select the type of squat plate currently in use at this toilet</inlineHelpText>
+    <label>Squat Plate Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Original Blue 60cm x 80cm</fullName>
+                <default>false</default>
+                <label>Original Blue 60cm x 80cm</label>
+            </value>
+            <value>
+                <fullName>Black 60cm x 80cm</fullName>
+                <default>false</default>
+                <label>Black 60cm x 80cm</label>
+            </value>
+            <value>
+                <fullName>Ecoplate</fullName>
+                <default>true</default>
+                <label>Ecoplate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

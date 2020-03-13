@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inventory_Item__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Inventory Item</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Inventory item does not belong to fresh life</errorMessage>
+        <filterItems>
+            <field>Inventory_Item__c.Item_Company__r.lookup_ID__c</field>
+            <operation>equals</operation>
+            <value>a19D00000026xHv</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Inventory_Item__c</referenceTo>
+    <relationshipLabel>Asset Service Items</relationshipLabel>
+    <relationshipName>Asset_Service_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

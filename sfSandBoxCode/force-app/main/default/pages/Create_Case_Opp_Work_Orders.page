@@ -1,0 +1,18 @@
+<apex:page standardController="Opportunity" extensions="CaseOppWorkOrdersController">
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageblocksection title="Opportunity Items For {!Opportunity.Name}" collapsible="false">
+            
+                 <apex:outputField value="{!Opportunity.Structure_WO_Created__c}" rendered="false"/>
+                 <apex:outputField value="{!Opportunity.Installation_Scheduled_Stage_Entry_Date__c}" rendered="false"/>
+                 
+                 <apex:pageMessage severity="info" summary="Click Create to Create the required Case Opportunity Work Orders"/>
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons >
+                <apex:commandButton value="Create Work Orders" action="{!createOrders}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+             </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

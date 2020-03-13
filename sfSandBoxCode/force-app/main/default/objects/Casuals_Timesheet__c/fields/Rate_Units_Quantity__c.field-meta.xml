@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rate_Units_Quantity__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Hours, Days, Weeks OR Months within which the Job was done</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hours, Days, Weeks OR Months within which the Job was done</inlineHelpText>
+    <label>Number Of Rate Units</label>
+    <precision>18</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

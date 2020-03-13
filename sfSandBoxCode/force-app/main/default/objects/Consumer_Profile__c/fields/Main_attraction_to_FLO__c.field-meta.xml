@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Main_attraction_to_FLO__c</fullName>
+    <externalId>false</externalId>
+    <label>Main attraction to FLO</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Attitude</fullName>
+                <default>false</default>
+                <label>Attitude</label>
+            </value>
+            <value>
+                <fullName>Friendliness</fullName>
+                <default>false</default>
+                <label>Friendliness</label>
+            </value>
+            <value>
+                <fullName>Customer care</fullName>
+                <default>false</default>
+                <label>Customer care</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

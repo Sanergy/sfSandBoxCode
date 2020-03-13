@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Windrow_Status__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>click in the picklist and select a status from the list</inlineHelpText>
+    <label>Windrow Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sold</fullName>
+                <default>false</default>
+                <label>Sold</label>
+            </value>
+            <value>
+                <fullName>Drying</fullName>
+                <default>false</default>
+                <label>Drying</label>
+            </value>
+            <value>
+                <fullName>Decomposing</fullName>
+                <default>false</default>
+                <label>Decomposing</label>
+            </value>
+            <value>
+                <fullName>Documentation Requested</fullName>
+                <default>false</default>
+                <label>Documentation Requested</label>
+            </value>
+            <value>
+                <fullName>Not able to sale</fullName>
+                <default>false</default>
+                <label>Not able to sale</label>
+            </value>
+            <value>
+                <fullName>Available for Packaging</fullName>
+                <default>false</default>
+                <label>Available for Packaging</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

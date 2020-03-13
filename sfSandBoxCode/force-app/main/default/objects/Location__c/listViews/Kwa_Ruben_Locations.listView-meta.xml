@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Kwa_Ruben_Locations</fullName>
+    <columns>NAME</columns>
+    <columns>of_Toilets__c</columns>
+    <columns>Sub_Area__c</columns>
+    <columns>Average_Users_Day_Toilet_OPEN__c</columns>
+    <columns>Usage_Target__c</columns>
+    <columns>Average_Mystery_Loo_Score__c</columns>
+    <columns>Percent_days_open__c</columns>
+    <columns>Target_Percent_Days_Open__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Area__c</field>
+        <operation>equals</operation>
+        <value>Kwa Ruben</value>
+    </filters>
+    <filters>
+        <field>Location_Operational_Status__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>Kwa Ruben Locations</label>
+    <language>en_US</language>
+</ListView>

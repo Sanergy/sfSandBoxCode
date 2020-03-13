@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contractor_Must_Match_Job_Grade</fullName>
+    <active>false</active>
+    <errorConditionFormula>TEXT(Casual_Job_Line_Item__r.Grade__c)!= TEXT(Casual__r.Grade__c)</errorConditionFormula>
+    <errorDisplayField>Casual__c</errorDisplayField>
+    <errorMessage>Please select a Contractor who matches the Job Grade Specified in the Job Description</errorMessage>
+</ValidationRule>

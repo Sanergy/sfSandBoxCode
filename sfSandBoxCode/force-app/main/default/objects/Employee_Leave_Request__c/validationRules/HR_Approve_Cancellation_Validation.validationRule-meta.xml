@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HR_Approve_Cancellation_Validation</fullName>
+    <active>true</active>
+    <description>HR Approve Delete Validation</description>
+    <errorConditionFormula>(ISCHANGED( HR_Approve_Cancellation__c )) &amp;&amp; 
+(CASE($User.Id, 
+&quot;005D0000008tM0V&quot;,1, 
+&quot;005D0000005UPHN&quot;,1,0) = 0)</errorConditionFormula>
+    <errorDisplayField>HR_Approve_Cancellation__c</errorDisplayField>
+    <errorMessage>Only HR Admin can edit this field.</errorMessage>
+</ValidationRule>

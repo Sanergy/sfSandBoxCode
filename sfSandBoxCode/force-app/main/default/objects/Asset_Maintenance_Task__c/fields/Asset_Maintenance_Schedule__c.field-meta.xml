@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asset_Maintenance_Schedule__c</fullName>
+    <description>Field links asset task and asset maintenance schedule tasks</description>
+    <externalId>false</externalId>
+    <label>Asset Maintenance Schedule</label>
+    <referenceTo>Asset_Maintenance_Schedule__c</referenceTo>
+    <relationshipLabel>Asset Maintenance Tasks</relationshipLabel>
+    <relationshipName>Asset_Maintenance_Tasks</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

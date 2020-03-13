@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictSelectingAnInactivePOI</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT(ISBLANK( Purchase_Order_Item__c )) , ISPICKVAL(Purchase_Order_Item__r.Inventory_Item__r.Item_Type__c, &#39;Stock&#39;),
+NOT(ISPICKVAL( Purchase_Order_Item__r.Status__c ,&#39;Active&#39;)) )</errorConditionFormula>
+    <errorDisplayField>Purchase_Order_Item__c</errorDisplayField>
+    <errorMessage>You should select an active Purchase Order Item for Stock Items</errorMessage>
+</ValidationRule>
